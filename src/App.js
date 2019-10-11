@@ -12,6 +12,10 @@ function App() {
   chrome.bookmarks.getTree((tree) => {
     console.log(tree);
   });
+  chrome.bookmarks.getChildren('1', (result) => {
+    console.log(result);
+  });
+
 
 
   return (

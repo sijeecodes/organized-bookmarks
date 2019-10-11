@@ -14,6 +14,6 @@
   },
   "content_security_policy": "script-src 'self' 'sha256-/KIdXWKzSwC+oMFOwliH6JUNSwOFLq4nkeY1otCx2Xc='; object-src 'self'",
   "permissions": [
-    "bookmarks"
+    "bookmarks", "tabs"
   ]
 }
