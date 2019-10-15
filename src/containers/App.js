@@ -2,20 +2,22 @@ import { connect } from 'react-redux';
 import App from '../components/App';
 
 const mapStateToProps = state => {
-  return { data: state };
+  return { state };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    saveBookmarks(data) {
-      console.log('input data', data);
+    initiateState(tree) {
       dispatch({
-        type: 'SAVE_BOOKMARKS',
-        data
+        type: 'INITIATE_STATE',
+        data: tree
       });
     },
-    deleteBooks(){
-      console.log('del');
+    setCurrentFolder(folderId){
+      dispatch({
+        type: 'SET_CURRENT_FOLDER',
+        data: folderId
+      });
     }
   };
 };

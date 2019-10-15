@@ -9,9 +9,8 @@
     "default_popup": "index.html",
     "default_title": "Open the popup"
   },
-  "icon": "logo192.png",
   "content_security_policy": "script-src 'self' 'sha256-/KIdXWKzSwC+oMFOwliH6JUNSwOFLq4nkeY1otCx2Xc='; object-src 'self'",
   "permissions": [
-    "bookmarks", "tabs"
+    "bookmarks", "tabs", "storage"
   ]
 }

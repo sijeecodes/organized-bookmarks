@@ -6,13 +6,13 @@ import { createStore } from 'redux';
 import reducers from './reducers';
 import App from './containers/App';
 import './index.css';
+/* global chrome */
 
 const store = createStore(reducers);
 
-/* global chrome */
 chrome.tabs.getCurrent(tab => {
   if (typeof tab === 'undefined') {
-    chrome.tabs.create({url:'./index.html#/0/default'});
+    chrome.tabs.create({url:'./index.html#/1/default'});
   } else {
     ReactDOM.render(
       <HashRouter>

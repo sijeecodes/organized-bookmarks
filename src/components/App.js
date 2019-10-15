@@ -6,24 +6,27 @@ import MainDefault from './Main';
 /* global chrome */
 
 class App extends React.Component {
-  // chrome.bookmarks.getTree((tree) => {
-  //   console.log(tree);
-  // });
-
   componentDidMount() {
-    chrome.bookmarks.getChildren('0', result => {
-      this.props.saveBookmarks(result);
+    chrome.bookmarks.getTree(tree => {
+      this.props.initiateState(tree);
     });
+    this.props.setCurrentFolder(this.props.state.currentFolder);
   }
 
   render() {
     return (
       <div className='App'>
         <Route path='/'>
-          <NavTab />
+          <NavTab
+            state={this.props.state}
+            setCurrentFolder={this.props.setCurrentFolder}
+          />
         </Route>
         <Route path='/:id/default'>
-          <MainDefault />
+          <MainDefault
+            state={this.props.state}
+            setCurrentFolder={this.props.setCurrentFolder}
+          />
         </Route>
       </div>
     );

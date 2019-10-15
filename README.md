@@ -118,3 +118,39 @@
 
 - linkrot
 - search from history
+
+
+
+ - 전체 트리 받기
+ - 네비 표시: 전체 트리 최 상위에서 부터 확인. 열린 폴더 리스트에 있는 폴더의 경우 차일드의 모든 폴더 표시
+
+
+#### initiate
+
+ - get whole tree data, and store.
+
+ - currentFolder: update from sync, default 1,
+ - openFolders: update from sync, default: get all folders needed to open current folder.
+ - mainDisplay: contents of
+
+#### draw_nav_folder
+
+ - draw 0, 1, 2, 3 for default
+ - search all children for open folder by id
+ - if id matches 'openFolders', draw all folders in children & search children for more matches. Add a space at the front before drawing
+ - if no match for 'openFolders', don't draw
+
+##### on folder click
+
+ - open/close child folder.
+ - when close, delete from 'openFolders'
+ - when open, check and add 'openFolders', update 'currentFolder', mainDisplay
+
+##### on bookmark change?
+
+ - add event listener to get new whole tree data
+ - on delete, delete in openFolders and currentFolder
+
+#### main_display
+
+ - display 'mainDisplay' contents. folder first
