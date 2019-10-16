@@ -1,17 +1,13 @@
-/* global chrome */
-
 const initialState = {
   currentFolder: '1',
   openFolders: ['0', '1'],
-  mainDisplay: {},
-  tree: {}
+  tree: null
 };
 
 const newState = (originalState, name, newData) => {
   let tempState = {
     currentFolder: originalState.currentFolder,
     openFolders: originalState.openFolders,
-    mainDisplay: originalState.mainDisplay,
     tree: originalState.tree
   }
   tempState[name] = newData;
@@ -19,7 +15,7 @@ const newState = (originalState, name, newData) => {
   return tempState;
 };
 
-const reducers = (state=initialState, action) => {
+const reducers = (state = initialState, action) => {
   if(action) {
     switch(action.type) {
       case 'INITIATE_STATE': {
@@ -52,14 +48,26 @@ const reducers = (state=initialState, action) => {
         return newState(tempState, 'openFolders', tempOpenFolders);
       }
       case 'SET_CURRENT_FOLDER': {
-        let tempState = newState(state, 'currentFolder', action.data);
-        chrome.bookmarks.getChildren(
-          action.data,
-          result => {
-            return newState(tempState, 'mainDisplay', result);
+        let tempState = state;
+        const newOpenFolders = state.openFolders;
+        if(action.data === state.currentFolder) {
+          if(state.openFolders.indexOf(action.data) !== -1) {
+            newOpenFolders.splice(state.openFolders.indexOf(action.data), 1);
+          } else {
+            newOpenFolders.push(action.data);
           }
-        );
-        break;
+          tempState = newState(state, 'openFolders', newOpenFolders);
+        } else {
+          if(state.openFolders.indexOf(action.data) === -1) {
+            newOpenFolders.push(action.data);
+          }
+          tempState = newState(state, 'openFolders', newOpenFolders);
+        }
+        return newState(tempState, 'currentFolder', action.data);
+      }
+      case 'UNOPEN_OPENFOLDERS': {
+        const newData = state.openFolders.filter(folder => folder !== action.data);
+        return newState(state, 'openFolders', newData);
       }
       default:
         return state;
@@ -68,3 +76,31 @@ const reducers = (state=initialState, action) => {
 };
 
 export default reducers;
+
+// const getChildren = (data) => {
+//   return new Promise((resolve, reject) => {
+//
+//       action.data, (result) => {
+//         resolve(result);
+//       }
+//     );
+//   });
+// }
+//
+// const setCurrentFolder = async data => {
+//   const result = await getChildren(data);
+//   let tempState = newState(state, 'currentFolder', action.data);
+//   return newState(tempState, 'mainDisplay', result);
+// }
+//
+// const totalresult = await setCurrentFolder(action.data);
+// return totalresult;
+
+// chrome.bookmarks.getChildren(
+//   action.data,
+//   result => {
+//     let tempState = newState(state, 'currentFolder', action.data);
+//     console.log('CURRENT FOLDER CHANGE');
+//     return newState(tempState, 'mainDisplay', result);
+//   }
+// );

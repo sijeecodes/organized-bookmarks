@@ -13,9 +13,15 @@ const mapDispatchToProps = dispatch => {
         data: tree
       });
     },
-    setCurrentFolder(folderId){
+    setCurrentFolder(folderId) {
       dispatch({
         type: 'SET_CURRENT_FOLDER',
+        data: folderId
+      });
+    },
+    unopenFolder(folderId) {
+      dispatch({
+        type: 'UNOPEN_OPENFOLDERS',
         data: folderId
       });
     }
