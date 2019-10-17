@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MainMenu from './MainMenu';
+import FolderConfigModal from './modals/FolderConfigModal';
+import LinkConfigModal from './modals/LinkConfigModal';
 
-const MainDefault = ({ match, state, setCurrentFolder, toggleConfigModal }) => {
-  console.log('trying to render MAIN', match);
+const MainDefault = ({ match, state, setCurrentFolder, setMainColumn, toggleConfigModal }) => {
+  console.log('trying to render MAIN', state);
   console.log('param?', match.params.id, match.params.displayMode);
 
   if(typeof state !== 'undefined' && state.tree) {
@@ -57,11 +59,13 @@ const MainDefault = ({ match, state, setCurrentFolder, toggleConfigModal }) => {
                 {subTree[i].title}
               </div>
             </a>
+            <div className='main-item-tail' />
             <div
               className='main-item-config'
               onClick={() => setCurrentFolder('1')}
             >
               (O)
+              <LinkConfigModal />
             </div>
           </div>
         );
@@ -75,12 +79,14 @@ const MainDefault = ({ match, state, setCurrentFolder, toggleConfigModal }) => {
             >
               {subTree[i].title}
             </Link>
+            <div className='main-item-tail' />
             <div
               className='main-item-config'
               onClick={(e) => toggleConfigModal(e)}
             >
               (O)
             </div>
+            <FolderConfigModal />
           </div>
         );
       }
@@ -92,10 +98,10 @@ const MainDefault = ({ match, state, setCurrentFolder, toggleConfigModal }) => {
       }
     }
 
-    console.log('Main!!! tab result is :', addedUpHtml);
+    console.log('Main!!! tab result is :', state, addedUpHtml);
     return (
       <div className='main'>
-        <MainMenu />
+        <MainMenu state={state} setMainColumn={setMainColumn} />
         {addedUpHtml}
       </div>
     );

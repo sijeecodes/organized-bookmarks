@@ -10,16 +10,9 @@
   color: #09d3ac;
 }
 
-.top-menu {
-  text-align: left;
-  display: inline-block;
-  width: 100%;
-  height: 20px;
-  border: 1px solid green;
-}
-
 .nav-menu {
   width: 100%;
+  height: 20px;
   border: 1px solid purple;
 }
 
@@ -106,11 +99,6 @@
   height: 100%;
   /* vertical-align: center; */
   border: 1px solid black;
-
-  overflow: hidden;
-  padding-right: 10px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .main-item-wrapper:hover .main-item-config {
@@ -119,7 +107,10 @@
   opacity: 1;
   transition: all 1s ease;
 }
-
+.main-item-wrapper:hover .main-item-tail {
+  display: none;
+  transition: all 1s ease;
+}
 .main-item-config {
   height: 20px;
   width: 20px;
@@ -129,14 +120,126 @@
   opacity: 0;
   transition: all 1s ease;
 }
+.main-item-tail {
+  height: 20px;
+  width: 20px;
+}
 
 .icon-favicon {
   display: inline-block;
-  height: 100%;
+
+  width: 20px;
+  height: 20px;
   object-fit: contain;
 }
 
 .main-item-title {
   display: inline-block;
   margin: 0 0 3px 5px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/**********************************/
+
+.zoom {
+  display: inline-block;
+  border: 1px solid blue;
+  height: 20px;
+  width: 100px;
+  text-align: center;
+}
+.zoom:hover .zoom-out-button {
+  opacity: 1;
+  transition: all .3s ease;
+}
+.zoom:hover .zoom-in-button {
+  opacity: 1;
+  transition: all .3s ease;
+}
+
+.zoom-out-button {
+  display: inline-block;
+  opacity: 0;
+  border: 1px solid pink;
+  width: 20px;
+  heigth: 20px;
+}
+.zoom-title {
+  display: inline-block;
+  border: 1px solid red;
+  width: 55px;
+  height: 20px;
+}
+.zoom-in-button {
+  display: inline-block;
+  opacity: 0;
+  border: 1px solid pink;
+  width: 20px;
+  heigth: 20px;
+}
+
+
+.column {
+  display: inline-block;
+  border: 1px solid blue;
+  height: 20px;
+  width: 100px;
+  text-align: center;
+}
+.column:hover .column-reduce-button {
+  opacity: 1;
+  transition: all .3s ease;
+}
+.column:hover .column-add-button {
+  opacity: 1;
+  transition: all .3s ease;
+}
+
+.column-reduce-button {
+  display: inline-block;
+  opacity: 0;
+  border: 1px solid pink;
+  width: 20px;
+  heigth: 20px;
+}
+.column-title {
+  display: inline-block;
+  border: 1px solid red;
+  width: 55px;
+  height: 20px;
+}
+.column-add-button {
+  display: inline-block;
+  opacity: 0;
+  border: 1px solid pink;
+  width: 20px;
+  heigth: 20px;
+}
+
+/************************************/
+
+.folder-config-modal {
+  background-color: hsla(280, 75%, 60%, .1);
+  height: 50px;
+  width: 130px;
+  top: 250px;
+  left: -250px;
+  outline: none;
+  position: absolute;
+  border: 1px solid orange;
+}
+
+.link-config-modal {
+  background-color: hsla(280, 75%, 60%, .1);
+  height: 50px;
+  width: 130px;
+  outline: none;
+  position: fixed;
+  border: 1px solid brown;
+  overflow: auto;
+  z-index: 999;
 }
