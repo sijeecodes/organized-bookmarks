@@ -11,7 +11,6 @@ class App extends React.Component {
     chrome.bookmarks.getTree(tree => {
       this.props.initiateState(tree);
       console.log('DATA LOADED');
-      // this.props.setCurrentFolder(this.props.state.currentFolder);
     });
   }
 
@@ -34,6 +33,7 @@ class App extends React.Component {
             <MainDefault {...routeProps}
               state={this.props.state}
               setCurrentFolder={this.props.setCurrentFolder}
+              setMainColumn={this.props.setMainColumn}
             />
           )}
 

@@ -24,6 +24,12 @@ const mapDispatchToProps = dispatch => {
         type: 'UNOPEN_OPENFOLDERS',
         data: folderId
       });
+    },
+    setMainColumn(num) {
+      dispatch({
+        type: 'SET_MAINCOLUMN',
+        data: num
+      })
     }
   };
 };

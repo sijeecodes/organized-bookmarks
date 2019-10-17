@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Spacer from './Spacer';
+import NavMenu from './NavMenu';
 
 const NavTab = ({ match, state, setCurrentFolder,  }) => {
   console.log('trying to render NAV', state);
@@ -21,10 +22,16 @@ const NavTab = ({ match, state, setCurrentFolder,  }) => {
                 onClick={() => setCurrentFolder(subTree.id)}
               >
                 {subTree.title}
-                <div className='nav-tab-item-tail'>
-                  {subTree.children.length}
-                </div>
               </Link>
+              <div className='nav-tab-item-tail'>
+                {subTree.children.length}
+              </div>
+              <div
+                className='nav-tab-item-config'
+                // onClilck={() => }
+              >
+                (O)
+              </div>
             </div>
           );
         }
@@ -38,7 +45,12 @@ const NavTab = ({ match, state, setCurrentFolder,  }) => {
     drawNavTab(state.tree[0], 0);
 
     console.log('nav tab result is :', resultHtml);
-    return <div className='nav-tab'>{resultHtml}</div>;
+    return (
+      <div className='nav-tab'>
+        <NavMenu />
+        {resultHtml}
+      </div>
+    );
   } else {
     return <div>nav</div>;
   }

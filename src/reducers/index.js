@@ -1,6 +1,7 @@
 const initialState = {
   currentFolder: '1',
   openFolders: ['0', '1'],
+  mainColumn: 2,
   tree: null
 };
 
@@ -8,6 +9,7 @@ const newState = (originalState, name, newData) => {
   let tempState = {
     currentFolder: originalState.currentFolder,
     openFolders: originalState.openFolders,
+    mainColumn: originalState.mainColumn,
     tree: originalState.tree
   }
   tempState[name] = newData;
@@ -68,6 +70,9 @@ const reducers = (state = initialState, action) => {
       case 'UNOPEN_OPENFOLDERS': {
         const newData = state.openFolders.filter(folder => folder !== action.data);
         return newState(state, 'openFolders', newData);
+      }
+      case 'SET_MAINCOLUMN': {
+        return newState(state, 'mainColumn', action.data);
       }
       default:
         return state;

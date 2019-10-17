@@ -1,8 +1,8 @@
-
 .App {
   text-align: left;
   width: 100%;
   height: 100%;
+  display: inline-block;
   /* border: 1px solid black; */
 }
 
@@ -10,9 +10,21 @@
   color: #09d3ac;
 }
 
+.top-menu {
+  text-align: left;
+  display: inline-block;
+  width: 100%;
+  height: 20px;
+  border: 1px solid green;
+}
+
+.nav-menu {
+  width: 100%;
+  border: 1px solid purple;
+}
+
 .nav-tab {
   display: inline-block;
-  vertical-align: top;
   width: 25%;
   height: 100%;
   border: 1px solid red;
@@ -24,9 +36,14 @@
 
 .nav-tab-item {
   flex: 1;
-  vertical-align: top;
+  position: relative;
   height: 20px;
   border: 1px solid black;
+
+  overflow: hidden;
+  padding-right: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .nav-tab-item-spacer {
@@ -35,27 +52,91 @@
   border: 1px solid purple;
   text-align: center;
 }
+
+.nav-tab-item-container:hover .nav-tab-item-tail {
+  display: none;
+  transition: all 1s ease;
+}
+.nav-tab-item-container:hover .nav-tab-item-config {
+  display: block;
+  transition: all 1s ease;
+}
 .nav-tab-item-tail {
-  float: right;
   width: 20px;
   height: 20px;
-  border: 1px solid purple;
+  border: 1px solid green;
   text-align: center;
+  transition: all 1s ease;
+}
+
+.nav-tab-item-config {
+  width: 20px;
+  height: 20px;
+  border: 1px solid green;
+  text-align: center;
+  transition: all 1s ease;
+  display: none;
+}
+
+.main-menu {
+  width: 100%;
+  border: 1px solid grey;
 }
 
 .main {
   display: inline-block;
-  vertical-align: top;
   width: 75%;
   color: hsl(150, 7%, 10%);
   border: 1px solid blue;
   height: 100%;
 }
 
-.main-list {
-  display: inline-block;
-  vertical-align: top;
-  width: 100px;
-  height: 18px;
+.main-container {
+  display: flex;
+  border: 1px solid grey;
+}
+.main-item-wrapper {
+  position: relative;
+  display: flex;
+  height: 20px;
+  flex: 1;
+}
+.main-item {
+  flex: 1;
+  height: 100%;
+  /* vertical-align: center; */
   border: 1px solid black;
+
+  overflow: hidden;
+  padding-right: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.main-item-wrapper:hover .main-item-config {
+  display: block;
+  text-align: left;
+  opacity: 1;
+  transition: all 1s ease;
+}
+
+.main-item-config {
+  height: 20px;
+  width: 20px;
+  border: 1px solid green;
+  text-align: center;
+  display: none;
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.icon-favicon {
+  display: inline-block;
+  height: 100%;
+  object-fit: contain;
+}
+
+.main-item-title {
+  display: inline-block;
+  margin: 0 0 3px 5px;
 }
