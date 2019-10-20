@@ -13,6 +13,7 @@ const MainDefault = ({
 
   if(typeof state !== 'undefined' && state.tree) {
     let subTree = findInTree(state.tree, match.params.id);
+    console.log('1. .', subTree);
     const setFavicon = (tree) => {
       return tree.map(el => {
         if(el.url) {
@@ -24,8 +25,10 @@ const MainDefault = ({
         return el;
       });
     }
-    subTree = setFavicon(subTree.children);
 
+    subTree = setFavicon(subTree.children);
+    console.log('2 ... ', subTree);
+    
     let addedUpHtml = [];
     let columnCounter = 0;
     let columnMax = state.mainColumn;
@@ -75,7 +78,7 @@ const MainDefault = ({
           </div>
         );
       }
-      if(i === subTree.length - 1) {
+      if(i === subTree.length - 1 && columnCounter !== columnMax - 1) {
         tempHtml.push(
           <div className='main-item-dummy'>
           </div>

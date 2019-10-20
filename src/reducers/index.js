@@ -29,7 +29,7 @@ const reducers = (state = initialState, action) => {
 
         return newState(tempState, 'openFolders', tempOpenFolders);
       }
-      case 'SET_CURRENT_FOLDER': {
+      case 'SET_CURRENTFOLDER': {
         let tempState = state;
         const newOpenFolders = state.openFolders;
         if(action.data === state.currentFolder) {
@@ -50,8 +50,13 @@ const reducers = (state = initialState, action) => {
       case 'SET_MAINCOLUMN': {
         return newState(state, 'mainColumn', action.data);
       }
-      case 'TOGGLE_CONFIG_MODAL': {
+      case 'TOGGLE_CONFIGMODAL': {
         return newState(state, 'openModal', action.data);
+      }
+      case 'DELETE_FOLDER': {
+        let temp = state.openFolders;
+        temp.splice(temp.indexOf(action.data), 1);
+        return newState(state, 'openFolders', temp);
       }
       default:
         return state;

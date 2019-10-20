@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const FolderConfigModal = ({ targetNode, updateTree, toggleConfigModal }) => {
+const FolderConfigModal = ({
+  match,
+  targetNode,
+  updateTree,
+  toggleConfigModal,
+  removeById,
+  setCurrentFolder
+}) => {
+
   const [title, setTitle] = useState(targetNode.title);
-
   const updateChanges = (event) => {
     event.preventDefault();
     updateTree({
@@ -10,6 +18,20 @@ const FolderConfigModal = ({ targetNode, updateTree, toggleConfigModal }) => {
       title
     });
     toggleConfigModal('close');
+  }
+
+  const tryRemoveById = () => {
+    toggleConfigModal('close')
+    if(targetNode.children.length > 0) {
+      alert('Cannot delete folder with contents.')
+    } else {
+      if(targetNode.parentId) {
+        setCurrentFolder(targetNode.parentId);
+      } else {
+        setCurrentFolder(1);
+      }
+      removeById(targetNode.id);
+    }
   }
 
   return (
@@ -34,9 +56,13 @@ const FolderConfigModal = ({ targetNode, updateTree, toggleConfigModal }) => {
         Cancel
       </button>
       <button
-        onClick={() => toggleConfigModal('close')}
+        onClick={tryRemoveById}
       >
-        Delete Link
+        <Link
+          to={`/${targetNode.parentId}/${match.params.displayMode}`}
+        >
+        Delete Folder
+        </Link>
       </button>
     </div>
   );

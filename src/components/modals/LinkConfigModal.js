@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 
-const LinkConfigModal = ({ targetNode, updateTree, toggleConfigModal }) => {
+const LinkConfigModal = ({
+  targetNode,
+  updateTree,
+  toggleConfigModal,
+  removeById
+}) => {
+
   const [title, setTitle] = useState(targetNode.title);
   const [url, setUrl] = useState(targetNode.url);
-
   const updateChanges = (event) => {
     event.preventDefault();
     updateTree({
@@ -12,6 +17,11 @@ const LinkConfigModal = ({ targetNode, updateTree, toggleConfigModal }) => {
       url
     });
     toggleConfigModal('close');
+  }
+
+  const tryRemoveById = () => {
+    toggleConfigModal('close')
+    removeById(targetNode.id);
   }
 
   return (
@@ -44,7 +54,7 @@ const LinkConfigModal = ({ targetNode, updateTree, toggleConfigModal }) => {
         Cancel
       </button>
       <button
-        onClick={() => toggleConfigModal('close')}
+        onClick={tryRemoveById}
       >
         Delete Link
       </button>

@@ -5,7 +5,9 @@ const newState = (originalState, name, newData) => {
       'nav': null,
       'main': null
     }
-    if(newData !== 'close') {
+    if(newData === 'close') {
+      newData = result;
+    } else {
       const [type, id] = newData.split('-');
       result[type] = id;
       newData = result;

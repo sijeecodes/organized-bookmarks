@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => {
     },
     setCurrentFolder(folderId) {
       dispatch({
-        type: 'SET_CURRENT_FOLDER',
+        type: 'SET_CURRENTFOLDER',
         data: folderId
       });
     },
@@ -28,7 +28,13 @@ const mapDispatchToProps = dispatch => {
     toggleConfigModal(data) {
       console.log('event', data);
       dispatch({
-        type: 'TOGGLE_CONFIG_MODAL',
+        type: 'TOGGLE_CONFIGMODAL',
+        data
+      });
+    },
+    deleteFolder(data) {
+      dispatch({
+        type: 'DELETE_FOLDER',
         data
       });
     }

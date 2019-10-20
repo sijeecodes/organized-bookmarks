@@ -4,7 +4,15 @@ import FolderConfigModal from './FolderConfigModal';
 import LinkConfigModal from './LinkConfigModal';
 import findInTree from '../../utils/findInTree';
 
-const ConfigModal = ({ state, updateTree, toggleConfigModal }) => {
+const ConfigModal = ({
+  match,
+  state,
+  updateTree,
+  toggleConfigModal,
+  removeById,
+  setCurrentFolder
+}) => {
+
   if(typeof state !== 'undefined' && state.tree !== null) {
     if(state.openModal.nav) {
       console.log('openmodal nav------ ', state.openModal.nav);
@@ -12,9 +20,12 @@ const ConfigModal = ({ state, updateTree, toggleConfigModal }) => {
       return (
         <ConfigModalBack toggleConfigModal={toggleConfigModal}>
           <FolderConfigModal
+            match={match}
             targetNode={targetNode}
             updateTree={updateTree}
             toggleConfigModal={toggleConfigModal}
+            removeById={removeById}
+            setCurrentFolder={setCurrentFolder}
           />
         </ConfigModalBack>
       );
@@ -29,6 +40,7 @@ const ConfigModal = ({ state, updateTree, toggleConfigModal }) => {
               targetNode={targetNode}
               updateTree={updateTree}
               toggleConfigModal={toggleConfigModal}
+              removeById={removeById}
             />
           </ConfigModalBack>
         );
@@ -36,9 +48,12 @@ const ConfigModal = ({ state, updateTree, toggleConfigModal }) => {
         return (
           <ConfigModalBack toggleConfigModal={toggleConfigModal}>
             <FolderConfigModal
-              state={state}
+              match={match}
+              targetNode={targetNode}
               updateTree={updateTree}
               toggleConfigModal={toggleConfigModal}
+              removeById={removeById}
+              setCurrentFolder={setCurrentFolder}
             />
           </ConfigModalBack>
         );

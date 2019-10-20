@@ -26,13 +26,25 @@ class App extends React.Component {
     }
   };
 
+  removeById = (id) => {
+    this.props.deleteFolder(id);
+    chrome.bookmarks.remove(id, this.getTree);
+  };
+
   render() {
     return (
       <div className='App'>
-        <ConfigModal
-          state={this.props.state}
-          updateTree={this.updateTree}
-          toggleConfigModal={this.props.toggleConfigModal}
+        <Route
+          path='/:id/:displayMode'
+          render={routeProps => (
+            <ConfigModal {...routeProps}
+              state={this.props.state}
+              updateTree={this.updateTree}
+              toggleConfigModal={this.props.toggleConfigModal}
+              removeById={this.removeById}
+              setCurrentFolder={this.props.setCurrentFolder}
+            />
+          )}
         />
         <Route
           path='/:id/:displayMode'
@@ -41,12 +53,6 @@ class App extends React.Component {
               state={this.props.state}
               setCurrentFolder={this.props.setCurrentFolder}
               toggleConfigModal={this.props.toggleConfigModal}
-              ref={el => {
-                  console.log('el??', el);
-                  this.elementPosition = el;
-                  this.findPosition();
-                }
-              }
             />
           )}
         />
