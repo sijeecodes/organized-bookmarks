@@ -4,6 +4,7 @@
   height: 100%;
   display: inline-block;
   /* border: 1px solid black; */
+  cursor: default;
 }
 
 .App-link {
@@ -21,10 +22,12 @@
   width: 25%;
   height: 100%;
   border: 1px solid red;
+  vertical-align: top;
 }
 
 .nav-tab-item-container {
   display: flex;
+  position: relative;
 }
 
 .nav-tab-item {
@@ -46,33 +49,38 @@
   text-align: center;
 }
 
-.nav-tab-item-container:hover .nav-tab-item-tail {
+/* .nav-tab-item-container:hover .nav-tab-item-tail {
   display: none;
   transition: all 1s ease;
-}
+} */
 .nav-tab-item-container:hover .nav-tab-item-config {
-  display: block;
+  opacity: 1;
   transition: all 1s ease;
 }
 .nav-tab-item-tail {
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 20px;
   height: 20px;
   border: 1px solid green;
   text-align: center;
-  transition: all 1s ease;
 }
 
 .nav-tab-item-config {
+  background: white;
+  position: absolute;
+  right: 0;
   width: 20px;
   height: 20px;
   border: 1px solid green;
   text-align: center;
-  transition: all 1s ease;
-  display: none;
+  opacity: 0;
 }
 
 .main-menu {
   width: 100%;
+  height: 20px;
   border: 1px solid grey;
 }
 
@@ -94,35 +102,39 @@
   height: 20px;
   flex: 1;
 }
+.main-item-dummy {
+  position: relative;
+  display: flex;
+  height: 20px;
+  flex: 1;
+}
 .main-item {
   flex: 1;
   height: 100%;
   /* vertical-align: center; */
   border: 1px solid black;
+  position: relative;
+
+  display: flex;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .main-item-wrapper:hover .main-item-config {
   display: block;
   text-align: left;
   opacity: 1;
-  transition: all 1s ease;
-}
-.main-item-wrapper:hover .main-item-tail {
-  display: none;
-  transition: all 1s ease;
+  width: 20px;
+  transition: opacity 1s;
 }
 .main-item-config {
   height: 20px;
-  width: 20px;
+  width: 0px;
   border: 1px solid green;
   text-align: center;
-  display: none;
+  display: hidden;
   opacity: 0;
-  transition: all 1s ease;
-}
-.main-item-tail {
-  height: 20px;
-  width: 20px;
 }
 
 .icon-favicon {
@@ -134,9 +146,10 @@
 }
 
 .main-item-title {
+  flex: 1;
   display: inline-block;
   margin: 0 0 3px 5px;
-
+  position: relative;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -190,16 +203,16 @@
   width: 100px;
   text-align: center;
 }
-.column:hover .column-reduce-button {
+.column:hover .column-button {
   opacity: 1;
   transition: all .3s ease;
 }
-.column:hover .column-add-button {
+.column:hover .column-button-grey {
   opacity: 1;
   transition: all .3s ease;
 }
 
-.column-reduce-button {
+.column-button {
   display: inline-block;
   opacity: 0;
   border: 1px solid pink;
@@ -212,34 +225,51 @@
   width: 55px;
   height: 20px;
 }
-.column-add-button {
+.column-button-grey {
   display: inline-block;
   opacity: 0;
   border: 1px solid pink;
+  color: hsl(0, 0%, 60%);
+  background: hsl(0, 0%, 80%);
   width: 20px;
   heigth: 20px;
 }
 
 /************************************/
-
-.folder-config-modal {
-  background-color: hsla(280, 75%, 60%, .1);
-  height: 50px;
-  width: 130px;
-  top: 250px;
-  left: -250px;
-  outline: none;
-  position: absolute;
-  border: 1px solid orange;
+.modal-hidden {
+  display: none;
 }
 
-.link-config-modal {
-  background-color: hsla(280, 75%, 60%, .1);
-  height: 50px;
-  width: 130px;
-  outline: none;
+.modal-container {
+  background-color: hsla(279, 100%, 82%, 1);
   position: fixed;
+  top: 30%;
+  left: 50%;
   border: 1px solid brown;
-  overflow: auto;
-  z-index: 999;
+  transform: translate(-250px, 0);
+  width: 500px;
+  height: 300px;
+  z-index: 5;
+}
+
+.hide {
+  display: none;
+}
+
+
+.link-config-modal {
+
+}
+
+.folder-config-modal {
+
+}
+
+.modal-background-clear {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: .8;
+  z-index: 2;
 }

@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 import Spacer from './Spacer';
 import NavMenu from './NavMenu';
 
-const NavTab = ({ match, state, setCurrentFolder,  }) => {
-  console.log('trying to render NAV', state);
+const NavTab = ({ match, state, setCurrentFolder, toggleConfigModal }) => {
+
   if(typeof state !== 'undefined' && state.tree !== null) {
-    console.log('RENDERING NAV', state);
     let resultHtml = [];
 
     const drawNavTab = (subTree, depth) => {
@@ -28,7 +27,8 @@ const NavTab = ({ match, state, setCurrentFolder,  }) => {
               </div>
               <div
                 className='nav-tab-item-config'
-                // onClilck={() => }
+                id={`nav-${subTree.id}`}
+                onClick={e => toggleConfigModal(e.target.id)}
               >
                 (O)
               </div>

@@ -1,15 +1,13 @@
 import React from 'react';
-import Column from './Column';
-import Zoom from './Zoom';
+import ColumnAdjust from './ColumnAdjust';
+import Zoom from '../common/Zoom';
 
 const MainMenu = ({ state, setMainColumn }) => {
-  console.log('main menu is ', state, setMainColumn);
-
   return (
     <div className='main-menu'>
       <Zoom
       />
-      <Column
+      <ColumnAdjust
         mainColumn={state.mainColumn}
         setMainColumn={setMainColumn}
       />

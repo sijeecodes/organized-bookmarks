@@ -3,27 +3,38 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import NavTab from './NavTab';
 import MainDefault from './MainDefault';
+import ConfigModal from './modals/ConfigModal';
+
 /* global chrome */
 
 class App extends React.Component {
   componentDidMount() {
-    console.log('starting after mount');
     chrome.bookmarks.getTree(tree => {
       this.props.initiateState(tree);
-      console.log('DATA LOADED');
     });
   }
 
   render() {
     return (
       <div className='App'>
+        <ConfigModal
+          state={this.props.state}
+          updateTree={this.props.updateTree}
+          toggleConfigModal={this.props.toggleConfigModal}
+        />
         <Route
           path='/:id/:displayMode'
           render={routeProps => (
             <NavTab {...routeProps}
               state={this.props.state}
               setCurrentFolder={this.props.setCurrentFolder}
-              unopenFolder={this.props.unopenFolder}
+              toggleConfigModal={this.props.toggleConfigModal}
+              ref={el => {
+                  console.log('el??', el);
+                  this.elementPosition = el;
+                  this.findPosition();
+                }
+              }
             />
           )}
         />
@@ -34,9 +45,9 @@ class App extends React.Component {
               state={this.props.state}
               setCurrentFolder={this.props.setCurrentFolder}
               setMainColumn={this.props.setMainColumn}
+              toggleConfigModal={this.props.toggleConfigModal}
             />
           )}
-
         />
       </div>
     );

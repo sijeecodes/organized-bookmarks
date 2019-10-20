@@ -1,20 +1,15 @@
+import findInTree from '../utils/findInTree';
+import newState from '../utils/newState';
+
 const initialState = {
   currentFolder: '1',
   openFolders: ['0', '1'],
+  openModal: {
+    nav: null,
+    main: null
+  },
   mainColumn: 2,
   tree: null
-};
-
-const newState = (originalState, name, newData) => {
-  let tempState = {
-    currentFolder: originalState.currentFolder,
-    openFolders: originalState.openFolders,
-    mainColumn: originalState.mainColumn,
-    tree: originalState.tree
-  }
-  tempState[name] = newData;
-  console.log('new state: ', tempState);
-  return tempState;
 };
 
 const reducers = (state = initialState, action) => {
@@ -25,26 +20,31 @@ const reducers = (state = initialState, action) => {
         let tempState = newState(state, 'tree', action.data);
         let tempOpenFolders = state.openFolders;
 
-        const folderFinder = (subTree, targetFolderId) => {
-          if(subTree.id === targetFolderId) {
-            targetData = subTree;
-          } else if(subTree.children && subTree.children.length > 0) {
-            for(let i = 0; i < subTree.children.length; i++) {
-              if(folderFinder(subTree.children[i], targetFolderId)) {
-                break;
-              }
-            }
-          }
-          return targetData;
-        }
-        console.log('full tree: ', action.data);
-        folderFinder(action.data[0], state.currentFolder);
+        // const folderFinder = (subTree, targetFolderId) => {
+        //   if(subTree.id === targetFolderId) {
+        //     targetData = subTree;
+        //   } else if(subTree.children && subTree.children.length > 0) {
+        //     for(let i = 0; i < subTree.children.length; i++) {
+        //       if(folderFinder(subTree.children[i], targetFolderId)) {
+        //         break;
+        //       }
+        //     }
+        //   }
+        //   return targetData;
+        // }
+        // console.log('full tree: ', action.data);
+        // folderFinder(action.data[0], state.currentFolder);
+
+        targetData = findInTree(action.data, state.currentFolder);
+        console.log('target data 1 ', targetData);
 
         while(targetData.parentId) {
           if(tempOpenFolders.indexOf(targetData.id) === -1) {
             tempOpenFolders.push(targetData.id);
           }
-          folderFinder(action.data[0], targetData.parentId);
+          // folderFinder(action.data[0], targetData.parentId);
+          console.log('target data 2 ', targetData);
+          targetData = findInTree(action.data, targetData.parentId);
         }
 
         return newState(tempState, 'openFolders', tempOpenFolders);
@@ -67,12 +67,11 @@ const reducers = (state = initialState, action) => {
         }
         return newState(tempState, 'currentFolder', action.data);
       }
-      case 'UNOPEN_OPENFOLDERS': {
-        const newData = state.openFolders.filter(folder => folder !== action.data);
-        return newState(state, 'openFolders', newData);
-      }
       case 'SET_MAINCOLUMN': {
         return newState(state, 'mainColumn', action.data);
+      }
+      case 'TOGGLE_CONFIG_MODAL': {
+        return newState(state, 'openModal', action.data);
       }
       default:
         return state;
@@ -81,31 +80,3 @@ const reducers = (state = initialState, action) => {
 };
 
 export default reducers;
-
-// const getChildren = (data) => {
-//   return new Promise((resolve, reject) => {
-//
-//       action.data, (result) => {
-//         resolve(result);
-//       }
-//     );
-//   });
-// }
-//
-// const setCurrentFolder = async data => {
-//   const result = await getChildren(data);
-//   let tempState = newState(state, 'currentFolder', action.data);
-//   return newState(tempState, 'mainDisplay', result);
-// }
-//
-// const totalresult = await setCurrentFolder(action.data);
-// return totalresult;
-
-// chrome.bookmarks.getChildren(
-//   action.data,
-//   result => {
-//     let tempState = newState(state, 'currentFolder', action.data);
-//     console.log('CURRENT FOLDER CHANGE');
-//     return newState(tempState, 'mainDisplay', result);
-//   }
-// );

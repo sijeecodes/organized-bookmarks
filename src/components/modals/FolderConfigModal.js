@@ -1,9 +1,17 @@
 import React from 'react';
 
-const FolderConfigModal = () => {
+const FolderConfigModal = ({ targetNode, updateTree, toggleConfigModal }) => {
   return (
-    <div className='folder-config-modal'>
-      some options...
+    <div
+      className='modal-background-clear'
+      onClick={() => toggleConfigModal('close')}
+    >
+      <div
+        className='modal-container'
+        onClick={() => toggleConfigModal('close')}
+      >
+        some folder config options...
+      </div>
     </div>
   );
 }

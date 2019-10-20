@@ -19,17 +19,21 @@ const mapDispatchToProps = dispatch => {
         data: folderId
       });
     },
-    unopenFolder(folderId) {
-      dispatch({
-        type: 'UNOPEN_OPENFOLDERS',
-        data: folderId
-      });
-    },
     setMainColumn(num) {
       dispatch({
         type: 'SET_MAINCOLUMN',
         data: num
-      })
+      });
+    },
+    toggleConfigModal(data) {
+      console.log('event', data);
+      dispatch({
+        type: 'TOGGLE_CONFIG_MODAL',
+        data
+      });
+    },
+    updateTree(data) {
+      console.log('update tree', data);
     }
   };
 };

@@ -1,45 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MainMenu from './MainMenu';
-import FolderConfigModal from './modals/FolderConfigModal';
-import LinkConfigModal from './modals/LinkConfigModal';
+import findInTree from '../../utils/findInTree';
 
-const MainDefault = ({ match, state, setCurrentFolder, setMainColumn, toggleConfigModal }) => {
-  console.log('trying to render MAIN', state);
-  console.log('param?', match.params.id, match.params.displayMode);
+const MainDefault = ({
+  match,
+  state,
+  setCurrentFolder,
+  setMainColumn,
+  toggleConfigModal
+}) => {
 
   if(typeof state !== 'undefined' && state.tree) {
-    console.log('RENDERING MAIN', state);
-    // state.tree, state.currentFolder
-    const findChildren = (tree, target) => {
-      for(let i = 0; i < tree.length; i++) {
-        if(tree[i].id === target) {
-          return tree[i];
-        } else if(tree[i].children) {
-          if(findChildren(tree[i].children, target)) {
-            return findChildren(tree[i].children, target);
-          }
-        }
-      }
-    }
-    let subTree = findChildren(state.tree[0].children, match.params.id);
-
+    let subTree = findInTree(state.tree, match.params.id);
     const setFavicon = (tree) => {
       return tree.map(el => {
-        console.log('element was ', el);
-
         if(el.url) {
           let source = el.url.split('/');
           el.favicon = source[0] + '//' + source[2];
         } else if(el.children) {
           setFavicon(el.children);
         }
-        console.log('element is ', el);
         return el;
       });
     }
     subTree = setFavicon(subTree.children);
-    console.log('ALL SET?? ', subTree);
 
     let addedUpHtml = [];
     let columnCounter = 0;
@@ -59,13 +44,12 @@ const MainDefault = ({ match, state, setCurrentFolder, setMainColumn, toggleConf
                 {subTree[i].title}
               </div>
             </a>
-            <div className='main-item-tail' />
             <div
               className='main-item-config'
-              onClick={() => setCurrentFolder('1')}
+              id={`main-${subTree[i].id}`}
+              onClick={e => toggleConfigModal(e.target.id)}
             >
               (O)
-              <LinkConfigModal />
             </div>
           </div>
         );
@@ -77,18 +61,26 @@ const MainDefault = ({ match, state, setCurrentFolder, setMainColumn, toggleConf
               className='main-item'
               onClick={() => setCurrentFolder(subTree[i].id)}
             >
-              {subTree[i].title}
+              <div className='main-item-title'>
+                {subTree[i].title}
+              </div>
             </Link>
-            <div className='main-item-tail' />
             <div
               className='main-item-config'
-              onClick={(e) => toggleConfigModal(e)}
+              id={`main-${subTree[i].id}`}
+              onClick={e => toggleConfigModal(e.target.id)}
             >
               (O)
             </div>
-            <FolderConfigModal />
           </div>
         );
+      }
+      if(i === subTree.length - 1) {
+        tempHtml.push(
+          <div className='main-item-dummy'>
+          </div>
+        );
+        columnCounter++;
       }
       columnCounter++;
       if(columnCounter === columnMax) {
@@ -98,7 +90,6 @@ const MainDefault = ({ match, state, setCurrentFolder, setMainColumn, toggleConf
       }
     }
 
-    console.log('Main!!! tab result is :', state, addedUpHtml);
     return (
       <div className='main'>
         <MainMenu state={state} setMainColumn={setMainColumn} />
