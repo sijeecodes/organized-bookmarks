@@ -13,7 +13,9 @@ const NavTab = ({ match, state, setCurrentFolder, toggleConfigModal }) => {
       subTree.id === '0') {
         if(subTree.dateGroupModified) {
           resultHtml.push(
-            <div className='nav-tab-item-container'>
+            <div
+              className='nav-tab-item-container'
+            >
               <Spacer width={depth} />
               <Link
                 to={`/${subTree.id}/${match.params.displayMode}`}

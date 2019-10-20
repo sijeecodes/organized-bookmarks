@@ -31,9 +31,6 @@ const mapDispatchToProps = dispatch => {
         type: 'TOGGLE_CONFIG_MODAL',
         data
       });
-    },
-    updateTree(data) {
-      console.log('update tree', data);
     }
   };
 };

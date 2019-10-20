@@ -1,4 +1,5 @@
 import React from 'react';
+import ConfigModalBack from './ConfigModalBack';
 import FolderConfigModal from './FolderConfigModal';
 import LinkConfigModal from './LinkConfigModal';
 import findInTree from '../../utils/findInTree';
@@ -9,11 +10,13 @@ const ConfigModal = ({ state, updateTree, toggleConfigModal }) => {
       console.log('openmodal nav------ ', state.openModal.nav);
       const targetNode = findInTree(state.tree, state.openModal.nav);
       return (
-        <FolderConfigModal
-          targetNode={targetNode}
-          updateTree={updateTree}
-          toggleConfigModal={toggleConfigModal}
-        />
+        <ConfigModalBack toggleConfigModal={toggleConfigModal}>
+          <FolderConfigModal
+            targetNode={targetNode}
+            updateTree={updateTree}
+            toggleConfigModal={toggleConfigModal}
+          />
+        </ConfigModalBack>
       );
     }
     if(state.openModal.main) {
@@ -21,19 +24,23 @@ const ConfigModal = ({ state, updateTree, toggleConfigModal }) => {
       const targetNode = findInTree(state.tree, state.openModal.main);
       if(targetNode.url) {
         return (
-          <LinkConfigModal
-            targetNode={targetNode}
-            updateTree={updateTree}
-            toggleConfigModal={toggleConfigModal}
-          />
+          <ConfigModalBack toggleConfigModal={toggleConfigModal}>
+            <LinkConfigModal
+              targetNode={targetNode}
+              updateTree={updateTree}
+              toggleConfigModal={toggleConfigModal}
+            />
+          </ConfigModalBack>
         );
       } else {
         return (
-          <FolderConfigModal
-            state={state}
-            updateTree={updateTree}
-            toggleConfigModal={toggleConfigModal}
-          />
+          <ConfigModalBack toggleConfigModal={toggleConfigModal}>
+            <FolderConfigModal
+              state={state}
+              updateTree={updateTree}
+              toggleConfigModal={toggleConfigModal}
+            />
+          </ConfigModalBack>
         );
       }
     }

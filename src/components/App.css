@@ -239,37 +239,41 @@
 .modal-hidden {
   display: none;
 }
-
-.modal-container {
-  background-color: hsla(279, 100%, 82%, 1);
-  position: fixed;
-  top: 30%;
-  left: 50%;
-  border: 1px solid brown;
-  transform: translate(-250px, 0);
-  width: 500px;
-  height: 300px;
-  z-index: 5;
-}
-
-.hide {
-  display: none;
-}
-
-
-.link-config-modal {
-
-}
-
-.folder-config-modal {
-
-}
-
-.modal-background-clear {
+.modal-wrapper {
   position: fixed;
   width: 100%;
   height: 100%;
+  z-index: 2;
+  overflow: hidden;
+}
+.modal-top-background {
+  z-index: 2;
+  width: 100%;
+  height: 30%;
   background-color: black;
   opacity: .8;
-  z-index: 2;
+}
+.modal-middle-background-wrapper {
+  display: flex;
+  height: 200px;
+}
+.modal-middle-background {
+  flex: 1;
+  height: 200px;
+  background-color: black;
+  opacity: .8;
+}
+.modal-middle-box {
+  background-color: hsla(279, 100%, 82%, 1);
+  flex: none;
+  border: 1px solid brown;
+  width: 300px;
+  height: 200px;
+}
+.modal-bottom-background {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: .8;
 }

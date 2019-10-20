@@ -9,17 +9,29 @@ import ConfigModal from './modals/ConfigModal';
 
 class App extends React.Component {
   componentDidMount() {
+    this.getTree();
+  }
+
+  getTree = () => {
     chrome.bookmarks.getTree(tree => {
       this.props.initiateState(tree);
     });
-  }
+  };
+
+  updateTree = ({ isLink, id, title, url }) => {
+    if(isLink){
+      chrome.bookmarks.update(id, { title, url }, this.getTree);
+    } else {
+      chrome.bookmarks.update(id, { title }, this.getTree);
+    }
+  };
 
   render() {
     return (
       <div className='App'>
         <ConfigModal
           state={this.props.state}
-          updateTree={this.props.updateTree}
+          updateTree={this.updateTree}
           toggleConfigModal={this.props.toggleConfigModal}
         />
         <Route
