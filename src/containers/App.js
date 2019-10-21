@@ -15,26 +15,32 @@ const mapDispatchToProps = dispatch => {
     },
     setCurrentFolder(folderId) {
       dispatch({
-        type: 'SET_CURRENTFOLDER',
+        type: 'SET_CURRENT_FOLDER',
         data: folderId
       });
     },
     setMainColumn(num) {
       dispatch({
-        type: 'SET_MAINCOLUMN',
+        type: 'SET_MAIN_COLUMN',
         data: num
       });
     },
     toggleConfigModal(data) {
       console.log('event', data);
       dispatch({
-        type: 'TOGGLE_CONFIGMODAL',
+        type: 'TOGGLE_CONFIG_MODAL',
         data
       });
     },
     deleteFolder(data) {
       dispatch({
         type: 'DELETE_FOLDER',
+        data
+      });
+    },
+    setMainSortType(data) {
+      dispatch({
+        type: 'SET_MAIN_SORT_TYPE',
         data
       });
     }

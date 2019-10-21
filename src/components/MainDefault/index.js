@@ -2,18 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import MainMenu from './MainMenu';
 import findInTree from '../../utils/findInTree';
+import sortList from '../../utils/sortList';
 
 const MainDefault = ({
   match,
   state,
   setCurrentFolder,
   setMainColumn,
-  toggleConfigModal
+  toggleConfigModal,
+  setMainSortType
 }) => {
 
   if(typeof state !== 'undefined' && state.tree) {
     let subTree = findInTree(state.tree, match.params.id);
-    console.log('1. .', subTree);
     const setFavicon = (tree) => {
       return tree.map(el => {
         if(el.url) {
@@ -25,14 +26,14 @@ const MainDefault = ({
         return el;
       });
     }
-
     subTree = setFavicon(subTree.children);
-    console.log('2 ... ', subTree);
-    
+    subTree = sortList(subTree, state.mainSortType);
+
     let addedUpHtml = [];
     let columnCounter = 0;
     let columnMax = state.mainColumn;
     let tempHtml = [];
+    console.log('subtree is ... ', subTree);
 
     for(let i = 0; i < subTree.length; i++) {
       if(subTree[i].url) {
@@ -95,7 +96,11 @@ const MainDefault = ({
 
     return (
       <div className='main'>
-        <MainMenu state={state} setMainColumn={setMainColumn} />
+        <MainMenu
+          state={state}
+          setMainColumn={setMainColumn}
+          setMainSortType={setMainSortType}
+        />
         {addedUpHtml}
       </div>
     );

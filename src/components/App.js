@@ -64,6 +64,7 @@ class App extends React.Component {
               setCurrentFolder={this.props.setCurrentFolder}
               setMainColumn={this.props.setMainColumn}
               toggleConfigModal={this.props.toggleConfigModal}
+              setMainSortType={this.props.setMainSortType}
             />
           )}
         />

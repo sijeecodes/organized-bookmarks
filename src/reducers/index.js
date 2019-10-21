@@ -9,6 +9,7 @@ const initialState = {
     main: null
   },
   mainColumn: 2,
+  mainSortType: 'userDefined',
   tree: null
 };
 
@@ -29,7 +30,7 @@ const reducers = (state = initialState, action) => {
 
         return newState(tempState, 'openFolders', tempOpenFolders);
       }
-      case 'SET_CURRENTFOLDER': {
+      case 'SET_CURRENT_FOLDER': {
         let tempState = state;
         const newOpenFolders = state.openFolders;
         if(action.data === state.currentFolder) {
@@ -47,16 +48,19 @@ const reducers = (state = initialState, action) => {
         }
         return newState(tempState, 'currentFolder', action.data);
       }
-      case 'SET_MAINCOLUMN': {
+      case 'SET_MAIN_COLUMN': {
         return newState(state, 'mainColumn', action.data);
       }
-      case 'TOGGLE_CONFIGMODAL': {
+      case 'TOGGLE_CONFIG_MODAL': {
         return newState(state, 'openModal', action.data);
       }
       case 'DELETE_FOLDER': {
         let temp = state.openFolders;
         temp.splice(temp.indexOf(action.data), 1);
         return newState(state, 'openFolders', temp);
+      }
+      case 'SET_MAIN_SORT_TYPE': {
+        return newState(state, 'mainSortType', action.data);
       }
       default:
         return state;

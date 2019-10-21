@@ -19,6 +19,7 @@ const newState = (originalState, name, newData) => {
     openFolders: originalState.openFolders,
     openModal: originalState.openModal,
     mainColumn: originalState.mainColumn,
+    mainSortType: originalState.mainSortType,
     tree: originalState.tree
   }
   tempState[name] = newData;
