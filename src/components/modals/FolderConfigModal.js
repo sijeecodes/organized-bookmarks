@@ -35,36 +35,45 @@ const FolderConfigModal = ({
   }
 
   return (
-    <div className='modal-middle-box'>
-      <div onClick={() => toggleConfigModal('close')}>
-        close
-      </div>
-      <form onSubmit={updateChanges}>
-        <label>
-          Title:
-          <input
-            type='text'
-            value={title}
-            onChange={e=> setTitle(e.target.value)}
-          />
-        </label>
-        <input type='submit' value='Submit' />
-      </form>
-      <button
+    <>
+      <div
+        className='modal-background'
         onClick={() => toggleConfigModal('close')}
+      />
+      <div
+        className='modal-box'
+        onClick={e => e.stopPropagation()}
       >
-        Cancel
-      </button>
-      <button
-        onClick={tryRemoveById}
-      >
-        <Link
-          to={`/${targetNode.parentId}/${match.params.displayMode}`}
+        <div onClick={() => toggleConfigModal('close')}>
+          close
+        </div>
+        <form onSubmit={updateChanges}>
+          <label>
+            Title:
+            <input
+              type='text'
+              value={title}
+              onChange={e => setTitle(e.target.value)}
+            />
+          </label>
+          <input type='submit' value='Submit' />
+        </form>
+        <button
+          onClick={() => toggleConfigModal('close')}
         >
-        Delete Folder
-        </Link>
-      </button>
-    </div>
+          Cancel
+        </button>
+        <button
+          onClick={tryRemoveById}
+        >
+          <Link
+            to={`/${targetNode.parentId}/${match.params.displayMode}`}
+          >
+          Delete Folder
+          </Link>
+        </button>
+      </div>
+    </>
   );
 }
 

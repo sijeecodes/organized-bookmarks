@@ -1,5 +1,4 @@
 import React from 'react';
-import ConfigModalBack from './ConfigModalBack';
 import FolderConfigModal from './FolderConfigModal';
 import LinkConfigModal from './LinkConfigModal';
 import findInTree from '../../utils/findInTree';
@@ -18,7 +17,30 @@ const ConfigModal = ({
       console.log('openmodal nav------ ', state.openModal.nav);
       const targetNode = findInTree(state.tree, state.openModal.nav);
       return (
-        <ConfigModalBack toggleConfigModal={toggleConfigModal}>
+        <FolderConfigModal
+          match={match}
+          targetNode={targetNode}
+          updateTree={updateTree}
+          toggleConfigModal={toggleConfigModal}
+          removeById={removeById}
+          setCurrentFolder={setCurrentFolder}
+        />
+      );
+    }
+    if(state.openModal.main) {
+      console.log('openmodal main------ ', state.openModal.main);
+      const targetNode = findInTree(state.tree, state.openModal.main);
+      if(targetNode.url) {
+        return (
+          <LinkConfigModal
+            targetNode={targetNode}
+            updateTree={updateTree}
+            toggleConfigModal={toggleConfigModal}
+            removeById={removeById}
+          />
+        );
+      } else {
+        return (
           <FolderConfigModal
             match={match}
             targetNode={targetNode}
@@ -27,35 +49,6 @@ const ConfigModal = ({
             removeById={removeById}
             setCurrentFolder={setCurrentFolder}
           />
-        </ConfigModalBack>
-      );
-    }
-    if(state.openModal.main) {
-      console.log('openmodal main------ ', state.openModal.main);
-      const targetNode = findInTree(state.tree, state.openModal.main);
-      if(targetNode.url) {
-        return (
-          <ConfigModalBack toggleConfigModal={toggleConfigModal}>
-            <LinkConfigModal
-              targetNode={targetNode}
-              updateTree={updateTree}
-              toggleConfigModal={toggleConfigModal}
-              removeById={removeById}
-            />
-          </ConfigModalBack>
-        );
-      } else {
-        return (
-          <ConfigModalBack toggleConfigModal={toggleConfigModal}>
-            <FolderConfigModal
-              match={match}
-              targetNode={targetNode}
-              updateTree={updateTree}
-              toggleConfigModal={toggleConfigModal}
-              removeById={removeById}
-              setCurrentFolder={setCurrentFolder}
-            />
-          </ConfigModalBack>
         );
       }
     }
