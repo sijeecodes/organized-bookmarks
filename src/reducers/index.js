@@ -10,6 +10,8 @@ const initialState = {
   },
   mainColumn: 2,
   mainSortType: 'userDefined',
+  searchWord: '',
+  searchType: 'default',
   tree: null
 };
 
@@ -61,6 +63,12 @@ const reducers = (state = initialState, action) => {
       }
       case 'SET_MAIN_SORT_TYPE': {
         return newState(state, 'mainSortType', action.data);
+      }
+      case 'SET_SEARCH_WORD': {
+        return newState(state, 'searchWord', action.data);
+      }
+      case 'SET_SEARCH_TYPE': {
+        return newState(state, 'searchType', action.data);
       }
       default:
         return state;

@@ -2,7 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import MainMenu from './MainMenu';
 import findInTree from '../../utils/findInTree';
+import setFavicon from '../../utils/setFavicon';
 import sortList from '../../utils/sortList';
+import searchInTree from '../../utils/searchInTree';
+import searchWholeTree from '../../utils/searchWholeTree';
 
 const MainDefault = ({
   match,
@@ -10,24 +13,25 @@ const MainDefault = ({
   setCurrentFolder,
   setMainColumn,
   toggleConfigModal,
-  setMainSortType
+  setMainSortType,
+  setSearchWord,
+  setSearchType
 }) => {
 
   if(typeof state !== 'undefined' && state.tree) {
-    let subTree = findInTree(state.tree, match.params.id);
-    const setFavicon = (tree) => {
-      return tree.map(el => {
-        if(el.url) {
-          let source = el.url.split('/');
-          el.favicon = source[0] + '//' + source[2];
-        } else if(el.children) {
-          setFavicon(el.children);
-        }
-        return el;
-      });
+    let subTree;
+
+    if(state.searchType === 'default' || state.searchWord === '') {
+      subTree = findInTree(state.tree, match.params.id);
+      subTree = searchInTree(subTree.children, state.searchWord);
+    } else {
+      subTree = searchWholeTree(state.tree[0].children, state.searchWord);
     }
-    subTree = setFavicon(subTree.children);
-    subTree = sortList(subTree, state.mainSortType);
+
+    if(subTree.length > 0) {
+      subTree = setFavicon(subTree);
+      subTree = sortList(subTree, state.mainSortType);
+    }
 
     let addedUpHtml = [];
     let columnCounter = 0;
@@ -100,6 +104,8 @@ const MainDefault = ({
           state={state}
           setMainColumn={setMainColumn}
           setMainSortType={setMainSortType}
+          setSearchWord={setSearchWord}
+          setSearchType={setSearchType}
         />
         {addedUpHtml}
       </div>

@@ -65,6 +65,8 @@ class App extends React.Component {
               setMainColumn={this.props.setMainColumn}
               toggleConfigModal={this.props.toggleConfigModal}
               setMainSortType={this.props.setMainSortType}
+              setSearchWord={this.props.setSearchWord}
+              setSearchType={this.props.setSearchType}
             />
           )}
         />

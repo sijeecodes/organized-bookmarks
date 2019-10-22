@@ -1,5 +1,5 @@
 import React from 'react';
-import SortByOption from './SortByOption';
+import Option from './Option';
 
 const SortBy = ({ mainSortType, setMainSortType }) => {
   return (
@@ -13,8 +13,8 @@ const SortBy = ({ mainSortType, setMainSortType }) => {
               onClick={() => setMainSortType('userDefined')}
             >
               User Default
-              <SortByOption
-                mainSortType={mainSortType}
+              <Option
+                type={mainSortType}
                 target='userDefined'
               />
             </div>
@@ -23,8 +23,8 @@ const SortBy = ({ mainSortType, setMainSortType }) => {
               onClick={() => setMainSortType('alphabetical')}
             >
               Alphabetical
-              <SortByOption
-                mainSortType={mainSortType}
+              <Option
+                type={mainSortType}
                 target='alphabetical'
               />
             </div>
@@ -33,8 +33,8 @@ const SortBy = ({ mainSortType, setMainSortType }) => {
               onClick={() => setMainSortType('recentlyAdded')}
             >
               Recently Added
-              <SortByOption
-                mainSortType={mainSortType}
+              <Option
+                type={mainSortType}
                 target='recentlyAdded'
               />
             </div>

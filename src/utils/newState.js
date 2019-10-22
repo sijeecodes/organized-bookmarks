@@ -20,6 +20,8 @@ const newState = (originalState, name, newData) => {
     openModal: originalState.openModal,
     mainColumn: originalState.mainColumn,
     mainSortType: originalState.mainSortType,
+    searchWord: originalState.searchWord,
+    searchType: originalState.searchType,
     tree: originalState.tree
   }
   tempState[name] = newData;

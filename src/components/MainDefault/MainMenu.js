@@ -5,7 +5,7 @@ import SortBy from './SortBy';
 import Tabs from './Tabs';
 import Search from './Search';
 
-const MainMenu = ({ state, setMainColumn, setMainSortType }) => {
+const MainMenu = ({ state, setMainColumn, setMainSortType, setSearchWord, setSearchType }) => {
   return (
     <div className='main-menu'>
       <Zoom
@@ -21,7 +21,10 @@ const MainMenu = ({ state, setMainColumn, setMainSortType }) => {
       <Tabs
       />
       <Search
-        
+        searchWord={state.searchWord}
+        setSearchWord={setSearchWord}
+        searchType={state.searchType}
+        setSearchType={setSearchType}
       />
     </div>
   );

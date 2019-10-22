@@ -43,6 +43,18 @@ const mapDispatchToProps = dispatch => {
         type: 'SET_MAIN_SORT_TYPE',
         data
       });
+    },
+    setSearchWord(data) {
+      dispatch({
+        type: 'SET_SEARCH_WORD',
+        data
+      });
+    },
+    setSearchType(data) {
+      dispatch({
+        type: 'SET_SEARCH_TYPE',
+        data
+      });
     }
   };
 };

@@ -43,12 +43,12 @@ const FolderConfigModal = ({
         <label>
           Title:
           <input
-            type="text"
+            type='text'
             value={title}
             onChange={e=> setTitle(e.target.value)}
           />
         </label>
-        <input type="submit" value="Submit" />
+        <input type='submit' value='Submit' />
       </form>
       <button
         onClick={() => toggleConfigModal('close')}
