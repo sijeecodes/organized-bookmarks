@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
-import NavTab from './NavTab';
-import MainDefault from './MainDefault';
 import ConfigModal from './modals/ConfigModal';
+import TopBar from './TopBar';
+import MainBody from './MainBody';
 
 /* global chrome */
 
@@ -31,6 +31,10 @@ class App extends React.Component {
     chrome.bookmarks.remove(id, this.getTree);
   };
 
+  moveBookmark = () => {
+
+  }
+
   render() {
     return (
       <div className='App'>
@@ -46,29 +50,21 @@ class App extends React.Component {
             />
           )}
         />
-        <Route
-          path='/:id/:displayMode'
-          render={routeProps => (
-            <NavTab {...routeProps}
-              state={this.props.state}
-              setCurrentFolder={this.props.setCurrentFolder}
-              toggleConfigModal={this.props.toggleConfigModal}
-            />
-          )}
+        <TopBar
+          state={this.props.state}
+          setMainColumn={this.props.setMainColumn}
+          setMainSortType={this.props.setMainSortType}
+          setSearchWord={this.props.setSearchWord}
+          setSearchType={this.props.setSearchType}
         />
-        <Route
-          path='/:id/:displayMode'
-          render={routeProps => (
-            <MainDefault {...routeProps}
-              state={this.props.state}
-              setCurrentFolder={this.props.setCurrentFolder}
-              setMainColumn={this.props.setMainColumn}
-              toggleConfigModal={this.props.toggleConfigModal}
-              setMainSortType={this.props.setMainSortType}
-              setSearchWord={this.props.setSearchWord}
-              setSearchType={this.props.setSearchType}
-            />
-          )}
+        <MainBody
+          state={this.props.state}
+          setCurrentFolder={this.props.setCurrentFolder}
+          setMainColumn={this.props.setMainColumn}
+          toggleConfigModal={this.props.toggleConfigModal}
+          setMainSortType={this.props.setMainSortType}
+          setSearchWord={this.props.setSearchWord}
+          setSearchType={this.props.setSearchType}
         />
       </div>
     );

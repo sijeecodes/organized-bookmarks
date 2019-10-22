@@ -1,6 +1,6 @@
 import React from 'react';
 import ColumnAdjust from './ColumnAdjust';
-import Zoom from '../common/Zoom';
+import Zoom from './Zoom';
 import SortBy from './SortBy';
 import Tabs from './Tabs';
 import Search from './Search';

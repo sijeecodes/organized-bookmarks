@@ -1,5 +1,5 @@
 import React from 'react';
-import Zoom from '../common/Zoom';
+import Zoom from './Zoom';
 
 const NavMenu = () => {
 

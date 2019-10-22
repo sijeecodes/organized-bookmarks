@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import MainMenu from './MainMenu';
 import findInTree from '../../utils/findInTree';
 import setFavicon from '../../utils/setFavicon';
 import sortList from '../../utils/sortList';
@@ -42,8 +41,20 @@ const MainDefault = ({
     for(let i = 0; i < subTree.length; i++) {
       if(subTree[i].url) {
         tempHtml.push(
-          <div className='main-item-wrapper'>
-            <a className='main-item' href={subTree[i].url}>
+          <div
+            className='main-item-wrapper'
+
+          >
+            <a
+              className='main-item'
+              href={subTree[i].url}
+              draggable
+              onDragStart={() => console.log('start drag')}
+              onDragOver={e => e.preventDefault()}
+              onDrop={e => {
+                console.log(e.target);
+              }}
+            >
               <img
                 className='icon-favicon'
                 src={`chrome://favicon/${subTree[i].favicon}`}
@@ -100,13 +111,6 @@ const MainDefault = ({
 
     return (
       <div className='main'>
-        <MainMenu
-          state={state}
-          setMainColumn={setMainColumn}
-          setMainSortType={setMainSortType}
-          setSearchWord={setSearchWord}
-          setSearchType={setSearchType}
-        />
         {addedUpHtml}
       </div>
     );
