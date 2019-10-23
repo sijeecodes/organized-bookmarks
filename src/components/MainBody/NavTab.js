@@ -2,9 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Spacer from './Spacer';
 
-const NavTab = ({ match, state, setCurrentFolder, toggleConfigModal }) => {
+const NavTab = ({
+  match,
+  state,
+  setCurrentFolder,
+  toggleConfigModal,
+  setIsDragging,
+  moveBookmark
+}) => {
   if(typeof state !== 'undefined' && state.tree !== null) {
     let resultHtml = [];
+
+    const onDropEvent = (event, targetParentId, targetIndex) => {
+      event.stopPropagation();
+      console.log('dropped in folder');
+      const temp = state.isDragging.split('-');
+      moveBookmark(temp[temp.length-1], targetParentId, targetIndex);
+      setIsDragging(false);
+    }
 
     const drawNavTab = (subTree, depth) => {
       if(state.openFolders.indexOf(subTree.parentId) !== -1 ||
@@ -13,24 +28,23 @@ const NavTab = ({ match, state, setCurrentFolder, toggleConfigModal }) => {
           resultHtml.push(
             <div
               className='nav-tab-item-wrapper'
+              id={`nav-tab-item-wrapper-${subTree.id}`}
               onDragOver={e => e.preventDefault()}
-              onDrop={e => {
-                console.log('e', e);
-                console.log('e.target', e.target);
-                console.log('e.target.id', e.target.id);
-                console.log('e.dispatchingConfig', e.dispatchingConfig)
-              }}
+              onDrop={e => onDropEvent(e, subTree.id, null)}
             >
-              <div
-                className='nav-tab-item-container'
-              >
+              <div className='nav-tab-item-container'>
                 <Spacer width={depth} />
                 <Link
                   to={`/${subTree.id}/${match.params.displayMode}`}
                   className='nav-tab-item'
-                  onClick={() => setCurrentFolder(subTree.id)}
+                  id={`nav-tab-item-${subTree.id}`}
                   draggable
-                  onDragStart={() => console.log('start drag')}
+                  onClick={() => setCurrentFolder(subTree.id)}
+                  onDragStart={e => {
+                    console.log('start drag');
+                    setIsDragging(e.target.id);
+                  }}
+                  onDragEnd={() => setIsDragging(false)}
                 >
                   {subTree.title}
                 </Link>
@@ -45,15 +59,15 @@ const NavTab = ({ match, state, setCurrentFolder, toggleConfigModal }) => {
                   (O)
                 </div>
               </div>
-              <div
-                className='nav-tab-item-dropbox'
-                onDragOver={e => e.preventDefault()}
-                onDrop={e => {
-                  e.stopPropagation();
-                  console.log('dropped in splitter');
-                }}
-              >
-              </div>
+              { state.isDragging ? (
+                <div
+                  className='nav-tab-item-dropbox'
+                  onDragOver={e => e.preventDefault()}
+                  onDrop={e => onDropEvent(e, subTree.parentId, subTree.index)}
+                ></div>
+              ) : (
+                <div></div>
+              )}
             </div>
           );
         }

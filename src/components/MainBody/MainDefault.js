@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ItemTag from './ItemTag';
 import findInTree from '../../utils/findInTree';
 import setFavicon from '../../utils/setFavicon';
 import sortList from '../../utils/sortList';
@@ -14,11 +15,21 @@ const MainDefault = ({
   toggleConfigModal,
   setMainSortType,
   setSearchWord,
-  setSearchType
+  setSearchType,
+  setIsDragging,
+  moveBookmark
 }) => {
 
   if(typeof state !== 'undefined' && state.tree) {
     let subTree;
+
+    const onDropEvent = (event, targetParentId, targetIndex) => {
+      event.stopPropagation();
+      console.log('dropped in folder');
+      const temp = state.isDragging.split('-');
+      moveBookmark(temp[temp.length-1], targetParentId, targetIndex);
+      setIsDragging(false);
+    }
 
     if(state.searchType === 'default' || state.searchWord === '') {
       subTree = findInTree(state.tree, match.params.id);
@@ -47,13 +58,16 @@ const MainDefault = ({
           >
             <a
               className='main-item'
+              id={`main-item-${subTree[i].id}`}
               href={subTree[i].url}
               draggable
-              onDragStart={() => console.log('start drag')}
-              onDragOver={e => e.preventDefault()}
-              onDrop={e => {
-                console.log(e.target);
+              onDragStart={e => {
+                console.log('start drag');
+                setIsDragging(e.target.id);
               }}
+              onDragOver={e => e.preventDefault()}
+              onDrop={e => onDropEvent(e, subTree[i].parentId, subTree[i].index)}
+              onDragEnd={() => setIsDragging(false)}
             >
               <img
                 className='icon-favicon'
@@ -63,6 +77,7 @@ const MainDefault = ({
                 {subTree[i].title}
               </div>
             </a>
+            <ItemTag />
             <div
               className='main-item-config'
               id={`main-${subTree[i].id}`}
@@ -78,7 +93,16 @@ const MainDefault = ({
             <Link
               to={`/${subTree[i].id}/${match.params.displayMode}`}
               className='main-item'
+              id={`main-item-${subTree[i].id}`}
+              draggable
               onClick={() => setCurrentFolder(subTree[i].id)}
+              onDragStart={e => {
+                console.log('start drag');
+                setIsDragging(e.target.id);
+              }}
+              onDragOver={e => e.preventDefault()}
+              onDrop={e => onDropEvent(e, subTree[i].parentId, subTree[i].index)}
+              onDragEnd={() => setIsDragging(false)}
             >
               <div className='main-item-title'>
                 {subTree[i].title}

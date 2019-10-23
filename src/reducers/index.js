@@ -12,6 +12,7 @@ const initialState = {
   mainSortType: 'userDefined',
   searchWord: '',
   searchType: 'default',
+  isDragging: false,
   tree: null
 };
 
@@ -69,6 +70,9 @@ const reducers = (state = initialState, action) => {
       }
       case 'SET_SEARCH_TYPE': {
         return newState(state, 'searchType', action.data);
+      }
+      case 'SET_IS_DRAGGING': {
+        return newState(state, 'isDragging', action.data);
       }
       default:
         return state;

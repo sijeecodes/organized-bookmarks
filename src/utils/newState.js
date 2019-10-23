@@ -22,6 +22,7 @@ const newState = (originalState, name, newData) => {
     mainSortType: originalState.mainSortType,
     searchWord: originalState.searchWord,
     searchType: originalState.searchType,
+    isDragging: originalState.isDragging,
     tree: originalState.tree
   }
   tempState[name] = newData;

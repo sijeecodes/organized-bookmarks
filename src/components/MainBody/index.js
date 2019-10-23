@@ -10,9 +10,10 @@ const MainBody = ({
   toggleConfigModal,
   setMainSortType,
   setSearchWord,
-  setSearchType
+  setSearchType,
+  setIsDragging,
+  moveBookmark
 }) => {
-
   return (
     <div className='main-body'>
       <Route
@@ -22,6 +23,8 @@ const MainBody = ({
             state={state}
             setCurrentFolder={setCurrentFolder}
             toggleConfigModal={toggleConfigModal}
+            setIsDragging={setIsDragging}
+            moveBookmark={moveBookmark}
           />
         )}
       />
@@ -36,6 +39,8 @@ const MainBody = ({
             setMainSortType={setMainSortType}
             setSearchWord={setSearchWord}
             setSearchType={setSearchType}
+            setIsDragging={setIsDragging}
+            moveBookmark={moveBookmark}
           />
         )}
       />

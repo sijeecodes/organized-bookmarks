@@ -55,6 +55,12 @@ const mapDispatchToProps = dispatch => {
         type: 'SET_SEARCH_TYPE',
         data
       });
+    },
+    setIsDragging(data) {
+      dispatch({
+        type: 'SET_IS_DRAGGING',
+        data
+      });
     }
   };
 };

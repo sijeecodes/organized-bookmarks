@@ -20,9 +20,9 @@ class App extends React.Component {
 
   updateTree = ({ isLink, id, title, url }) => {
     if(isLink){
-      chrome.bookmarks.update(id, { title, url }, this.getTree);
+      chrome.bookmarks.update(id, {title, url}, this.getTree);
     } else {
-      chrome.bookmarks.update(id, { title }, this.getTree);
+      chrome.bookmarks.update(id, {title}, this.getTree);
     }
   };
 
@@ -31,8 +31,16 @@ class App extends React.Component {
     chrome.bookmarks.remove(id, this.getTree);
   };
 
-  moveBookmark = () => {
-
+  moveBookmark = (id, targetParentId, targetIndex) => {
+    console.log('move bookmark!!!!', id, targetParentId, targetIndex);
+    chrome.bookmarks.move(
+      id,
+      {
+        parentId: targetParentId,
+        index: targetIndex
+      },
+      this.getTree
+    );
   }
 
   render() {
@@ -65,6 +73,8 @@ class App extends React.Component {
           setMainSortType={this.props.setMainSortType}
           setSearchWord={this.props.setSearchWord}
           setSearchType={this.props.setSearchType}
+          setIsDragging={this.props.setIsDragging}
+          moveBookmark={this.moveBookmark}
         />
       </div>
     );
