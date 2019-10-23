@@ -1,14 +1,46 @@
 {
   "manifest_version": 2,
 
-  "name": "My Extension",
-  "description": "This extension is a starting point to create a real Chrome extension",
+  "name": "Org Bookmarks",
+  "description": "Default launch shortcut is Alt(Control)+Shift+B. Open a new tab with Org Bookmarks based on your bookmarks.",
   "version": "0.0.1",
 
   "browser_action": {
     "default_popup": "index.html",
-    "default_title": "Open the popup"
+    "default_title": "New tab with Org Bookmarks"
   },
+
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+B",
+        "mac": "MacCtrl+Shift+B"
+      },
+      "description": "Open a new tab with Org Bookmarks"
+    },
+    "shortcut1": {
+      "suggested_key": {
+        "default": "Alt+Shift+1",
+        "mac": "MacCtrl+Shift+1"
+      },
+      "description": "Open a folder or link"
+    },
+    "shortcut2": {
+      "suggested_key": {
+        "default": "Alt+Shift+2",
+        "mac": "MacCtrl+Shift+2"
+      },
+      "description": "Open a folder or link"
+    },
+    "shortcut3": {
+      "suggested_key": {
+        "default": "Alt+Shift+3",
+        "mac": "MacCtrl+Shift+3"
+      },
+      "description": "Open a folder or link"
+    }
+  },
+
   "content_security_policy": "script-src 'self' 'sha256-/KIdXWKzSwC+oMFOwliH6JUNSwOFLq4nkeY1otCx2Xc='; object-src 'self'",
   "permissions": [
     "bookmarks", "tabs", "storage", "chrome://favicon/"
