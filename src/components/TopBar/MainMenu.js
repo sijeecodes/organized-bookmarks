@@ -2,10 +2,18 @@ import React from 'react';
 import ColumnAdjust from './ColumnAdjust';
 import Zoom from './Zoom';
 import SortBy from './SortBy';
-import Tabs from './Tabs';
+import Tags from './Tags';
 import Search from './Search';
 
-const MainMenu = ({ state, setMainColumn, setMainSortType, setSearchWord, setSearchType }) => {
+const MainMenu = ({
+  state,
+  setMainColumn,
+  setMainSortType,
+  setSearchWord,
+  setSearchType,
+  setTagFilter
+}) => {
+  console.log('main tag filter? ', state.tagFilter);
   return (
     <div className='main-menu'>
       <Zoom
@@ -18,7 +26,9 @@ const MainMenu = ({ state, setMainColumn, setMainSortType, setSearchWord, setSea
         mainSortType={state.mainSortType}
         setMainSortType={setMainSortType}
       />
-      <Tabs
+      <Tags
+        tagFilter={state.tagFilter}
+        setTagFilter={setTagFilter}
       />
       <Search
         searchWord={state.searchWord}

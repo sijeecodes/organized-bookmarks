@@ -7,7 +7,8 @@ const TopBar = ({
   setMainColumn,
   setMainSortType,
   setSearchWord,
-  setSearchType
+  setSearchType,
+  setTagFilter
 }) => {
   return (
     <div>
@@ -18,6 +19,7 @@ const TopBar = ({
         setMainSortType={setMainSortType}
         setSearchWord={setSearchWord}
         setSearchType={setSearchType}
+        setTagFilter={setTagFilter}
       />
     </div>
   );

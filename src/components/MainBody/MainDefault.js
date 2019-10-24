@@ -113,7 +113,7 @@ const MainDefault = ({
               id={`main-${subTree[i].id}`}
               onClick={e => toggleConfigModal(e.target.id)}
             >
-              (O)
+              (O)))))))
             </div>
           </div>
         );

@@ -61,6 +61,18 @@ const mapDispatchToProps = dispatch => {
         type: 'SET_IS_DRAGGING',
         data
       });
+    },
+    setTags(data) {
+      dispatch({
+        type: 'SET_TAGS',
+        data
+      });
+    },
+    setTagFilter(data) {
+      dispatch({
+        type: 'SET_TAG_FILTER',
+        data
+      });
     }
   };
 };

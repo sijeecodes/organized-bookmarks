@@ -16,6 +16,13 @@ class App extends React.Component {
     chrome.bookmarks.getTree(tree => {
       this.props.initiateState(tree);
     });
+    chrome.commands.onCommand.addListener(function(command) {
+      console.log('Command:', command);
+      if(command === 'shortcut1') {
+        window.location = 'https://www.naver.com/';
+      }
+    });
+    chrome.commands.getAll((result) =>  console.log('command result: ', result));
   };
 
   updateTree = ({ isLink, id, title, url }) => {
@@ -55,6 +62,7 @@ class App extends React.Component {
               toggleConfigModal={this.props.toggleConfigModal}
               removeById={this.removeById}
               setCurrentFolder={this.props.setCurrentFolder}
+              setTags={this.props.setTags}
             />
           )}
         />
@@ -64,6 +72,7 @@ class App extends React.Component {
           setMainSortType={this.props.setMainSortType}
           setSearchWord={this.props.setSearchWord}
           setSearchType={this.props.setSearchType}
+          setTagFilter={this.props.setTagFilter}
         />
         <MainBody
           state={this.props.state}

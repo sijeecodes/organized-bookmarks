@@ -4,15 +4,14 @@ import newState from '../utils/newState';
 const initialState = {
   currentFolder: '1',
   openFolders: ['0', '1'],
-  openModal: {
-    nav: null,
-    main: null
-  },
+  openModal: null,
   mainColumn: 2,
   mainSortType: 'userDefined',
   searchWord: '',
   searchType: 'default',
   isDragging: false,
+  tags: {},
+  tagFilter: [],
   tree: null
 };
 
@@ -55,7 +54,13 @@ const reducers = (state = initialState, action) => {
         return newState(state, 'mainColumn', action.data);
       }
       case 'TOGGLE_CONFIG_MODAL': {
-        return newState(state, 'openModal', action.data);
+          console.log('recieved ', action.data);
+          let modalState = null;
+          if(action.data !== 'close') {
+            modalState = action.data.split('-');
+          }
+          console.log('modalmodal', modalState);
+          return newState(state, 'openModal', modalState);
       }
       case 'DELETE_FOLDER': {
         let temp = state.openFolders;
@@ -73,6 +78,14 @@ const reducers = (state = initialState, action) => {
       }
       case 'SET_IS_DRAGGING': {
         return newState(state, 'isDragging', action.data);
+      }
+      case 'SET_TAGS': {
+        let tempTags = state.tags;
+        tempTags[action.data.id] = action.data.tags;
+        return newState(state, 'tags', tempTags);
+      }
+      case 'SET_TAG_FILTER': {
+        return newState(state, 'tags', action.data);
       }
       default:
         return state;

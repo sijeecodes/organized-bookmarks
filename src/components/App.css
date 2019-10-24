@@ -63,6 +63,7 @@
   height: 20px;
   overflow: hidden;
 }
+
 .nav-tab-item-dropbox {
   border: 1px solid lime;
   width: 100%;
@@ -136,24 +137,25 @@
   display: flex;
   border: 1px solid grey;
 }
+
 .main-item-wrapper {
   position: relative;
   display: flex;
   height: 20px;
   flex: 1;
+  border: 1px solid black;
+}
+.main-item-wrapper::-webkit-scrollbar {
+  display: none;
 }
 .main-item-dummy {
   position: relative;
-  display: flex;
   height: 20px;
   flex: 1;
 }
 .main-item {
   flex: 1;
   height: 100%;
-  border: 1px solid black;
-  position: relative;
-
   display: flex;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -173,10 +175,12 @@
   text-align: center;
   opacity: 0;
 }
+.main-item-config::-webkit-scrollbar {
+  display: none;
+}
 
 .icon-favicon {
   display: inline-block;
-
   width: 20px;
   height: 20px;
   object-fit: contain;
@@ -184,9 +188,8 @@
 
 .main-item-title {
   flex: 1;
-  display: inline-block;
+  /* display: inline-block; */
   margin: 0 0 3px 5px;
-  position: relative;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -321,7 +324,7 @@
   border: 1px solid red;
 }
 
-.tab-container {
+.tag-container {
   display: inline-block;
   width: 95px;
   padding: 0 20px 0 20px;
@@ -330,6 +333,44 @@
   border: 1px solid blue;
   overflow: hidden;
 }
+.tag {
+  border: 1px solid red;
+  width: 55px;
+  height: 20px;
+  text-align: center;
+}
+.tag:hover .tag-dropdown {
+  display: block;
+}
+.tag-aligner {
+  width: 100%;
+  text-align: left;
+}
+
+.tag-dropdown {
+  display: none;
+  position: fixed;
+  border: 1px solid purple;
+  transform: translate(-1px, 1px);
+  z-index: 3;
+}
+
+.tag-option {
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  z-index: 3;
+  border: 1px solid purple;
+}
+
+.tag-selected {
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  z-index: 3;
+  border: 1px solid red;
+}
+
 
 .search-wrapper {
   display: inline-block;
@@ -410,4 +451,18 @@
   left: 50%;
   transform: translate(-150px, -100px);
   z-index: 10;
+}
+
+.tag-onoff-button {
+  display: inline-block;
+  width: 60px;
+  height: 20px;
+  border: 1px solid red;
+}
+
+.tag-onoff-button-on {
+  display: inline-block;
+  width: 60px;
+  height: 20px;
+  border: 1px solid lime;
 }

@@ -1,19 +1,4 @@
 const newState = (originalState, name, newData) => {
-  if(name === 'openModal') {
-    console.log('recieved ', newData);
-    const result = {
-      'nav': null,
-      'main': null
-    }
-    if(newData === 'close') {
-      newData = result;
-    } else {
-      const [type, id] = newData.split('-');
-      result[type] = id;
-      newData = result;
-    }
-  }
-
   let tempState = {
     currentFolder: originalState.currentFolder,
     openFolders: originalState.openFolders,
@@ -23,6 +8,8 @@ const newState = (originalState, name, newData) => {
     searchWord: originalState.searchWord,
     searchType: originalState.searchType,
     isDragging: originalState.isDragging,
+    tags: originalState.tags,
+    tagFilter: originalState.tagFilter,
     tree: originalState.tree
   }
   tempState[name] = newData;

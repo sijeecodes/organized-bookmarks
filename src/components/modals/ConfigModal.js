@@ -9,45 +9,50 @@ const ConfigModal = ({
   updateTree,
   toggleConfigModal,
   removeById,
-  setCurrentFolder
+  setCurrentFolder,
+  setTags
 }) => {
 
   if(typeof state !== 'undefined' && state.tree !== null) {
-    if(state.openModal.nav) {
-      console.log('openmodal nav------ ', state.openModal.nav);
-      const targetNode = findInTree(state.tree, state.openModal.nav);
+    if(state.openModal !== null && state.openModal[0] === 'nav') {
+      const targetNode = findInTree(state.tree, state.openModal[1]);
       return (
         <FolderConfigModal
+          state={state}
           match={match}
           targetNode={targetNode}
           updateTree={updateTree}
           toggleConfigModal={toggleConfigModal}
           removeById={removeById}
           setCurrentFolder={setCurrentFolder}
+          setTags={setTags}
         />
       );
     }
-    if(state.openModal.main) {
-      console.log('openmodal main------ ', state.openModal.main);
-      const targetNode = findInTree(state.tree, state.openModal.main);
+    if(state.openModal !== null && state.openModal[0] === 'main') {
+      const targetNode = findInTree(state.tree, state.openModal[1]);
       if(targetNode.url) {
         return (
           <LinkConfigModal
+            state={state}
             targetNode={targetNode}
             updateTree={updateTree}
             toggleConfigModal={toggleConfigModal}
             removeById={removeById}
+            setTags={setTags}
           />
         );
       } else {
         return (
           <FolderConfigModal
+            state={state}
             match={match}
             targetNode={targetNode}
             updateTree={updateTree}
             toggleConfigModal={toggleConfigModal}
             removeById={removeById}
             setCurrentFolder={setCurrentFolder}
+            setTags={setTags}
           />
         );
       }
