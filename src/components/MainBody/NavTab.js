@@ -15,7 +15,6 @@ const NavTab = ({
 
     const onDropEvent = (event, targetParentId, targetIndex) => {
       event.stopPropagation();
-      console.log('dropped in folder');
       const temp = state.isDragging.split('-');
       moveBookmark(temp[temp.length-1], targetParentId, targetIndex);
       setIsDragging(false);
@@ -25,6 +24,12 @@ const NavTab = ({
       if(state.openFolders.indexOf(subTree.parentId) !== -1 ||
       subTree.id === '0') {
         if(subTree.dateGroupModified) {
+
+          let navTabClassName = 'nav-tab-item';
+          if(state.currentFolder === subTree.id) {
+            navTabClassName = 'nav-tab-item-over';
+          }
+
           resultHtml.push(
             <div
               className='nav-tab-item-wrapper'
@@ -36,12 +41,11 @@ const NavTab = ({
                 <Spacer width={depth} />
                 <Link
                   to={`/${subTree.id}/${match.params.displayMode}`}
-                  className='nav-tab-item'
+                  className={navTabClassName}
                   id={`nav-tab-item-${subTree.id}`}
                   draggable
                   onClick={() => setCurrentFolder(subTree.id)}
                   onDragStart={e => {
-                    console.log('start drag');
                     setIsDragging(e.target.id);
                   }}
                   onDragEnd={() => setIsDragging(false)}
@@ -80,7 +84,6 @@ const NavTab = ({
     };
     drawNavTab(state.tree[0], 0);
 
-    console.log('nav tab result is :', resultHtml);
     return (
       <>
         <div className='nav-tab'>

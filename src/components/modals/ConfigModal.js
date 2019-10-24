@@ -10,7 +10,8 @@ const ConfigModal = ({
   toggleConfigModal,
   removeById,
   setCurrentFolder,
-  setTags
+  setTags,
+  setShortcuts
 }) => {
 
   if(typeof state !== 'undefined' && state.tree !== null) {
@@ -26,6 +27,7 @@ const ConfigModal = ({
           removeById={removeById}
           setCurrentFolder={setCurrentFolder}
           setTags={setTags}
+          setShortcuts={setShortcuts}
         />
       );
     }
@@ -40,6 +42,7 @@ const ConfigModal = ({
             toggleConfigModal={toggleConfigModal}
             removeById={removeById}
             setTags={setTags}
+            setShortcuts={setShortcuts}
           />
         );
       } else {
@@ -53,6 +56,7 @@ const ConfigModal = ({
             removeById={removeById}
             setCurrentFolder={setCurrentFolder}
             setTags={setTags}
+            setShortcuts={setShortcuts}
           />
         );
       }

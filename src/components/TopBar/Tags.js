@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 const Tags = ({ tagFilter, setTagFilter }) => {
-  console.log('tag filters ', tagFilter);
   const [red, setRed] = useState(tagFilter.indexOf('red')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
   const [orange, setOrange] = useState(tagFilter.indexOf('orange')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
   const [yellow, setYellow] = useState(tagFilter.indexOf('yellow')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');

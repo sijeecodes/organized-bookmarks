@@ -9,20 +9,84 @@ import MainBody from './MainBody';
 
 class App extends React.Component {
   componentDidMount() {
-    this.getTree();
+    this.firstGetTree();
+  }
+
+  firstGetTree = () => {
+    chrome.bookmarks.getTree(tree => {
+      this.props.initiateState(tree);
+    });
+
+    chrome.storage.sync.get(['orgBookmarksData'], result => {
+      const parsed = JSON.parse(result['orgBookmarksData'])
+      this.props.loadSyncedState(parsed);
+      window.location = `#/${this.props.state.currentFolder}/${this.props.state.searchType}`;
+      }
+    );
+
+    chrome.commands.onCommand.addListener(command => {
+      switch(command) {
+        case 'shortcut2': {
+          if(this.props.state.shortcuts[2]) {
+            let flag = this.props.state.shortcuts[2].split('/');
+
+            if(flag[0] === '#') {
+              window.location = `#/${flag[1]}/${this.props.state.searchType}`;
+            } else {
+              window.location = this.props.state.shortcuts[2];
+            }
+          }
+          break;
+        }
+        case 'shortcut3': {
+          if(this.props.state.shortcuts[3]) {
+            let flag = this.props.state.shortcuts[3].split('/');
+
+            if(flag[0] === '#') {
+              window.location = `#/${flag[1]}/${this.props.state.searchType}`;
+            } else {
+              window.location = this.props.state.shortcuts[3];
+            }
+          }
+          break;
+        }
+        default: {
+          if(this.props.state.shortcuts[1]) {
+            let flag = this.props.state.shortcuts[1].split('/');
+
+            if(flag[0] === '#') {
+              window.location = `#/${flag[1]}/${this.props.state.searchType}`;
+            } else {
+              window.location = this.props.state.shortcuts[1];
+            }
+          }
+        }
+      }
+    });
   }
 
   getTree = () => {
     chrome.bookmarks.getTree(tree => {
       this.props.initiateState(tree);
+
+      console.log('saving....');
+
+      const orgData = {
+        currentFolder: this.props.state.currentFolder,
+        openFolders: this.props.state.openFolders,
+        mainColumn: this.props.state.mainColumn,
+        mainSortType: this.props.state.mainSortType,
+        searchWord: this.props.state.searchWord,
+        searchType: this.props.state.searchType,
+        tags: this.props.state.tags,
+        tagFilter: this.props.state.tagFilter,
+        shortcuts: this.props.state.shortcuts,
+      };
+
+      chrome.storage.sync.set({orgBookmarksData: JSON.stringify(orgData)}, () => {
+        console.log('setting state data ', JSON.stringify(orgData));
+      });
     });
-    chrome.commands.onCommand.addListener(function(command) {
-      console.log('Command:', command);
-      if(command === 'shortcut1') {
-        window.location = 'https://www.naver.com/';
-      }
-    });
-    chrome.commands.getAll((result) =>  console.log('command result: ', result));
   };
 
   updateTree = ({ isLink, id, title, url }) => {
@@ -39,7 +103,6 @@ class App extends React.Component {
   };
 
   moveBookmark = (id, targetParentId, targetIndex) => {
-    console.log('move bookmark!!!!', id, targetParentId, targetIndex);
     chrome.bookmarks.move(
       id,
       {
@@ -63,6 +126,7 @@ class App extends React.Component {
               removeById={this.removeById}
               setCurrentFolder={this.props.setCurrentFolder}
               setTags={this.props.setTags}
+              setShortcuts={this.props.setShortcuts}
             />
           )}
         />

@@ -13,7 +13,6 @@ const MainMenu = ({
   setSearchType,
   setTagFilter
 }) => {
-  console.log('main tag filter? ', state.tagFilter);
   return (
     <div className='main-menu'>
       <Zoom

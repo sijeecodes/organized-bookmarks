@@ -6,11 +6,16 @@ const LinkConfigModal = ({
   updateTree,
   toggleConfigModal,
   removeById,
-  setTags
+  setTags,
+  setShortcuts
 }) => {
   let tagData = state.tags[targetNode.id] ? state.tags[targetNode.id] : [];
   const [title, setTitle] = useState(targetNode.title);
   const [url, setUrl] = useState(targetNode.url);
+
+  const [shortcut1, setShortcut1] = useState(state.shortcuts[1] === targetNode.url ? 'shortcut-button-on' : 'shortcut-button');
+  const [shortcut2, setShortcut2] = useState(state.shortcuts[2] === targetNode.url ? 'shortcut-button-on' : 'shortcut-button');
+  const [shortcut3, setShortcut3] = useState(state.shortcuts[3] === targetNode.url ? 'shortcut-button-on' : 'shortcut-button');
 
   const [idTags, setIdTags] = useState(tagData);
   const [red, setRed] = useState(tagData.indexOf('red')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
@@ -21,8 +26,6 @@ const LinkConfigModal = ({
   const [purple, setPurple] = useState(tagData.indexOf('purple')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
   const [grey, setGrey] = useState(tagData.indexOf('grey')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
 
-  console.log('idTags', idTags);
-
   const updateChanges = (event) => {
     event.preventDefault();
     updateTree({
@@ -32,7 +35,48 @@ const LinkConfigModal = ({
     });
     toggleConfigModal('close');
     setTags({id: targetNode.id, tags: idTags});
-    console.log('setTags=============');
+
+    let newShortcuts = state.shortcuts;
+    if(shortcut1 === 'shortcut-button-on') {
+      newShortcuts[1] = targetNode.url;
+    } else if(shortcut2 === 'shortcut-button-on') {
+      newShortcuts[2] = targetNode.url;
+    } else if(shortcut3 === 'shortcut-button-on') {
+      newShortcuts[3] = targetNode.url;
+    }
+    setShortcuts(newShortcuts);
+  }
+
+  const setShortcut = (shortcutNum) => {
+    switch(shortcutNum) {
+      case '1': {
+        if(shortcut1 === 'shortcut-button') {
+          setShortcut1('shortcut-button-on');
+          break;
+        } else {
+          setShortcut1('shortcut-button');
+          break;
+        }
+      }
+      case '2': {
+        if(shortcut2 === 'shortcut-button') {
+          setShortcut2('shortcut-button-on');
+          break;
+        } else {
+          setShortcut2('shortcut-button');
+          break;
+        }
+      }
+      default: {
+        if(shortcut3 === 'shortcut-button') {
+          setShortcut3('shortcut-button-on');
+          break;
+        } else {
+          setShortcut3('shortcut-button');
+          break;
+        }
+      }
+    }
   }
 
   const tryRemoveById = () => {
@@ -41,7 +85,6 @@ const LinkConfigModal = ({
   }
 
   const onPress = (tag) => {
-    console.log('onclick', idTags);
     if(idTags.indexOf(tag) === -1) {
       let temp = idTags;
       temp.push(tag);
@@ -193,6 +236,24 @@ const LinkConfigModal = ({
             >
               Grey
             </div>
+            <div
+              className={shortcut1}
+              onClick={() => setShortcut('1', )}
+            >
+              Set as shortcut #1
+            </div>
+            <div
+              className={shortcut2}
+              onClick={() => setShortcut('2')}
+            >
+              Set as shortcut #2
+            </div>
+            <div
+              className={shortcut3}
+              onClick={() => setShortcut('3', )}
+            >
+              Set as shortcut #3
+            </div>
           </div>
           <input type='submit' value='Submit' />
         </form>
@@ -212,86 +273,3 @@ const LinkConfigModal = ({
 }
 
 export default LinkConfigModal;
-
-
-
-
-
-// let idTags = state.tags[targetNode.id] ? state.tags[targetNode.id] : [];
-// const [title, setTitle] = useState(targetNode.title);
-// const [url, setUrl] = useState(targetNode.url);
-//
-// const setIdTags = (newData) => {
-//   idTags = newData;
-// }
-//
-// const updateChanges = (event) => {
-//   event.preventDefault();
-//   updateTree({
-//     id: targetNode.id,
-//     title,
-//     url
-//   });
-//   toggleConfigModal('close');
-//   setTags({id: targetNode.id, tags: idTags});
-//   console.log('setTags=============');
-// }
-//
-// const tryRemoveById = () => {
-//   toggleConfigModal('close')
-//   removeById(targetNode.id);
-// }
-//
-// return (
-//   <>
-//     <div
-//       className='modal-background'
-//       onClick={() => toggleConfigModal('close')}
-//     />
-//     <div
-//       className='modal-box'
-//       onClick={e => e.stopPropagation()}
-//     >
-//       <div onClick={() => toggleConfigModal('close')}>
-//         close
-//       </div>
-//       <form onSubmit={updateChanges}>
-//         <label>
-//           Title:
-//           <input
-//             type='text'
-//             value={title}
-//             onChange={e=> setTitle(e.target.value)}
-//           />
-//         </label>
-//         <label>
-//           Url:
-//           <input
-//             type='text'
-//             value={url}
-//             onChange={e=> setUrl(e.target.value)}
-//           />
-//         </label>
-//         <ConfigTags
-//           id={targetNode.id}
-//           idTags={idTags}
-//           setIdTags={setIdTags}
-//         />
-//         <input type='submit' value='Submit' />
-//       </form>
-//       <button
-//         onClick={() => toggleConfigModal('close')}
-//       >
-//         Cancel
-//       </button>
-//       <button
-//         onClick={tryRemoveById}
-//       >
-//         Delete Link
-//       </button>
-//     </div>
-//   </>
-// );
-// }
-//
-// export default LinkConfigModal;

@@ -1,5 +1,4 @@
 const searchWholeTree = (tree, keyword) => {
-  console.log('searchWholeTree', tree, keyword);
   let allFolders = [];
   let allLinks = [];
   keyword = keyword.toLowerCase();

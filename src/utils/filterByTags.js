@@ -1,11 +1,6 @@
 const filterByTags = (tree, tags, tagFilter) => {
   let result = [];
-  // tags = {1: ['purple','red'], 2:[]}
-  // tagFilter = ['red', 'orange']
-  // get ids, then find in tree
-
   let tagIds = Object.keys(tags);
-  // [1, 2];
 
   for(let i = 0; i < tagIds.length; i++) {
     let matched = 0;
@@ -25,7 +20,6 @@ const filterByTags = (tree, tags, tagFilter) => {
       }
     }
   }
-
   return result;
 }
 

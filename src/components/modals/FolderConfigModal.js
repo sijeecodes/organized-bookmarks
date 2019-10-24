@@ -9,10 +9,15 @@ const FolderConfigModal = ({
   toggleConfigModal,
   removeById,
   setCurrentFolder,
-  setTags
+  setTags,
+  setShortcuts
 }) => {
   let tagData = state.tags[targetNode.id] ? state.tags[targetNode.id] : [];
   const [title, setTitle] = useState(targetNode.title);
+
+  const [shortcut1, setShortcut1] = useState(state.shortcuts[1] === `#/${targetNode.id}/` ? 'shortcut-button-on' : 'shortcut-button');
+  const [shortcut2, setShortcut2] = useState(state.shortcuts[2] === `#/${targetNode.id}/` ? 'shortcut-button-on' : 'shortcut-button');
+  const [shortcut3, setShortcut3] = useState(state.shortcuts[3] === `#/${targetNode.id}/` ? 'shortcut-button-on' : 'shortcut-button');
 
   const [idTags, setIdTags] = useState(tagData);
   const [red, setRed] = useState(tagData.indexOf('red')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
@@ -31,6 +36,48 @@ const FolderConfigModal = ({
     });
     toggleConfigModal('close');
     setTags({id: targetNode.id, tags: idTags});
+
+    let newShortcuts = state.shortcuts;
+    if(shortcut1 === 'shortcut-button-on') {
+      newShortcuts[1] = `#/${targetNode.id}/`;
+    } else if(shortcut2 === 'shortcut-button-on') {
+      newShortcuts[2] = `#/${targetNode.id}/`;
+    } else if(shortcut3 === 'shortcut-button-on') {
+      newShortcuts[3] = `#/${targetNode.id}/`;
+    }
+    setShortcuts(newShortcuts);
+  }
+
+  const setShortcut = (shortcutNum) => {
+    switch(shortcutNum) {
+      case '1': {
+        if(shortcut1 === 'shortcut-button') {
+          setShortcut1('shortcut-button-on');
+          break;
+        } else {
+          setShortcut1('shortcut-button');
+          break;
+        }
+      }
+      case '2': {
+        if(shortcut2 === 'shortcut-button') {
+          setShortcut2('shortcut-button-on');
+          break;
+        } else {
+          setShortcut2('shortcut-button');
+          break;
+        }
+      }
+      default: {
+        if(shortcut3 === 'shortcut-button') {
+          setShortcut3('shortcut-button-on');
+          break;
+        } else {
+          setShortcut3('shortcut-button');
+          break;
+        }
+      }
+    }
   }
 
   const tryRemoveById = () => {
@@ -48,16 +95,14 @@ const FolderConfigModal = ({
   }
 
   const onPress = (tag) => {
-    console.log('onclick', idTags);
+    let temp = idTags;
+
     if(idTags.indexOf(tag) === -1) {
-      let temp = idTags;
       temp.push(tag);
-      setIdTags(temp);
     } else {
-      let temp = idTags;
       temp.splice(idTags.indexOf(tag), 1);
-      setIdTags(temp);
     }
+    setIdTags(temp);
 
     switch(tag) {
       case 'red': {
@@ -191,6 +236,24 @@ const FolderConfigModal = ({
             >
               Grey
             </div>
+          </div>
+          <div
+            className={shortcut1}
+            onClick={() => setShortcut('1', )}
+          >
+            Set as shortcut #1
+          </div>
+          <div
+            className={shortcut2}
+            onClick={() => setShortcut('2')}
+          >
+            Set as shortcut #2
+          </div>
+          <div
+            className={shortcut3}
+            onClick={() => setShortcut('3', )}
+          >
+            Set as shortcut #3
           </div>
           <input type='submit' value='Submit' />
         </form>

@@ -25,7 +25,6 @@ const MainDefault = ({
 
     const onDropEvent = (event, targetParentId, targetIndex) => {
       event.stopPropagation();
-      console.log('dropped in folder');
       const temp = state.isDragging.split('-');
       moveBookmark(temp[temp.length-1], targetParentId, targetIndex);
       setIsDragging(false);
@@ -37,9 +36,8 @@ const MainDefault = ({
     } else {
       subTree = searchWholeTree(state.tree[0].children, state.searchWord);
     }
-    
+
     if(state.tagFilter.length > 0) {
-      console.log('TTTREEEEEEEE', subTree);
       subTree = filterByTags(subTree, state.tags, state.tagFilter);
     }
 
@@ -48,12 +46,10 @@ const MainDefault = ({
       subTree = sortList(subTree, state.mainSortType);
     }
 
-
     let addedUpHtml = [];
     let columnCounter = 0;
     let columnMax = state.mainColumn;
     let tempHtml = [];
-    console.log('subtree is ... ', subTree);
 
     for(let i = 0; i < subTree.length; i++) {
       if(subTree[i].url) {
@@ -68,7 +64,6 @@ const MainDefault = ({
               href={subTree[i].url}
               draggable
               onDragStart={e => {
-                console.log('start drag');
                 setIsDragging(e.target.id);
               }}
               onDragOver={e => e.preventDefault()}
@@ -103,7 +98,6 @@ const MainDefault = ({
               draggable
               onClick={() => setCurrentFolder(subTree[i].id)}
               onDragStart={e => {
-                console.log('start drag');
                 setIsDragging(e.target.id);
               }}
               onDragOver={e => e.preventDefault()}

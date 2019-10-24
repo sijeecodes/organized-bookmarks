@@ -7,6 +7,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    loadSyncedState(data) {
+      dispatch({
+        type: 'UPDATE_SYNCED_STATE',
+        data
+      });
+    },
     initiateState(tree) {
       dispatch({
         type: 'INITIATE_STATE',
@@ -26,7 +32,6 @@ const mapDispatchToProps = dispatch => {
       });
     },
     toggleConfigModal(data) {
-      console.log('event', data);
       dispatch({
         type: 'TOGGLE_CONFIG_MODAL',
         data
@@ -71,6 +76,12 @@ const mapDispatchToProps = dispatch => {
     setTagFilter(data) {
       dispatch({
         type: 'SET_TAG_FILTER',
+        data
+      });
+    },
+    setShortcuts(data) {
+      dispatch({
+        type: 'SET_SHORTCUTS',
         data
       });
     }

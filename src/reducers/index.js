@@ -4,20 +4,42 @@ import newState from '../utils/newState';
 const initialState = {
   currentFolder: '1',
   openFolders: ['0', '1'],
-  openModal: null,
   mainColumn: 2,
   mainSortType: 'userDefined',
   searchWord: '',
   searchType: 'default',
-  isDragging: false,
   tags: {},
   tagFilter: [],
+  shortcuts: {
+    1: '',
+    2: '',
+    3: ''
+  },
+  isDragging: false,
+  openModal: null,
   tree: null
 };
 
 const reducers = (state = initialState, action) => {
   if(action) {
     switch(action.type) {
+      case 'UPDATE_SYNCED_STATE': {
+        
+        return {
+          currentFolder: action.data.currentFolder,
+          openFolders: action.data.openFolders,
+          mainColumn: action.data.mainColumn,
+          mainSortType: action.data.mainSortType,
+          searchWord: action.data.searchWord,
+          searchType: action.data.searchType,
+          tags: action.data.tags,
+          tagFilter: action.data.tagFilter,
+          shortcuts: action.data.shortcuts,
+          isDragging: state.isDragging,
+          openModal: state.openModal,
+          tree: state.tree
+        };
+      }
       case 'INITIATE_STATE': {
         let tempState = newState(state, 'tree', action.data);
         let tempOpenFolders = state.openFolders;
@@ -54,12 +76,10 @@ const reducers = (state = initialState, action) => {
         return newState(state, 'mainColumn', action.data);
       }
       case 'TOGGLE_CONFIG_MODAL': {
-          console.log('recieved ', action.data);
           let modalState = null;
           if(action.data !== 'close') {
             modalState = action.data.split('-');
           }
-          console.log('modalmodal', modalState);
           return newState(state, 'openModal', modalState);
       }
       case 'DELETE_FOLDER': {
@@ -86,6 +106,9 @@ const reducers = (state = initialState, action) => {
       }
       case 'SET_TAG_FILTER': {
         return newState(state, 'tagFilter', action.data);
+      }
+      case 'SET_SHORTCUTS': {
+        return newState(state, 'shortcuts', action.data);
       }
       default:
         return state;

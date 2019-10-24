@@ -1,11 +1,10 @@
 const searchInTree = (tree, keyword) => {
-  console.log('recieved tree', tree);
   if(keyword === '') {
     return tree;
   } else {
     let tempResult = [];
     keyword = keyword.toLowerCase();
-    
+
     for(let i = 0; i < tree.length; i++) {
       if(tree[i].title.toLowerCase().includes(keyword)) {
         tempResult.push(tree[i]);
