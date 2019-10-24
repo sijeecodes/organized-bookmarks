@@ -16,7 +16,6 @@ const MainDefault = ({
   toggleConfigModal,
   setMainSortType,
   setSearchWord,
-  setSearchType,
   setIsDragging,
   moveBookmark
 }) => {
@@ -38,12 +37,17 @@ const MainDefault = ({
     } else {
       subTree = searchWholeTree(state.tree[0].children, state.searchWord);
     }
+    
+    if(state.tagFilter.length > 0) {
+      console.log('TTTREEEEEEEE', subTree);
+      subTree = filterByTags(subTree, state.tags, state.tagFilter);
+    }
 
     if(subTree.length > 0) {
       subTree = setFavicon(subTree);
       subTree = sortList(subTree, state.mainSortType);
     }
-    // subTree = filterByTags(subTree, state.tags, state.tagFilter);
+
 
     let addedUpHtml = [];
     let columnCounter = 0;

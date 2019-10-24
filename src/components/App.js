@@ -81,7 +81,6 @@ class App extends React.Component {
           toggleConfigModal={this.props.toggleConfigModal}
           setMainSortType={this.props.setMainSortType}
           setSearchWord={this.props.setSearchWord}
-          setSearchType={this.props.setSearchType}
           setIsDragging={this.props.setIsDragging}
           moveBookmark={this.moveBookmark}
         />
