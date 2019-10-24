@@ -6,6 +6,7 @@ import setFavicon from '../../utils/setFavicon';
 import sortList from '../../utils/sortList';
 import searchInTree from '../../utils/searchInTree';
 import searchWholeTree from '../../utils/searchWholeTree';
+import filterByTags from '../../utils/filterByTags';
 
 const MainDefault = ({
   match,
@@ -31,7 +32,7 @@ const MainDefault = ({
       setIsDragging(false);
     }
 
-    if(state.searchType === 'default' || state.searchWord === '') {
+    if(state.searchType === 'default') {
       subTree = findInTree(state.tree, match.params.id);
       subTree = searchInTree(subTree.children, state.searchWord);
     } else {
@@ -42,6 +43,7 @@ const MainDefault = ({
       subTree = setFavicon(subTree);
       subTree = sortList(subTree, state.mainSortType);
     }
+    // subTree = filterByTags(subTree, state.tags, state.tagFilter);
 
     let addedUpHtml = [];
     let columnCounter = 0;

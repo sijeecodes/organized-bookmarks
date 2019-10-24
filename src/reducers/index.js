@@ -85,7 +85,7 @@ const reducers = (state = initialState, action) => {
         return newState(state, 'tags', tempTags);
       }
       case 'SET_TAG_FILTER': {
-        return newState(state, 'tags', action.data);
+        return newState(state, 'tagFilter', action.data);
       }
       default:
         return state;
