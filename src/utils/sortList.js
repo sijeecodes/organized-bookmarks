@@ -59,7 +59,13 @@ const sortList = (originalList, criteriaName) => {
   }
 
   const mergeSort = (arr) => {
-    const reqTimes = Math.ceil(Math.log2(arr.length));
+    let reqTimes;
+    if(arr.length < 1) {
+      return arr;
+    } else {
+      reqTimes = Math.ceil(Math.log2(arr.length));
+    }
+
     for(let i = 0; i < reqTimes; i++) {
       let merged = [];
       for(let j = 0; j < arr.length; j++) {
@@ -74,6 +80,8 @@ const sortList = (originalList, criteriaName) => {
     }
     return arr[0];
   }
+  console.log('checking merge sort', folders, links);
+
 
   return [...mergeSort(folders), ...mergeSort(links)];
 };
