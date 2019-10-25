@@ -265,16 +265,17 @@ const LinkConfigModal = ({
           </div>
           <div className='modal-buttons-container'>
             <button
-              onClick={() => toggleConfigModal('close')}
-            >
-              Cancel
-            </button>
-            <button
+              className='modal-delete-button'
               onClick={tryRemoveById}
             >
               Delete Link
             </button>
             <input type='submit' value='Submit' />
+            <button
+              onClick={() => toggleConfigModal('close')}
+            >
+              Cancel
+            </button>
           </div>
         </form>
       </div>
