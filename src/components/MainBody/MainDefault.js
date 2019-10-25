@@ -30,20 +30,32 @@ const MainDefault = ({
       setIsDragging(false);
     }
 
+    console.log('first state. ', state);
     if(state.searchType === 'default') {
       subTree = findInTree(state.tree, match.params.id);
+      console.log('foundInTree. ', subTree);
+
       subTree = searchInTree(subTree.children, state.searchWord);
+      console.log('searchedInTree. ', subTree);
+
     } else {
+      console.log('trying to get whole tree');
+
       subTree = searchWholeTree(state.tree[0].children, state.searchWord);
+      console.log('subtree', subTree);
     }
 
     if(state.tagFilter.length > 0) {
       subTree = filterByTags(subTree, state.tags, state.tagFilter);
+      console.log('filtered');
     }
 
     if(subTree.length > 0) {
       subTree = setFavicon(subTree);
+      console.log('sorted list ', subTree, state.mainSortType);
+
       subTree = sortList(subTree, state.mainSortType);
+
     }
 
     let addedUpHtml = [];
@@ -56,7 +68,6 @@ const MainDefault = ({
         tempHtml.push(
           <div
             className='main-item-wrapper'
-
           >
             <a
               className='main-item'
@@ -79,12 +90,16 @@ const MainDefault = ({
               </div>
             </a>
             <ItemTag />
-            <div
-              className='main-item-config'
-              id={`main-${subTree[i].id}`}
-              onClick={e => toggleConfigModal(e.target.id)}
-            >
-              (O)
+            <div className='main-item-config'>
+              <i
+                class="cogs icon"
+                id={`main-${subTree[i].id}`}
+                onClick={e => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  toggleConfigModal(e.target.id)
+                }}
+              />
             </div>
           </div>
         );
@@ -108,12 +123,16 @@ const MainDefault = ({
                 {subTree[i].title}
               </div>
             </Link>
-            <div
-              className='main-item-config'
-              id={`main-${subTree[i].id}`}
-              onClick={e => toggleConfigModal(e.target.id)}
-            >
-              (O)))))))
+            <div className='main-item-config'>
+              <i
+                class="cogs icon"
+                id={`main-${subTree[i].id}`}
+                onClick={e => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  toggleConfigModal(e.target.id)
+                }}
+              />
             </div>
           </div>
         );

@@ -1,8 +1,20 @@
+@item-height: 28px;
+@top-menu-height: 32px;
+@button-default-width: 75px;
+@background1: hsl(0, 0%, 5%);
+@background2: hsl(0, 0%, 20%);
+@background3: hsl(0, 0%, 13%);
+@background-selected: hsl(0, 0%, 15%);
+@background-highlight: hsl(0, 0%, 35%);
+@default-color: hsl(0, 0%, 85%);
+
 i {
   text-align: center;
   vertical-align: top;
   overflow: visible;
+
 }
+
 .App {
   text-align: left;
   width: 100%;
@@ -10,23 +22,26 @@ i {
   display: inline-block;
   cursor: default;
 }
+
 .nav-tab {
   display: inline-block;
   width: 25%;
   height: 100%;
   vertical-align: top;
   overflow: auto;
-  padding-bottom: 32px;
-  background-color: hsl(0, 0%, 20%);
+  padding-bottom: @top-menu-height;
+  background-color: @background2;
 }
 .nav-tab::-webkit-scrollbar {
   display: none;
 }
+
 .nav-tab-item-wrapper {
   display: block;
   width: 100%;
-  height: 28px;
+  height: @item-height;
 }
+
 .nav-tab-item-dropbox {
   border: 1px solid lime;
   width: 100%;
@@ -38,110 +53,126 @@ i {
   z-index: 2;
   display: block;
 }
+
 .nav-tab-item-container {
   display: flex;
   position: relative;
 }
+
 .nav-tab-item {
   flex: 1;
   position: relative;
-  height: 28px;
+  height: @item-height;
   overflow: hidden;
   padding: 1px 10px 0 7px;
   text-overflow: ellipsis;
   white-space: nowrap;
   line-height: 25px;
 }
+
 .nav-tab-item:hover {
-  background: hsl(0, 0%, 35%);
-  color: hsl(0, 0%, 85%);
+  background: @background-highlight;
+  color: @default-color;
 }
+
 .nav-tab-item-over {
   flex: 1;
   position: relative;
-  height: 28px;
-  background: hsl(0, 0%, 15%);
+  height: @item-height;
+  background: @background-selected;
   padding: 1px 10px 0 7px;
   overflow: hidden;
   padding-right: 10px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  transition: all 0.5s ease;
+  transition: all .5s ease;
   line-height: 25px;
 }
+
 .nav-tab-item-over:hover {
-  background: hsl(0, 0%, 35%);
-  color: hsl(0, 0%, 85%);
+  background: @background-highlight;
+  color: @default-color;
 }
+
 .item-spacer {
   width: 20px;
-  height: 28px;
+  height: @item-height;
   text-align: center;
 }
+
 .nav-tab-item-container:hover .nav-tab-item-config {
   opacity: 1;
-  transition: all 0.5s ease;
+  transition: all .5s ease;
 }
+
 .nav-tab-item-tail {
   position: absolute;
   top: 0;
   right: 0;
-  width: 28px;
-  height: 28px;
+  width: @item-height;
+  height: @item-height;
   text-align: center;
   margin-right: 2px;
   z-index: 0;
 }
+
 .nav-tab-item-config {
-  background: hsl(0, 0%, 35%);
+  background: @background-highlight;
   position: absolute;
   top: 0;
   right: 0;
-  width: 28px;
-  height: 28px;
+  width: @item-height;
+  height: @item-height;
   text-align: center;
   opacity: 0;
   margin-right: 2px;
   padding-top: 3px;
   z-index: 1;
 }
+
 .main {
   display: inline-block;
   width: 75%;
   height: 100%;
   color: white;
   overflow: auto;
-  background-color: hsl(0, 0%, 13%);
+  background-color: @background3;
 }
+
 .main-body {
   width: 100%;
   height: 100%;
   position: fixed;
-  top: 32px;
+  top: @top-menu-height;
   left: 0;
-  padding-bottom: 32px;
+  padding-bottom: @top-menu-height;
 }
+
 .main-container {
   display: flex;
 }
+
 .main-item-wrapper {
   position: relative;
   display: flex;
-  height: 28px;
+  height: @item-height;
   flex: 1;
-  background-color: hsl(0, 0%, 13%);
-  color: hsl(0, 0%, 85%);
+  background-color: @background3;
+  color: @default-color;
   padding-right: 7px;
 }
+
 .main-item-wrapper:hover {
-  background: hsl(0, 0%, 35%);
+  background: @background-highlight;
   color: white;
 }
+
 .main-item-dummy {
   position: relative;
-  height: 28px;
+  height: @item-height;
   flex: 1;
 }
+
 .main-item {
   flex: 1;
   height: 100%;
@@ -151,134 +182,155 @@ i {
   white-space: nowrap;
   margin: 0 0 5px 5px;
 }
+
 .main-item-wrapper:hover .main-item-config {
   opacity: 1;
-  width: 28px;
+  width: @item-height;
   transition: opacity 1s;
 }
+
 .main-item-config {
   display: block;
-  height: 28px;
+  height: @item-height;
   width: 0px;
   text-align: center;
   opacity: 0;
-  background: hsl(0, 0%, 35%);
+  background: @background-highlight;
   overflow: hidden;
   padding-top: 3px;
 }
+
 .icon-favicon {
   display: inline-block;
   width: 20px;
-  height: 28px;
+  height: @item-height;
   object-fit: contain;
 }
+
 .main-item-title {
   flex: 1;
   /* display: inline-block; */
   margin: 0 0 3px 5px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: hsl(0, 0%, 85%);
+  color: @default-color;
   margin: 3px 0 0 7px;
 }
+
 /**********************************/
+
 .zoom {
   display: inline-block;
   border: 1px solid blue;
-  height: 28px;
+  height: @item-height;
   width: 100px;
   text-align: center;
 }
+
 .zoom:hover .zoom-out-button {
   opacity: 1;
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 }
+
 .zoom:hover .zoom-in-button {
   opacity: 1;
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 }
+
 .zoom-out-button {
   display: inline-block;
   opacity: 0;
   border: 1px solid pink;
   width: 20px;
-  heigth: 28px;
+  heigth: @item-height;
 }
+
 .zoom-title {
   display: inline-block;
   border: 1px solid red;
   width: 55px;
-  height: 28px;
+  height: @item-height;
 }
+
 .zoom-in-button {
   display: inline-block;
   opacity: 0;
   border: 1px solid pink;
   width: 20px;
-  heigth: 28px;
+  heigth: @item-height;
 }
+
 .top-bar {
   width: 100%;
-  height: 32px;
+  height: @top-menu-height;
   position: fixed;
   top: 0;
   left: 0;
-  box-shadow: 0 3px 4px hsl(0, 0%, 15%);
+  box-shadow: 0 3px 4px @background-selected;
   z-index: 1;
 }
 .nav-menu {
   width: 25%;
-  height: 32px;
+  height: @top-menu-height;
   position: absolute;
   top: 0;
   left: 0;
   line-height: 31px;
-  background-color: hsl(0, 0%, 5%);
+  background-color: @background1;
   padding-left: 10px;
   font-weight: bold;
 }
+
 .main-menu {
   width: 75%;
-  height: 32px;
+  height: @top-menu-height;
   position: absolute;
   top: 0;
   left: 25%;
   vertical-align: top;
-  background-color: hsl(0, 0%, 5%);
+  background-color: @background1;
 }
+
 .column {
   float: left;
   vertical-align: top;
-  height: 32px;
+  height: @top-menu-height;
   width: 89px;
   text-align: center;
   line-height: 12px;
   margin-left: 7px;
 }
+
 .column:hover .column-button-shell {
   opacity: 1;
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 }
+
 .column:hover .column-button-shell-grey {
-  opacity: 0.5;
-  transition: all 0.3s ease;
+  opacity: .5;
+  transition: all .3s ease;
 }
+
 .column:hover .column-button-shell-minus {
   opacity: 1;
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 }
+
 .column:hover .column-button-shell-grey-minus {
-  opacity: 0.5;
-  transition: all 0.3s ease;
+  opacity: .5;
+  transition: all .3s ease;
 }
+
 .column-title {
+  // display: inline-block;
   float: left;
   vertical-align: top;
   width: 55px;
   padding-top: 9px;
-  height: 32px;
+  height: @top-menu-height;
   font-weight: 600;
 }
+
 .column-button {
   display: block;
   width: 15px;
@@ -296,7 +348,7 @@ i {
   heigth: 32px;
   padding-top: 10px;
   text-align: center;
-  background: hsl(0, 0%, 35%);
+  background: @background-highlight;
 }
 .column-button-shell-minus {
   float: left;
@@ -305,13 +357,13 @@ i {
   width: 16px;
   heigth: 32px;
   padding-top: 10px;
-  background: hsl(0, 0%, 35%);
+  background: @background-highlight;
 }
 .column-button-shell-grey {
   float: left;
   vertical-align: top;
   opacity: 0;
-  color: hsl(0, 0%, 35%);
+  color: @background-highlight;
   background: hsl(0, 0%, 7%);
   width: 16px;
   heigth: 32px;
@@ -324,7 +376,7 @@ i {
   float: left;
   vertical-align: top;
   opacity: 0;
-  color: hsl(0, 0%, 35%);
+  color: @background-highlight;
   background: hsl(0, 0%, 7%);
   width: 16px;
   heigth: 32px;
@@ -333,47 +385,54 @@ i {
 .column-button-shell-grey-minus:hover {
   background: hsl(0, 0%, 7%);
 }
+
 .sort-container {
   float: left;
   vertical-align: top;
-  height: 32px;
-  width: 75px;
+  height: @top-menu-height;
+  width: @button-default-width;
   text-align: center;
   line-height: 30px;
 }
+
 .sort {
   display: inline-block;
-  width: 75px;
-  height: 32px;
+  width: @button-default-width;
+  height: @top-menu-height;
   font-weight: 600;
 }
 .sort:hover {
-  background: hsl(0, 0%, 35%);
+  background: @background-highlight;
 }
 .sort:hover .sort-dropdown {
   display: block;
 }
+
 .sort-aligner {
   width: 100%;
   text-align: left;
 }
+
 .sort-dropdown {
   display: none;
   position: fixed;
   width: 120px;
   transform: translate(-1px, 1px);
 }
+
 .sort-option {
   width: 120px;
-  height: 28px;
-  background: hsl(0, 0%, 5%);
+  height: @item-height;
+  background: @background1;
   line-height: 23px;
   font-size: 12px;
   padding-left: 5px;
 }
+
 .sort-option:hover {
-  background: hsl(0, 0%, 35%);
+  background: @background-highlight;
 }
+
 .option-select {
   display: inline-block;
   width: 20px;
@@ -382,131 +441,145 @@ i {
   overflow: visible;
   padding-left: 3px;
 }
+
 .option-select-hide {
   visibility: hidden;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  overflow: visible;
-  padding-left: 3px;
+  .option-select
 }
+
 .tag-container {
   float: left;
   vertical-align: top;
-  width: 75px;
-  height: 32px;
+  width: @button-default-width;
+  height: @top-menu-height;
   position: relative;
   line-height: 30px;
 }
+
 .tag {
-  width: 75px;
-  height: 32px;
+  width: @button-default-width;
+  height: @top-menu-height;
   text-align: center;
   font-weight: 600;
 }
+
 .tag:hover .tag-dropdown {
   display: block;
 }
 .tag:hover {
-  background-color: hsl(0, 0%, 35%);
+  background-color: @background-highlight;
 }
+
 .tag-aligner {
   width: 100%;
   text-align: left;
 }
+
 .tag-dropdown {
   display: none;
   position: fixed;
   width: 90px;
   transform: translate(-1px, 1px);
 }
+
 .tag-onoff-button {
   width: 90px;
-  height: 28px;
-  background-color: hsl(0, 0%, 5%);
+  height: @item-height;
+  background-color: @background1;
   line-height: 23px;
   font-size: 12px;
   padding-left: 5px;
 }
 .tag-onoff-button:hover {
-  background-color: hsl(0, 0%, 35%);
+  background-color: @background-highlight;
 }
+
 .tag-onoff-button-on {
   width: 90px;
-  height: 28px;
-  background-color: hsl(0, 0%, 5%);
+  height: @item-height;
+  background-color: @background1;
   line-height: 23px;
   font-size: 12px;
   padding-left: 5px;
 }
+
+
 .tag-option {
   display: block;
   width: 80px;
-  height: 28px;
+  height: @item-height;
 }
+
 .tag-selected {
   display: inline-block;
   width: 80px;
-  height: 28px;
+  height: @item-height;
 }
+
+
 .shortcut-button {
   display: inline-block;
   width: 110px;
-  height: 28px;
+  height: @item-height;
 }
+
 .shortcut-button-on {
   display: inline-block;
   width: 110px;
-  height: 28px;
+  height: @item-height;
 }
+
 .search-wrapper {
   display: inline-block;
   float: right;
   position: relative;
   width: 330px;
-  height: 32px;
+  height: @top-menu-height;
 }
+
 .search-flexbox {
   display: flex;
   width: 100%;
   height: 100%;
 }
+
 .search-deep-off {
   margin-top: 4px;
   display: block;
   flex: none;
   width: 112px;
-  height: 28px;
+  height: @item-height;
   text-align: left;
   font-weight: 600;
   padding-left: 7px;
 }
 .search-deep-off:hover {
-  background-color: hsl(0, 0%, 35%);
+  background-color: @background-highlight;
 }
 .search-deep {
   margin-top: 4px;
   display: block;
   flex: none;
   width: 112px;
-  height: 28px;
+  height: @item-height;
   text-align: left;
   font-weight: 600;
   padding-left: 7px;
 }
 .search-deep:hover {
-  background-color: hsl(0, 0%, 35%);
+  background-color: @background-highlight;
 }
 .search-box {
   flex: 1;
-  height: 28px;
+  height: @item-height;
   margin: 3px 5px 0 0;
 }
+
 /************************************/
 .modal-hidden {
   display: none;
 }
+
 .modal-background {
   position: fixed;
   width: 100%;
@@ -515,10 +588,11 @@ i {
   top: 0;
   left: 0;
   background-color: black;
-  opacity: 0.8;
+  opacity: .8;
 }
+
 .modal-box {
-  background-color: hsl(0, 0%, 20%);
+  background-color: @background2;
   /* flex: none; */
   opacity: 1;
   width: 400px;
@@ -531,105 +605,117 @@ i {
   overflow: auto;
   padding: 5px 5px 5px 5px;
 }
+
 .modal-tag-onoff-button {
   display: inline-block;
   width: 90px;
-  height: 28px;
-  background-color: hsl(0, 0%, 5%);
+  height: @item-height;
+  background-color: @background1;
   line-height: 23px;
   font-size: 12px;
   text-align: center;
   margin: 1px 2px 1px 2px;
 }
 .modal-tag-onoff-button:hover {
-  background-color: hsl(0, 0%, 35%);
+  background-color: @background-highlight;
 }
 .modal-tag-onoff-button-on:hover {
-  background-color: hsl(0, 0%, 35%);
+  background-color: @background-highlight;
 }
 .modal-tag-onoff-button-on {
   display: inline-block;
   width: 90px;
-  height: 28px;
-  background-color: hsl(0, 0%, 15%);
+  height: @item-height;
+  background-color: @background-selected;
   line-height: 23px;
   font-size: 12px;
   padding-left: 5px;
   text-align: center;
   margin: 1px 2px 1px 2px;
 }
+
 .modal-box-close-button {
   position: absolute;
   right: 0;
   width: 40px;
-  height: 28px;
-  background-color: hsl(0, 0%, 5%);
+  height: @item-height;
+  background-color: @background1;
   text-align: center;
 }
+
 .modal-box-close-button:hover {
-  background-color: hsl(0, 0%, 35%);
+  background-color: @background-highlight;
 }
 .modal-divider {
   display: block;
   width: 100%;
-  height: 28px;
+  height: @item-height;
 }
+
 .modal-tags-container {
   display: block;
   width: 100%;
   margin-top: 10px;
 }
+
 .modal-shortcut-container {
   display: block;
   width: 100%;
 }
+
 .modal-buttons-container {
   display: block;
   width: 100%;
   text-align: right;
 }
+
 .modal-delete-button {
   float: left;
   left: 5;
 }
+
 .shortcut-button-on {
   display: inline-block;
   width: 120px;
-  height: 28px;
-  background-color: hsl(0, 0%, 15%);
+  height: @item-height;
+  background-color: @background-selected;
   line-height: 23px;
   font-size: 12px;
   padding-left: 5px;
   text-align: center;
   margin: 1px 2px 1px 2px;
 }
+
 .shortcut-button {
   display: inline-block;
   width: 120px;
-  height: 28px;
-  background-color: hsl(0, 0%, 5%);
+  height: @item-height;
+  background-color: @background1;
   line-height: 23px;
   font-size: 12px;
   text-align: center;
   margin: 1px 2px 1px 2px;
 }
+
 .shortcut-button-on:hover {
-  background-color: hsl(0, 0%, 35%);
+  background-color: @background-highlight;
 }
 .shortcut-button:hover {
-  background-color: hsl(0, 0%, 35%);
+  background-color: @background-highlight;
 }
+
+
 .mod-tag-onoff-button:hover {
-  background-color: hsl(0, 0%, 35%);
+  background-color: @background-highlight;
 }
 .mod-tag-onoff-button-on:hover {
-  background-color: hsl(0, 0%, 35%);
+  background-color: @background-highlight;
 }
 .mod-tag-onoff-button-on {
   display: inline-block;
   width: 90px;
-  height: 28px;
-  background-color: hsl(0, 0%, 15%);
+  height: @item-height;
+  background-color: @background-selected;
   line-height: 23px;
   font-size: 12px;
   padding-left: 5px;
@@ -639,8 +725,8 @@ i {
 .mod-tag-onoff-button {
   display: inline-block;
   width: 90px;
-  height: 28px;
-  background-color: hsl(0, 0%, 5%);
+  height: @item-height;
+  background-color: @background1;
   line-height: 23px;
   font-size: 12px;
   text-align: center;

@@ -18,13 +18,13 @@ const LinkConfigModal = ({
   const [shortcut3, setShortcut3] = useState(state.shortcuts[3] === targetNode.url ? 'shortcut-button-on' : 'shortcut-button');
 
   const [idTags, setIdTags] = useState(tagData);
-  const [red, setRed] = useState(tagData.indexOf('red')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
-  const [orange, setOrange] = useState(tagData.indexOf('orange')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
-  const [yellow, setYellow] = useState(tagData.indexOf('yellow')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
-  const [green, setGreen] = useState(tagData.indexOf('green')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
-  const [blue, setBlue] = useState(tagData.indexOf('blue')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
-  const [purple, setPurple] = useState(tagData.indexOf('purple')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
-  const [grey, setGrey] = useState(tagData.indexOf('grey')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
+  const [red, setRed] = useState(tagData.indexOf('red')+1 ? 'mod-tag-onoff-button-on' : 'mod-tag-onoff-button');
+  const [orange, setOrange] = useState(tagData.indexOf('orange')+1 ? 'mod-tag-onoff-button-on' : 'mod-tag-onoff-button');
+  const [yellow, setYellow] = useState(tagData.indexOf('yellow')+1 ? 'mod-tag-onoff-button-on' : 'mod-tag-onoff-button');
+  const [green, setGreen] = useState(tagData.indexOf('green')+1 ? 'mod-tag-onoff-button-on' : 'mod-tag-onoff-button');
+  const [blue, setBlue] = useState(tagData.indexOf('blue')+1 ? 'mod-tag-onoff-button-on' : 'mod-tag-onoff-button');
+  const [purple, setPurple] = useState(tagData.indexOf('purple')+1 ? 'mod-tag-onoff-button-on' : 'mod-tag-onoff-button');
+  const [grey, setGrey] = useState(tagData.indexOf('grey')+1 ? 'mod-tag-onoff-button-on' : 'mod-tag-onoff-button');
 
   const updateChanges = (event) => {
     event.preventDefault();
@@ -173,27 +173,33 @@ const LinkConfigModal = ({
         className='modal-box'
         onClick={e => e.stopPropagation()}
       >
-        <div onClick={() => toggleConfigModal('close')}>
+        <div className='modal-box-close-button'
+          onClick={() => toggleConfigModal('close')}>
           close
         </div>
+        <div className='modal-divider' />
         <form onSubmit={updateChanges}>
-          <label>
-            Title:
-            <input
-              type='text'
-              value={title}
-              onChange={e=> setTitle(e.target.value)}
-            />
-          </label>
-          <label>
-            Url:
-            <input
-              type='text'
-              value={url}
-              onChange={e=> setUrl(e.target.value)}
-            />
-          </label>
           <div>
+            <label>
+              Title:
+              <input
+                type='text'
+                value={title}
+                onChange={e => setTitle(e.target.value)}
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Url:
+              <input
+                type='text'
+                value={url}
+                onChange={e=> setUrl(e.target.value)}
+              />
+            </label>
+          </div>
+          <div className='modal-tags-container'>
             <div
               className={red}
               onClick={() => onPress('red')}
@@ -236,40 +242,150 @@ const LinkConfigModal = ({
             >
               Grey
             </div>
+          </div>
+          <div className='modal-shortcut-container'>
             <div
               className={shortcut1}
               onClick={() => setShortcut('1', )}
             >
-              Set as shortcut #1
+              Set as shortcut 1
             </div>
             <div
               className={shortcut2}
               onClick={() => setShortcut('2')}
             >
-              Set as shortcut #2
+              Set as shortcut 2
             </div>
             <div
               className={shortcut3}
               onClick={() => setShortcut('3', )}
             >
-              Set as shortcut #3
+              Set as shortcut 3
             </div>
           </div>
-          <input type='submit' value='Submit' />
+          <div className='modal-buttons-container'>
+            <button
+              onClick={() => toggleConfigModal('close')}
+            >
+              Cancel
+            </button>
+            <button
+              onClick={tryRemoveById}
+            >
+              Delete Link
+            </button>
+            <input type='submit' value='Submit' />
+          </div>
         </form>
-        <button
-          onClick={() => toggleConfigModal('close')}
-        >
-          Cancel
-        </button>
-        <button
-          onClick={tryRemoveById}
-        >
-          Delete Link
-        </button>
       </div>
     </>
   );
 }
 
 export default LinkConfigModal;
+
+// <>
+//   <div
+//     className='modal-background'
+//     onClick={() => toggleConfigModal('close')}
+//   />
+//   <div
+//     className='modal-box'
+//     onClick={e => e.stopPropagation()}
+//   >
+//     <div onClick={() => toggleConfigModal('close')}>
+//       close
+//     </div>
+//     <form onSubmit={updateChanges}>
+//       <label>
+//         Title:
+//         <input
+//           type='text'
+//           value={title}
+//           onChange={e=> setTitle(e.target.value)}
+//         />
+//       </label>
+//       <label>
+//         Url:
+//         <input
+//           type='text'
+//           value={url}
+//           onChange={e=> setUrl(e.target.value)}
+//         />
+//       </label>
+//       <div>
+//         <div
+//           className={red}
+//           onClick={() => onPress('red')}
+//         >
+//           Red
+//         </div>
+//         <div
+//           className={orange}
+//           onClick={() => onPress('orange')}
+//         >
+//           Orange
+//         </div>
+//         <div
+//           className={yellow}
+//           onClick={() => onPress('yellow')}
+//         >
+//           Yellow
+//         </div>
+//         <div
+//           className={green}
+//           onClick={() => onPress('green')}
+//         >
+//           Green
+//         </div>
+//         <div
+//           className={blue}
+//           onClick={() => onPress('blue')}
+//         >
+//           Blue
+//         </div>
+//         <div
+//           className={purple}
+//           onClick={() => onPress('purple')}
+//         >
+//           Purple
+//         </div>
+//         <div
+//           className={grey}
+//           onClick={() => onPress('grey')}
+//         >
+//           Grey
+//         </div>
+//         <div
+//           className={shortcut1}
+//           onClick={() => setShortcut('1', )}
+//         >
+//           Set as shortcut #1
+//         </div>
+//         <div
+//           className={shortcut2}
+//           onClick={() => setShortcut('2')}
+//         >
+//           Set as shortcut #2
+//         </div>
+//         <div
+//           className={shortcut3}
+//           onClick={() => setShortcut('3', )}
+//         >
+//           Set as shortcut #3
+//         </div>
+//       </div>
+//       <input type='submit' value='Submit' />
+//     </form>
+//     <button
+//       onClick={() => toggleConfigModal('close')}
+//     >
+//       Cancel
+//     </button>
+//     <button
+//       onClick={tryRemoveById}
+//     >
+//       Delete Link
+//     </button>
+//   </div>
+// </>

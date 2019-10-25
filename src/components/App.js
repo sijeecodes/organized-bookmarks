@@ -113,6 +113,11 @@ class App extends React.Component {
     );
   }
 
+  doSetCurrentFolder = (data) => {
+    this.props.setCurrentFolder(data);
+    this.getTree();
+  }
+
   render() {
     return (
       <div className='App'>
@@ -124,7 +129,7 @@ class App extends React.Component {
               updateTree={this.updateTree}
               toggleConfigModal={this.props.toggleConfigModal}
               removeById={this.removeById}
-              setCurrentFolder={this.props.setCurrentFolder}
+              setCurrentFolder={this.doSetCurrentFolder}
               setTags={this.props.setTags}
               setShortcuts={this.props.setShortcuts}
             />
@@ -140,7 +145,7 @@ class App extends React.Component {
         />
         <MainBody
           state={this.props.state}
-          setCurrentFolder={this.props.setCurrentFolder}
+          setCurrentFolder={this.doSetCurrentFolder}
           setMainColumn={this.props.setMainColumn}
           toggleConfigModal={this.props.toggleConfigModal}
           setMainSortType={this.props.setMainSortType}

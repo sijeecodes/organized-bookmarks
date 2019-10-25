@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Option from './Option';
 
 const Tags = ({ tagFilter, setTagFilter }) => {
   const [red, setRed] = useState(tagFilter.indexOf('red')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
@@ -98,42 +99,70 @@ const Tags = ({ tagFilter, setTagFilter }) => {
               onClick={() => onPress('red')}
             >
               Red
+              <Option
+                type={red}
+                target={'tag-onoff-button-on'}
+              />
             </div>
             <div
               className={orange}
               onClick={() => onPress('orange')}
             >
               Orange
+              <Option
+                type={orange}
+                target={'tag-onoff-button-on'}
+              />
             </div>
             <div
               className={yellow}
               onClick={() => onPress('yellow')}
             >
               Yellow
+              <Option
+                type={yellow}
+                target={'tag-onoff-button-on'}
+              />
             </div>
             <div
               className={green}
               onClick={() => onPress('green')}
             >
               Green
+              <Option
+                type={green}
+                target={'tag-onoff-button-on'}
+              />
             </div>
             <div
               className={blue}
               onClick={() => onPress('blue')}
             >
               Blue
+              <Option
+                type={blue}
+                target={'tag-onoff-button-on'}
+              />
             </div>
             <div
               className={purple}
               onClick={() => onPress('purple')}
             >
               Purple
+              <Option
+                type={purple}
+                target={'tag-onoff-button-on'}
+              />
             </div>
             <div
               className={grey}
               onClick={() => onPress('grey')}
             >
               Grey
+              <Option
+                type={grey}
+                target={'tag-onoff-button-on'}
+              />
             </div>
           </div>
         </div>

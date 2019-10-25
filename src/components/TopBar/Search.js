@@ -6,35 +6,31 @@ const Search = ({ searchWord, setSearchWord, searchType, setSearchType }) => {
     setSearchWord(event.target.value);
   };
 
+  const searchTypeSetter = () => {
+    if(searchType === 'default') {
+      setSearchType('bookmark');
+    } else {
+      setSearchType('default');
+    }
+  }
+
+  let buttonClassName = 'search-deep';
+  if(searchType === 'default') {
+    buttonClassName = 'search-deep-off'
+  }
+
   return (
     <div className='search-wrapper'>
       <div className='search-flexbox'>
-        <div className='search-box-container'>
-          Search
-          <div className='search-aligner'>
-            <div className='search-dropdown'>
-              <div
-                className='search-option'
-                onClick={() => setSearchType('default')}
-              >
-                Search just this folder
-                <Option
-                  type={searchType}
-                  target='default'
-                />
-              </div>
-              <div
-                className='search-option'
-                onClick={() => setSearchType('bookmark')}
-              >
-                Search whole Bookmark
-                <Option
-                  type={searchType}
-                  target='bookmark'
-                />
-              </div>
-            </div>
-          </div>
+        <div
+          className={buttonClassName}
+          onClick={() => searchTypeSetter()}
+        >
+          Deep Search
+          <Option
+            type={searchType}
+            target={'bookmark'}
+          />
         </div>
         <input
           className='search-box'

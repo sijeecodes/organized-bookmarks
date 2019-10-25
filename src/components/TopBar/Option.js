@@ -3,13 +3,15 @@ import React from 'react';
 const Option = ({ type, target }) => {
   if(type === target) {
     return (
-      <div className='option-selected'>
-        (O)
+      <div className='option-select'>
+        <i class="check icon"></i>
       </div>
     );
   } else {
     return (
-      <div></div>
+      <div className='option-select-hide'>
+        <i class="check icon"></i>
+      </div>
     );
   }
 };

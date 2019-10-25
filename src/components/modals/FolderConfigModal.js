@@ -20,13 +20,13 @@ const FolderConfigModal = ({
   const [shortcut3, setShortcut3] = useState(state.shortcuts[3] === `#/${targetNode.id}/` ? 'shortcut-button-on' : 'shortcut-button');
 
   const [idTags, setIdTags] = useState(tagData);
-  const [red, setRed] = useState(tagData.indexOf('red')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
-  const [orange, setOrange] = useState(tagData.indexOf('orange')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
-  const [yellow, setYellow] = useState(tagData.indexOf('yellow')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
-  const [green, setGreen] = useState(tagData.indexOf('green')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
-  const [blue, setBlue] = useState(tagData.indexOf('blue')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
-  const [purple, setPurple] = useState(tagData.indexOf('purple')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
-  const [grey, setGrey] = useState(tagData.indexOf('grey')+1 ? 'tag-onoff-button-on' : 'tag-onoff-button');
+  const [red, setRed] = useState(tagData.indexOf('red')+1 ? 'modal-tag-onoff-button-on' : 'modal-tag-onoff-button');
+  const [orange, setOrange] = useState(tagData.indexOf('orange')+1 ? 'modal-tag-onoff-button-on' : 'modal-tag-onoff-button');
+  const [yellow, setYellow] = useState(tagData.indexOf('yellow')+1 ? 'modal-tag-onoff-button-on' : 'modal-tag-onoff-button');
+  const [green, setGreen] = useState(tagData.indexOf('green')+1 ? 'modal-tag-onoff-button-on' : 'modal-tag-onoff-button');
+  const [blue, setBlue] = useState(tagData.indexOf('blue')+1 ? 'modal-tag-onoff-button-on' : 'modal-tag-onoff-button');
+  const [purple, setPurple] = useState(tagData.indexOf('purple')+1 ? 'modal-tag-onoff-button-on' : 'modal-tag-onoff-button');
+  const [grey, setGrey] = useState(tagData.indexOf('grey')+1 ? 'modal-tag-onoff-button-on' : 'modal-tag-onoff-button');
 
   const updateChanges = (event) => {
     event.preventDefault();
@@ -106,65 +106,65 @@ const FolderConfigModal = ({
 
     switch(tag) {
       case 'red': {
-        if(red === 'tag-onoff-button') {
-          setRed('tag-onoff-button-on');
+        if(red === 'modal-tag-onoff-button') {
+          setRed('modal-tag-onoff-button-on');
           break;
         } else {
-          setRed('tag-onoff-button');
+          setRed('modal-tag-onoff-button');
           break;
         }
       }
       case 'orange': {
-        if(orange === 'tag-onoff-button') {
-          setOrange('tag-onoff-button-on');
+        if(orange === 'modal-tag-onoff-button') {
+          setOrange('modal-tag-onoff-button-on');
           break;
         } else {
-          setOrange('tag-onoff-button');
+          setOrange('modal-tag-onoff-button');
           break;
         }
       }
       case 'yellow': {
-        if(yellow === 'tag-onoff-button') {
-          setYellow('tag-onoff-button-on');
+        if(yellow === 'modal-tag-onoff-button') {
+          setYellow('modal-tag-onoff-button-on');
           break;
         } else {
-          setYellow('tag-onoff-button');
+          setYellow('modal-tag-onoff-button');
           break;
         }
       }
       case 'green': {
-        if(green === 'tag-onoff-button') {
-          setGreen('tag-onoff-button-on');
+        if(green === 'modal-tag-onoff-button') {
+          setGreen('modal-tag-onoff-button-on');
           break;
         } else {
-          setGreen('tag-onoff-button');
+          setGreen('modal-tag-onoff-button');
           break;
         }
       }
       case 'blue': {
-        if(blue === 'tag-onoff-button') {
-          setBlue('tag-onoff-button-on');
+        if(blue === 'modal-tag-onoff-button') {
+          setBlue('modal-tag-onoff-button-on');
           break;
         } else {
-          setBlue('tag-onoff-button');
+          setBlue('modal-tag-onoff-button');
           break;
         }
       }
       case 'purple': {
-        if(purple === 'tag-onoff-button') {
-          setPurple('tag-onoff-button-on');
+        if(purple === 'modal-tag-onoff-button') {
+          setPurple('modal-tag-onoff-button-on');
           break;
         } else {
-          setPurple('tag-onoff-button');
+          setPurple('modal-tag-onoff-button');
           break;
         }
       }
       default: {
-        if(grey === 'tag-onoff-button') {
-          setGrey('tag-onoff-button-on');
+        if(grey === 'modal-tag-onoff-button') {
+          setGrey('modal-tag-onoff-button-on');
           break;
         } else {
-          setGrey('tag-onoff-button');
+          setGrey('modal-tag-onoff-button');
           break;
         }
       }
@@ -181,9 +181,11 @@ const FolderConfigModal = ({
         className='modal-box'
         onClick={e => e.stopPropagation()}
       >
-        <div onClick={() => toggleConfigModal('close')}>
+        <div className='modal-box-close-button'
+          onClick={() => toggleConfigModal('close')}>
           close
         </div>
+        <div className='modal-divider' />
         <form onSubmit={updateChanges}>
           <label>
             Title:
@@ -193,7 +195,7 @@ const FolderConfigModal = ({
               onChange={e => setTitle(e.target.value)}
             />
           </label>
-          <div>
+          <div className='modal-tags-container'>
             <div
               className={red}
               onClick={() => onPress('red')}
@@ -237,40 +239,45 @@ const FolderConfigModal = ({
               Grey
             </div>
           </div>
-          <div
-            className={shortcut1}
-            onClick={() => setShortcut('1', )}
-          >
-            Set as shortcut #1
+          <div className='modal-shortcut-container'>
+            <div
+              className={shortcut1}
+              onClick={() => setShortcut('1', )}
+            >
+              Set as shortcut 1
+            </div>
+            <div
+              className={shortcut2}
+              onClick={() => setShortcut('2')}
+            >
+              Set as shortcut 2
+            </div>
+            <div
+              className={shortcut3}
+              onClick={() => setShortcut('3', )}
+            >
+              Set as shortcut 3
+            </div>
           </div>
-          <div
-            className={shortcut2}
-            onClick={() => setShortcut('2')}
-          >
-            Set as shortcut #2
+          <div className='modal-buttons-container'>
+            <button
+              className='modal-delete-button'
+              onClick={tryRemoveById}
+            >
+              <Link
+                to={`/${targetNode.parentId}/${match.params.displayMode}`}
+              >
+              Delete Folder
+              </Link>
+            </button>
+            <input type='submit' value='Submit' />
+            <button
+              onClick={() => toggleConfigModal('close')}
+            >
+              Cancel
+            </button>
           </div>
-          <div
-            className={shortcut3}
-            onClick={() => setShortcut('3', )}
-          >
-            Set as shortcut #3
-          </div>
-          <input type='submit' value='Submit' />
         </form>
-        <button
-          onClick={() => toggleConfigModal('close')}
-        >
-          Cancel
-        </button>
-        <button
-          onClick={tryRemoveById}
-        >
-          <Link
-            to={`/${targetNode.parentId}/${match.params.displayMode}`}
-          >
-          Delete Folder
-          </Link>
-        </button>
       </div>
     </>
   );

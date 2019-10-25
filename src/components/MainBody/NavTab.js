@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Spacer from './Spacer';
+import Spacer from '../Spacer';
 
 const NavTab = ({
   match,
@@ -51,17 +51,22 @@ const NavTab = ({
                   onDragEnd={() => setIsDragging(false)}
                 >
                   {subTree.title}
+                  <div className='nav-tab-item-tail'>
+                    {subTree.children.length}
+                  </div>
+                  <div className='nav-tab-item-config'>
+                    <i
+                      class="cogs icon"
+                      id={`nav-${subTree.id}`}
+                      onClick={e => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        toggleConfigModal(e.target.id);
+                      }}
+                    />
+                  </div>
                 </Link>
-                <div className='nav-tab-item-tail'>
-                  {subTree.children.length}
-                </div>
-                <div
-                  className='nav-tab-item-config'
-                  id={`nav-${subTree.id}`}
-                  onClick={e => toggleConfigModal(e.target.id)}
-                >
-                  (O)
-                </div>
+
               </div>
               { state.isDragging ? (
                 <div

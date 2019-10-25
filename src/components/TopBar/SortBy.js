@@ -2,6 +2,7 @@ import React from 'react';
 import Option from './Option';
 
 const SortBy = ({ mainSortType, setMainSortType }) => {
+  console.log('rendering??', mainSortType);
   return (
     <div className='sort-container'>
       <div className='sort'>
@@ -47,7 +48,3 @@ const SortBy = ({ mainSortType, setMainSortType }) => {
 };
 
 export default SortBy;
-
-// <div className='sort-dropdown'>
-
-// </div>

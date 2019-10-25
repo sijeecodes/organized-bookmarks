@@ -6,18 +6,22 @@ const ColumnAdjust = ({ mainColumn, setMainColumn }) => {
   if(mainColumn > 1) {
     resultHtml.push(
       <div
-        className='column-button'
+        className='column-button-shell-minus'
         onClick={() => setMainColumn(mainColumn - 1)}
       >
-        -
+        <div className='column-button'>
+          <i class='minus icon' fitted='true' />
+        </div>
       </div>
     );
   } else {
     resultHtml.push(
       <div
-        className='column-button-grey'
+        className='column-button-shell-grey-minus'
       >
-        -
+        <div className='column-button'>
+          <i class='minus icon' fitted='true' />
+        </div>
       </div>
     );
   }
@@ -31,18 +35,22 @@ const ColumnAdjust = ({ mainColumn, setMainColumn }) => {
   if(mainColumn > 6) {
     resultHtml.push(
       <div
-        className='column-button-grey'
+        className='column-button-shell-grey'
       >
-      +
+        <div className='column-button'>
+          <i class='plus icon' fitted='true' />
+        </div>
       </div>
     );
   } else {
     resultHtml.push(
       <div
-        className='column-button'
+        className='column-button-shell'
         onClick={() => setMainColumn(mainColumn + 1)}
       >
-      +
+        <div className='column-button'>
+          <i class='plus icon' fitted='true' />
+        </div>
       </div>
     );
   }

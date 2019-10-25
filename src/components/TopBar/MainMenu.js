@@ -1,6 +1,5 @@
 import React from 'react';
 import ColumnAdjust from './ColumnAdjust';
-import Zoom from './Zoom';
 import SortBy from './SortBy';
 import Tags from './Tags';
 import Search from './Search';
@@ -15,8 +14,6 @@ const MainMenu = ({
 }) => {
   return (
     <div className='main-menu'>
-      <Zoom
-      />
       <ColumnAdjust
         mainColumn={state.mainColumn}
         setMainColumn={setMainColumn}

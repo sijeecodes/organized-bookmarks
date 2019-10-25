@@ -11,7 +11,7 @@ const TopBar = ({
   setTagFilter
 }) => {
   return (
-    <div>
+    <div className='top-bar'>
       <NavMenu />
       <MainMenu
         state={state}
