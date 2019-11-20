@@ -4,7 +4,7 @@ const NavMenu = () => {
 
   return (
     <div className='nav-menu'>
-      Org Bookmarks
+      Organized Bookmarks
     </div>
   );
 };
