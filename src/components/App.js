@@ -18,7 +18,7 @@ class App extends React.Component {
     });
 
     chrome.storage.sync.get(['orgBookmarksData'], result => {
-        if(result.length > 0) {
+        if(result.orgBookmarksData) {
           const parsed = JSON.parse(result['orgBookmarksData'])
           this.props.loadSyncedState(parsed);
           window.location = `#/${this.props.state.currentFolder}/${this.props.state.searchType}`;
