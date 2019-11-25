@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Spacer from '../Spacer';
-import findInTree from '../../utils/findInTree';
 
 const NavTab = ({
   match,
