@@ -17,9 +17,10 @@ class App extends React.Component {
       this.props.initiateState(tree);
     });
 
-    chrome.storage.sync.get(['orgBookmarksData'], result => {
-        if(result.orgBookmarksData) {
-          const parsed = JSON.parse(result['orgBookmarksData'])
+    chrome.storage.sync.get(['orBData'], result => {
+        if(result.orBData) {
+          const parsed = JSON.parse(result['orBData']);
+          console.log('components/App - parsed data: ', parsed);
           this.props.loadSyncedState(parsed);
           window.location = `#/${this.props.state.currentFolder}/${this.props.state.searchType}`;
         }
@@ -71,9 +72,7 @@ class App extends React.Component {
     chrome.bookmarks.getTree(tree => {
       this.props.initiateState(tree);
 
-      console.log('saving....');
-
-      const orgData = {
+      const orBData = {
         currentFolder: this.props.state.currentFolder,
         openFolders: this.props.state.openFolders,
         mainColumn: this.props.state.mainColumn,
@@ -85,8 +84,8 @@ class App extends React.Component {
         shortcuts: this.props.state.shortcuts,
       };
 
-      chrome.storage.sync.set({orgBookmarksData: JSON.stringify(orgData)}, () => {
-        console.log('setting state data ', JSON.stringify(orgData));
+      chrome.storage.sync.set({orBData: JSON.stringify(orBData)}, () => {
+        console.log('components/App - setting state data ', orBData, JSON.stringify(orBData));
       });
     });
   };
@@ -105,6 +104,7 @@ class App extends React.Component {
   };
 
   moveBookmark = (id, targetParentId, targetIndex) => {
+    if(targetParentId)
     chrome.bookmarks.move(
       id,
       {

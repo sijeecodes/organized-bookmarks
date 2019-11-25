@@ -80,8 +80,6 @@ const sortList = (originalList, criteriaName) => {
     }
     return arr[0];
   }
-  console.log('checking merge sort', folders, links);
-
 
   return [...mergeSort(folders), ...mergeSort(links)];
 };

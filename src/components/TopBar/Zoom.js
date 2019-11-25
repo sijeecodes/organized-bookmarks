@@ -5,7 +5,7 @@ const Zoom = () => {
     <div className='zoom'>
       <div
         className='zoom-out-button'
-        onClick={() => console.log('out')} // zoomOut()}
+        onClick={() => console.log('zoom out')} // zoomOut()}
       >
       -
       </div>
@@ -14,7 +14,7 @@ const Zoom = () => {
       </div>
       <div
         className='zoom-in-button'
-        onClick={() => console.log('in')} // zoomIn()}
+        onClick={() => console.log('zoom in')} // zoomIn()}
       >
       +
       </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import Option from './Option';
 
 const SortBy = ({ mainSortType, setMainSortType }) => {
-  console.log('rendering??', mainSortType);
+  console.log('components/TopBar/SortBy - rendering??', mainSortType);
   return (
     <div className='sort-container'>
       <div className='sort'>
