@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Spacer from '../Spacer';
+import findInTree from '../../utils/findInTree';
 
 const NavTab = ({
   match,
@@ -16,7 +17,9 @@ const NavTab = ({
     const onDropEvent = (event, targetParentId, targetIndex) => {
       event.stopPropagation();
       const temp = state.isDragging.split('-');
-      moveBookmark(temp[temp.length-1], targetParentId, targetIndex);
+      if(targetIndex) {
+        moveBookmark(temp[temp.length-1], targetParentId, targetIndex);
+      }
       setIsDragging(false);
     }
 
