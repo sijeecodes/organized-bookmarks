@@ -57,19 +57,12 @@ const reducers = (state = initialState, action) => {
       case 'SET_CURRENT_FOLDER': {
         let tempState = state;
         const newOpenFolders = state.openFolders;
-        if(action.data === state.currentFolder) {
-          if(state.openFolders.indexOf(action.data) !== -1) {
-            newOpenFolders.splice(state.openFolders.indexOf(action.data), 1);
-          } else {
-            newOpenFolders.push(action.data);
-          }
-          tempState = newState(state, 'openFolders', newOpenFolders);
-        } else {
-          if(state.openFolders.indexOf(action.data) === -1) {
-            newOpenFolders.push(action.data);
-          }
-          tempState = newState(state, 'openFolders', newOpenFolders);
+        if(action.data === state.currentFolder && state.openFolders.indexOf(action.data) !== -1) {
+          newOpenFolders.splice(state.openFolders.indexOf(action.data), 1);
+        } else if(state.openFolders.indexOf(action.data) === -1) {
+          newOpenFolders.push(action.data);
         }
+        tempState = newState(state, 'openFolders', newOpenFolders);
         return newState(tempState, 'currentFolder', action.data);
       }
       case 'SET_MAIN_COLUMN': {

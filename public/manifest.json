@@ -2,12 +2,12 @@
   "manifest_version": 2,
 
   "name": "Org Bookmarks",
-  "description": "Open a new tab with Org Bookmarks based on your bookmarks. Default launch shortcut is 'ALT+S' or 'CONTROL+S' for macs.",
+  "description": "Open a new tab with Organized Bookmarks based on your bookmarks. Default launch shortcut is 'ALT+S' or 'CONTROL+S' for Macs.",
   "version": "0.0.1",
 
   "browser_action": {
     "default_popup": "index.html",
-    "default_title": "New tab with Org Bookmarks"
+    "default_title": "New tab with Organized Bookmarks"
   },
 
   "commands": {
@@ -16,7 +16,7 @@
         "default": "Alt+S",
         "mac": "MacCtrl+S"
       },
-      "description": "Open a new tab with Org Bookmarks"
+      "description": "Open a new tab with Organized Bookmarks"
     },
     "shortcut1": {
       "suggested_key": {

@@ -117,7 +117,7 @@ class App extends React.Component {
 
   doSetCurrentFolder = (data) => {
     this.props.setCurrentFolder(data);
-    this.getTree();
+    // this.getTree(); need to update chrome.sync
   }
 
   render() {

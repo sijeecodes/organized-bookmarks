@@ -502,6 +502,12 @@ i {
   flex: 1;
   height: 28px;
   margin: 3px 5px 0 0;
+  background-color: inherit;
+  border: none;
+  outline: none;
+}
+.search-box:focus {
+  border: 1px solid white;
 }
 /************************************/
 .modal-hidden {
