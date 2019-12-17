@@ -84,6 +84,16 @@ const mapDispatchToProps = dispatch => {
         type: 'SET_SHORTCUTS',
         data
       });
+    },
+    openAllNavFolders() {
+      dispatch({
+        type: 'OPEN_ALL_NAV_FOLDERS'
+      });
+    },
+    closeAllNavFolders() {
+      dispatch({
+        type: 'CLOSE_ALL_NAV_FOLDERS'
+      })
     }
   };
 };

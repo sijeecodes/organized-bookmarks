@@ -33,31 +33,18 @@ const MainDefault = ({
     console.log('components/MaindBody/MainDefault - first state. ', state);
     if(state.searchType === 'default') {
       subTree = findInTree(state.tree, match.params.id);
-      console.log('components/MaindBody/MainDefault - foundInTree. ', subTree);
-
       subTree = searchInTree(subTree.children, state.searchWord);
-      console.log('components/MaindBody/MainDefault - searchedInTree. ', subTree);
-
     } else {
-      console.log('components/MaindBody/MainDefault - trying to get whole tree');
-
       subTree = searchWholeTree(state.tree[0].children, state.searchWord);
-      console.log('components/MaindBody/MainDefault - subtree', subTree);
     }
 
     if(state.tagFilter.length > 0) {
-      console.log('components/MaindBody/MainDefault - before filter', subTree, state.tags, state.tagFilter);
-
       subTree = filterByTags(subTree, state.tags, state.tagFilter);
-      console.log('components/MaindBody/MainDefault - filtered', subTree);
     }
 
     if(subTree.length > 0) {
       subTree = setFavicon(subTree);
-      console.log('components/MaindBody/MainDefault - before sorting list ', subTree, state.mainSortType);
-
       subTree = sortList(subTree, state.mainSortType);
-      console.log('components/MaindBody/MainDefault - sorted list', subTree, state.mainSortType);
     }
 
     let addedUpHtml = [];

@@ -103,6 +103,22 @@ const reducers = (state = initialState, action) => {
       case 'SET_SHORTCUTS': {
         return newState(state, 'shortcuts', action.data);
       }
+      case 'OPEN_ALL_NAV_FOLDERS': {
+        let tempOpenFolders = [];
+        const searchFolders = (tree) => {
+          for(let i = 0; i < tree.length; i++) {
+            if(tree[i].children) {
+              tempOpenFolders.push(tree[i].id);
+              searchFolders(tree[i].children);
+            }
+          }
+        }
+        searchFolders(state.tree);
+        return newState(state, 'openFolders', tempOpenFolders);
+      }
+      case 'CLOSE_ALL_NAV_FOLDERS': {
+        return newState(state, 'openFolders', ["0"]);
+      }
       default:
         return state;
     }

@@ -148,6 +148,8 @@ class App extends React.Component {
           setSearchWord={this.props.setSearchWord}
           setSearchType={this.props.setSearchType}
           setTagFilter={this.doSetTagFilter}
+          openAllNavFolders={this.props.openAllNavFolders}
+          closeAllNavFolders={this.props.closeAllNavFolders}
         />
         <MainBody
           state={this.props.state}

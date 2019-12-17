@@ -234,8 +234,17 @@ i {
   left: 0;
   line-height: 31px;
   background-color: hsl(0, 0%, 5%);
-  padding-left: 10px;
+  padding-left: 8px;
   font-weight: bold;
+}
+.nav-menu-button {
+  display: inline-block;
+  width: 35px;
+  height: 32px;
+  line-height: 31px;
+  float: right;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 .main-menu {
   width: 75%;

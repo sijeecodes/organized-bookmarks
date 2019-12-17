@@ -8,11 +8,16 @@ const TopBar = ({
   setMainSortType,
   setSearchWord,
   setSearchType,
-  setTagFilter
+  setTagFilter,
+  openAllNavFolders,
+  closeAllNavFolders
 }) => {
   return (
     <div className='top-bar'>
-      <NavMenu />
+      <NavMenu
+        openAllNavFolders={openAllNavFolders}
+        closeAllNavFolders={closeAllNavFolders}
+      />
       <MainMenu
         state={state}
         setMainColumn={setMainColumn}
