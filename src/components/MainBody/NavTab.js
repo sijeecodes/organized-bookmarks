@@ -25,9 +25,7 @@ const NavTab = ({
     const drawNavTab = (subTree, depth) => {
       if(state.openFolders.indexOf(subTree.parentId) !== -1 ||
       subTree.id === '0') {
-        console.log('components/MainBody/NavTab - subtree', subTree);
         if(subTree.children && subTree.parentId) {
-
           let navTabClassName = 'nav-tab-item';
           if(state.currentFolder === subTree.id) {
             navTabClassName = 'nav-tab-item-over';

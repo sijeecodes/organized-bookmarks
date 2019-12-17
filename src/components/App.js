@@ -9,10 +9,10 @@ import MainBody from './MainBody';
 
 class App extends React.Component {
   componentDidMount() {
-    this.firstGetTree();
+    this.atFirstLoad();
   }
 
-  firstGetTree = () => {
+  atFirstLoad = () => {
     chrome.bookmarks.getTree(tree => {
       this.props.initiateState(tree);
     });
@@ -29,78 +29,55 @@ class App extends React.Component {
 
     chrome.commands.onCommand.addListener(command => {
       switch(command) {
-        case 'shortcut2': {
-          if(this.props.state.shortcuts[2]) {
-            let flag = this.props.state.shortcuts[2].split('/');
-
-            if(flag[0] === '#') {
-              window.location = `#/${flag[1]}/${this.props.state.searchType}`;
-            } else {
-              window.location = this.props.state.shortcuts[2];
-            }
-          }
+        case 'shortcut2':
+          this.goToShortcut(this.props.state.shortcuts[2]);
           break;
-        }
-        case 'shortcut3': {
-          if(this.props.state.shortcuts[3]) {
-            let flag = this.props.state.shortcuts[3].split('/');
-
-            if(flag[0] === '#') {
-              window.location = `#/${flag[1]}/${this.props.state.searchType}`;
-            } else {
-              window.location = this.props.state.shortcuts[3];
-            }
-          }
+        case 'shortcut3':
+          this.goToShortcut(this.props.state.shortcuts[3]);
           break;
-        }
-        default: {
-          if(this.props.state.shortcuts[1]) {
-            let flag = this.props.state.shortcuts[1].split('/');
-
-            if(flag[0] === '#') {
-              window.location = `#/${flag[1]}/${this.props.state.searchType}`;
-            } else {
-              window.location = this.props.state.shortcuts[1];
-            }
-          }
-        }
+        default:
+          this.goToShortcut(this.props.state.shortcuts[1]);
       }
     });
   }
 
+  doSetCurrentFolder = (data) => {
+    this.props.setCurrentFolder(data);
+    this.updateStorage('currentFolder', data);
+  };
+
+  doSetMainSortType = (data) => {
+    this.props.setMainSortType(data);
+    this.updateStorage('mainSortType', data);
+  };
+
+  doSetMainColumn = (data) => {
+    this.props.setMainColumn(data);
+    this.updateStorage('mainColumn', data);
+  };
+
+  doSetTagFilter = (data) => {
+    this.props.setTagFilter(data);
+    this.updateStorage('tagFilter', data);
+  };
+
   getTree = () => {
     chrome.bookmarks.getTree(tree => {
       this.props.initiateState(tree);
-
-      const orBData = {
-        currentFolder: this.props.state.currentFolder,
-        openFolders: this.props.state.openFolders,
-        mainColumn: this.props.state.mainColumn,
-        mainSortType: this.props.state.mainSortType,
-        searchWord: this.props.state.searchWord,
-        searchType: this.props.state.searchType,
-        tags: this.props.state.tags,
-        tagFilter: this.props.state.tagFilter,
-        shortcuts: this.props.state.shortcuts,
-      };
-
-      chrome.storage.sync.set({orBData: JSON.stringify(orBData)}, () => {
-        console.log('components/App - setting state data ', orBData, JSON.stringify(orBData));
-      });
+      this.updateStorage();
     });
   };
 
-  updateTree = ({ isLink, id, title, url }) => {
-    if(isLink){
-      chrome.bookmarks.update(id, {title, url}, this.getTree);
-    } else {
-      chrome.bookmarks.update(id, {title}, this.getTree);
-    }
-  };
+  goToShortcut = (shortcut) => {
+    if(shortcut) {
+      let targetData = shortcut.split('/');
 
-  removeById = (id) => {
-    this.props.deleteFolder(id);
-    chrome.bookmarks.remove(id, this.getTree);
+      if(targetData[0] === '#') {
+        window.location = `#/${targetData[1]}/${this.props.state.searchType}`;
+      } else {
+        window.location = shortcut;
+      }
+    }
   };
 
   moveBookmark = (id, targetParentId, targetIndex) => {
@@ -113,12 +90,39 @@ class App extends React.Component {
       },
       this.getTree
     );
-  }
+  };
 
-  doSetCurrentFolder = (data) => {
-    this.props.setCurrentFolder(data);
-    // this.getTree(); need to update chrome.sync
-  }
+  removeById = (id) => {
+    this.props.deleteFolder(id);
+    chrome.bookmarks.remove(id, this.getTree);
+  };
+
+  updateStorage = (dataName, data) => {
+    const orBData = {
+      currentFolder: this.props.state.currentFolder,
+      openFolders: this.props.state.openFolders,
+      mainColumn: this.props.state.mainColumn,
+      mainSortType: this.props.state.mainSortType,
+      tags: this.props.state.tags,
+      tagFilter: this.props.state.tagFilter,
+      shortcuts: this.props.state.shortcuts,
+    };
+    if(dataName) {
+      orBData[dataName] = data;
+    }
+
+    chrome.storage.sync.set({orBData: JSON.stringify(orBData)}, () => {
+      console.log('components/App - setting state data ', orBData, JSON.stringify(orBData));
+    });
+  };
+
+  updateTree = ({ isLink, id, title, url }) => {
+    if(isLink){
+      chrome.bookmarks.update(id, {title, url}, this.getTree);
+    } else {
+      chrome.bookmarks.update(id, {title}, this.getTree);
+    }
+  };
 
   render() {
     return (
@@ -139,18 +143,18 @@ class App extends React.Component {
         />
         <TopBar
           state={this.props.state}
-          setMainColumn={this.props.setMainColumn}
-          setMainSortType={this.props.setMainSortType}
+          setMainColumn={this.doSetMainColumn}
+          setMainSortType={this.doSetMainSortType}
           setSearchWord={this.props.setSearchWord}
           setSearchType={this.props.setSearchType}
-          setTagFilter={this.props.setTagFilter}
+          setTagFilter={this.doSetTagFilter}
         />
         <MainBody
           state={this.props.state}
           setCurrentFolder={this.doSetCurrentFolder}
-          setMainColumn={this.props.setMainColumn}
+          setMainColumn={this.doSetMainColumn}
           toggleConfigModal={this.props.toggleConfigModal}
-          setMainSortType={this.props.setMainSortType}
+          setMainSortType={this.doSetMainSortType}
           setSearchWord={this.props.setSearchWord}
           setIsDragging={this.props.setIsDragging}
           moveBookmark={this.moveBookmark}

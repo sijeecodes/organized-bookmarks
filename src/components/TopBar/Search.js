@@ -8,7 +8,7 @@ const Search = ({ searchWord, setSearchWord, searchType, setSearchType }) => {
 
   const searchTypeSetter = () => {
     if(searchType === 'default') {
-      setSearchType('bookmark');
+      setSearchType('deepSearch');
     } else {
       setSearchType('default');
     }
@@ -29,7 +29,7 @@ const Search = ({ searchWord, setSearchWord, searchType, setSearchType }) => {
           Deep Search
           <Option
             type={searchType}
-            target={'bookmark'}
+            target={'deepSearch'}
           />
         </div>
         <input
