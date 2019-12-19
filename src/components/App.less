@@ -105,6 +105,11 @@ i {
   transition: all .5s ease;
 }
 
+.nav-tab-item-title {
+  display: inline-block;
+  margin-left: 2px;
+}
+
 .nav-tab-item-tail {
   position: absolute;
   top: 0;
@@ -214,7 +219,17 @@ i {
   text-overflow: ellipsis;
   white-space: nowrap;
   color: @default-color;
-  margin: 3px 0 0 7px;
+  margin: 3px 0 0 5px;
+}
+
+.main-item-folder-title {
+  .main-item-title();
+  margin: 3px 0 0 3px;
+}
+
+.main-item-folder-icon {
+  margin: 3px 0 0 3px;
+  color: @default-color;
 }
 
 /**********************************/
@@ -283,12 +298,17 @@ i {
 
 .nav-menu-button {
   display: inline-block;
-  width: 35px;
+  width: 26px;
   height: @top-menu-height;
   line-height: 31px;
   float: right;
-  margin-left: 3px;
-  margin-right: 3px;
+  padding-left: 6px;
+  padding-right: 3px;
+}
+
+.nav-menu-button:hover {
+  background: @background-highlight;
+  color: white;
 }
 
 .main-menu {

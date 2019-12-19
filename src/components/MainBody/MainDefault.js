@@ -81,7 +81,7 @@ const MainDefault = ({
             <ItemTag />
             <div className='main-item-config'>
               <i
-                class="cogs icon"
+                className="cogs icon"
                 id={`main-${subTree[i].id}`}
                 onClick={e => {
                   e.preventDefault();
@@ -108,13 +108,16 @@ const MainDefault = ({
               onDrop={e => onDropEvent(e, subTree[i].parentId, subTree[i].index)}
               onDragEnd={() => setIsDragging(false)}
             >
-              <div className='main-item-title'>
+              <div className='main-item-folder-icon'>
+                <i className="folder icon"></i>
+              </div>
+              <div className='main-item-folder-title'>
                 {subTree[i].title}
               </div>
             </Link>
             <div className='main-item-config'>
               <i
-                class="cogs icon"
+                className="cogs icon"
                 id={`main-${subTree[i].id}`}
                 onClick={e => {
                   e.preventDefault();

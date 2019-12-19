@@ -82,6 +82,10 @@ i {
   opacity: 1;
   transition: all 0.5s ease;
 }
+.nav-tab-item-title {
+  display: inline-block;
+  margin-left: 2px;
+}
 .nav-tab-item-tail {
   position: absolute;
   top: 0;
@@ -179,7 +183,21 @@ i {
   text-overflow: ellipsis;
   white-space: nowrap;
   color: hsl(0, 0%, 85%);
-  margin: 3px 0 0 7px;
+  margin: 3px 0 0 5px;
+}
+.main-item-folder-title {
+  flex: 1;
+  /* display: inline-block; */
+  margin: 0 0 3px 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: hsl(0, 0%, 85%);
+  margin: 3px 0 0 5px;
+  margin: 3px 0 0 3px;
+}
+.main-item-folder-icon {
+  margin: 3px 0 0 3px;
+  color: hsl(0, 0%, 85%);
 }
 /**********************************/
 .zoom {
@@ -239,12 +257,16 @@ i {
 }
 .nav-menu-button {
   display: inline-block;
-  width: 35px;
+  width: 26px;
   height: 32px;
   line-height: 31px;
   float: right;
-  margin-left: 3px;
-  margin-right: 3px;
+  padding-left: 6px;
+  padding-right: 3px;
+}
+.nav-menu-button:hover {
+  background: hsl(0, 0%, 35%);
+  color: white;
 }
 .main-menu {
   width: 75%;

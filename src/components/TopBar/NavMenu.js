@@ -1,7 +1,7 @@
 import React from 'react';
 
 const NavMenu = ({ openAllNavFolders, closeAllNavFolders }) => {
-  
+
 
   return (
     <div className='nav-menu'>
@@ -10,13 +10,13 @@ const NavMenu = ({ openAllNavFolders, closeAllNavFolders }) => {
         className='nav-menu-button'
         onClick={openAllNavFolders}
       >
-        open
+        <i className='chevron down icon' />
       </div>
       <div
         className='nav-menu-button'
         onClick={closeAllNavFolders}
       >
-        close
+        <i className='chevron up icon' />
       </div>
     </div>
   );
