@@ -3,61 +3,60 @@ import React from 'react';
 const ColumnAdjust = ({ mainColumn, setMainColumn }) => {
 
   let resultHtml = [];
+
   if(mainColumn > 1) {
     resultHtml.push(
       <div
-        className='column-button-shell-minus'
+        className='column-option-left'
         onClick={() => setMainColumn(mainColumn - 1)}
       >
-        <div className='column-button'>
-          <i class='minus icon' fitted='true' />
-        </div>
+        <i class='minus square outline icon' fitted='true' />
       </div>
     );
   } else {
     resultHtml.push(
-      <div
-        className='column-button-shell-grey-minus'
-      >
-        <div className='column-button'>
-          <i class='minus icon' fitted='true' />
-        </div>
+      <div className='column-option-left-grey'>
+        <i class='minus square outline icon' fitted='true' />
       </div>
     );
   }
 
   resultHtml.push(
-    <div className='column-title'>
-      Column
+    <div className='column-content'>
+      {mainColumn}
     </div>
   );
 
-  if(mainColumn > 6) {
+  if(mainColumn < 6) {
     resultHtml.push(
       <div
-        className='column-button-shell-grey'
+        className='column-option-right'
+        onClick={() => setMainColumn(mainColumn + 1)}
       >
-        <div className='column-button'>
-          <i class='plus icon' fitted='true' />
-        </div>
+        <i class='plus square outline icon' fitted='true' />
       </div>
     );
   } else {
     resultHtml.push(
-      <div
-        className='column-button-shell'
-        onClick={() => setMainColumn(mainColumn + 1)}
-      >
-        <div className='column-button'>
-          <i class='plus icon' fitted='true' />
-        </div>
+      <div className='column-option-right-grey'>
+        <i class='plus square outline icon' fitted='true' />
       </div>
     );
   }
 
   return (
-    <div className='column'>
-      {resultHtml}
+    <div className='column-container'>
+      <div className='column'>
+        <i class='columns icon' fitted='true' />
+        <div className='top-bar-dropdown-aligner'>
+          <div className='column-dropdown'>
+            <div className='column-title'>
+              Columns
+            </div>
+            {resultHtml}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

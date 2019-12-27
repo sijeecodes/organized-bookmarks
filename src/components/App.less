@@ -1,5 +1,6 @@
 @item-height: 28px;
 @top-menu-height: 32px;
+@top-menu-width: 32px;
 @button-default-width: 75px;
 @background1: hsl(0, 0%, 5%);
 @background2: hsl(0, 0%, 20%);
@@ -12,7 +13,10 @@ i {
   text-align: center;
   vertical-align: top;
   overflow: visible;
+}
 
+* {
+  user-select: none;
 }
 
 .App {
@@ -130,8 +134,7 @@ i {
   height: @item-height;
   text-align: center;
   opacity: 0;
-  margin-right: 2px;
-  padding-top: 3px;
+  padding-top: 1px;
   z-index: 1;
 }
 
@@ -164,7 +167,7 @@ i {
   flex: 1;
   background-color: @background3;
   color: @default-color;
-  padding-right: 7px;
+  padding-right: 4px;
 }
 
 .main-item-wrapper:hover {
@@ -198,7 +201,7 @@ i {
   display: block;
   height: @item-height;
   width: 0px;
-  text-align: center;
+  text-align: right;
   opacity: 0;
   background: @background-highlight;
   overflow: hidden;
@@ -214,7 +217,6 @@ i {
 
 .main-item-title {
   flex: 1;
-  /* display: inline-block; */
   margin: 0 0 3px 5px;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -233,48 +235,6 @@ i {
 }
 
 /**********************************/
-
-.zoom {
-  display: inline-block;
-  border: 1px solid blue;
-  height: @item-height;
-  width: 100px;
-  text-align: center;
-}
-
-.zoom:hover .zoom-out-button {
-  opacity: 1;
-  transition: all .3s ease;
-}
-
-.zoom:hover .zoom-in-button {
-  opacity: 1;
-  transition: all .3s ease;
-}
-
-.zoom-out-button {
-  display: inline-block;
-  opacity: 0;
-  border: 1px solid pink;
-  width: 20px;
-  heigth: @item-height;
-}
-
-.zoom-title {
-  display: inline-block;
-  border: 1px solid red;
-  width: 55px;
-  height: @item-height;
-}
-
-.zoom-in-button {
-  display: inline-block;
-  opacity: 0;
-  border: 1px solid pink;
-  width: 20px;
-  heigth: @item-height;
-}
-
 .top-bar {
   width: 100%;
   height: @top-menu-height;
@@ -284,6 +244,19 @@ i {
   box-shadow: 0 3px 4px @background-selected;
   z-index: 1;
 }
+
+.top-bar-dropdown-aligner {
+  width: 100%;
+  text-align: left;
+}
+
+.top-bar-dropdowns {
+  display: none;
+  position: fixed;
+  width: 120px;
+  transform: translate(-1px, 1px);
+}
+
 .nav-menu {
   width: 25%;
   height: @top-menu-height;
@@ -298,12 +271,11 @@ i {
 
 .nav-menu-button {
   display: inline-block;
-  width: 26px;
+  width: @top-menu-width;
   height: @top-menu-height;
-  line-height: 31px;
   float: right;
-  padding-left: 6px;
-  padding-right: 3px;
+  text-align: center;
+  padding-left: 5px;
 }
 
 .nav-menu-button:hover {
@@ -321,99 +293,86 @@ i {
   background-color: @background1;
 }
 
-.column {
+.column-container {
   float: left;
   vertical-align: top;
+  width: @top-menu-width;
   height: @top-menu-height;
-  width: 89px;
   text-align: center;
-  line-height: 12px;
-  margin-left: 7px;
+  font-size: 20px;
 }
 
-.column:hover .column-button-shell {
-  opacity: 1;
-  transition: all .3s ease;
+.column {
+  display: inline-block;
+  width: @top-menu-width;
+  height: @top-menu-height;
+  padding: 5px 0 0 4px;
+  &:hover {
+    background: @background-highlight;
+  };
+  &:hover .column-dropdown {
+    display: inline-block;
+  }
 }
 
-.column:hover .column-button-shell-grey {
-  opacity: .5;
-  transition: all .3s ease;
-}
-
-.column:hover .column-button-shell-minus {
-  opacity: 1;
-  transition: all .3s ease;
-}
-
-.column:hover .column-button-shell-grey-minus {
-  opacity: .5;
-  transition: all .3s ease;
+.column-dropdown {
+  display: none;
+  position: fixed;
+  text-align: center;
+  width: 90px;
+  transform: translate(-4px, 6px);
+  background: @background1;
 }
 
 .column-title {
-  // display: inline-block;
-  float: left;
-  vertical-align: top;
-  width: 55px;
-  padding-top: 9px;
-  height: @top-menu-height;
+  display: inline-block;
+  font-size: 13px;
   font-weight: 600;
+  width: 90px;
+  text-align: left;
+  padding: 5px 0 0 9px;
 }
 
-.column-button {
-  display: block;
-  width: 15px;
-  height: 15px;
-  line-height: 10px;
-  margin-bottom: 6px;
-  font-size: 10px;
-  border-radius: 3px;
+.column-content {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  width: 25px;
+  height: @top-menu-height;
+  padding-top: 5px;
+  vertical-align: bottom;
 }
-.column-button-shell {
+
+.column-option-left {
   float: left;
-  vertical-align: top;
-  opacity: 0;
-  width: 16px;
-  heigth: 32px;
-  padding-top: 10px;
-  text-align: center;
-  background: @background-highlight;
+  width: @top-menu-width;
+  height: @top-menu-height;
+  padding: 5px 0 0 4px;
+  vertical-align: bottom;
+  &:hover {
+    background: @background-highlight;
+  }
 }
-.column-button-shell-minus {
-  float: left;
-  vertical-align: top;
-  opacity: 0;
-  width: 16px;
-  heigth: 32px;
-  padding-top: 10px;
-  background: @background-highlight;
+
+.column-option-left-grey {
+  .column-option-left;
+  color: @background2;
+  &:hover {
+    background: @background1;
+  }
 }
-.column-button-shell-grey {
-  float: left;
-  vertical-align: top;
-  opacity: 0;
-  color: @background-highlight;
-  background: hsl(0, 0%, 7%);
-  width: 16px;
-  heigth: 32px;
-  padding-top: 10px;
+
+.column-option-right {
+  .column-option-left;
+  float: right;
 }
-.column-button-shell-grey:hover {
-  background: hsl(0, 0%, 7%);
-}
-.column-button-shell-grey-minus {
-  float: left;
-  vertical-align: top;
-  opacity: 0;
-  color: @background-highlight;
-  background: hsl(0, 0%, 7%);
-  width: 16px;
-  heigth: 32px;
-  padding-top: 10px;
-}
-.column-button-shell-grey-minus:hover {
-  background: hsl(0, 0%, 7%);
+
+.column-option-right-grey {
+  .column-option-right;
+  color: @background2;
+  &:hover {
+    background: @background1;
+  }
 }
 
 .sort-container {
@@ -430,12 +389,12 @@ i {
   width: @button-default-width;
   height: @top-menu-height;
   font-weight: 600;
-}
-.sort:hover {
-  background: @background-highlight;
-}
-.sort:hover .sort-dropdown {
-  display: block;
+  &:hover {
+    background: @background-highlight;
+  }
+  &:hover .sort-dropdown {
+    display: block;
+  }
 }
 
 .sort-aligner {
@@ -457,10 +416,9 @@ i {
   line-height: 23px;
   font-size: 12px;
   padding-left: 5px;
-}
-
-.sort-option:hover {
-  background: @background-highlight;
+  &:hover {
+    background: @background-highlight;
+  }
 }
 
 .option-select {
@@ -491,13 +449,12 @@ i {
   height: @top-menu-height;
   text-align: center;
   font-weight: 600;
-}
-
-.tag:hover .tag-dropdown {
-  display: block;
-}
-.tag:hover {
-  background-color: @background-highlight;
+  &:hover {
+    background-color: @background-highlight;
+  }
+  &:hover .tag-dropdown {
+    display: block;
+  }
 }
 
 .tag-aligner {
@@ -506,10 +463,8 @@ i {
 }
 
 .tag-dropdown {
-  display: none;
-  position: fixed;
+  .top-bar-dropdowns;
   width: 90px;
-  transform: translate(-1px, 1px);
 }
 
 .tag-onoff-button {
@@ -519,9 +474,9 @@ i {
   line-height: 23px;
   font-size: 12px;
   padding-left: 5px;
-}
-.tag-onoff-button:hover {
-  background-color: @background-highlight;
+  &:hover {
+    background-color: @background-highlight;
+  }
 }
 
 .tag-onoff-button-on {
@@ -582,10 +537,11 @@ i {
   text-align: left;
   font-weight: 600;
   padding-left: 7px;
+  &:hover {
+    background-color: @background-highlight;
+  }
 }
-.search-deep-off:hover {
-  background-color: @background-highlight;
-}
+
 .search-deep {
   margin-top: 4px;
   display: block;
@@ -595,10 +551,11 @@ i {
   text-align: left;
   font-weight: 600;
   padding-left: 7px;
+  &:hover {
+    background-color: @background-highlight;
+  }
 }
-.search-deep:hover {
-  background-color: @background-highlight;
-}
+
 .search-box {
   flex: 1;
   height: @item-height;
@@ -651,13 +608,11 @@ i {
   font-size: 12px;
   text-align: center;
   margin: 1px 2px 1px 2px;
+  &:hover {
+    background-color: @background-highlight;
+  }
 }
-.modal-tag-onoff-button:hover {
-  background-color: @background-highlight;
-}
-.modal-tag-onoff-button-on:hover {
-  background-color: @background-highlight;
-}
+
 .modal-tag-onoff-button-on {
   display: inline-block;
   width: 90px;
@@ -668,6 +623,9 @@ i {
   padding-left: 5px;
   text-align: center;
   margin: 1px 2px 1px 2px;
+  &:hover {
+    background-color: @background-highlight;
+  }
 }
 
 .modal-box-close-button {
@@ -677,11 +635,11 @@ i {
   height: @item-height;
   background-color: @background1;
   text-align: center;
+  &:hover {
+    background-color: @background-highlight;
+  }
 }
 
-.modal-box-close-button:hover {
-  background-color: @background-highlight;
-}
 .modal-divider {
   display: block;
   width: 100%;
@@ -720,6 +678,9 @@ i {
   padding-left: 5px;
   text-align: center;
   margin: 1px 2px 1px 2px;
+  &:hover {
+    background-color: @background-highlight;
+  }
 }
 
 .shortcut-button {
@@ -731,22 +692,11 @@ i {
   font-size: 12px;
   text-align: center;
   margin: 1px 2px 1px 2px;
+  &:hover {
+    background-color: @background-highlight;
+  }
 }
 
-.shortcut-button-on:hover {
-  background-color: @background-highlight;
-}
-.shortcut-button:hover {
-  background-color: @background-highlight;
-}
-
-
-.mod-tag-onoff-button:hover {
-  background-color: @background-highlight;
-}
-.mod-tag-onoff-button-on:hover {
-  background-color: @background-highlight;
-}
 .mod-tag-onoff-button-on {
   display: inline-block;
   width: 90px;
@@ -757,6 +707,9 @@ i {
   padding-left: 5px;
   text-align: center;
   margin: 1px 2px 1px 2px;
+  &:hover {
+    background-color: @background-highlight;
+  }
 }
 .mod-tag-onoff-button {
   display: inline-block;
@@ -767,4 +720,7 @@ i {
   font-size: 12px;
   text-align: center;
   margin: 1px 2px 1px 2px;
+  &:hover {
+    background-color: @background-highlight;
+  }
 }
