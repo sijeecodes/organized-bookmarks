@@ -10,13 +10,13 @@ const ColumnAdjust = ({ mainColumn, setMainColumn }) => {
         className='column-option-left'
         onClick={() => setMainColumn(mainColumn - 1)}
       >
-        <i class='minus square outline icon' fitted='true' />
+        <i className='minus square outline icon' />
       </div>
     );
   } else {
     resultHtml.push(
       <div className='column-option-left-grey'>
-        <i class='minus square outline icon' fitted='true' />
+        <i className='minus square outline icon' />
       </div>
     );
   }
@@ -33,13 +33,13 @@ const ColumnAdjust = ({ mainColumn, setMainColumn }) => {
         className='column-option-right'
         onClick={() => setMainColumn(mainColumn + 1)}
       >
-        <i class='plus square outline icon' fitted='true' />
+        <i className='plus square outline icon' />
       </div>
     );
   } else {
     resultHtml.push(
       <div className='column-option-right-grey'>
-        <i class='plus square outline icon' fitted='true' />
+        <i className='plus square outline icon' />
       </div>
     );
   }
@@ -47,7 +47,7 @@ const ColumnAdjust = ({ mainColumn, setMainColumn }) => {
   return (
     <div className='column-container'>
       <div className='column'>
-        <i class='columns icon' fitted='true' />
+        <i className='columns icon' />
         <div className='top-bar-dropdown-aligner'>
           <div className='column-dropdown'>
             <div className='column-title'>
