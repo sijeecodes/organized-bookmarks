@@ -279,28 +279,35 @@ i {
   transform: translate(-4px, 6px);
   background: hsl(0, 0%, 5%);
 }
+.column-option {
+  width: 90px;
+  height: 28px;
+  background: hsl(0, 0%, 5%);
+  font-size: 12px;
+}
 .column-title {
-  display: inline-block;
   font-size: 13px;
   font-weight: 600;
   width: 90px;
+  height: 28px;
   text-align: left;
-  padding: 5px 0 0 9px;
+  line-height: 26px;
+  padding-left: 6px;
 }
 .column-content {
   display: inline-block;
   font-size: 13px;
   font-weight: 600;
   width: 25px;
-  height: 32px;
-  padding-top: 5px;
+  height: 28px;
+  padding-top: 3px;
   vertical-align: bottom;
 }
 .column-option-left {
   float: left;
-  width: 32px;
-  height: 32px;
-  padding: 5px 0 0 4px;
+  font-size: 20px;
+  height: 28px;
+  padding: 3px 0 0 4px;
   vertical-align: bottom;
 }
 .column-option-left:hover {
@@ -308,9 +315,9 @@ i {
 }
 .column-option-left-grey {
   float: left;
-  width: 32px;
-  height: 32px;
-  padding: 5px 0 0 4px;
+  font-size: 20px;
+  height: 28px;
+  padding: 3px 0 0 4px;
   vertical-align: bottom;
   color: hsl(0, 0%, 20%);
 }
@@ -322,9 +329,9 @@ i {
 }
 .column-option-right {
   float: left;
-  width: 32px;
-  height: 32px;
-  padding: 5px 0 0 4px;
+  font-size: 20px;
+  height: 28px;
+  padding: 3px 0 0 4px;
   vertical-align: bottom;
   float: right;
 }
@@ -333,9 +340,9 @@ i {
 }
 .column-option-right-grey {
   float: left;
-  width: 32px;
-  height: 32px;
-  padding: 5px 0 0 4px;
+  font-size: 20px;
+  height: 28px;
+  padding: 3px 0 0 4px;
   vertical-align: bottom;
   float: right;
   color: hsl(0, 0%, 20%);
@@ -350,14 +357,15 @@ i {
   float: left;
   vertical-align: top;
   height: 32px;
-  width: 75px;
+  width: 32px;
   text-align: center;
-  line-height: 30px;
 }
 .sort {
   display: inline-block;
-  width: 75px;
+  width: 32px;
   height: 32px;
+  padding: 2px 0 0 2px;
+  font-size: 19px;
   font-weight: 600;
 }
 .sort:hover {
@@ -373,19 +381,40 @@ i {
 .sort-dropdown {
   display: none;
   position: fixed;
-  width: 120px;
-  transform: translate(-1px, 1px);
+  width: 155px;
+  transform: translate(-2px, 9px);
+  background: hsl(0, 0%, 5%);
+}
+.sort-icon {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  font-size: 19px;
+  padding: 1px 0 0 0;
+}
+.sort-title {
+  font-size: 13px;
+  font-weight: 600;
+  width: 90px;
+  height: 28px;
+  text-align: left;
+  line-height: 26px;
+  padding-left: 6px;
 }
 .sort-option {
-  width: 120px;
+  width: 155px;
   height: 28px;
   background: hsl(0, 0%, 5%);
-  line-height: 23px;
-  font-size: 12px;
   padding-left: 5px;
 }
 .sort-option:hover {
   background: hsl(0, 0%, 35%);
+}
+.sort-option-title {
+  display: inline-block;
+  height: 28px;
+  font-size: 13px;
+  line-height: 26px;
 }
 .option-select {
   display: inline-block;

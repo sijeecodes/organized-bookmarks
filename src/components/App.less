@@ -1,6 +1,8 @@
 @item-height: 28px;
 @top-menu-height: 32px;
 @top-menu-width: 32px;
+@top-menu-option-font-size: 13px;
+@top-menu-option-line-height: 26px;
 @button-default-width: 75px;
 @background1: hsl(0, 0%, 5%);
 @background2: hsl(0, 0%, 20%);
@@ -324,30 +326,39 @@ i {
   background: @background1;
 }
 
+.column-option {
+  width: 90px;
+  height: @item-height;
+  background: @background1;
+  font-size: 12px;
+}
+
 .column-title {
-  display: inline-block;
-  font-size: 13px;
+  font-size: @top-menu-option-font-size;
   font-weight: 600;
   width: 90px;
+  height: @item-height;
   text-align: left;
-  padding: 5px 0 0 9px;
+  line-height: @top-menu-option-line-height;
+  padding-left: 6px;
 }
 
 .column-content {
   display: inline-block;
-  font-size: 13px;
+  font-size: @top-menu-option-font-size;
   font-weight: 600;
   width: 25px;
-  height: @top-menu-height;
-  padding-top: 5px;
+  height: @item-height;
+  padding-top: 3px;
   vertical-align: bottom;
 }
 
 .column-option-left {
   float: left;
-  width: @top-menu-width;
-  height: @top-menu-height;
-  padding: 5px 0 0 4px;
+  font-size: 20px;
+  height: @item-height;
+  height: @item-height;
+  padding: 3px 0 0 4px;
   vertical-align: bottom;
   &:hover {
     background: @background-highlight;
@@ -379,15 +390,16 @@ i {
   float: left;
   vertical-align: top;
   height: @top-menu-height;
-  width: @button-default-width;
+  width: @top-menu-width;
   text-align: center;
-  line-height: 30px;
 }
 
 .sort {
   display: inline-block;
-  width: @button-default-width;
+  width: @top-menu-width;
   height: @top-menu-height;
+  padding: 2px 0 0 2px;
+  font-size: 19px;
   font-weight: 600;
   &:hover {
     background: @background-highlight;
@@ -405,20 +417,38 @@ i {
 .sort-dropdown {
   display: none;
   position: fixed;
-  width: 120px;
-  transform: translate(-1px, 1px);
+  width: 155px;
+  transform: translate(-2px, 9px);
+  background: @background1;
+}
+
+.sort-icon {
+  display: inline-block;
+  width: @item-height;
+  height: @item-height;
+  font-size: 19px;
+  padding: 1px 0 0 0;
+}
+
+.sort-title {
+ .column-title;
 }
 
 .sort-option {
-  width: 120px;
+  width: 155px;
   height: @item-height;
   background: @background1;
-  line-height: 23px;
-  font-size: 12px;
   padding-left: 5px;
   &:hover {
     background: @background-highlight;
   }
+}
+
+.sort-option-title {
+  display: inline-block;
+  height: @item-height;
+  font-size: @top-menu-option-font-size;
+  line-height: @top-menu-option-line-height;
 }
 
 .option-select {

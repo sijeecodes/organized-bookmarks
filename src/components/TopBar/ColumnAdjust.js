@@ -1,4 +1,6 @@
 import React from 'react';
+import Strings from '../Strings';
+import Icons from '../Icons';
 
 const ColumnAdjust = ({ mainColumn, setMainColumn }) => {
 
@@ -10,13 +12,13 @@ const ColumnAdjust = ({ mainColumn, setMainColumn }) => {
         className='column-option-left'
         onClick={() => setMainColumn(mainColumn - 1)}
       >
-        <i className='minus square outline icon' />
+        <i className={Icons.columnAdjust.minus} />
       </div>
     );
   } else {
     resultHtml.push(
       <div className='column-option-left-grey'>
-        <i className='minus square outline icon' />
+        <i className={Icons.columnAdjust.minus} />
       </div>
     );
   }
@@ -33,13 +35,13 @@ const ColumnAdjust = ({ mainColumn, setMainColumn }) => {
         className='column-option-right'
         onClick={() => setMainColumn(mainColumn + 1)}
       >
-        <i className='plus square outline icon' />
+        <i className={Icons.columnAdjust.minus} />
       </div>
     );
   } else {
     resultHtml.push(
       <div className='column-option-right-grey'>
-        <i className='plus square outline icon' />
+        <i className={Icons.columnAdjust.minus} />
       </div>
     );
   }
@@ -47,13 +49,17 @@ const ColumnAdjust = ({ mainColumn, setMainColumn }) => {
   return (
     <div className='column-container'>
       <div className='column'>
-        <i className='columns icon' />
+        <i className={Icons.columnAdjust.column} />
         <div className='top-bar-dropdown-aligner'>
           <div className='column-dropdown'>
-            <div className='column-title'>
-              Columns
+            <div className='column-option'>
+              <div className='column-title'>
+                {Strings.columnAdjust.title}
+              </div>
             </div>
-            {resultHtml}
+            <div className='column-option'>
+              {resultHtml}
+            </div>
           </div>
         </div>
       </div>
