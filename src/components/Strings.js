@@ -5,10 +5,18 @@ const Strings = {
     recentlyAdded: 'Recently Added',
     userDefined: 'User Defined'
   },
-  columns: {
+  columnAdjust: {
     title: 'Columns'
+  },
+  tags: {
+    red: 'Red',
+    orange: 'Orange',
+    yellow: 'Yellow',
+    green: 'Green',
+    blue: 'Blue',
+    purple: 'Purple',
+    grey: 'Grey'
   }
-
 };
 
 export default Strings;
