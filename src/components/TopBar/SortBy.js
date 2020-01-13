@@ -43,7 +43,7 @@ const SortBy = ({ mainSortType, setMainSortType }) => {
         className='sort-option'
         onClick={() => setMainSortType(option)}
       >
-        <div className='sort-icon'>
+        <div className='sort-option-icon'>
           <i className={optionIcon} />
         </div>
         <div className='sort-option-title'>
@@ -55,39 +55,25 @@ const SortBy = ({ mainSortType, setMainSortType }) => {
         </div>
       </div>
     );
+
     return ;
   });
 
-
   return (
     <div className='sort-container'>
-      <div className='sort'>
+      <div className='sort-icon'>
         <i className={currentIcon} />
-        <div className='sort-aligner'>
-          <div className='sort-dropdown'>
-            <div className='sort-title'>
-              {Strings.sortBy.title}
-            </div>
-            {resultHtml}
+      </div>
+      <div className='sort-aligner'>
+        <div className='sort-dropdown'>
+          <div className='sort-title'>
+            {Strings.sortBy.title}
           </div>
+          {resultHtml}
         </div>
       </div>
     </div>
   );
-
-  //
-  // return (
-  //   <div className='sort-container'>
-  //     <div className='sort'>
-  //       Sortby
-  //       <div className='sort-aligner'>
-  //         <div className='sort-dropdown'>
-  //
-  //       </div>
-  //     </div>
-  //   </div>
-  //
-  // );
 };
 
 export default SortBy;

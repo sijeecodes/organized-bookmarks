@@ -48,18 +48,16 @@ const ColumnAdjust = ({ mainColumn, setMainColumn }) => {
 
   return (
     <div className='column-container'>
-      <div className='column'>
+      <div className='column-icon'>
         <i className={Icons.columnAdjust.column} />
-        <div className='top-bar-dropdown-aligner'>
-          <div className='column-dropdown'>
-            <div className='column-option'>
-              <div className='column-title'>
-                {Strings.columnAdjust.title}
-              </div>
-            </div>
-            <div className='column-option'>
-              {resultHtml}
-            </div>
+      </div>
+      <div className='column-aligner'>
+        <div className='column-dropdown'>
+          <div className='column-title'>
+            {Strings.columnAdjust.title}
+          </div>
+          <div className='column-option'>
+            {resultHtml}
           </div>
         </div>
       </div>

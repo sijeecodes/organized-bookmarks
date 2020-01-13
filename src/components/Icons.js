@@ -8,6 +8,9 @@ const Icons = {
     column: 'columns icon',
     plus: 'plus square outline icon',
     minus: 'minus square outline icon',
+  },
+  tags: {
+    tag: 'tag icon'
   }
 };
 

@@ -1,21 +1,22 @@
 import React from 'react';
 import Option from './Option';
 import Strings from '../Strings';
+import Icons from '../Icons';
 
 const Tags = ({ tagFilter, setTagFilter }) => {
   let resultHtml = [];
   let allTags = {
-    'red': [Strings.tags.red, 'tag-onoff-button'],
-    'orange': [Strings.tags.orange, 'tag-onoff-button'],
-    'yellow': [Strings.tags.yellow, 'tag-onoff-button'],
-    'green': [Strings.tags.green, 'tag-onoff-button'],
-    'blue': [Strings.tags.blue, 'tag-onoff-button'],
-    'purple': [Strings.tags.purple, 'tag-onoff-button'],
-    'grey': [Strings.tags.grey, 'tag-onoff-button'],
+    'red': [Strings.tags.red, false],
+    'orange': [Strings.tags.orange, false],
+    'yellow': [Strings.tags.yellow, false],
+    'green': [Strings.tags.green, false],
+    'blue': [Strings.tags.blue, false],
+    'purple': [Strings.tags.purple, false],
+    'grey': [Strings.tags.grey, false],
   };
 
   tagFilter.forEach(el => {
-    allTags[el][1] = 'tag-onoff-button-on';
+    allTags[el][1] = true;
   });
 
   const onPress = (tag) => {
@@ -27,26 +28,34 @@ const Tags = ({ tagFilter, setTagFilter }) => {
   Object.keys(allTags).forEach(tag => {
     resultHtml.push(
       <div
-        className={allTags[tag][1]}
+        className='tag-option'
         onClick={() => onPress(tag)}
       >
-        {allTags[tag][0]}
-        <Option
-          type={allTags[tag][1]}
-          target={'tag-onoff-button-on'}
-        />
+        <div className='tag-option-icon' style={{ color: `${tag}`}}>
+          <i className={Icons.tags.tag} />
+        </div>
+        <div className='tag-option-title'>
+          {allTags[tag][0]}
+          <Option
+            type={allTags[tag][1]}
+            target={true}
+          />
+        </div>
       </div>
     );
   });
 
   return (
     <div className='tag-container'>
-      <div className='tag'>
-        Tag
-        <div className='tag-aligner'>
-          <div className='tag-dropdown'>
-            {resultHtml}
+      <div className='tag-icon'>
+        <i className={Icons.tags.tag} />
+      </div>
+      <div className='tag-aligner'>
+        <div className='tag-dropdown'>
+          <div className='tag-title'>
+            {Strings.tags.title}
           </div>
+          {resultHtml}
         </div>
       </div>
     </div>

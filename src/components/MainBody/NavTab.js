@@ -29,9 +29,11 @@ const NavTab = ({
     if(state.openFolders.indexOf(subTree.parentId) !== -1 || subTree.id === '0') {
       if(subTree.children && subTree.parentId) {
         let navTabClassName = 'nav-tab-item';
+        let navTabConfigClassName= 'nav-tab-item-config';
         let navTabIconType = 'folder icon';
         if(state.currentFolder === subTree.id) {
           navTabClassName = 'nav-tab-item-over';
+          navTabConfigClassName = 'nav-tab-item-config-over';
         }
         if(state.openFolders.indexOf(subTree.id) !== -1) {
           for(let i = 0; i < subTree.children.length; i++) {
@@ -69,7 +71,7 @@ const NavTab = ({
                 <div className='nav-tab-item-tail'>
                   {subTree.children.length}
                 </div>
-                <div className='nav-tab-item-config'>
+                <div className={navTabConfigClassName}>
                   <i
                     class="cogs icon"
                     id={`nav-${subTree.id}`}

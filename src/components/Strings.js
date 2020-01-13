@@ -9,6 +9,7 @@ const Strings = {
     title: 'Columns'
   },
   tags: {
+    title: 'Tag Filters',
     red: 'Red',
     orange: 'Orange',
     yellow: 'Yellow',
