@@ -4,7 +4,8 @@ import Strings from '../Strings';
 import Icons from '../Icons';
 
 const Tags = ({ tagFilter, setTagFilter }) => {
-  let resultHtml = [];
+  let tagMenuHtml = [];
+  let tagOptionsHtml = [];
   let allTags = {
     'red': [Strings.tags.red, false],
     'orange': [Strings.tags.orange, false],
@@ -26,12 +27,26 @@ const Tags = ({ tagFilter, setTagFilter }) => {
   };
 
   Object.keys(allTags).forEach(tag => {
-    resultHtml.push(
+    if(allTags[tag][1]) {
+      tagMenuHtml.push(
+        <div
+          className='tag-icon'
+          style= {{ color: `${tag}`}}
+        >
+          <i className={Icons.tags.tag} />
+        </div>
+      );
+    }
+
+    tagOptionsHtml.push(
       <div
         className='tag-option'
         onClick={() => onPress(tag)}
       >
-        <div className='tag-option-icon' style={{ color: `${tag}`}}>
+        <div
+          className='tag-option-icon'
+          style={{ color: `${tag}`}}
+        >
           <i className={Icons.tags.tag} />
         </div>
         <div className='tag-option-title'>
@@ -45,17 +60,25 @@ const Tags = ({ tagFilter, setTagFilter }) => {
     );
   });
 
-  return (
-    <div className='tag-container'>
+  if(tagMenuHtml.length === 0) {
+    tagMenuHtml.push(
       <div className='tag-icon'>
         <i className={Icons.tags.tag} />
+      </div>
+    );
+  }
+
+  return (
+    <div className='tag-container'>
+      <div className='tag-icon-container'>
+        {tagMenuHtml}
       </div>
       <div className='tag-aligner'>
         <div className='tag-dropdown'>
           <div className='tag-title'>
             {Strings.tags.title}
           </div>
-          {resultHtml}
+          {tagOptionsHtml}
         </div>
       </div>
     </div>

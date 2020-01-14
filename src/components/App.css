@@ -524,6 +524,9 @@ i {
   height: 32px;
   width: 32px;
   text-align: left;
+  width: auto;
+  background: none;
+  padding: 1px 19px 0 2px;
 }
 .tag-container:hover {
   background: hsl(0, 0%, 35%);
@@ -538,8 +541,16 @@ i {
   width: 32px;
   font-size: 20px;
   padding: 5px 0 0 4px;
+  flex: 1;
+  width: 11px;
+  background: none;
   font-size: 18px;
-  padding: 6px 0 0 6px;
+  overflow: visible;
+}
+.tag-icon-container {
+  display: inline-flex;
+  width: auto;
+  overflow: visible;
 }
 .tag-dropdown {
   display: none;
@@ -548,6 +559,7 @@ i {
   width: 90px;
   background: hsl(0, 0%, 5%);
   width: 100px;
+  transform: translate(-2px, -1px);
 }
 .tag-title {
   height: 28px;
@@ -659,7 +671,6 @@ i {
 }
 .modal-box {
   background: hsl(0, 0%, 20%);
-  /* flex: none; */
   opacity: 1;
   width: 400px;
   height: 300px;
