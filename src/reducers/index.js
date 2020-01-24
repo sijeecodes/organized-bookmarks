@@ -94,7 +94,7 @@ const reducers = (state = initialState, action) => {
       }
       case 'SET_TAGS': {
         let tempTags = state.tags;
-        tempTags[action.data.id] = action.data.tags;
+        tempTags[action.data.id] = action.data.tags.sort();
         return newState(state, 'tags', tempTags);
       }
       case 'SET_TAG_FILTER': {
