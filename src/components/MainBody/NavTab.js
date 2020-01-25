@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Spacer from '../Spacer';
+import ItemTag from './ItemTag';
 
 const NavTab = ({
   match,
@@ -44,6 +45,9 @@ const NavTab = ({
           }
         }
 
+        console.log('nav subTree ', state.tags[subTree.id], subTree);
+
+
         resultHtml.push(
           <div
             className='nav-tab-item-wrapper'
@@ -68,12 +72,15 @@ const NavTab = ({
                 <div className='nav-tab-item-title'>
                   {subTree.title}
                 </div>
+                <div className='nav-tab-item-tags-wrapper'>
+                  <ItemTag tags={state.tags[subTree.id]} />
+                </div>
                 <div className='nav-tab-item-tail'>
                   {subTree.children.length}
                 </div>
                 <div className={navTabConfigClassName}>
                   <i
-                    class="cogs icon"
+                    class='cogs icon'
                     id={`nav-${subTree.id}`}
                     onClick={e => {
                       e.preventDefault();

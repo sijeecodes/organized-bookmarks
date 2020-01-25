@@ -67,8 +67,9 @@ i {
 }
 
 .nav-tab-item {
-  flex: 1;
   position: relative;
+  display: flex;
+  flex: 1;
   height: @item-height;
   overflow: hidden;
   padding: 1px 10px 0 7px;
@@ -99,14 +100,35 @@ i {
   }
 }
 
+.item-tag {
+  display: inline-block;
+  width: 6px;
+  padding: 1px 0 1px 0;
+  background: none;
+  font-size: 16px;
+  overflow: visible;
+}
+
+.item-tags {
+  padding: 3px 12px 0 0;
+  overflow: visible;
+}
+
 .item-spacer {
   width: 20px;
   height: @item-height;
   text-align: center;
 }
 
-.nav-tab-item-title {
+.nav-tab-item-tags-wrapper {
   display: inline-block;
+  padding-right: 20px;
+  margin-top: -3px;
+  overflow: visible;
+}
+
+.nav-tab-item-title {
+  flex: 1;
   margin-left: 2px;
 }
 
@@ -163,8 +185,8 @@ i {
 .main-item-wrapper {
   position: relative;
   display: flex;
-  height: @item-height;
   flex: 1;
+  height: @item-height;
   background: @background3;
   padding-right: 4px;
   &:hover {
@@ -191,9 +213,9 @@ i {
 }
 
 .main-item {
+  display: flex;
   flex: 1;
   height: 100%;
-  display: flex;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -491,7 +513,7 @@ i {
 .tag-icon {
   .top-bar-menu-icon;
   flex: 1;
-  width: 11px;
+  width: 12px;
   background: none;
   font-size: 18px;
   overflow: visible;
@@ -530,6 +552,19 @@ i {
 
 .tag-option-title {
   .top-bar-menu-option-title;
+}
+
+.deepsearch-container {
+  .top-bar-menu-container;
+  &:hover {
+    background: @background-highlight;
+    color: white;
+    transition: background .4s ease;
+  }
+}
+
+.deepsearch-icon {
+  .top-bar-menu-icon;
 }
 
 .shortcut-button {

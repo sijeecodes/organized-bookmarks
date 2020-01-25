@@ -47,8 +47,9 @@ i {
   position: relative;
 }
 .nav-tab-item {
-  flex: 1;
   position: relative;
+  display: flex;
+  flex: 1;
   height: 28px;
   overflow: hidden;
   padding: 1px 10px 0 7px;
@@ -68,8 +69,9 @@ i {
   transition-duration: 0.4s;
 }
 .nav-tab-item-over {
-  flex: 1;
   position: relative;
+  display: flex;
+  flex: 1;
   height: 28px;
   overflow: hidden;
   padding: 1px 10px 0 7px;
@@ -95,13 +97,31 @@ i {
   transition-property: background, opacity;
   transition-duration: 0.4s;
 }
+.item-tag {
+  display: inline-block;
+  width: 6px;
+  padding: 1px 0 1px 0;
+  background: none;
+  font-size: 16px;
+  overflow: visible;
+}
+.item-tags {
+  padding: 3px 12px 0 0;
+  overflow: visible;
+}
 .item-spacer {
   width: 20px;
   height: 28px;
   text-align: center;
 }
-.nav-tab-item-title {
+.nav-tab-item-tags-wrapper {
   display: inline-block;
+  padding-right: 20px;
+  margin-top: -3px;
+  overflow: visible;
+}
+.nav-tab-item-title {
+  flex: 1;
   margin-left: 2px;
 }
 .nav-tab-item-tail {
@@ -160,8 +180,8 @@ i {
 .main-item-wrapper {
   position: relative;
   display: flex;
-  height: 28px;
   flex: 1;
+  height: 28px;
   background: hsl(0, 0%, 13%);
   padding-right: 4px;
 }
@@ -186,9 +206,9 @@ i {
   flex: 1;
 }
 .main-item {
+  display: flex;
   flex: 1;
   height: 100%;
-  display: flex;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -542,7 +562,7 @@ i {
   font-size: 20px;
   padding: 5px 0 0 4px;
   flex: 1;
-  width: 11px;
+  width: 12px;
   background: none;
   font-size: 18px;
   overflow: visible;
@@ -595,6 +615,28 @@ i {
   display: inline-block;
   font-weight: normal;
   padding-left: 0;
+}
+.deepsearch-container {
+  float: left;
+  height: 32px;
+  width: 32px;
+  text-align: left;
+}
+.deepsearch-container:hover {
+  background: hsl(0, 0%, 35%);
+  color: white;
+  transition: background 0.4s ease;
+}
+.deepsearch-container:hover {
+  background: hsl(0, 0%, 35%);
+  color: white;
+  transition: background 0.4s ease;
+}
+.deepsearch-icon {
+  height: 32px;
+  width: 32px;
+  font-size: 20px;
+  padding: 5px 0 0 4px;
 }
 .shortcut-button {
   display: inline-block;
