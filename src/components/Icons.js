@@ -11,6 +11,10 @@ const Icons = {
   },
   tags: {
     tag: 'tag icon'
+  },
+  deepSearch: {
+    deepSearch: 'sitemap icon',
+    deepSearchOff: 'stop icon'
   }
 };
 
