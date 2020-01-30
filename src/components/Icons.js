@@ -15,6 +15,9 @@ const Icons = {
   deepSearch: {
     deepSearch: 'sitemap icon',
     deepSearchOff: 'stop icon'
+  },
+  search: {
+    search: 'search icon'
   }
 };
 
