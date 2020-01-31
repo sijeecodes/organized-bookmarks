@@ -78,16 +78,16 @@ const NavTab = ({
                 <div className='nav-tab-item-tail'>
                   {subTree.children.length}
                 </div>
-                <div className={navTabConfigClassName}>
-                  <i
-                    class='cogs icon'
-                    id={`nav-${subTree.id}`}
-                    onClick={e => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      toggleConfigModal(e.target.id);
-                    }}
-                  />
+                <div
+                  className={navTabConfigClassName}
+                  id={`nav-${subTree.id}`}
+                  onClick={e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleConfigModal(e.target.id);
+                  }}
+                >
+                  <i className='cogs icon' />
                 </div>
               </Link>
 

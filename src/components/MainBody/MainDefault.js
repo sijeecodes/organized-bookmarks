@@ -79,16 +79,16 @@ const MainDefault = ({
               </div>
             </a>
             <ItemTag tags={state.tags[subTree[i].id]} />
-            <div className='main-item-config'>
-              <i
-                className='cogs icon'
-                id={`main-${subTree[i].id}`}
-                onClick={e => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  toggleConfigModal(e.target.id)
-                }}
-              />
+            <div
+              className='main-item-config'
+              id={`main-${subTree[i].id}`}
+              onClick={e => {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleConfigModal(e.target.id)
+              }}
+            >
+              <i className='cogs icon' />
             </div>
           </div>
         );
@@ -116,16 +116,16 @@ const MainDefault = ({
               </div>
             </Link>
             <ItemTag tags={state.tags[subTree[i].id]} />
-            <div className='main-item-config'>
-              <i
-                className='cogs icon'
-                id={`main-${subTree[i].id}`}
-                onClick={e => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  toggleConfigModal(e.target.id)
-                }}
-              />
+            <div
+              className='main-item-config'
+              id={`main-${subTree[i].id}`}
+              onClick={e => {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleConfigModal(e.target.id)
+              }}
+            >
+              <i className='cogs icon' />
             </div>
           </div>
         );
