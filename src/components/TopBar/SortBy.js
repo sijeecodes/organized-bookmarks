@@ -4,11 +4,9 @@ import Strings from '../Strings';
 import Icons from '../Icons';
 
 const SortBy = ({ mainSortType, setMainSortType }) => {
-  console.log('components/TopBar/SortBy - rendering??', mainSortType);
-
+  const options = ['userDefined', 'alphabetical', 'recentlyAdded'];
   let resultHtml = [];
   let currentIcon;
-  const options = ['userDefined', 'alphabetical', 'recentlyAdded'];
 
   switch(mainSortType) {
     case 'alphabetical':
@@ -64,13 +62,11 @@ const SortBy = ({ mainSortType, setMainSortType }) => {
       <div className='sort-icon'>
         <i className={currentIcon} />
       </div>
-      <div>
-        <div className='sort-dropdown'>
-          <div className='sort-title'>
-            {Strings.sortBy.title}
-          </div>
-          {resultHtml}
+      <div className='sort-dropdown'>
+        <div className='sort-title'>
+          {Strings.sortBy.title}
         </div>
+        {resultHtml}
       </div>
     </div>
   );

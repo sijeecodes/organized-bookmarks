@@ -69,24 +69,13 @@
   padding-left: 0;
 }
 
-.option-select {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  overflow: visible;
-  padding-left: 3px;
-}
-
-.option-select-hide {
-  visibility: hidden;
-  .option-select;
-}
+// navMenu ////////////////////////////
 
 .nav-menu {
+  display: flex;
+  position: absolute;
   width: 25%;
   height: @top-menu-height;
-  position: absolute;
   top: 0;
   left: 0;
   line-height: 31px;
@@ -95,11 +84,14 @@
   font-weight: bold;
 }
 
+.nav-menu-title {
+  flex: 1;
+  text-overflow: ellipsis;
+}
+
 .nav-menu-open-folders {
-  display: inline-block;
   width: @top-menu-width;
   height: @top-menu-height;
-  float: right;
   text-align: center;
   padding-left: 5px;
   &:hover {
@@ -129,6 +121,8 @@
   color: white;
 }
 
+// mainMenu ///////////////////////////
+
 .main-menu {
   width: 75%;
   height: @top-menu-height;
@@ -138,6 +132,20 @@
   left: 25%;
   vertical-align: top;
   background: @background1;
+}
+
+.option-select {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  overflow: visible;
+  padding-left: 3px;
+}
+
+.option-select-hide {
+  visibility: hidden;
+  .option-select;
 }
 
 .column-container {
@@ -176,7 +184,7 @@
   vertical-align: bottom;
 }
 
-.column-option-left {
+.column-option-minus {
   float: left;
   font-size: 20px;
   height: @item-height;
@@ -190,28 +198,26 @@
   }
 }
 
-.column-option-left-grey {
-  .column-option-left;
+.column-option-minus-grey {
+  .column-option-minus;
   color: @background2;
   &:hover {
     background: @background1;
-    color: white;
-    transition: background .4s ease;
+    color: @background2;
   }
 }
 
-.column-option-right {
-  .column-option-left;
+.column-option-plus {
+  .column-option-minus;
   float: right;
 }
 
-.column-option-right-grey {
-  .column-option-right;
+.column-option-plus-grey {
+  .column-option-plus;
   color: @background2;
   &:hover {
     background: @background1;
-    color: white;
-    transition: background .4s ease;
+    color: @background2;
   }
 }
 
@@ -325,18 +331,6 @@
   padding: 0px 5px 0 5px;
   font-size: 10px;
   color: white;
-}
-
-.shortcut-button {
-  display: inline-block;
-  width: 110px;
-  height: @item-height;
-}
-
-.shortcut-button-on {
-  display: inline-block;
-  width: 110px;
-  height: @item-height;
 }
 
 .search-wrapper {

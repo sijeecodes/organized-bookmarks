@@ -107,6 +107,7 @@
 .nav-tab-item-title {
   flex: 1;
   margin-left: 2px;
+  text-overflow: ellipsis;
 }
 .nav-tab-item-tail {
   position: absolute;
@@ -438,27 +439,11 @@
   font-weight: normal;
   padding-left: 0;
 }
-.option-select {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  overflow: visible;
-  padding-left: 3px;
-}
-.option-select-hide {
-  visibility: hidden;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  overflow: visible;
-  padding-left: 3px;
-}
 .nav-menu {
+  display: flex;
+  position: absolute;
   width: 25%;
   height: 32px;
-  position: absolute;
   top: 0;
   left: 0;
   line-height: 31px;
@@ -466,11 +451,13 @@
   padding-left: 8px;
   font-weight: bold;
 }
+.nav-menu-title {
+  flex: 1;
+  text-overflow: ellipsis;
+}
 .nav-menu-open-folders {
-  display: inline-block;
   width: 32px;
   height: 32px;
-  float: right;
   text-align: center;
   padding-left: 5px;
 }
@@ -483,10 +470,8 @@
   display: block;
 }
 .nav-menu-close-folders {
-  display: inline-block;
   width: 32px;
   height: 32px;
-  float: right;
   text-align: center;
   padding-left: 5px;
 }
@@ -519,6 +504,23 @@
   left: 25%;
   vertical-align: top;
   background: hsl(0, 0%, 5%);
+}
+.option-select {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  overflow: visible;
+  padding-left: 3px;
+}
+.option-select-hide {
+  visibility: hidden;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  overflow: visible;
+  padding-left: 3px;
 }
 .column-container {
   float: left;
@@ -569,19 +571,19 @@
   padding-top: 3px;
   vertical-align: bottom;
 }
-.column-option-left {
+.column-option-minus {
   float: left;
   font-size: 20px;
   height: 28px;
   padding: 3px 0 0 4px;
   vertical-align: bottom;
 }
-.column-option-left:hover {
+.column-option-minus:hover {
   background: hsl(0, 0%, 35%);
   color: white;
   transition: background 0.4s ease;
 }
-.column-option-left-grey {
+.column-option-minus-grey {
   float: left;
   font-size: 20px;
   height: 28px;
@@ -589,17 +591,16 @@
   vertical-align: bottom;
   color: hsl(0, 0%, 20%);
 }
-.column-option-left-grey:hover {
+.column-option-minus-grey:hover {
   background: hsl(0, 0%, 35%);
   color: white;
   transition: background 0.4s ease;
 }
-.column-option-left-grey:hover {
+.column-option-minus-grey:hover {
   background: hsl(0, 0%, 5%);
-  color: white;
-  transition: background 0.4s ease;
+  color: hsl(0, 0%, 20%);
 }
-.column-option-right {
+.column-option-plus {
   float: left;
   font-size: 20px;
   height: 28px;
@@ -607,12 +608,12 @@
   vertical-align: bottom;
   float: right;
 }
-.column-option-right:hover {
+.column-option-plus:hover {
   background: hsl(0, 0%, 35%);
   color: white;
   transition: background 0.4s ease;
 }
-.column-option-right-grey {
+.column-option-plus-grey {
   float: left;
   font-size: 20px;
   height: 28px;
@@ -621,15 +622,14 @@
   float: right;
   color: hsl(0, 0%, 20%);
 }
-.column-option-right-grey:hover {
+.column-option-plus-grey:hover {
   background: hsl(0, 0%, 35%);
   color: white;
   transition: background 0.4s ease;
 }
-.column-option-right-grey:hover {
+.column-option-plus-grey:hover {
   background: hsl(0, 0%, 5%);
-  color: white;
-  transition: background 0.4s ease;
+  color: hsl(0, 0%, 20%);
 }
 .sort-container {
   float: left;
@@ -805,16 +805,6 @@
   padding: 0px 5px 0 5px;
   font-size: 10px;
   color: white;
-}
-.shortcut-button {
-  display: inline-block;
-  width: 110px;
-  height: 28px;
-}
-.shortcut-button-on {
-  display: inline-block;
-  width: 110px;
-  height: 28px;
 }
 .search-wrapper {
   display: flex;

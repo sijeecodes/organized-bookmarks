@@ -22,6 +22,9 @@ const Strings = {
     blue: 'Blue',
     purple: 'Purple',
     grey: 'Grey'
+  },
+  deepSearch: {
+    tooltip: 'Toggle Deep Search'
   }
 };
 

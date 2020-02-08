@@ -1,5 +1,6 @@
 import React from 'react';
 import Icons from '../Icons';
+import Strings from '../Strings';
 
 const DeepSearch = ({ searchType, setSearchType }) => {
 
@@ -20,7 +21,7 @@ const DeepSearch = ({ searchType, setSearchType }) => {
         <i className={searchType === 'default' ? Icons.deepSearch.deepSearchOff : Icons.deepSearch.deepSearch} />
       </div>
       <div className='deepSearch-tooltip'>
-        Toggle Deep Search
+        {Strings.deepSearch.tooltip}
       </div>
     </div>
   );
