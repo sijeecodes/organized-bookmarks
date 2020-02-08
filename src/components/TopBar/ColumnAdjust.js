@@ -51,7 +51,7 @@ const ColumnAdjust = ({ mainColumn, setMainColumn }) => {
       <div className='column-icon'>
         <i className={Icons.columnAdjust.column} />
       </div>
-      <div className='column-aligner'>
+      <div>
         <div className='column-dropdown'>
           <div className='column-title'>
             {Strings.columnAdjust.title}

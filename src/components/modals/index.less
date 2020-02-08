@@ -1,0 +1,156 @@
+@import "../lessVariables.less";
+
+.modal-hidden {
+  display: none;
+}
+
+.modal-background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  background: black;
+  opacity: .8;
+}
+
+.modal-box {
+  background: @background2;
+  opacity: 1;
+  width: 400px;
+  height: 300px;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-150px, -100px);
+  z-index: 10;
+  overflow: auto;
+  padding: 5px 5px 5px 5px;
+}
+
+.modal-tag-onoff-button {
+  display: inline-block;
+  width: 90px;
+  height: @item-height;
+  background: @background1;
+  line-height: 23px;
+  font-size: 12px;
+  text-align: center;
+  margin: 1px 2px 1px 2px;
+  &:hover {
+    background: @background-highlight;
+  }
+}
+
+.modal-tag-onoff-button-on {
+  display: inline-block;
+  width: 90px;
+  height: @item-height;
+  background: @background-selected;
+  line-height: 23px;
+  font-size: 12px;
+  padding-left: 5px;
+  text-align: center;
+  margin: 1px 2px 1px 2px;
+  &:hover {
+    background: @background-highlight;
+  }
+}
+
+.modal-box-close-button {
+  position: absolute;
+  right: 0;
+  width: 40px;
+  height: @item-height;
+  background: @background1;
+  text-align: center;
+  &:hover {
+    background: @background-highlight;
+  }
+}
+
+.modal-divider {
+  display: block;
+  width: 100%;
+  height: @item-height;
+}
+
+.modal-tags-container {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.modal-shortcut-container {
+  display: block;
+  width: 100%;
+}
+
+.modal-buttons-container {
+  display: block;
+  width: 100%;
+  text-align: right;
+}
+
+.modal-delete-button {
+  float: left;
+  left: 5;
+}
+
+.shortcut-button-on {
+  display: inline-block;
+  width: 120px;
+  height: @item-height;
+  background: @background-selected;
+  line-height: 23px;
+  font-size: 12px;
+  padding-left: 5px;
+  text-align: center;
+  margin: 1px 2px 1px 2px;
+  &:hover {
+    background: @background-highlight;
+  }
+}
+
+.shortcut-button {
+  display: inline-block;
+  width: 120px;
+  height: @item-height;
+  background: @background1;
+  line-height: 23px;
+  font-size: 12px;
+  text-align: center;
+  margin: 1px 2px 1px 2px;
+  &:hover {
+    background: @background-highlight;
+  }
+}
+
+.mod-tag-onoff-button-on {
+  display: inline-block;
+  width: 90px;
+  height: @item-height;
+  background: @background-selected;
+  line-height: 23px;
+  font-size: 12px;
+  padding-left: 5px;
+  text-align: center;
+  margin: 1px 2px 1px 2px;
+  &:hover {
+    background: @background-highlight;
+  }
+}
+.mod-tag-onoff-button {
+  display: inline-block;
+  width: 90px;
+  height: @item-height;
+  background: @background1;
+  line-height: 23px;
+  font-size: 12px;
+  text-align: center;
+  margin: 1px 2px 1px 2px;
+  &:hover {
+    background: @background-highlight;
+  }
+}

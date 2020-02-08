@@ -64,7 +64,7 @@ const SortBy = ({ mainSortType, setMainSortType }) => {
       <div className='sort-icon'>
         <i className={currentIcon} />
       </div>
-      <div className='sort-aligner'>
+      <div>
         <div className='sort-dropdown'>
           <div className='sort-title'>
             {Strings.sortBy.title}

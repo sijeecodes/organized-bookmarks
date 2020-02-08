@@ -73,7 +73,7 @@ const Tags = ({ tagFilter, setTagFilter }) => {
       <div className='tag-icon-container'>
         {tagMenuHtml}
       </div>
-      <div className='tag-aligner'>
+      <div>
         <div className='tag-dropdown'>
           <div className='tag-title'>
             {Strings.tags.title}

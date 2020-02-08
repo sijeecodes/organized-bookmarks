@@ -1,19 +1,3 @@
-i {
-  text-align: center;
-  vertical-align: top;
-  overflow: visible;
-}
-* {
-  user-select: none;
-  text-decoration: none;
-  cursor: default;
-}
-.App {
-  text-align: left;
-  width: 100%;
-  height: 100%;
-  display: inline-block;
-}
 .nav-tab {
   display: inline-block;
   width: 25%;
@@ -248,7 +232,147 @@ i {
 .main-item-folder-icon {
   margin: 3px 0 0 3px;
 }
-/**********************************/
+.modal-hidden {
+  display: none;
+}
+.modal-background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  background: black;
+  opacity: 0.8;
+}
+.modal-box {
+  background: hsl(0, 0%, 20%);
+  opacity: 1;
+  width: 400px;
+  height: 300px;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-150px, -100px);
+  z-index: 10;
+  overflow: auto;
+  padding: 5px 5px 5px 5px;
+}
+.modal-tag-onoff-button {
+  display: inline-block;
+  width: 90px;
+  height: 28px;
+  background: hsl(0, 0%, 5%);
+  line-height: 23px;
+  font-size: 12px;
+  text-align: center;
+  margin: 1px 2px 1px 2px;
+}
+.modal-tag-onoff-button:hover {
+  background: hsl(0, 0%, 35%);
+}
+.modal-tag-onoff-button-on {
+  display: inline-block;
+  width: 90px;
+  height: 28px;
+  background: hsl(0, 0%, 15%);
+  line-height: 23px;
+  font-size: 12px;
+  padding-left: 5px;
+  text-align: center;
+  margin: 1px 2px 1px 2px;
+}
+.modal-tag-onoff-button-on:hover {
+  background: hsl(0, 0%, 35%);
+}
+.modal-box-close-button {
+  position: absolute;
+  right: 0;
+  width: 40px;
+  height: 28px;
+  background: hsl(0, 0%, 5%);
+  text-align: center;
+}
+.modal-box-close-button:hover {
+  background: hsl(0, 0%, 35%);
+}
+.modal-divider {
+  display: block;
+  width: 100%;
+  height: 28px;
+}
+.modal-tags-container {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+.modal-shortcut-container {
+  display: block;
+  width: 100%;
+}
+.modal-buttons-container {
+  display: block;
+  width: 100%;
+  text-align: right;
+}
+.modal-delete-button {
+  float: left;
+  left: 5;
+}
+.shortcut-button-on {
+  display: inline-block;
+  width: 120px;
+  height: 28px;
+  background: hsl(0, 0%, 15%);
+  line-height: 23px;
+  font-size: 12px;
+  padding-left: 5px;
+  text-align: center;
+  margin: 1px 2px 1px 2px;
+}
+.shortcut-button-on:hover {
+  background: hsl(0, 0%, 35%);
+}
+.shortcut-button {
+  display: inline-block;
+  width: 120px;
+  height: 28px;
+  background: hsl(0, 0%, 5%);
+  line-height: 23px;
+  font-size: 12px;
+  text-align: center;
+  margin: 1px 2px 1px 2px;
+}
+.shortcut-button:hover {
+  background: hsl(0, 0%, 35%);
+}
+.mod-tag-onoff-button-on {
+  display: inline-block;
+  width: 90px;
+  height: 28px;
+  background: hsl(0, 0%, 15%);
+  line-height: 23px;
+  font-size: 12px;
+  padding-left: 5px;
+  text-align: center;
+  margin: 1px 2px 1px 2px;
+}
+.mod-tag-onoff-button-on:hover {
+  background: hsl(0, 0%, 35%);
+}
+.mod-tag-onoff-button {
+  display: inline-block;
+  width: 90px;
+  height: 28px;
+  background: hsl(0, 0%, 5%);
+  line-height: 23px;
+  font-size: 12px;
+  text-align: center;
+  margin: 1px 2px 1px 2px;
+}
+.mod-tag-onoff-button:hover {
+  background: hsl(0, 0%, 35%);
+}
 .top-bar {
   width: 100%;
   height: 32px;
@@ -740,145 +864,19 @@ i {
   font-size: 20px;
   padding: 5px 0 0 4px;
 }
-/************************************/
-.modal-hidden {
-  display: none;
+i {
+  text-align: center;
+  vertical-align: top;
+  overflow: visible;
 }
-.modal-background {
-  position: fixed;
+* {
+  user-select: none;
+  text-decoration: none;
+  cursor: default;
+}
+.App {
+  text-align: left;
   width: 100%;
   height: 100%;
-  z-index: 5;
-  top: 0;
-  left: 0;
-  background: black;
-  opacity: 0.8;
-}
-.modal-box {
-  background: hsl(0, 0%, 20%);
-  opacity: 1;
-  width: 400px;
-  height: 300px;
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  transform: translate(-150px, -100px);
-  z-index: 10;
-  overflow: auto;
-  padding: 5px 5px 5px 5px;
-}
-.modal-tag-onoff-button {
   display: inline-block;
-  width: 90px;
-  height: 28px;
-  background: hsl(0, 0%, 5%);
-  line-height: 23px;
-  font-size: 12px;
-  text-align: center;
-  margin: 1px 2px 1px 2px;
-}
-.modal-tag-onoff-button:hover {
-  background: hsl(0, 0%, 35%);
-}
-.modal-tag-onoff-button-on {
-  display: inline-block;
-  width: 90px;
-  height: 28px;
-  background: hsl(0, 0%, 15%);
-  line-height: 23px;
-  font-size: 12px;
-  padding-left: 5px;
-  text-align: center;
-  margin: 1px 2px 1px 2px;
-}
-.modal-tag-onoff-button-on:hover {
-  background: hsl(0, 0%, 35%);
-}
-.modal-box-close-button {
-  position: absolute;
-  right: 0;
-  width: 40px;
-  height: 28px;
-  background: hsl(0, 0%, 5%);
-  text-align: center;
-}
-.modal-box-close-button:hover {
-  background: hsl(0, 0%, 35%);
-}
-.modal-divider {
-  display: block;
-  width: 100%;
-  height: 28px;
-}
-.modal-tags-container {
-  display: block;
-  width: 100%;
-  margin-top: 10px;
-}
-.modal-shortcut-container {
-  display: block;
-  width: 100%;
-}
-.modal-buttons-container {
-  display: block;
-  width: 100%;
-  text-align: right;
-}
-.modal-delete-button {
-  float: left;
-  left: 5;
-}
-.shortcut-button-on {
-  display: inline-block;
-  width: 120px;
-  height: 28px;
-  background: hsl(0, 0%, 15%);
-  line-height: 23px;
-  font-size: 12px;
-  padding-left: 5px;
-  text-align: center;
-  margin: 1px 2px 1px 2px;
-}
-.shortcut-button-on:hover {
-  background: hsl(0, 0%, 35%);
-}
-.shortcut-button {
-  display: inline-block;
-  width: 120px;
-  height: 28px;
-  background: hsl(0, 0%, 5%);
-  line-height: 23px;
-  font-size: 12px;
-  text-align: center;
-  margin: 1px 2px 1px 2px;
-}
-.shortcut-button:hover {
-  background: hsl(0, 0%, 35%);
-}
-.mod-tag-onoff-button-on {
-  display: inline-block;
-  width: 90px;
-  height: 28px;
-  background: hsl(0, 0%, 15%);
-  line-height: 23px;
-  font-size: 12px;
-  padding-left: 5px;
-  text-align: center;
-  margin: 1px 2px 1px 2px;
-}
-.mod-tag-onoff-button-on:hover {
-  background: hsl(0, 0%, 35%);
-}
-.mod-tag-onoff-button {
-  display: inline-block;
-  width: 90px;
-  height: 28px;
-  background: hsl(0, 0%, 5%);
-  line-height: 23px;
-  font-size: 12px;
-  text-align: center;
-  margin: 1px 2px 1px 2px;
-}
-.mod-tag-onoff-button:hover {
-  background: hsl(0, 0%, 35%);
 }
