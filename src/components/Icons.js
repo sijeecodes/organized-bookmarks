@@ -1,4 +1,8 @@
 const Icons = {
+  navMenu: {
+    openFolders: 'chevron down icon',
+    closeFolders: 'chevron up icon',
+  },
   sortBy : {
     alphabetical: 'sort alphabet down icon',
     recentlyAdded: 'sort numeric down icon',

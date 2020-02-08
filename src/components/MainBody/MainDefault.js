@@ -82,13 +82,13 @@ const MainDefault = ({
             <div
               className='main-item-config'
               id={`main-${subTree[i].id}`}
-              onClick={e => {
-                e.preventDefault();
-                e.stopPropagation();
-                toggleConfigModal(e.target.id)
-              }}
+              onClick={e => toggleConfigModal(e.target.id)}
             >
-              <i className='cogs icon' />
+              <i
+                className='cogs icon'
+                id={`main-${subTree[i].id}`}
+                onClick={e => toggleConfigModal(e.target.id)}
+              />
             </div>
           </div>
         );
@@ -119,13 +119,13 @@ const MainDefault = ({
             <div
               className='main-item-config'
               id={`main-${subTree[i].id}`}
-              onClick={e => {
-                e.preventDefault();
-                e.stopPropagation();
-                toggleConfigModal(e.target.id)
-              }}
+              onClick={e => toggleConfigModal(e.target.id)}
             >
-              <i className='cogs icon' />
+              <i
+                className='cogs icon'
+                id={`main-${subTree[i].id}`}
+                onClick={e => toggleConfigModal(e.target.id)}
+              />
             </div>
           </div>
         );

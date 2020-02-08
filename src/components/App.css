@@ -342,7 +342,7 @@ i {
   padding-left: 8px;
   font-weight: bold;
 }
-.nav-menu-button {
+.nav-menu-open-folders {
   display: inline-block;
   width: 32px;
   height: 32px;
@@ -350,10 +350,41 @@ i {
   text-align: center;
   padding-left: 5px;
 }
-.nav-menu-button:hover {
+.nav-menu-open-folders:hover {
   background: hsl(0, 0%, 35%);
   color: white;
   transition: background 0.4s ease;
+}
+.nav-menu-open-folders:hover .nav-menu-tooltip {
+  display: block;
+}
+.nav-menu-close-folders {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  float: right;
+  text-align: center;
+  padding-left: 5px;
+}
+.nav-menu-close-folders:hover {
+  background: hsl(0, 0%, 35%);
+  color: white;
+  transition: background 0.4s ease;
+}
+.nav-menu-close-folders:hover .nav-menu-tooltip {
+  display: block;
+}
+.nav-menu-tooltip {
+  display: none;
+  position: fixed;
+  height: 21px;
+  background: hsl(0, 0%, 5%);
+  transform: translate(19px, -3px);
+  padding: 0px 5px 0 5px;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 21px;
+  color: white;
 }
 .main-menu {
   width: 75%;

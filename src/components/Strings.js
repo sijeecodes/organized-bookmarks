@@ -1,4 +1,9 @@
 const Strings = {
+  navMenu: {
+    title: 'Organized Bookmarks',
+    openFolders: 'Open All Folders',
+    closeFolders: 'Close All Folders'
+  },
   sortBy: {
     title: 'Sort by',
     alphabetical: 'Alphabetical',

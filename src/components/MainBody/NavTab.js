@@ -87,7 +87,15 @@ const NavTab = ({
                     toggleConfigModal(e.target.id);
                   }}
                 >
-                  <i className='cogs icon' />
+                  <i
+                    className='cogs icon'
+                    id={`nav-${subTree.id}`}
+                    onClick={e => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      toggleConfigModal(e.target.id);
+                    }}
+                  />
                 </div>
               </Link>
 

@@ -84,6 +84,7 @@ const FolderConfigModal = ({
     toggleConfigModal('close')
     if(targetNode.children.length > 0) {
       alert('Cannot delete folder with contents.')
+      setCurrentFolder(targetNode.id);
     } else {
       if(targetNode.parentId) {
         setCurrentFolder(targetNode.parentId);
