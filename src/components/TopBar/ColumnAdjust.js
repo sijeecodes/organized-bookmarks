@@ -35,13 +35,13 @@ const ColumnAdjust = ({ mainColumn, setMainColumn }) => {
         className='column-option-right'
         onClick={() => setMainColumn(mainColumn + 1)}
       >
-        <i className={Icons.columnAdjust.minus} />
+        <i className={Icons.columnAdjust.plus} />
       </div>
     );
   } else {
     resultHtml.push(
       <div className='column-option-right-grey'>
-        <i className={Icons.columnAdjust.minus} />
+        <i className={Icons.columnAdjust.plus} />
       </div>
     );
   }
