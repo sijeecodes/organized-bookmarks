@@ -10,6 +10,76 @@
   z-index: 1;
 }
 
+.top-bar-menu-tooltip {
+  display: none;
+  position: fixed;
+  height: 21px;
+  background: @background1;
+  transform: translate(24px, -4px);
+  padding: 0px 5px 0 5px;
+  font-size: 10px;
+  color: white;
+}
+
+// navMenu ////////////////////////////
+
+.nav-menu {
+  display: flex;
+  position: absolute;
+  width: 25%;
+  height: @top-menu-height;
+  top: 0;
+  left: 0;
+  line-height: 31px;
+  background: @background1;
+  padding-left: 8px;
+  font-weight: bold;
+}
+
+.nav-menu-title {
+  flex: 1;
+  text-overflow: ellipsis;
+}
+
+.nav-menu-open-folders {
+  width: @top-menu-width;
+  height: @top-menu-height;
+  text-align: center;
+  padding: 1px 0 0 5px;
+  &:hover {
+    background: @background-highlight;
+    color: white;
+    transition: background .4s ease;
+  }
+  &:hover .nav-menu-tooltip {
+    display: block;
+  }
+}
+
+.nav-menu-close-folders {
+  .nav-menu-open-folders;
+}
+
+.nav-menu-tooltip {
+  .top-bar-menu-tooltip;
+  transform: translate(19px, -3px);
+  font-weight: 400;
+  line-height: 21px;
+}
+
+// mainMenu common ///////////////////////////
+
+.main-menu {
+  width: 75%;
+  height: @top-menu-height;
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 25%;
+  vertical-align: top;
+  background: @background1;
+}
+
 .top-bar-menu-container {
   float: left;
   height: @top-menu-height;
@@ -25,8 +95,8 @@
 .top-bar-menu-icon {
   height: @top-menu-height;
   width: @top-menu-width;
-  font-size: 20px;
-  padding: 5px 0 0 4px;
+  font-size: 21px;
+  padding: 6px 0 0 4px;
 }
 
 .top-bar-menu-dropdown {
@@ -69,71 +139,6 @@
   padding-left: 0;
 }
 
-// navMenu ////////////////////////////
-
-.nav-menu {
-  display: flex;
-  position: absolute;
-  width: 25%;
-  height: @top-menu-height;
-  top: 0;
-  left: 0;
-  line-height: 31px;
-  background: @background1;
-  padding-left: 8px;
-  font-weight: bold;
-}
-
-.nav-menu-title {
-  flex: 1;
-  text-overflow: ellipsis;
-}
-
-.nav-menu-open-folders {
-  width: @top-menu-width;
-  height: @top-menu-height;
-  text-align: center;
-  padding-left: 5px;
-  &:hover {
-    background: @background-highlight;
-    color: white;
-    transition: background .4s ease;
-  }
-  &:hover .nav-menu-tooltip {
-    display: block;
-  }
-}
-
-.nav-menu-close-folders {
-  .nav-menu-open-folders;
-}
-
-.nav-menu-tooltip {
-  display: none;
-  position: fixed;
-  height: 21px;
-  background: @background1;
-  transform: translate(19px, -3px);
-  padding: 0px 5px 0 5px;
-  font-size: 10px;
-  font-weight: 400;
-  line-height: 21px;
-  color: white;
-}
-
-// mainMenu ///////////////////////////
-
-.main-menu {
-  width: 75%;
-  height: @top-menu-height;
-  position: absolute;
-  display: flex;
-  top: 0;
-  left: 25%;
-  vertical-align: top;
-  background: @background1;
-}
-
 .option-select {
   display: inline-block;
   width: 20px;
@@ -147,6 +152,36 @@
   visibility: hidden;
   .option-select;
 }
+
+// addFolder //////////////////////////////////////////
+
+.addfolder-container {
+  .top-bar-menu-container;
+  &:hover .addfolder-tooltip {
+    display: block;
+  }
+}
+
+.addfolder-folder-icon {
+  .top-bar-menu-icon;
+  font-size: 26px;
+  padding: 6px 0 0 1px;
+}
+
+.addfolder-plus-icon {
+  .top-bar-menu-icon;
+  position: fixed;
+  transform: translate(0, -32px);
+  font-size: 8px;
+  font-weight: 100;
+  padding: 8px 0 0 11px;
+}
+
+.addfolder-tooltip {
+  .top-bar-menu-tooltip;
+}
+
+// column //////////////////////////////////////////
 
 .column-container {
   .top-bar-menu-container;
@@ -221,6 +256,8 @@
   }
 }
 
+// sort //////////////////////////////////////////
+
 .sort-container {
   .top-bar-menu-container;
   &:hover .sort-dropdown {
@@ -255,6 +292,8 @@
 .sort-option-title {
   .top-bar-menu-option-title;
 }
+
+// tag //////////////////////////////////////////
 
 .tag-container {
   .top-bar-menu-container;
@@ -306,32 +345,24 @@
   .top-bar-menu-option-title;
 }
 
-.deepSearch-container {
+// deepSearch //////////////////////////////////////////
+
+.deepsearch-container {
   .top-bar-menu-container;
-  &:hover {
-    background: @background-highlight;
-    color: white;
-    transition: background .4s ease;
-  }
-  &:hover .deepSearch-tooltip {
+  &:hover .deepsearch-tooltip {
     display: block;
   }
 }
 
-.deepSearch-icon {
+.deepsearch-icon {
   .top-bar-menu-icon;
 }
 
-.deepSearch-tooltip {
-  display: none;
-  position: fixed;
-  height: 21px;
-  background: @background1;
-  transform: translate(24px, -4px);
-  padding: 0px 5px 0 5px;
-  font-size: 10px;
-  color: white;
+.deepsearch-tooltip {
+  .top-bar-menu-tooltip;
 }
+
+// search //////////////////////////////////////////
 
 .search-wrapper {
   display: flex;

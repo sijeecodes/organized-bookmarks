@@ -9,6 +9,7 @@ const TopBar = ({
   setSearchWord,
   setSearchType,
   setTagFilter,
+  addFolder,
   openAllNavFolders,
   closeAllNavFolders
 }) => {
@@ -19,6 +20,7 @@ const TopBar = ({
         closeAllNavFolders={closeAllNavFolders}
       />
       <MainMenu
+        addFolder={addFolder}
         state={state}
         setMainColumn={setMainColumn}
         setMainSortType={setMainSortType}

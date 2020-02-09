@@ -383,6 +383,83 @@
   box-shadow: 0 3px 4px hsl(0, 0%, 15%);
   z-index: 1;
 }
+.top-bar-menu-tooltip {
+  display: none;
+  position: fixed;
+  height: 21px;
+  background: hsl(0, 0%, 5%);
+  transform: translate(24px, -4px);
+  padding: 0px 5px 0 5px;
+  font-size: 10px;
+  color: white;
+}
+.nav-menu {
+  display: flex;
+  position: absolute;
+  width: 25%;
+  height: 32px;
+  top: 0;
+  left: 0;
+  line-height: 31px;
+  background: hsl(0, 0%, 5%);
+  padding-left: 8px;
+  font-weight: bold;
+}
+.nav-menu-title {
+  flex: 1;
+  text-overflow: ellipsis;
+}
+.nav-menu-open-folders {
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  padding: 1px 0 0 5px;
+}
+.nav-menu-open-folders:hover {
+  background: hsl(0, 0%, 35%);
+  color: white;
+  transition: background 0.4s ease;
+}
+.nav-menu-open-folders:hover .nav-menu-tooltip {
+  display: block;
+}
+.nav-menu-close-folders {
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  padding: 1px 0 0 5px;
+}
+.nav-menu-close-folders:hover {
+  background: hsl(0, 0%, 35%);
+  color: white;
+  transition: background 0.4s ease;
+}
+.nav-menu-close-folders:hover .nav-menu-tooltip {
+  display: block;
+}
+.nav-menu-tooltip {
+  display: none;
+  position: fixed;
+  height: 21px;
+  background: hsl(0, 0%, 5%);
+  transform: translate(24px, -4px);
+  padding: 0px 5px 0 5px;
+  font-size: 10px;
+  color: white;
+  transform: translate(19px, -3px);
+  font-weight: 400;
+  line-height: 21px;
+}
+.main-menu {
+  width: 75%;
+  height: 32px;
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 25%;
+  vertical-align: top;
+  background: hsl(0, 0%, 5%);
+}
 .top-bar-menu-container {
   float: left;
   height: 32px;
@@ -397,8 +474,8 @@
 .top-bar-menu-icon {
   height: 32px;
   width: 32px;
-  font-size: 20px;
-  padding: 5px 0 0 4px;
+  font-size: 21px;
+  padding: 6px 0 0 4px;
 }
 .top-bar-menu-dropdown {
   display: none;
@@ -439,72 +516,6 @@
   font-weight: normal;
   padding-left: 0;
 }
-.nav-menu {
-  display: flex;
-  position: absolute;
-  width: 25%;
-  height: 32px;
-  top: 0;
-  left: 0;
-  line-height: 31px;
-  background: hsl(0, 0%, 5%);
-  padding-left: 8px;
-  font-weight: bold;
-}
-.nav-menu-title {
-  flex: 1;
-  text-overflow: ellipsis;
-}
-.nav-menu-open-folders {
-  width: 32px;
-  height: 32px;
-  text-align: center;
-  padding-left: 5px;
-}
-.nav-menu-open-folders:hover {
-  background: hsl(0, 0%, 35%);
-  color: white;
-  transition: background 0.4s ease;
-}
-.nav-menu-open-folders:hover .nav-menu-tooltip {
-  display: block;
-}
-.nav-menu-close-folders {
-  width: 32px;
-  height: 32px;
-  text-align: center;
-  padding-left: 5px;
-}
-.nav-menu-close-folders:hover {
-  background: hsl(0, 0%, 35%);
-  color: white;
-  transition: background 0.4s ease;
-}
-.nav-menu-close-folders:hover .nav-menu-tooltip {
-  display: block;
-}
-.nav-menu-tooltip {
-  display: none;
-  position: fixed;
-  height: 21px;
-  background: hsl(0, 0%, 5%);
-  transform: translate(19px, -3px);
-  padding: 0px 5px 0 5px;
-  font-size: 10px;
-  font-weight: 400;
-  line-height: 21px;
-  color: white;
-}
-.main-menu {
-  width: 75%;
-  height: 32px;
-  position: absolute;
-  display: flex;
-  top: 0;
-  left: 25%;
-  vertical-align: top;
-  background: hsl(0, 0%, 5%);
-}
 .option-select {
   display: inline-block;
   width: 20px;
@@ -521,6 +532,49 @@
   text-align: center;
   overflow: visible;
   padding-left: 3px;
+}
+.addfolder-container {
+  float: left;
+  height: 32px;
+  width: 32px;
+  text-align: left;
+}
+.addfolder-container:hover {
+  background: hsl(0, 0%, 35%);
+  color: white;
+  transition: background 0.4s ease;
+}
+.addfolder-container:hover .addfolder-tooltip {
+  display: block;
+}
+.addfolder-folder-icon {
+  height: 32px;
+  width: 32px;
+  font-size: 21px;
+  padding: 6px 0 0 4px;
+  font-size: 26px;
+  padding: 6px 0 0 1px;
+}
+.addfolder-plus-icon {
+  height: 32px;
+  width: 32px;
+  font-size: 21px;
+  padding: 6px 0 0 4px;
+  position: fixed;
+  transform: translate(0, -32px);
+  font-size: 8px;
+  font-weight: 100;
+  padding: 8px 0 0 11px;
+}
+.addfolder-tooltip {
+  display: none;
+  position: fixed;
+  height: 21px;
+  background: hsl(0, 0%, 5%);
+  transform: translate(24px, -4px);
+  padding: 0px 5px 0 5px;
+  font-size: 10px;
+  color: white;
 }
 .column-container {
   float: left;
@@ -539,8 +593,8 @@
 .column-icon {
   height: 32px;
   width: 32px;
-  font-size: 20px;
-  padding: 5px 0 0 4px;
+  font-size: 21px;
+  padding: 6px 0 0 4px;
 }
 .column-dropdown {
   display: none;
@@ -648,8 +702,8 @@
 .sort-icon {
   height: 32px;
   width: 32px;
-  font-size: 20px;
-  padding: 5px 0 0 4px;
+  font-size: 21px;
+  padding: 6px 0 0 4px;
   font-size: 19px;
   padding: 5px 0 0 5px;
 }
@@ -714,8 +768,8 @@
 .tag-icon {
   height: 32px;
   width: 32px;
-  font-size: 20px;
-  padding: 5px 0 0 4px;
+  font-size: 21px;
+  padding: 6px 0 0 4px;
   flex: 1;
   width: 12px;
   background: none;
@@ -771,32 +825,27 @@
   font-weight: normal;
   padding-left: 0;
 }
-.deepSearch-container {
+.deepsearch-container {
   float: left;
   height: 32px;
   width: 32px;
   text-align: left;
 }
-.deepSearch-container:hover {
+.deepsearch-container:hover {
   background: hsl(0, 0%, 35%);
   color: white;
   transition: background 0.4s ease;
 }
-.deepSearch-container:hover {
-  background: hsl(0, 0%, 35%);
-  color: white;
-  transition: background 0.4s ease;
-}
-.deepSearch-container:hover .deepSearch-tooltip {
+.deepsearch-container:hover .deepsearch-tooltip {
   display: block;
 }
-.deepSearch-icon {
+.deepsearch-icon {
   height: 32px;
   width: 32px;
-  font-size: 20px;
-  padding: 5px 0 0 4px;
+  font-size: 21px;
+  padding: 6px 0 0 4px;
 }
-.deepSearch-tooltip {
+.deepsearch-tooltip {
   display: none;
   position: fixed;
   height: 21px;
@@ -851,8 +900,8 @@
 .search-inbox-spacer {
   height: 32px;
   width: 32px;
-  font-size: 20px;
-  padding: 5px 0 0 4px;
+  font-size: 21px;
+  padding: 6px 0 0 4px;
 }
 i {
   text-align: center;

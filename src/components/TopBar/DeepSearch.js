@@ -14,13 +14,13 @@ const DeepSearch = ({ searchType, setSearchType }) => {
 
   return (
     <div
-      className='deepSearch-container'
+      className='deepsearch-container'
       onClick={() => changeSearchType()}
     >
-      <div className='deepSearch-icon'>
+      <div className='deepsearch-icon'>
         <i className={searchType === 'default' ? Icons.deepSearch.deepSearchOff : Icons.deepSearch.deepSearch} />
       </div>
-      <div className='deepSearch-tooltip'>
+      <div className='deepsearch-tooltip'>
         {Strings.deepSearch.tooltip}
       </div>
     </div>

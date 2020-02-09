@@ -41,22 +41,22 @@ class App extends React.Component {
     });
   }
 
-  doSetCurrentFolder = (data) => {
+  setCurrentFolder = (data) => {
     this.props.setCurrentFolder(data);
     this.updateStorage('currentFolder', data);
   };
 
-  doSetMainSortType = (data) => {
+  setMainSortType = (data) => {
     this.props.setMainSortType(data);
     this.updateStorage('mainSortType', data);
   };
 
-  doSetMainColumn = (data) => {
+  setMainColumn = (data) => {
     this.props.setMainColumn(data);
     this.updateStorage('mainColumn', data);
   };
 
-  doSetTagFilter = (data) => {
+  setTagFilter = (data) => {
     this.props.setTagFilter(data);
     this.updateStorage('tagFilter', data);
   };
@@ -97,6 +97,12 @@ class App extends React.Component {
     chrome.bookmarks.remove(id, this.getTree);
   };
 
+  addFolder = (targetParentId) => {
+    let bookmark = { parentId: targetParentId };
+    console.log('create bookmark', bookmark);
+    chrome.bookmarks.create(bookmark, this.getTree);
+  }
+
   updateStorage = (dataName, data) => {
     const orBData = {
       currentFolder: this.props.state.currentFolder,
@@ -135,7 +141,7 @@ class App extends React.Component {
               updateTree={this.updateTree}
               toggleConfigModal={this.props.toggleConfigModal}
               removeById={this.removeById}
-              setCurrentFolder={this.doSetCurrentFolder}
+              setCurrentFolder={this.setCurrentFolder}
               setTags={this.props.setTags}
               setShortcuts={this.props.setShortcuts}
             />
@@ -143,20 +149,21 @@ class App extends React.Component {
         />
         <TopBar
           state={this.props.state}
-          setMainColumn={this.doSetMainColumn}
-          setMainSortType={this.doSetMainSortType}
+          setMainColumn={this.setMainColumn}
+          setMainSortType={this.setMainSortType}
           setSearchWord={this.props.setSearchWord}
           setSearchType={this.props.setSearchType}
-          setTagFilter={this.doSetTagFilter}
+          setTagFilter={this.setTagFilter}
+          addFolder={this.addFolder}
           openAllNavFolders={this.props.openAllNavFolders}
           closeAllNavFolders={this.props.closeAllNavFolders}
         />
         <MainBody
           state={this.props.state}
-          setCurrentFolder={this.doSetCurrentFolder}
-          setMainColumn={this.doSetMainColumn}
+          setCurrentFolder={this.setCurrentFolder}
+          setMainColumn={this.setMainColumn}
           toggleConfigModal={this.props.toggleConfigModal}
-          setMainSortType={this.doSetMainSortType}
+          setMainSortType={this.setMainSortType}
           setSearchWord={this.props.setSearchWord}
           setIsDragging={this.props.setIsDragging}
           moveBookmark={this.moveBookmark}
