@@ -4,6 +4,7 @@ import './App.css';
 import ConfigModal from './modals/ConfigModal';
 import TopBar from './TopBar';
 import MainBody from './MainBody';
+import Strings from './Strings';
 
 /* global chrome */
 
@@ -98,8 +99,10 @@ class App extends React.Component {
   };
 
   addFolder = (targetParentId) => {
-    let bookmark = { parentId: targetParentId };
-    console.log('create bookmark', bookmark);
+    let bookmark = {
+      parentId: targetParentId,
+      title: Strings.addFolder.defaultName
+    };
     chrome.bookmarks.create(bookmark, this.getTree);
   }
 

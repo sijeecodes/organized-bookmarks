@@ -3,6 +3,10 @@ const Icons = {
     openFolders: 'chevron down icon',
     closeFolders: 'chevron up icon',
   },
+  addFolder: {
+    folder: 'folder outline icon',
+    plus: 'plus icon'
+  },
   sortBy : {
     alphabetical: 'sort alphabet down icon',
     recentlyAdded: 'sort numeric down icon',

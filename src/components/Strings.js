@@ -1,4 +1,8 @@
 const Strings = {
+  addFolder: {
+    title: 'Add Folder',
+    defaultName: 'New Folder'
+  },
   navMenu: {
     title: 'Organized Bookmarks',
     openFolders: 'Open All Folders',
