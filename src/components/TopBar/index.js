@@ -11,7 +11,8 @@ const TopBar = ({
   setTagFilter,
   addFolder,
   openAllNavFolders,
-  closeAllNavFolders
+  closeAllNavFolders,
+  searchFocused
 }) => {
   return (
     <div className='top-bar'>
@@ -27,6 +28,7 @@ const TopBar = ({
         setSearchWord={setSearchWord}
         setSearchType={setSearchType}
         setTagFilter={setTagFilter}
+        searchFocused={searchFocused}
       />
     </div>
   );

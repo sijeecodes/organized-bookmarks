@@ -160,6 +160,7 @@ class App extends React.Component {
           addFolder={this.addFolder}
           openAllNavFolders={this.props.openAllNavFolders}
           closeAllNavFolders={this.props.closeAllNavFolders}
+          searchFocused={this.props.searchFocused}
         />
         <MainBody
           state={this.props.state}

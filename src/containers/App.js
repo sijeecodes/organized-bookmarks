@@ -19,6 +19,12 @@ const mapDispatchToProps = dispatch => {
         data: tree
       });
     },
+    searchFocused(data) {
+      dispatch({
+        type: 'SET_SEARCH_FOCUS',
+        data: data
+      })
+    },
     setCurrentFolder(folderId) {
       dispatch({
         type: 'SET_CURRENT_FOLDER',

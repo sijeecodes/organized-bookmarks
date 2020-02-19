@@ -13,7 +13,8 @@ const MainMenu = ({
   setMainSortType,
   setSearchWord,
   setSearchType,
-  setTagFilter
+  setTagFilter,
+  searchFocused
 }) => {
   return (
     <div className='main-menu'>
@@ -40,8 +41,7 @@ const MainMenu = ({
       <Search
         searchWord={state.searchWord}
         setSearchWord={setSearchWord}
-        searchType={state.searchType}
-        setSearchType={setSearchType}
+        searchFocused={searchFocused}
       />
     </div>
   );

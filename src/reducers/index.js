@@ -17,6 +17,7 @@ const initialState = {
   },
   isDragging: false,
   openModal: null,
+  searchFocused: 'off',
   tree: null
 };
 
@@ -53,6 +54,9 @@ const reducers = (state = initialState, action) => {
         }
 
         return newState(tempState, 'openFolders', tempOpenFolders);
+      }
+      case 'SET_SEARCH_FOCUS': {
+        return newState(state, 'searchFocused', action.data);
       }
       case 'SET_CURRENT_FOLDER': {
         let tempState = state;
