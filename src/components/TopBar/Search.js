@@ -6,8 +6,7 @@ const Search = ({ searchWord, setSearchWord, searchFocused }) => {
     setSearchWord(event.target.value);
   };
 
-  const searchFocus = (status) => {
-    console.log('FOCUS!!!!', status);
+  const setSearchFocused = (status) => {
     searchFocused(status);
   }
 
@@ -24,8 +23,8 @@ const Search = ({ searchWord, setSearchWord, searchFocused }) => {
         value={searchWord}
         placeHolder='Search..'
         onChange={e=> startSearch(e)}
-        onFocus={e=> searchFocus('on')}
-        onBlur={e=> searchFocus('off')}
+        onFocus={e=> setSearchFocused('on')}
+        onBlur={e=> setSearchFocused('off')}
       />
     </div>
   );
