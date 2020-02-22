@@ -178,7 +178,10 @@ const LinkConfigModal = ({
           close
         </div>
         <div className='modal-divider' />
-        <form onSubmit={updateChanges}>
+        <form
+          className='modal-form'
+          onSubmit={updateChanges}
+        >
           <div>
             <label>
               Title:

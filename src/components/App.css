@@ -249,15 +249,17 @@
 .modal-box {
   background: hsl(0, 0%, 20%);
   opacity: 1;
-  width: 400px;
-  height: 300px;
   position: fixed;
-  top: 40%;
+  top: 30%;
   left: 50%;
-  transform: translate(-150px, -100px);
+  transform: translate(-200px, 0);
   z-index: 10;
   overflow: auto;
   padding: 5px 5px 5px 5px;
+}
+.modal-form {
+  width: 400px;
+  display: block;
 }
 .modal-tag-onoff-button {
   display: inline-block;

@@ -187,7 +187,10 @@ const FolderConfigModal = ({
           close
         </div>
         <div className='modal-divider' />
-        <form onSubmit={updateChanges}>
+        <form
+          className='modal-form'
+          onSubmit={updateChanges}
+        >
           <label>
             Title:
             <input
