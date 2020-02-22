@@ -5,12 +5,18 @@ import ConfigModal from './modals/ConfigModal';
 import TopBar from './TopBar';
 import MainBody from './MainBody';
 import Strings from './Strings';
+import findInTree from '../utils/findInTree';
 
 /* global chrome */
 
 class App extends React.Component {
   componentDidMount() {
     this.atFirstLoad();
+    document.addEventListener('keydown', this.goToShortcut);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.goToShortcut);
   }
 
   atFirstLoad = () => {
@@ -27,19 +33,6 @@ class App extends React.Component {
         }
       }
     );
-
-    chrome.commands.onCommand.addListener(command => {
-      switch(command) {
-        case 'shortcut2':
-          this.goToShortcut(this.props.state.shortcuts[2]);
-          break;
-        case 'shortcut3':
-          this.goToShortcut(this.props.state.shortcuts[3]);
-          break;
-        default:
-          this.goToShortcut(this.props.state.shortcuts[1]);
-      }
-    });
   }
 
   setCurrentFolder = (data) => {
@@ -57,6 +50,11 @@ class App extends React.Component {
     this.updateStorage('mainColumn', data);
   };
 
+  setTags = (data) => {
+    this.props.setTags(data);
+    this.updateStorage();
+  }
+
   setTagFilter = (data) => {
     this.props.setTagFilter(data);
     this.updateStorage('tagFilter', data);
@@ -69,14 +67,22 @@ class App extends React.Component {
     });
   };
 
-  goToShortcut = (shortcut) => {
-    if(shortcut) {
-      let targetData = shortcut.split('/');
+  goToShortcut = (key) => {
+    if(this.props.state.searchFocused === 'off' && key.key > -1 && key.key < 10) {
+      let targetID = this.props.state.shortcuts[key.key];
+      let targetNode = findInTree(this.props.state.tree, targetID);
 
-      if(targetData[0] === '#') {
-        window.location = `#/${targetData[1]}/${this.props.state.searchType}`;
-      } else {
-        window.location = shortcut;
+      if(targetNode) {
+        if(targetNode.url) {
+          window.location = targetNode.url;
+        } else {
+          this.setCurrentFolder(targetID);
+          window.location = `#/${targetID}/${this.props.state.searchType}`
+        }
+      } else if(this.props.state.shortcuts[key.key] !== '') {
+        let newShortcuts = this.props.state.shortcuts;
+        newShortcuts[key.key] = '';
+        this.props.setShortcuts(newShortcuts);
       }
     }
   };
@@ -145,7 +151,7 @@ class App extends React.Component {
               toggleConfigModal={this.props.toggleConfigModal}
               removeById={this.removeById}
               setCurrentFolder={this.setCurrentFolder}
-              setTags={this.props.setTags}
+              setTags={this.setTags}
               setShortcuts={this.props.setShortcuts}
             />
           )}

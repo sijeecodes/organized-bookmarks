@@ -9,6 +9,7 @@ const newState = (originalState, name, newData) => {
     tags: originalState.tags,
     tagFilter: originalState.tagFilter,
     shortcuts: originalState.shortcuts,
+    searchFocused: originalState.searchFocused,
     tree: originalState.tree,
     isDragging: originalState.isDragging,
     openModal: originalState.openModal

@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => {
     searchFocused(data) {
       dispatch({
         type: 'SET_SEARCH_FOCUS',
-        data: data
+        data
       })
     },
     setCurrentFolder(folderId) {

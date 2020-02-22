@@ -13,11 +13,12 @@ const FolderConfigModal = ({
   setShortcuts
 }) => {
   let tagData = state.tags[targetNode.id] ? state.tags[targetNode.id] : [];
+  let newShortcuts = state.shortcuts;
   const [title, setTitle] = useState(targetNode.title);
 
-  const [shortcut1, setShortcut1] = useState(state.shortcuts[1] === `#/${targetNode.id}/` ? 'shortcut-button-on' : 'shortcut-button');
-  const [shortcut2, setShortcut2] = useState(state.shortcuts[2] === `#/${targetNode.id}/` ? 'shortcut-button-on' : 'shortcut-button');
-  const [shortcut3, setShortcut3] = useState(state.shortcuts[3] === `#/${targetNode.id}/` ? 'shortcut-button-on' : 'shortcut-button');
+  const [shortcut1, setShortcut1] = useState(state.shortcuts[1] === targetNode.id ? 'shortcut-button-on' : 'shortcut-button');
+  const [shortcut2, setShortcut2] = useState(state.shortcuts[2] === targetNode.id ? 'shortcut-button-on' : 'shortcut-button');
+  const [shortcut3, setShortcut3] = useState(state.shortcuts[3] === targetNode.id ? 'shortcut-button-on' : 'shortcut-button');
 
   const [idTags, setIdTags] = useState(tagData);
   const [red, setRed] = useState(tagData.indexOf('red')+1 ? 'modal-tag-onoff-button-on' : 'modal-tag-onoff-button');
@@ -37,13 +38,20 @@ const FolderConfigModal = ({
     toggleConfigModal('close');
     setTags({id: targetNode.id, tags: idTags});
 
-    let newShortcuts = state.shortcuts;
     if(shortcut1 === 'shortcut-button-on') {
-      newShortcuts[1] = `#/${targetNode.id}/`;
-    } else if(shortcut2 === 'shortcut-button-on') {
-      newShortcuts[2] = `#/${targetNode.id}/`;
-    } else if(shortcut3 === 'shortcut-button-on') {
-      newShortcuts[3] = `#/${targetNode.id}/`;
+      newShortcuts[1] = targetNode.id;
+    } else if(newShortcuts[1] === targetNode.id) {
+      newShortcuts[1] = '';
+    }
+    if(shortcut2 === 'shortcut-button-on') {
+      newShortcuts[2] = targetNode.id;
+    } else if(newShortcuts[2] === targetNode.id) {
+      newShortcuts[2] = '';
+    }
+    if(shortcut3 === 'shortcut-button-on') {
+      newShortcuts[3] = targetNode.id;
+    } else if(newShortcuts[3] === targetNode.id) {
+      newShortcuts[3] = '';
     }
     setShortcuts(newShortcuts);
   }
@@ -246,7 +254,7 @@ const FolderConfigModal = ({
           <div className='modal-shortcut-container'>
             <div
               className={shortcut1}
-              onClick={() => setShortcut('1', )}
+              onClick={() => setShortcut('1')}
             >
               Set as shortcut 1
             </div>
@@ -258,7 +266,7 @@ const FolderConfigModal = ({
             </div>
             <div
               className={shortcut3}
-              onClick={() => setShortcut('3', )}
+              onClick={() => setShortcut('3')}
             >
               Set as shortcut 3
             </div>

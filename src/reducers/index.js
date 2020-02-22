@@ -11,9 +11,16 @@ const initialState = {
   tags: {},
   tagFilter: [],
   shortcuts: {
+    0: '',
     1: '',
     2: '',
-    3: ''
+    3: '',
+    4: '',
+    5: '',
+    6: '',
+    7: '',
+    8: '',
+    9: ''
   },
   isDragging: false,
   openModal: null,
@@ -38,6 +45,7 @@ const reducers = (state = initialState, action) => {
           shortcuts: action.data.shortcuts,
           isDragging: state.isDragging,
           openModal: state.openModal,
+          searchFocused: state.searchFocused,
           tree: state.tree
         };
       }
@@ -52,21 +60,19 @@ const reducers = (state = initialState, action) => {
           }
           targetData = findInTree(action.data, targetData.parentId);
         }
-
         return newState(tempState, 'openFolders', tempOpenFolders);
       }
       case 'SET_SEARCH_FOCUS': {
         return newState(state, 'searchFocused', action.data);
       }
       case 'SET_CURRENT_FOLDER': {
-        let tempState = state;
         const newOpenFolders = state.openFolders;
         if(action.data === state.currentFolder && state.openFolders.indexOf(action.data) !== -1) {
           newOpenFolders.splice(state.openFolders.indexOf(action.data), 1);
         } else if(state.openFolders.indexOf(action.data) === -1) {
           newOpenFolders.push(action.data);
         }
-        tempState = newState(state, 'openFolders', newOpenFolders);
+        let tempState = newState(state, 'openFolders', newOpenFolders);
         return newState(tempState, 'currentFolder', action.data);
       }
       case 'SET_MAIN_COLUMN': {
@@ -80,9 +86,24 @@ const reducers = (state = initialState, action) => {
           return newState(state, 'openModal', modalState);
       }
       case 'DELETE_FOLDER': {
+        let tempState = state;
+        let newShortcuts = state.shortcuts;
+        let shortcutIndex = Object.values(newShortcuts).indexOf(action.data);
+        if(shortcutIndex !== -1) {
+          newShortcuts[shortcutIndex] = '';
+          tempState = newState(state, 'shortcuts', newShortcuts);
+        }
+
+        let newTags = state.tags;
+        delete newTags[action.data];
+        tempState = newState(tempState, 'tags', newTags);
+
         let temp = state.openFolders;
         temp.splice(temp.indexOf(action.data), 1);
-        return newState(state, 'openFolders', temp);
+        return newState(tempState, 'openFolders', temp);
+      }
+      case 'SET_IS_DRAGGING': {
+        return newState(state, 'isDragging', action.data);
       }
       case 'SET_MAIN_SORT_TYPE': {
         return newState(state, 'mainSortType', action.data);
@@ -93,12 +114,13 @@ const reducers = (state = initialState, action) => {
       case 'SET_SEARCH_TYPE': {
         return newState(state, 'searchType', action.data);
       }
-      case 'SET_IS_DRAGGING': {
-        return newState(state, 'isDragging', action.data);
-      }
       case 'SET_TAGS': {
         let tempTags = state.tags;
-        tempTags[action.data.id] = action.data.tags.sort();
+        if(action.data.tags.lenght === 0) {
+          delete tempTags[action.data.id];
+        } else {
+          tempTags[action.data.id] = action.data.tags.sort();
+        }
         return newState(state, 'tags', tempTags);
       }
       case 'SET_TAG_FILTER': {

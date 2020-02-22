@@ -10,6 +10,8 @@ const LinkConfigModal = ({
   setShortcuts
 }) => {
   let tagData = state.tags[targetNode.id] ? state.tags[targetNode.id] : [];
+  let newShortcuts = state.shortcuts;
+
   const [title, setTitle] = useState(targetNode.title);
   const [url, setUrl] = useState(targetNode.url);
 
@@ -36,13 +38,20 @@ const LinkConfigModal = ({
     toggleConfigModal('close');
     setTags({id: targetNode.id, tags: idTags});
 
-    let newShortcuts = state.shortcuts;
     if(shortcut1 === 'shortcut-button-on') {
-      newShortcuts[1] = targetNode.url;
-    } else if(shortcut2 === 'shortcut-button-on') {
-      newShortcuts[2] = targetNode.url;
-    } else if(shortcut3 === 'shortcut-button-on') {
-      newShortcuts[3] = targetNode.url;
+      newShortcuts[1] = targetNode.id;
+    } else if(newShortcuts[1] === targetNode.id) {
+      newShortcuts[1] = '';
+    }
+    if(shortcut2 === 'shortcut-button-on') {
+      newShortcuts[2] = targetNode.id;
+    } else if(newShortcuts[2] === targetNode.id) {
+      newShortcuts[2] = '';
+    }
+    if(shortcut3 === 'shortcut-button-on') {
+      newShortcuts[3] = targetNode.id;
+    } else if(newShortcuts[3] === targetNode.id) {
+      newShortcuts[3] = '';
     }
     setShortcuts(newShortcuts);
   }
