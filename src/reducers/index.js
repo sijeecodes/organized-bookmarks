@@ -32,7 +32,6 @@ const reducers = (state = initialState, action) => {
   if(action) {
     switch(action.type) {
       case 'UPDATE_SYNCED_STATE': {
-
         return {
           currentFolder: action.data.currentFolder,
           openFolders: action.data.openFolders,

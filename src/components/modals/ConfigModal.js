@@ -14,9 +14,22 @@ const ConfigModal = ({
   setShortcuts
 }) => {
 
-  if(typeof state !== 'undefined' && state.tree !== null) {
-    if(state.openModal !== null && state.openModal[0] === 'nav') {
-      const targetNode = findInTree(state.tree, state.openModal[1]);
+  if(typeof state !== 'undefined' && state.tree !== null && state.openModal !== null) {
+    const targetNode = findInTree(state.tree, state.openModal[1]);
+
+    if(targetNode.url) {
+      return (
+        <LinkConfigModal
+          state={state}
+          targetNode={targetNode}
+          updateTree={updateTree}
+          toggleConfigModal={toggleConfigModal}
+          removeById={removeById}
+          setTags={setTags}
+          setShortcuts={setShortcuts}
+        />
+      );
+    } else {
       return (
         <FolderConfigModal
           state={state}
@@ -30,36 +43,6 @@ const ConfigModal = ({
           setShortcuts={setShortcuts}
         />
       );
-    }
-    if(state.openModal !== null && state.openModal[0] === 'main') {
-      const targetNode = findInTree(state.tree, state.openModal[1]);
-      if(targetNode.url) {
-        return (
-          <LinkConfigModal
-            state={state}
-            targetNode={targetNode}
-            updateTree={updateTree}
-            toggleConfigModal={toggleConfigModal}
-            removeById={removeById}
-            setTags={setTags}
-            setShortcuts={setShortcuts}
-          />
-        );
-      } else {
-        return (
-          <FolderConfigModal
-            state={state}
-            match={match}
-            targetNode={targetNode}
-            updateTree={updateTree}
-            toggleConfigModal={toggleConfigModal}
-            removeById={removeById}
-            setCurrentFolder={setCurrentFolder}
-            setTags={setTags}
-            setShortcuts={setShortcuts}
-          />
-        );
-      }
     }
   }
   return <div className='modal-hidden'> Hidden Modal </div>

@@ -22,7 +22,11 @@ const Tags = ({ tagFilter, setTagFilter }) => {
 
   const onPress = (tag) => {
     let temp = tagFilter;
-    tagFilter.indexOf(tag) === -1 ? temp.push(tag) : temp.splice(tagFilter.indexOf(tag), 1);
+    if(tagFilter.indexOf(tag) === -1) {
+      temp.push(tag);
+    } else {
+      temp.splice(tagFilter.indexOf(tag), 1);
+    }
     setTagFilter(temp);
   };
 

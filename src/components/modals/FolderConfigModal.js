@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import CloseButton from './CloseButton';
+import InputBox from './InputBox';
+
 
 const FolderConfigModal = ({
   match,
@@ -190,23 +193,20 @@ const FolderConfigModal = ({
         className='modal-box'
         onClick={e => e.stopPropagation()}
       >
-        <div className='modal-box-close-button'
-          onClick={() => toggleConfigModal('close')}>
-          close
-        </div>
+        <CloseButton
+          value='close'
+          trigger={toggleConfigModal}
+        />
         <div className='modal-divider' />
         <form
           className='modal-form'
           onSubmit={updateChanges}
         >
-          <label>
-            Title:
-            <input
-              type='text'
-              value={title}
-              onChange={e => setTitle(e.target.value)}
-            />
-          </label>
+          <InputBox
+            name='Title'
+            value={title}
+            setValue={setTitle}
+          />
           <div className='modal-tags-container'>
             <div
               className={red}

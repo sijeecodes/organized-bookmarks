@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import CloseButton from './CloseButton';
+import InputBox from './InputBox';
 
 const LinkConfigModal = ({
   state,
@@ -182,35 +184,25 @@ const LinkConfigModal = ({
         className='modal-box'
         onClick={e => e.stopPropagation()}
       >
-        <div className='modal-box-close-button'
-          onClick={() => toggleConfigModal('close')}>
-          close
-        </div>
+        <CloseButton
+          value='close'
+          trigger={toggleConfigModal}
+        />
         <div className='modal-divider' />
         <form
           className='modal-form'
           onSubmit={updateChanges}
         >
-          <div>
-            <label>
-              Title:
-              <input
-                type='text'
-                value={title}
-                onChange={e => setTitle(e.target.value)}
-              />
-            </label>
-          </div>
-          <div>
-            <label>
-              Url:
-              <input
-                type='text'
-                value={url}
-                onChange={e=> setUrl(e.target.value)}
-              />
-            </label>
-          </div>
+        <InputBox
+          name='Title'
+          value={title}
+          setValue={setTitle}
+        />
+        <InputBox
+          name='Link'
+          value={url}
+          setValue={setUrl}
+        />
           <div className='modal-tags-container'>
             <div
               className={red}
