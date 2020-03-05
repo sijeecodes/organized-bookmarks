@@ -43,6 +43,6 @@
 
   "content_security_policy": "script-src 'self' 'sha256-/KIdXWKzSwC+oMFOwliH6JUNSwOFLq4nkeY1otCx2Xc='; object-src 'self'",
   "permissions": [
-    "bookmarks", "tabs", "storage", "chrome://favicon/"
+    "bookmarks", "tabs", "storage", "chrome://favicon/", "https://cdnjs.cloudflare.com/"
   ]
 }

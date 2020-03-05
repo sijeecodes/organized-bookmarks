@@ -1,0 +1,55 @@
+import React from 'react';
+import Strings from '../Strings';
+import Icons from '../Icons';
+
+const Tags = ({ newTags, setNewTags }) => {
+  let html = [];
+  let allTags = {
+    'red': [Strings.tags.red, false],
+    'orange': [Strings.tags.orange, false],
+    'yellow': [Strings.tags.yellow, false],
+    'green': [Strings.tags.green, false],
+    'blue': [Strings.tags.blue, false],
+    'purple': [Strings.tags.purple, false],
+    'grey': [Strings.tags.grey, false],
+  };
+
+  newTags.forEach(el => {
+    allTags[el][1] = true;
+  });
+
+  const onPress = (tag) => {
+    let temp = [...newTags];
+    if(newTags.indexOf(tag) === -1) {
+      temp.push(tag);
+    } else {
+      temp.splice(newTags.indexOf(tag), 1);
+    }
+    setNewTags(temp);
+  };
+
+  Object.keys(allTags).forEach(tag => {
+    let tagClassName = 'modal-tag-onoff-button';
+    if(allTags[tag][1]) {
+      tagClassName = 'modal-tag-onoff-button-on';
+    }
+    html.push(
+      <div
+        className={tagClassName}
+        onClick={() => onPress(tag)}
+      >
+        <div className='tag-icon'>
+          <i className={Icons.tags.tag} />
+        </div>
+      </div>
+    );
+  })
+
+  return (
+    <div className='modal-tags-container'>
+      {html}
+    </div>
+  );
+};
+
+export default Tags;

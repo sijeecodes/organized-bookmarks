@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
-import ConfigModal from './modals/ConfigModal';
+import Modal from './modals';
 import TopBar from './TopBar';
 import MainBody from './MainBody';
 import Strings from './Strings';
@@ -145,7 +145,7 @@ class App extends React.Component {
         <Route
           path='/:id/:displayMode'
           render={routeProps => (
-            <ConfigModal {...routeProps}
+            <Modal {...routeProps}
               state={this.props.state}
               updateTree={this.updateTree}
               toggleConfigModal={this.props.toggleConfigModal}
