@@ -17,28 +17,10 @@
         "mac": "MacCtrl+S"
       },
       "description": "Open a new tab with Organized Bookmarks"
-    },
-    "shortcut1": {
-      "suggested_key": {
-        "default": "Alt+1",
-        "mac": "MacCtrl+1"
-      },
-      "description": "Open a folder or link #1"
-    },
-    "shortcut2": {
-      "suggested_key": {
-        "default": "Alt+2",
-        "mac": "MacCtrl+2"
-      },
-      "description": "Open a folder or link #2"
-    },
-    "shortcut3": {
-      "suggested_key": {
-        "default": "Alt+3",
-        "mac": "MacCtrl+3"
-      },
-      "description": "Open a folder or link #3"
     }
+  },
+  "icons": {
+    "128": "logo128.png"
   },
 
   "content_security_policy": "script-src 'self' 'sha256-/KIdXWKzSwC+oMFOwliH6JUNSwOFLq4nkeY1otCx2Xc='; object-src 'self'",
