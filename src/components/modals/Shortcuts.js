@@ -14,16 +14,16 @@ const Shortcuts = ({ id, newShortcuts, setNewShortcuts }) => {
   }
 
   for(let i = 0; i < 10; i++) {
-    let shortcutClassName = 'shortcut-button';
+    let shortcutClassName = 'shortcut-off';
     if(newShortcuts[i] === id) {
-      shortcutClassName = 'shortcut-button-on';
+      shortcutClassName = 'shortcut-on';
     }
     html.push(
       <div
         className={shortcutClassName}
         onClick={() => setShortcut(i)}
       >
-        {i}
+        #{i}
       </div>
     );
   }

@@ -54,6 +54,19 @@
   padding: 3px 0 0 5px;
 }
 
+.modal-buttons-container {
+  display: block;
+  width: 100%;
+  text-align: right;
+}
+
+.modal-delete-button {
+  float: left;
+  left: 5;
+}
+
+// Input Box //////////////////////////////////////////
+
 .modal-inputbox-container {
   display: block;
   width: 100%;
@@ -86,37 +99,7 @@
   }
 }
 
-.modal-tag-icon {
-  height: @top-menu-height;
-  width: @top-menu-width;
-  padding: 6px 0 0 3px;
-  flex: 1;
-  font-size: 17px;
-}
-
-.modal-tag-onoff-button {
-  display: inline-block;
-  width: @item-height;
-  height: @item-height;
-  border-radius: 50%;
-  line-height: 13px;
-  padding: 2px 2px 0 2px;
-  &:hover {
-    background: @background-highlight;
-  }
-}
-
-.modal-tag-onoff-button-on {
-  .modal-tag-onoff-button;
-  background: @background-selected;
-  border-color: @default-color;
-  border-width: 2px;
-  border-style: solid;
-  padding: 0 0 0 0;
-  &:hover {
-    background: @background-highlight;
-  }
-}
+// Tags //////////////////////////////////////////////
 
 .modal-tags-container {
   display: inline-block;
@@ -137,74 +120,64 @@
   text-align: left;
 }
 
+.modal-tag-off {
+  display: inline-block;
+  width: @item-height;
+  height: @item-height;
+  border-radius: 50%;
+  line-height: 13px;
+  padding: 2px 2px 0 2px;
+  &:hover {
+    background: @background-highlight;
+  }
+}
+
+.modal-tag-on {
+  .modal-tag-off;
+  background: @background-selected;
+  border-color: @default-color;
+  border-width: 2px;
+  border-style: solid;
+  padding: 0 0 0 0;
+  &:hover {
+    background: @background-highlight;
+  }
+}
+
+.modal-tag-icon {
+  height: @top-menu-height;
+  width: @top-menu-width;
+  padding: 6px 0 0 3px;
+  flex: 1;
+  font-size: 17px;
+}
+
+// Shortcut ///////////////////////////////////////
+
 .modal-shortcut-container {
   display: block;
   width: 100%;
 }
 
-.modal-buttons-container {
-  display: block;
-  width: 100%;
-  text-align: right;
-}
-
-.modal-delete-button {
-  float: left;
-  left: 5;
-}
-
-.shortcut-button-on {
+.shortcut-off {
   display: inline-block;
-  width: 120px;
+  width: @item-height;
   height: @item-height;
+  border-radius: 50%;
+  line-height: 13px;
+  padding: 2px 2px 0 2px;
+  &:hover {
+    background: @background-highlight;
+  }
+}
+
+.shortcut-on {
+  .shortcut-off;
   background: @background-selected;
-  line-height: 23px;
-  font-size: 12px;
-  padding-left: 5px;
-  text-align: center;
-  margin: 1px 2px 1px 2px;
-  &:hover {
-    background: @background-highlight;
-  }
-}
-
-.shortcut-button {
-  display: inline-block;
-  width: 120px;
-  height: @item-height;
-  background: @background1;
-  line-height: 23px;
-  font-size: 12px;
-  text-align: center;
-  margin: 1px 2px 1px 2px;
-  &:hover {
-    background: @background-highlight;
-  }
-}
-
-.mod-tag-onoff-button-on {
-  display: inline-block;
-  width: 90px;
-  height: @item-height;
-  background: @background-selected;
-  line-height: 23px;
-  font-size: 12px;
-  padding-left: 5px;
-  text-align: center;
-  margin: 1px 2px 1px 2px;
-  &:hover {
-    background: @background-highlight;
-  }
-}
-.mod-tag-onoff-button {
-  display: inline-block;
-  width: 90px;
-  height: @item-height;
-  background: @background1;
-  line-height: 23px;
-  font-size: 12px;
-  text-align: center;
-  margin: 1px 2px 1px 2px;
+  border-color: @default-color;
+  border-width: 2px;
+  border-style: solid;
+  padding: 0 0 0 0;
   &:hover {
     background: @background-highlight;
   }

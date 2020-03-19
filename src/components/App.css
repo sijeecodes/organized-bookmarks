@@ -279,6 +279,15 @@
   font-size: 15px;
   padding: 3px 0 0 5px;
 }
+.modal-buttons-container {
+  display: block;
+  width: 100%;
+  text-align: right;
+}
+.modal-delete-button {
+  float: left;
+  left: 5;
+}
 .modal-inputbox-container {
   display: block;
   width: 100%;
@@ -308,43 +317,6 @@
 .modal-inputbox-box:focus {
   background: hsl(0, 0%, 35%);
 }
-.modal-tag-icon {
-  height: 32px;
-  width: 32px;
-  padding: 6px 0 0 3px;
-  flex: 1;
-  font-size: 17px;
-}
-.modal-tag-onoff-button {
-  display: inline-block;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  line-height: 13px;
-  padding: 2px 2px 0 2px;
-}
-.modal-tag-onoff-button:hover {
-  background: hsl(0, 0%, 35%);
-}
-.modal-tag-onoff-button-on {
-  display: inline-block;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  line-height: 13px;
-  padding: 2px 2px 0 2px;
-  background: hsl(0, 0%, 15%);
-  border-color: hsl(0, 0%, 85%);
-  border-width: 2px;
-  border-style: solid;
-  padding: 0 0 0 0;
-}
-.modal-tag-onoff-button-on:hover {
-  background: hsl(0, 0%, 35%);
-}
-.modal-tag-onoff-button-on:hover {
-  background: hsl(0, 0%, 35%);
-}
 .modal-tags-container {
   display: inline-block;
   width: 100%;
@@ -361,71 +333,75 @@
   width: 83%;
   text-align: left;
 }
+.modal-tag-off {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  line-height: 13px;
+  padding: 2px 2px 0 2px;
+}
+.modal-tag-off:hover {
+  background: hsl(0, 0%, 35%);
+}
+.modal-tag-on {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  line-height: 13px;
+  padding: 2px 2px 0 2px;
+  background: hsl(0, 0%, 15%);
+  border-color: hsl(0, 0%, 85%);
+  border-width: 2px;
+  border-style: solid;
+  padding: 0 0 0 0;
+}
+.modal-tag-on:hover {
+  background: hsl(0, 0%, 35%);
+}
+.modal-tag-on:hover {
+  background: hsl(0, 0%, 35%);
+}
+.modal-tag-icon {
+  height: 32px;
+  width: 32px;
+  padding: 6px 0 0 3px;
+  flex: 1;
+  font-size: 17px;
+}
 .modal-shortcut-container {
   display: block;
   width: 100%;
 }
-.modal-buttons-container {
-  display: block;
-  width: 100%;
-  text-align: right;
-}
-.modal-delete-button {
-  float: left;
-  left: 5;
-}
-.shortcut-button-on {
+.shortcut-off {
   display: inline-block;
-  width: 120px;
+  width: 28px;
   height: 28px;
+  border-radius: 50%;
+  line-height: 13px;
+  padding: 2px 2px 0 2px;
+}
+.shortcut-off:hover {
+  background: hsl(0, 0%, 35%);
+}
+.shortcut-on {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  line-height: 13px;
+  padding: 2px 2px 0 2px;
   background: hsl(0, 0%, 15%);
-  line-height: 23px;
-  font-size: 12px;
-  padding-left: 5px;
-  text-align: center;
-  margin: 1px 2px 1px 2px;
+  border-color: hsl(0, 0%, 85%);
+  border-width: 2px;
+  border-style: solid;
+  padding: 0 0 0 0;
 }
-.shortcut-button-on:hover {
+.shortcut-on:hover {
   background: hsl(0, 0%, 35%);
 }
-.shortcut-button {
-  display: inline-block;
-  width: 120px;
-  height: 28px;
-  background: hsl(0, 0%, 5%);
-  line-height: 23px;
-  font-size: 12px;
-  text-align: center;
-  margin: 1px 2px 1px 2px;
-}
-.shortcut-button:hover {
-  background: hsl(0, 0%, 35%);
-}
-.mod-tag-onoff-button-on {
-  display: inline-block;
-  width: 90px;
-  height: 28px;
-  background: hsl(0, 0%, 15%);
-  line-height: 23px;
-  font-size: 12px;
-  padding-left: 5px;
-  text-align: center;
-  margin: 1px 2px 1px 2px;
-}
-.mod-tag-onoff-button-on:hover {
-  background: hsl(0, 0%, 35%);
-}
-.mod-tag-onoff-button {
-  display: inline-block;
-  width: 90px;
-  height: 28px;
-  background: hsl(0, 0%, 5%);
-  line-height: 23px;
-  font-size: 12px;
-  text-align: center;
-  margin: 1px 2px 1px 2px;
-}
-.mod-tag-onoff-button:hover {
+.shortcut-on:hover {
   background: hsl(0, 0%, 35%);
 }
 .top-bar {

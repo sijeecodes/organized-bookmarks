@@ -29,9 +29,9 @@ const Tags = ({ newTags, setNewTags }) => {
   };
 
   Object.keys(allTags).forEach(tag => {
-    let tagClassName = 'modal-tag-onoff-button';
+    let tagClassName = 'modal-tag-off';
     if(allTags[tag][1]) {
-      tagClassName = 'modal-tag-onoff-button-on';
+      tagClassName = 'modal-tag-on';
     }
     html.push(
       <div
