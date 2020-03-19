@@ -1,5 +1,6 @@
 @import "../lessVariables.less";
-@content-width: 83%;
+@title-width: 17%;
+@content-width: 81%;
 
 .modal-hidden {
   display: none;
@@ -7,8 +8,8 @@
 
 .modal-background {
   position: fixed;
-  width: 100%;
   height: 100%;
+  width: 100%;
   z-index: 5;
   top: 0;
   left: 0;
@@ -17,32 +18,26 @@
 }
 
 .modal-box {
-  background: @background2;
-  opacity: 1;
   position: fixed;
+  z-index: 10;
   top: 30%;
   left: 50%;
-  transform: translate(-225px, 0);
-  z-index: 10;
+  transform: translate(-240px, 0);
+  background: @background2;
+  opacity: 1;
 }
 
 .modal-form {
-  width: 450px;
   display: block;
-  margin-top: 5px;
-}
-
-.modal-divider {
-  display: block;
-  width: 100%;
-  height: @top-menu-height;
+  width: 480px;
+  margin-top: 17px;
 }
 
 .modal-box-close-button {
   position: absolute;
-  right: 0;
   height: @item-height;
   width: @item-height;
+  right: 0;
   text-align: center;
   &:hover {
     background: @background-highlight;
@@ -50,19 +45,33 @@
 }
 
 .modal-box-close-button-icon {
-  font-size: 15px;
   padding: 3px 0 0 5px;
+  font-size: 15px;
 }
 
 .modal-buttons-container {
   display: block;
   width: 100%;
+  background: @background2;
   text-align: right;
 }
 
-.modal-delete-button {
+.modal-right-button {
+  border: none;
+  height: @item-height;
+  background: @background2;
+  padding: 0 15px 0 15px;
+  color: @default-color;
+  font-weight: 600;
+  &:hover {
+    background: @background-highlight;
+  }
+}
+
+.modal-left-button {
+  .modal-right-button;
   float: left;
-  left: 5;
+  width: @title-width;
 }
 
 // Input Box //////////////////////////////////////////
@@ -70,26 +79,29 @@
 .modal-inputbox-container {
   display: block;
   width: 100%;
+  padding: 6px 7px 4px 0;
   text-align: right;
-  padding: 0 10px 4px 0;
 }
 
 .modal-inputbox-title {
   float: left;
-  padding: 2px 0 0 8px;
+  width: @title-width;
+  padding: 2px 0 0 0;
+  text-align: center;
   font-weight: 800;
+  color: @darker-color;
 }
 
 .modal-inputbox-box {
   display: inline-block;
   width: @content-width;
-  vertical-align: top;
+  padding: 9px 5px 2px 5px;
+  background-color: @background2;
   border: none;
   border-bottom: 1px solid @background-highlight;
   outline: none;
-  padding: 5px 5px 2px 5px;
+  vertical-align: top;
   color: white;
-  background-color: @background2;
   text-overflow: ellipsis;
   &:hover {
     background: @background-highlight;
@@ -106,27 +118,33 @@
   width: 100%;
   padding: 7px 10px 0 0;
   text-align: right;
+  vertical-align: top;
 }
 
 .modal-tags-title {
   float: left;
-  padding: 4px 0 0 8px;
+  width: @title-width;
+  padding: 4px 0 0 0;
+  text-align: center;
   font-weight: 800;
+  color: @darker-color;
 }
 
 .modal-tags {
   display: inline-block;
   width: @content-width;
   text-align: left;
+  vertical-align: top;
 }
 
 .modal-tag-off {
   display: inline-block;
-  width: @item-height;
   height: @item-height;
+  width: @item-height;
   border-radius: 50%;
   line-height: 13px;
   padding: 2px 2px 0 2px;
+  margin-right: 1px;
   &:hover {
     background: @background-highlight;
   }
@@ -145,39 +163,60 @@
 }
 
 .modal-tag-icon {
+  flex: 1;
   height: @top-menu-height;
   width: @top-menu-width;
   padding: 6px 0 0 3px;
-  flex: 1;
   font-size: 17px;
 }
 
 // Shortcut ///////////////////////////////////////
 
-.modal-shortcut-container {
-  display: block;
+.modal-shortcuts-container {
+  display: inline-block;
   width: 100%;
+  padding: 0px 10px 0 0;
+  text-align: right;
 }
 
-.shortcut-off {
+.modal-shortcuts-title {
+  float: left;
+  width: @title-width;
+  padding: 4px 0 0 0;
+  text-align: center;
+  font-weight: 800;
+  color: @darker-color;
+}
+
+.modal-shortcuts {
   display: inline-block;
-  width: @item-height;
+  width: @content-width;
+  text-align: left;
+  vertical-align: top;
+}
+
+.modal-shortcut-off {
+  display: inline-block;
   height: @item-height;
-  border-radius: 50%;
-  line-height: 13px;
+  width: @item-height;
+  margin-right: 1px;
   padding: 2px 2px 0 2px;
+  border-radius: 50%;
+  line-height: 23px;
+  text-align: center;
+  font-weight: 600;
   &:hover {
     background: @background-highlight;
   }
 }
 
-.shortcut-on {
-  .shortcut-off;
+.modal-shortcut-on {
+  .modal-shortcut-off;
   background: @background-selected;
-  border-color: @default-color;
+  padding: 0 0 0 0;
   border-width: 2px;
   border-style: solid;
-  padding: 0 0 0 0;
+  border-color: @default-color;
   &:hover {
     background: @background-highlight;
   }

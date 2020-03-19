@@ -14,9 +14,9 @@ const Shortcuts = ({ id, newShortcuts, setNewShortcuts }) => {
   }
 
   for(let i = 0; i < 10; i++) {
-    let shortcutClassName = 'shortcut-off';
+    let shortcutClassName = 'modal-shortcut-off';
     if(newShortcuts[i] === id) {
-      shortcutClassName = 'shortcut-on';
+      shortcutClassName = 'modal-shortcut-on';
     }
     html.push(
       <div
@@ -29,8 +29,13 @@ const Shortcuts = ({ id, newShortcuts, setNewShortcuts }) => {
   }
 
   return (
-    <div className='modal-shortcut-container'>
-      {html}
+    <div className='modal-shortcuts-container'>
+      <div className='modal-shortcuts-title'>
+        Shortcuts
+      </div>
+      <div className='modal-shortcuts'>
+        {html}
+      </div>
     </div>
   );
 };

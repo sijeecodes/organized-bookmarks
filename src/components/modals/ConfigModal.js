@@ -15,7 +15,7 @@ const ConfigModal = ({
   setTags,
   setShortcuts
 }) => {
-  let isUrl, deleteButton, urlBox = '';
+  let isUrl, urlBox = '';
   let tagData = state.tags[targetNode.id] ? state.tags[targetNode.id] : [];
 
   const [newTags, setNewTags] = useState(tagData);
@@ -30,17 +30,15 @@ const ConfigModal = ({
 
   if(targetNode.url) {
     isUrl = true;
-    deleteButton = 'Delete Favorite';
     urlBox = (
       <InputBox
-        name='Url'
+        name='URL'
         value={newUrl}
         setValue={doSetNewUrl}
       />
     );
   } else {
     isUrl = false;
-    deleteButton = 'Delete Folder';
   }
 
   const tryRemoveById = (event) => {
@@ -97,7 +95,6 @@ const ConfigModal = ({
           value='close'
           trigger={toggleConfigModal}
         />
-        <div className='modal-divider' />
         <form
           className='modal-form'
           onSubmit={updateChanges}
@@ -119,13 +116,18 @@ const ConfigModal = ({
           />
           <div className='modal-buttons-container'>
             <button
-              className='modal-delete-button'
+              className='modal-left-button'
               onClick={tryRemoveById}
             >
-              {deleteButton}
+              Delete
             </button>
-            <input type='submit' value='Submit' />
+            <input
+              className='modal-right-button'
+              type='submit'
+              value='Submit'
+            />
             <button
+              className='modal-right-button'
               onClick={() => toggleConfigModal('close')}
             >
               Cancel
