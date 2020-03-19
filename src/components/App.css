@@ -959,12 +959,9 @@
   border: none;
   outline: none;
   padding-inline-start: 36px;
-  color: hsl(0, 0%, 5%);
-}
-.search-box:focus {
   color: white;
 }
-.search-box:focus ::placeHolder {
+.search-box:hover ::placeHolder {
   color: hsl(0, 0%, 20%);
 }
 .search-inbox {
