@@ -252,12 +252,13 @@
   position: fixed;
   top: 30%;
   left: 50%;
-  transform: translate(-200px, 0);
+  transform: translate(-225px, 0);
   z-index: 10;
 }
 .modal-form {
-  width: 400px;
+  width: 450px;
   display: block;
+  margin-top: 5px;
 }
 .modal-divider {
   display: block;
@@ -278,54 +279,87 @@
   font-size: 15px;
   padding: 3px 0 0 5px;
 }
-.modal-inputbox-name {
+.modal-inputbox-container {
   display: block;
   width: 100%;
   text-align: right;
-  padding: 0 10px 10px 0;
+  padding: 0 10px 4px 0;
+}
+.modal-inputbox-title {
+  float: left;
+  padding: 2px 0 0 8px;
+  font-weight: 800;
 }
 .modal-inputbox-box {
-  width: 88%;
+  display: inline-block;
+  width: 83%;
+  vertical-align: top;
   border: none;
-  border-bottom: 1px solid hsl(0, 0%, 13%);
+  border-bottom: 1px solid hsl(0, 0%, 35%);
   outline: none;
-  margin-left: 4px;
-  padding: 0 5px 2px 5px;
+  padding: 5px 5px 2px 5px;
   color: white;
   background-color: hsl(0, 0%, 20%);
   text-overflow: ellipsis;
 }
+.modal-inputbox-box:hover {
+  background: hsl(0, 0%, 35%);
+}
+.modal-inputbox-box:focus {
+  background: hsl(0, 0%, 35%);
+}
+.modal-tag-icon {
+  height: 32px;
+  width: 32px;
+  padding: 6px 0 0 3px;
+  flex: 1;
+  font-size: 17px;
+}
 .modal-tag-onoff-button {
   display: inline-block;
-  width: 90px;
+  width: 28px;
   height: 28px;
-  background: hsl(0, 0%, 5%);
-  line-height: 23px;
-  font-size: 12px;
-  text-align: center;
-  margin: 1px 2px 1px 2px;
+  border-radius: 50%;
+  line-height: 13px;
+  padding: 2px 2px 0 2px;
 }
 .modal-tag-onoff-button:hover {
   background: hsl(0, 0%, 35%);
 }
 .modal-tag-onoff-button-on {
   display: inline-block;
-  width: 90px;
+  width: 28px;
   height: 28px;
+  border-radius: 50%;
+  line-height: 13px;
+  padding: 2px 2px 0 2px;
   background: hsl(0, 0%, 15%);
-  line-height: 23px;
-  font-size: 12px;
-  padding-left: 5px;
-  text-align: center;
-  margin: 1px 2px 1px 2px;
+  border-color: hsl(0, 0%, 85%);
+  border-width: 2px;
+  border-style: solid;
+  padding: 0 0 0 0;
+}
+.modal-tag-onoff-button-on:hover {
+  background: hsl(0, 0%, 35%);
 }
 .modal-tag-onoff-button-on:hover {
   background: hsl(0, 0%, 35%);
 }
 .modal-tags-container {
-  display: block;
+  display: inline-block;
   width: 100%;
-  margin-top: 10px;
+  padding: 7px 10px 0 0;
+  text-align: right;
+}
+.modal-tags-title {
+  float: left;
+  padding: 4px 0 0 8px;
+  font-weight: 800;
+}
+.modal-tags {
+  display: inline-block;
+  width: 83%;
+  text-align: left;
 }
 .modal-shortcut-container {
   display: block;

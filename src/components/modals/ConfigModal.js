@@ -43,7 +43,8 @@ const ConfigModal = ({
     deleteButton = 'Delete Folder';
   }
 
-  const tryRemoveById = () => {
+  const tryRemoveById = (event) => {
+    event.preventDefault();
     toggleConfigModal('close')
     if(isUrl) {
       removeById(targetNode.id);

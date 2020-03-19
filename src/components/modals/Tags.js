@@ -38,7 +38,10 @@ const Tags = ({ newTags, setNewTags }) => {
         className={tagClassName}
         onClick={() => onPress(tag)}
       >
-        <div className='tag-icon'>
+        <div
+          className='modal-tag-icon'
+          style= {{ color: `${tag}`}}
+        >
           <i className={Icons.tags.tag} />
         </div>
       </div>
@@ -47,7 +50,12 @@ const Tags = ({ newTags, setNewTags }) => {
 
   return (
     <div className='modal-tags-container'>
-      {html}
+      <div className='modal-tags-title'>
+        Tags
+      </div>
+      <div className='modal-tags'>
+        {html}
+      </div>
     </div>
   );
 };
