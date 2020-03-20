@@ -3,6 +3,7 @@ import CloseButton from './CloseButton';
 import InputBox from './InputBox';
 import Shortcuts from './Shortcuts';
 import Tags from './Tags';
+import Strings from '../Strings';
 
 const ConfigModal = ({
   match,
@@ -32,7 +33,7 @@ const ConfigModal = ({
     isUrl = true;
     urlBox = (
       <InputBox
-        name='URL'
+        name={Strings.configModal.urlTitle}
         value={newUrl}
         setValue={doSetNewUrl}
       />
@@ -100,7 +101,7 @@ const ConfigModal = ({
           onSubmit={updateChanges}
         >
           <InputBox
-            name='Title'
+            name={Strings.configModal.configModalTitle}
             value={newTitle}
             setValue={doSetNewTitle}
           />
@@ -119,19 +120,19 @@ const ConfigModal = ({
               className='modal-left-button'
               onClick={tryRemoveById}
             >
-              Delete
+              {Strings.configModal.deleteButton}
             </button>
             <input
               className='modal-right-button'
               type='submit'
-              value='Submit'
+              value={Strings.configModal.submitButton}
             />
             <button
               className='modal-right-button'
               type='button'
               onClick={() => toggleConfigModal('close')}
             >
-              Cancel
+              {Strings.configModal.cancelButton}
             </button>
           </div>
         </form>

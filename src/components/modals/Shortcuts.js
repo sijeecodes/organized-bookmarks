@@ -1,4 +1,5 @@
 import React from 'react';
+import Strings from '../Strings';
 
 const Shortcuts = ({ id, newShortcuts, setNewShortcuts }) => {
   let html = [];
@@ -31,7 +32,7 @@ const Shortcuts = ({ id, newShortcuts, setNewShortcuts }) => {
   return (
     <div className='modal-shortcuts-container'>
       <div className='modal-shortcuts-title'>
-        Shortcuts
+        {Strings.configModal.shortcutsTitle}
       </div>
       <div className='modal-shortcuts'>
         {html}

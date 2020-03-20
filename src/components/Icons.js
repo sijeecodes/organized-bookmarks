@@ -1,4 +1,8 @@
 const Icons = {
+  configModal: {
+    closeButton: 'close icon',
+    tag: 'tag icon'
+  },
   navMenu: {
     openFolders: 'chevron down icon',
     closeFolders: 'chevron up icon',

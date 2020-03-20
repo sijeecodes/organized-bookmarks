@@ -1,4 +1,13 @@
 const Strings = {
+  configModal: {
+    configModalTitle: 'Title',
+    urlTitle: 'URL',
+    tagsTitle: 'Tags',
+    shortcutsTitle: 'Shortcuts',
+    deleteButton: 'Delete',
+    submitButton: 'Submit',
+    cancelButton: 'Cancel'
+  },
   addFolder: {
     title: 'Add Folder',
     defaultName: 'New Folder'

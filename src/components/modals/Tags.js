@@ -42,7 +42,7 @@ const Tags = ({ newTags, setNewTags }) => {
           className='modal-tag-icon'
           style= {{ color: `${tag}`}}
         >
-          <i className={Icons.tags.tag} />
+          <i className={Icons.configModal.tag} />
         </div>
       </div>
     );
@@ -51,7 +51,7 @@ const Tags = ({ newTags, setNewTags }) => {
   return (
     <div className='modal-tags-container'>
       <div className='modal-tags-title'>
-        Tags
+        {Strings.configModal.tagsTitle}
       </div>
       <div className='modal-tags'>
         {html}
