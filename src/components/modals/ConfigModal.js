@@ -128,6 +128,7 @@ const ConfigModal = ({
             />
             <button
               className='modal-right-button'
+              type='button'
               onClick={() => toggleConfigModal('close')}
             >
               Cancel
