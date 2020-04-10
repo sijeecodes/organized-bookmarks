@@ -19,140 +19,144 @@ const MainDefault = ({
   setIsDragging,
   moveBookmark
 }) => {
+  if(typeof state === 'undefined' || state.tree === null) {
+    return <div>Main</div>;
+  }
 
-  if(typeof state !== 'undefined' && state.tree) {
-    let subTree;
-
-    const onDropEvent = (event, targetParentId, targetIndex) => {
-      event.stopPropagation();
-      const temp = state.isDragging.split('-');
-      moveBookmark(temp[temp.length-1], targetParentId, targetIndex);
-      setIsDragging(false);
+  let subTree;
+  let addedUpHtml = [];
+  let columnCounter = 0;
+  let columnMax = state.mainColumn;
+  let tempHtml = [];
+  const onDropEvent = (event, targetParentId, targetIndex) => {
+    event.stopPropagation();
+    const temp = state.isDragging.split('-');
+    const prevIndex = temp[temp.length-2];
+    
+    if(targetIndex >= prevIndex) {
+      targetIndex++;
     }
+    moveBookmark(temp[temp.length-1], targetParentId, targetIndex);
+    setIsDragging(false);
+  }
 
-    console.log('components/MaindBody/MainDefault - first state. ', state);
-    if(state.searchType === 'default') {
-      subTree = findInTree(state.tree, match.params.id);
-      subTree = searchInTree(subTree.children, state.searchWord);
-    } else {
-      subTree = searchWholeTree(state.tree[0].children, state.searchWord);
-    }
+  // console.log('components/MaindBody/MainDefault - first state. ', state);
+  if(state.searchType === 'default') {
+    subTree = findInTree(state.tree, match.params.id);
+    subTree = searchInTree(subTree.children, state.searchWord);
+  } else {
+    subTree = searchWholeTree(state.tree[0].children, state.searchWord);
+  }
 
-    if(state.tagFilter.length > 0) {
-      subTree = filterByTags(subTree, state.tags, state.tagFilter);
-    }
+  if(state.tagFilter.length > 0) {
+    subTree = filterByTags(subTree, state.tags, state.tagFilter);
+  }
 
-    if(subTree.length > 0) {
-      subTree = setFavicon(subTree);
-      subTree = sortList(subTree, state.mainSortType);
-    }
+  if(subTree.length > 0) {
+    subTree = setFavicon(subTree);
+    subTree = sortList(subTree, state.mainSortType);
+  }
 
-    let addedUpHtml = [];
-    let columnCounter = 0;
-    let columnMax = state.mainColumn;
-    let tempHtml = [];
-
-    for(let i = 0; i < subTree.length; i++) {
-      if(subTree[i].url) {
-        tempHtml.push(
-          <div
-            className='main-item-wrapper'
+  for(let i = 0; i < subTree.length; i++) {
+    if(subTree[i].url) {
+      tempHtml.push(
+        <div
+          className='main-item-wrapper'
+        >
+          <a
+            className='main-item'
+            id={`main-item-${subTree[i].index}-${subTree[i].id}`}
+            href={subTree[i].url}
+            draggable
+            onDragStart={e => {
+              setIsDragging(e.target.id);
+            }}
+            onDragOver={e => e.preventDefault()}
+            onDrop={e => onDropEvent(e, subTree[i].parentId, subTree[i].index)}
+            onDragEnd={() => setIsDragging(false)}
           >
-            <a
-              className='main-item'
-              id={`main-item-${subTree[i].id}`}
-              href={subTree[i].url}
-              draggable
-              onDragStart={e => {
-                setIsDragging(e.target.id);
-              }}
-              onDragOver={e => e.preventDefault()}
-              onDrop={e => onDropEvent(e, subTree[i].parentId, subTree[i].index)}
-              onDragEnd={() => setIsDragging(false)}
-            >
-              <img
-                className='icon-favicon'
-                src={`chrome://favicon/${subTree[i].favicon}`}
-                alt='icon' />
-              <div className='main-item-title' >
-                {subTree[i].title}
-              </div>
-            </a>
-            <ItemTag tags={state.tags[subTree[i].id]} />
-            <div
-              className='main-item-config'
+            <img
+              className='icon-favicon'
+              src={`chrome://favicon/${subTree[i].favicon}`}
+              alt='icon'
+              draggable='false'
+            />
+            <div className='main-item-title' >
+              {subTree[i].title}
+            </div>
+          </a>
+          <ItemTag tags={state.tags[subTree[i].id]} />
+          <div
+            className='main-item-config'
+            id={`main-${subTree[i].id}`}
+            onClick={e => toggleConfigModal(e.target.id)}
+          >
+            <i
+              className='cogs icon'
               id={`main-${subTree[i].id}`}
               onClick={e => toggleConfigModal(e.target.id)}
-            >
-              <i
-                className='cogs icon'
-                id={`main-${subTree[i].id}`}
-                onClick={e => toggleConfigModal(e.target.id)}
-              />
-            </div>
+            />
           </div>
-        );
-      } else {
-        tempHtml.push(
-          <div className='main-item-wrapper'>
-            <Link
-              to={`/${subTree[i].id}/${match.params.displayMode}`}
-              className='main-item'
-              id={`main-item-${subTree[i].id}`}
-              draggable
-              onClick={() => setCurrentFolder(subTree[i].id)}
-              onDragStart={e => {
-                setIsDragging(e.target.id);
-              }}
-              onDragOver={e => e.preventDefault()}
-              onDrop={e => onDropEvent(e, subTree[i].parentId, subTree[i].index)}
-              onDragEnd={() => setIsDragging(false)}
-            >
-              <div className='main-item-folder-icon'>
-                <i className='folder icon'></i>
-              </div>
-              <div className='main-item-folder-title'>
-                {subTree[i].title}
-              </div>
-            </Link>
-            <ItemTag tags={state.tags[subTree[i].id]} />
-            <div
-              className='main-item-config'
+        </div>
+      );
+    } else {
+      tempHtml.push(
+        <div className='main-item-wrapper'>
+          <Link
+            to={`/${subTree[i].id}/${match.params.displayMode}`}
+            className='main-item'
+            id={`main-item-${subTree[i].index}-${subTree[i].id}`}
+            draggable
+            onClick={() => setCurrentFolder(subTree[i].id)}
+            onDragStart={e => {
+              setIsDragging(e.target.id);
+            }}
+            onDragOver={e => e.preventDefault()}
+            onDrop={e => onDropEvent(e, subTree[i].parentId, subTree[i].index)}
+            onDragEnd={() => setIsDragging(false)}
+          >
+            <div className='main-item-folder-icon'>
+              <i className='folder icon'></i>
+            </div>
+            <div className='main-item-folder-title'>
+              {subTree[i].title}
+            </div>
+          </Link>
+          <ItemTag tags={state.tags[subTree[i].id]} />
+          <div
+            className='main-item-config'
+            id={`main-${subTree[i].id}`}
+            onClick={e => toggleConfigModal(e.target.id)}
+          >
+            <i
+              className='cogs icon'
               id={`main-${subTree[i].id}`}
               onClick={e => toggleConfigModal(e.target.id)}
-            >
-              <i
-                className='cogs icon'
-                id={`main-${subTree[i].id}`}
-                onClick={e => toggleConfigModal(e.target.id)}
-              />
-            </div>
+            />
           </div>
-        );
-      }
-      if(i === subTree.length - 1 && columnCounter !== columnMax - 1) {
-        tempHtml.push(
-          <div className='main-item-dummy'>
-          </div>
-        );
+        </div>
+      );
+    }
+    columnCounter++;
+
+    if(i === subTree.length - 1 && columnCounter !== columnMax) {
+      for(let j = columnCounter; j !== columnMax; j++) {
+        tempHtml.push(<div className='main-item-wrapper'></div>);
         columnCounter++;
       }
-      columnCounter++;
-      if(columnCounter === columnMax) {
-        addedUpHtml.push(<div className='main-container'>{tempHtml}</div>);
-        tempHtml = [];
-        columnCounter = 0;
-      }
     }
-
-    return (
-      <div className='main'>
-        {addedUpHtml}
-      </div>
-    );
-  } else {
-    return <div>main</div>;
+    if(columnCounter === columnMax) {
+      addedUpHtml.push(<div className='main-container'>{tempHtml}</div>);
+      tempHtml = [];
+      columnCounter = 0;
+    }
   }
+
+  return (
+    <div className='main'>
+      {addedUpHtml}
+    </div>
+  );
 };
 
 export default MainDefault;

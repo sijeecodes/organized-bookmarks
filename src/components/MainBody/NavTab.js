@@ -16,13 +16,10 @@ const NavTab = ({
   }
 
   let resultHtml = [];
-
   const onDropEvent = (event, targetParentId, targetIndex) => {
     event.stopPropagation();
     const temp = state.isDragging.split('-');
-    if(targetIndex) {
-      moveBookmark(temp[temp.length-1], targetParentId, targetIndex);
-    }
+    moveBookmark(temp[temp.length-1], targetParentId);
     setIsDragging(false);
   }
 
@@ -45,7 +42,7 @@ const NavTab = ({
           }
         }
 
-        console.log('nav subTree ', state.tags[subTree.id], subTree);
+        // console.log('nav subTree ', state.tags[subTree.id], subTree);
 
 
         resultHtml.push(
@@ -60,7 +57,7 @@ const NavTab = ({
               <Link
                 to={`/${subTree.id}/${match.params.displayMode}`}
                 className={navTabClassName}
-                id={`nav-tab-item-${subTree.id}`}
+                id={`nav-tab-item-${subTree.index}-${subTree.id}`}
                 draggable
                 onClick={() => setCurrentFolder(subTree.id)}
                 onDragStart={e => {

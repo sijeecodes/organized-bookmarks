@@ -20,7 +20,7 @@
   width: 100%;
   position: relative;
   background: black;
-  opacity: 0.5;
+  opacity: 0;
   height: 10px;
   transform: translate(0, -28px);
   z-index: 2;
@@ -183,11 +183,6 @@
   width: 28px;
   transition-property: background, opacity;
   transition-duration: 0.4s;
-}
-.main-item-dummy {
-  position: relative;
-  height: 28px;
-  flex: 1;
 }
 .main-item {
   display: flex;
