@@ -54,7 +54,6 @@ class App extends React.Component {
   };
 
   setMainTabSize = () => {
-    console.log('resize is done', Math.floor(document.documentElement.clientWidth * 0.75));
     this.props.setMainTabSize(
       document.documentElement.clientHeight - 32,
       Math.floor(document.documentElement.clientWidth * 0.75)
@@ -138,9 +137,7 @@ class App extends React.Component {
       orBData[dataName] = data;
     }
 
-    chrome.storage.sync.set({orBData: JSON.stringify(orBData)}, () => {
-      console.log('components/App - setting state data ', orBData, JSON.stringify(orBData));
-    });
+    chrome.storage.sync.set({orBData: JSON.stringify(orBData)});
   };
 
   updateTree = ({ isLink, id, title, url }) => {

@@ -150,14 +150,7 @@ const MainTab = ({
         </div>
       );
     }
-
     lineCounter++;
-
-    // let lineCounter = 0;
-    // let lineMax = Math.floor((state.mainTabSize.height - 13 ) / 28);
-    // let columnTotal = 1;
-    // let columnPerTab = state.mainColumn;
-    // let columnWidth = state.mainTabSize.width;
 
     if(lineCounter === lineMax || i === subTree.length - 1) {
       addedUpHtml.push(
