@@ -14,20 +14,25 @@ const Shortcuts = ({ id, newShortcuts, setNewShortcuts }) => {
     setNewShortcuts(temp);
   }
 
-  for(let i = 0; i < 10; i++) {
+  const setShortcutToHtml = (num) => {
     let shortcutClassName = 'modal-shortcut-off';
-    if(newShortcuts[i] === id) {
+    if(newShortcuts[num] === id) {
       shortcutClassName = 'modal-shortcut-on';
     }
     html.push(
       <div
         className={shortcutClassName}
-        onClick={() => setShortcut(i)}
+        onClick={() => setShortcut(num)}
       >
-        #{i}
+        #{num}
       </div>
     );
+  };
+
+  for(let i = 1; i < 10; i++) {
+    setShortcutToHtml(i);
   }
+  setShortcutToHtml(0);
 
   return (
     <div className='modal-shortcuts-container'>
