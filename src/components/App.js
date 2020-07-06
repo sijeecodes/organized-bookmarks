@@ -13,15 +13,18 @@ class App extends React.Component {
   componentDidMount() {
     this.atFirstLoad();
     document.addEventListener('keydown', this.goToShortcut);
-  }
+    window.addEventListener('resize', this.setMainTabSize);
+  };
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.goToShortcut);
-  }
+    window.removeEventListener('resize', this.setMainTabSize);
+  };
 
   atFirstLoad = () => {
     chrome.bookmarks.getTree(tree => {
       this.props.initiateState(tree);
+      this.setMainTabSize();
     });
 
     chrome.storage.sync.get(['orBData'], result => {
@@ -50,10 +53,18 @@ class App extends React.Component {
     this.updateStorage('mainColumn', data);
   };
 
+  setMainTabSize = () => {
+    console.log('resize is done', Math.floor(document.documentElement.clientWidth * 0.75));
+    this.props.setMainTabSize(
+      document.documentElement.clientHeight - 32,
+      Math.floor(document.documentElement.clientWidth * 0.75)
+    );
+  };
+
   setTags = (data) => {
     this.props.setTags(data);
     this.updateStorage();
-  }
+  };
 
   setTagFilter = (data) => {
     this.props.setTagFilter(data);
@@ -110,7 +121,7 @@ class App extends React.Component {
       title: Strings.addFolder.defaultName
     };
     chrome.bookmarks.create(bookmark, this.getTree);
-  }
+  };
 
   updateStorage = (dataName, data) => {
     const orBData = {
@@ -118,6 +129,7 @@ class App extends React.Component {
       openFolders: this.props.state.openFolders,
       mainColumn: this.props.state.mainColumn,
       mainSortType: this.props.state.mainSortType,
+      mainTabSize: this.props.state.mainTabSize,
       tags: this.props.state.tags,
       tagFilter: this.props.state.tagFilter,
       shortcuts: this.props.state.shortcuts,

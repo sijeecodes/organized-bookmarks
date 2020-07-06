@@ -24,7 +24,7 @@ const Strings = {
     userDefined: 'User Defined'
   },
   columnAdjust: {
-    title: 'Columns'
+    title: 'Max Columns'
   },
   tags: {
     title: 'Tag Filters',

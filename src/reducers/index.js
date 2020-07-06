@@ -5,6 +5,10 @@ const initialState = {
   currentFolder: '1',
   openFolders: ['0', '1'],
   mainColumn: 2,
+  mainTabSize: {
+    height: 0,
+    width: 0
+  },
   mainSortType: 'userDefined',
   searchWord: '',
   searchType: 'default',
@@ -37,6 +41,7 @@ const reducers = (state = initialState, action) => {
           openFolders: action.data.openFolders,
           mainColumn: action.data.mainColumn,
           mainSortType: action.data.mainSortType,
+          mainTabSize: state.mainTabSize,
           searchWord: state.searchWord,
           searchType: state.searchType,
           tags: action.data.tags,
@@ -127,6 +132,9 @@ const reducers = (state = initialState, action) => {
       }
       case 'SET_SHORTCUTS': {
         return newState(state, 'shortcuts', action.data);
+      }
+      case 'SET_MAINTAB_SIZE': {
+        return newState(state, 'mainTabSize', action.data);
       }
       case 'OPEN_ALL_NAV_FOLDERS': {
         let tempOpenFolders = [];

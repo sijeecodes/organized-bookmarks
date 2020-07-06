@@ -8,7 +8,7 @@ import searchInTree from '../../utils/searchInTree';
 import searchWholeTree from '../../utils/searchWholeTree';
 import filterByTags from '../../utils/filterByTags';
 
-const MainDefault = ({
+const MainTab = ({
   match,
   state,
   setCurrentFolder,
@@ -25,14 +25,18 @@ const MainDefault = ({
 
   let subTree;
   let addedUpHtml = [];
-  let columnCounter = 0;
-  let columnMax = state.mainColumn;
+  let lineCounter = 0;
+  let lineMax = Math.floor((state.mainTabSize.height - 5 ) / 28);
+  let columnTotal = 1;
+  let columnPerTab = state.mainColumn;
+  let columnWidth = state.mainTabSize.width;
   let tempHtml = [];
+
   const onDropEvent = (event, targetParentId, targetIndex) => {
     event.stopPropagation();
     const temp = state.isDragging.split('-');
     const prevIndex = temp[temp.length-2];
-    
+
     if(targetIndex >= prevIndex) {
       targetIndex++;
     }
@@ -40,7 +44,6 @@ const MainDefault = ({
     setIsDragging(false);
   }
 
-  // console.log('components/MaindBody/MainDefault - first state. ', state);
   if(state.searchType === 'default') {
     subTree = findInTree(state.tree, match.params.id);
     subTree = searchInTree(subTree.children, state.searchWord);
@@ -55,6 +58,16 @@ const MainDefault = ({
   if(subTree.length > 0) {
     subTree = setFavicon(subTree);
     subTree = sortList(subTree, state.mainSortType);
+  }
+
+  if(subTree.length > lineMax) {
+    columnTotal = Math.ceil(subTree.length / lineMax);
+
+    if(columnTotal > columnPerTab) {
+      columnWidth = (columnWidth / columnPerTab) - (columnWidth / columnPerTab / 5 / columnPerTab);
+    } else {
+      columnWidth = columnWidth / columnTotal;
+    }
   }
 
   for(let i = 0; i < subTree.length; i++) {
@@ -137,26 +150,34 @@ const MainDefault = ({
         </div>
       );
     }
-    columnCounter++;
 
-    if(i === subTree.length - 1 && columnCounter !== columnMax) {
-      for(let j = columnCounter; j !== columnMax; j++) {
-        tempHtml.push(<div className='main-item-wrapper'></div>);
-        columnCounter++;
-      }
-    }
-    if(columnCounter === columnMax) {
-      addedUpHtml.push(<div className='main-container'>{tempHtml}</div>);
+    lineCounter++;
+
+    // let lineCounter = 0;
+    // let lineMax = Math.floor((state.mainTabSize.height - 13 ) / 28);
+    // let columnTotal = 1;
+    // let columnPerTab = state.mainColumn;
+    // let columnWidth = state.mainTabSize.width;
+
+    if(lineCounter === lineMax || i === subTree.length - 1) {
+      addedUpHtml.push(
+        <div
+          className='main-container'
+          style={{ width: columnWidth }}
+        >
+          {tempHtml}
+        </div>
+      );
       tempHtml = [];
-      columnCounter = 0;
+      lineCounter = 0;
     }
   }
 
   return (
-    <div className='main'>
+    <div className='main-tab'>
       {addedUpHtml}
     </div>
   );
 };
 
-export default MainDefault;
+export default MainTab;

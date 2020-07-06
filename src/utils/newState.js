@@ -4,6 +4,7 @@ const newState = (originalState, name, newData) => {
     openFolders: originalState.openFolders,
     mainColumn: originalState.mainColumn,
     mainSortType: originalState.mainSortType,
+    mainTabSize: originalState.mainTabSize,
     searchWord: originalState.searchWord,
     searchType: originalState.searchType,
     tags: originalState.tags,

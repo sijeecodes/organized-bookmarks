@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import NavTab from './NavTab';
-import MainDefault from './MainDefault';
+import MainTab from './MainTab';
 
 const MainBody = ({
   state,
@@ -31,7 +31,7 @@ const MainBody = ({
       <Route
         path='/:id/:displayMode'
         render={routeProps => (
-          <MainDefault {...routeProps}
+          <MainTab {...routeProps}
             state={state}
             setCurrentFolder={setCurrentFolder}
             setMainColumn={setMainColumn}

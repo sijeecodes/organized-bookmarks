@@ -100,6 +100,15 @@ const mapDispatchToProps = dispatch => {
       dispatch({
         type: 'CLOSE_ALL_NAV_FOLDERS'
       })
+    },
+    setMainTabSize(height, width) {
+      dispatch({
+        type: 'SET_MAINTAB_SIZE',
+        data: {
+          height,
+          width
+        }
+      });
     }
   };
 };
