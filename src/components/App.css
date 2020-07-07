@@ -28,7 +28,7 @@
   width: 100%;
   position: relative;
   background: black;
-  opacity: 0;
+  opacity: 1;
   height: 10px;
   transform: translate(0, -28px);
   z-index: 2;
@@ -257,7 +257,7 @@
 .modal-form {
   display: block;
   width: 480px;
-  margin-top: 17px;
+  margin-top: 19px;
 }
 .modal-box-close-button {
   position: absolute;

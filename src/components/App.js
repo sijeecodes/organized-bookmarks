@@ -98,15 +98,16 @@ class App extends React.Component {
   };
 
   moveBookmark = (id, targetParentId, targetIndex) => {
-    if(targetParentId)
-    chrome.bookmarks.move(
-      id,
-      {
-        parentId: targetParentId,
-        index: targetIndex
-      },
-      this.getTree
-    );
+    if(targetParentId) {
+      chrome.bookmarks.move(
+        id,
+        {
+          parentId: targetParentId,
+          index: targetIndex
+        },
+        this.getTree
+      );
+    }
   };
 
   removeById = (id) => {

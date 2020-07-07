@@ -18,8 +18,16 @@ const NavTab = ({
   let resultHtml = [];
   const onDropEvent = (event, targetParentId, targetIndex) => {
     event.stopPropagation();
-    const temp = state.isDragging.split('-');
-    moveBookmark(temp[temp.length-1], targetParentId);
+    let moveId = state.isDragging.split('-');
+    moveId = moveId[moveId.length-1];
+
+    if(moveId !== targetParentId) {
+      if(targetIndex) {
+        moveBookmark(moveId, targetParentId, targetIndex);
+      } else {
+        moveBookmark(moveId, targetParentId, 0);
+      }
+    }
     setIsDragging(false);
   }
 
@@ -42,15 +50,12 @@ const NavTab = ({
           }
         }
 
-        // console.log('nav subTree ', state.tags[subTree.id], subTree);
-
-
         resultHtml.push(
           <div
             className='nav-tab-item-wrapper'
             id={`nav-tab-item-wrapper-${subTree.id}`}
             onDragOver={e => e.preventDefault()}
-            onDrop={e => onDropEvent(e, subTree.id, null)}
+            onDrop={e => onDropEvent(e, subTree.id, 0)}
           >
             <div className='nav-tab-item-container'>
               <Spacer width={depth} />
