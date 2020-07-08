@@ -40,13 +40,20 @@ const MainTab = ({
     if(targetIndex >= prevIndex) {
       targetIndex++;
     }
-    moveBookmark(temp[temp.length-1], targetParentId, targetIndex);
+    if(targetParentId !== '0') {
+      moveBookmark(temp[temp.length-1], targetParentId, targetIndex);
+    }
     setIsDragging(false);
   }
 
   if(state.searchType === 'default') {
     subTree = findInTree(state.tree, match.params.id);
-    subTree = searchInTree(subTree.children, state.searchWord);
+
+    if(subTree.children) {
+      subTree = searchInTree(subTree.children, state.searchWord);
+    } else {
+      subTree = [];
+    }
   } else {
     subTree = searchWholeTree(state.tree[0].children, state.searchWord);
   }

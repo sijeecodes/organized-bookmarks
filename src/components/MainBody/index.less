@@ -29,15 +29,22 @@
 }
 
 .nav-tab-item-dropbox {
-  border: 1px solid lime;
+  // border: 1px solid lime;
   width: 100%;
   position: relative;
-  background: black;
-  opacity: 1;
-  height: 10px;
+  background: none;
+  opacity: 0;
+  height: 0px;
   transform: translate(0, -28px);
   z-index: 2;
   display: block;
+  transition-duration: .1s;
+}
+
+.nav-tab-item-dropbox-bottom {
+  .nav-tab-item-dropbox;
+  // border: 1px solid red;
+  transform: translate(0, -16px);
 }
 
 .nav-tab-item-container {

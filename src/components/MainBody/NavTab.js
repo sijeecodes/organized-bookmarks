@@ -21,7 +21,7 @@ const NavTab = ({
     let moveId = state.isDragging.split('-');
     moveId = moveId[moveId.length-1];
 
-    if(moveId !== targetParentId) {
+    if(moveId !== targetParentId && targetParentId !== '0') {
       if(targetIndex) {
         moveBookmark(moveId, targetParentId, targetIndex);
       } else {
@@ -31,17 +31,41 @@ const NavTab = ({
     setIsDragging(false);
   }
 
+  const bottomDropBox = (isOpenFolder, id, parentId, targetIndex) => {
+    if(isOpenFolder) {
+      return (
+        <div
+          className='nav-tab-item-dropbox-bottom'
+          style={{ height: 8 }}
+          onDragOver={e => e.preventDefault()}
+          onDrop={e => onDropEvent(e, id, 0)}
+        ></div>
+      );
+    } else {
+      return (
+        <div
+          className='nav-tab-item-dropbox-bottom'
+          style={{ height: 8 }}
+          onDragOver={e => e.preventDefault()}
+          onDrop={e => onDropEvent(e, parentId, targetIndex)}
+        ></div>
+      );
+    }
+  };
+
   const drawNavTab = (subTree, depth) => {
     if(state.openFolders.indexOf(subTree.parentId) !== -1 || subTree.id === '0') {
       if(subTree.children && subTree.parentId) {
         let navTabClassName = 'nav-tab-item';
         let navTabConfigClassName= 'nav-tab-item-config';
         let navTabIconType = 'folder icon';
+        let isOpenFolder = false;
         if(state.currentFolder === subTree.id) {
           navTabClassName = 'nav-tab-item-over';
           navTabConfigClassName = 'nav-tab-item-config-over';
         }
         if(state.openFolders.indexOf(subTree.id) !== -1) {
+          isOpenFolder = true;
           for(let i = 0; i < subTree.children.length; i++) {
             if(subTree.children[i].children && subTree.children[i].children.length > 0) {
               navTabIconType = 'folder open outline icon';
@@ -105,12 +129,17 @@ const NavTab = ({
             { state.isDragging ? (
               <div
                 className='nav-tab-item-dropbox'
+                style={{ height: 8 }}
                 onDragOver={e => e.preventDefault()}
                 onDrop={e => onDropEvent(e, subTree.parentId, subTree.index)}
               ></div>
             ) : (
               <div></div>
             )}
+            { state.isDragging ?
+              bottomDropBox(isOpenFolder, subTree.id, subTree.parentId, subTree.index+1) :
+              (<div></div>)
+            }
           </div>
         );
       }
