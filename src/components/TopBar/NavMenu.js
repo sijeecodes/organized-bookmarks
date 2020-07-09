@@ -10,11 +10,21 @@ const NavMenu = ({ openAllNavFolders, closeAllNavFolders }) => {
       </div>
       <div
         className='nav-menu-open-folders'
+        onClick={e => console.log("open settings")}
+      >
+        <i
+          className={Icons.navMenu.settings}
+        />
+        <div className='nav-menu-tooltip'>
+          {Strings.navMenu.settings}
+        </div>
+      </div>
+      <div
+        className='nav-menu-open-folders'
         onClick={openAllNavFolders}
       >
         <i
           className={Icons.navMenu.openFolders}
-          onClick={openAllNavFolders}
         />
         <div className='nav-menu-tooltip'>
           {Strings.navMenu.openFolders}
@@ -26,7 +36,6 @@ const NavMenu = ({ openAllNavFolders, closeAllNavFolders }) => {
       >
         <i
           className={Icons.navMenu.closeFolders}
-          onClick={openAllNavFolders}
         />
         <div className='nav-menu-tooltip'>
           {Strings.navMenu.closeFolders}

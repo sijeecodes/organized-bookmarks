@@ -27,23 +27,24 @@
   width: 100%;
   position: relative;
   background: none;
-  opacity: 0;
+  opacity: 1;
   height: 0px;
   transform: translate(0, -28px);
   z-index: 2;
   display: block;
-  transition-duration: 0.1s;
+  transition-duration: 0.5s;
 }
 .nav-tab-item-dropbox-bottom {
   width: 100%;
   position: relative;
   background: none;
-  opacity: 0;
+  opacity: 1;
   height: 0px;
   transform: translate(0, -28px);
   z-index: 2;
   display: block;
-  transition-duration: 0.1s;
+  transition-duration: 0.5s;
+  border: 1px solid red;
   transform: translate(0, -16px);
 }
 .nav-tab-item-container {

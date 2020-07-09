@@ -141,7 +141,9 @@ const reducers = (state = initialState, action) => {
         const searchFolders = (tree) => {
           for(let i = 0; i < tree.length; i++) {
             if(tree[i].children) {
-              tempOpenFolders.push(tree[i].id);
+              if(tree[i].children.length > 0 && tree[i].children.find(el => el.children)) {
+                tempOpenFolders.push(tree[i].id);
+              }
               searchFolders(tree[i].children);
             }
           }

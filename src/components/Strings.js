@@ -14,6 +14,7 @@ const Strings = {
   },
   navMenu: {
     title: 'Organized Bookmarks',
+    settings: 'Settings',
     openFolders: 'Open All Folders',
     closeFolders: 'Close All Folders'
   },

@@ -21,6 +21,8 @@ const NavTab = ({
     let moveId = state.isDragging.split('-');
     moveId = moveId[moveId.length-1];
 
+    console.log('on drop event ', moveId, targetParentId, targetIndex);
+
     if(moveId !== targetParentId && targetParentId !== '0') {
       if(targetIndex) {
         moveBookmark(moveId, targetParentId, targetIndex);

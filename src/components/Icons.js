@@ -4,6 +4,7 @@ const Icons = {
     tag: 'tag icon'
   },
   navMenu: {
+    settings: 'cog icon',
     openFolders: 'chevron down icon',
     closeFolders: 'chevron up icon',
   },
