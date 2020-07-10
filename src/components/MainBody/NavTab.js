@@ -21,8 +21,6 @@ const NavTab = ({
     let moveId = state.isDragging.split('-');
     moveId = moveId[moveId.length-1];
 
-    console.log('on drop event ', moveId, targetParentId, targetIndex);
-
     if(moveId !== targetParentId && targetParentId !== '0') {
       if(targetIndex) {
         moveBookmark(moveId, targetParentId, targetIndex);
@@ -33,25 +31,22 @@ const NavTab = ({
     setIsDragging(false);
   }
 
+  const dropBoxJSX = (className, id, index) => {
+    return (
+      <div
+        className={className}
+        style={{ height: 8 }}
+        onDragOver={e => e.preventDefault()}
+        onDrop={e => onDropEvent(e, id, index)}
+      ></div>
+    );
+  };
+
   const bottomDropBox = (isOpenFolder, id, parentId, targetIndex) => {
     if(isOpenFolder) {
-      return (
-        <div
-          className='nav-tab-item-dropbox-bottom'
-          style={{ height: 8 }}
-          onDragOver={e => e.preventDefault()}
-          onDrop={e => onDropEvent(e, id, 0)}
-        ></div>
-      );
+      return dropBoxJSX('nav-tab-item-dropbox-bottom', id, 0);
     } else {
-      return (
-        <div
-          className='nav-tab-item-dropbox-bottom'
-          style={{ height: 8 }}
-          onDragOver={e => e.preventDefault()}
-          onDrop={e => onDropEvent(e, parentId, targetIndex)}
-        ></div>
-      );
+      return dropBoxJSX('nav-tab-item-dropbox-bottom', parentId, targetIndex);
     }
   };
 
@@ -128,19 +123,13 @@ const NavTab = ({
               </Link>
 
             </div>
-            { state.isDragging ? (
-              <div
-                className='nav-tab-item-dropbox'
-                style={{ height: 8 }}
-                onDragOver={e => e.preventDefault()}
-                onDrop={e => onDropEvent(e, subTree.parentId, subTree.index)}
-              ></div>
-            ) : (
-              <div></div>
-            )}
             { state.isDragging ?
-              bottomDropBox(isOpenFolder, subTree.id, subTree.parentId, subTree.index+1) :
-              (<div></div>)
+              dropBoxJSX('nav-tab-item-dropbox', subTree.parentId, subTree.index)
+              : (<div></div>)
+            }
+            { state.isDragging ?
+              bottomDropBox(isOpenFolder, subTree.id, subTree.parentId, subTree.index+1)
+              : (<div></div>)
             }
           </div>
         );

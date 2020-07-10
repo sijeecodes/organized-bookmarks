@@ -71,6 +71,12 @@ const reducers = (state = initialState, action) => {
       }
       case 'SET_CURRENT_FOLDER': {
         const newOpenFolders = state.openFolders;
+        if(action.data !== state.currentFolder && newOpenFolders.indexOf(state.currentFolder)) {
+          let currentFolderSubTree = findInTree(state.tree, state.currentFolder);
+          if(!currentFolderSubTree.children.find(el => el.children) > 0) {
+            newOpenFolders.splice(newOpenFolders.indexOf(state.currentFolder));
+          }
+        }
         if(action.data === state.currentFolder && state.openFolders.indexOf(action.data) !== -1) {
           newOpenFolders.splice(state.openFolders.indexOf(action.data), 1);
         } else if(state.openFolders.indexOf(action.data) === -1) {
