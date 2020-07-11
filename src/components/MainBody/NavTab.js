@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Spacer from '../Spacer';
 import ItemTag from './ItemTag';
+import Icons from '../Icons';
 
 const NavTab = ({
   match,
@@ -42,7 +43,7 @@ const NavTab = ({
     );
   };
 
-  const bottomDropBox = (isOpenFolder, id, parentId, targetIndex) => {
+  const bottomDropBoxJSX = (isOpenFolder, id, parentId, targetIndex) => {
     if(isOpenFolder) {
       return dropBoxJSX('nav-tab-item-dropbox-bottom', id, 0);
     } else {
@@ -55,17 +56,18 @@ const NavTab = ({
       if(subTree.children && subTree.parentId) {
         let navTabClassName = 'nav-tab-item';
         let navTabConfigClassName= 'nav-tab-item-config';
-        let navTabIconType = 'folder icon';
+        let navTabIconType = Icons.navTab.closedFolder;
         let isOpenFolder = false;
         if(state.currentFolder === subTree.id) {
           navTabClassName = 'nav-tab-item-over';
           navTabConfigClassName = 'nav-tab-item-config-over';
+          navTabIconType = Icons.navTab.currentFolder;
         }
         if(state.openFolders.indexOf(subTree.id) !== -1) {
           isOpenFolder = true;
           for(let i = 0; i < subTree.children.length; i++) {
             if(subTree.children[i].children && subTree.children[i].children.length > 0) {
-              navTabIconType = 'folder open outline icon';
+              navTabIconType = Icons.navTab.openedFolder;
               break;
             }
           }
@@ -111,7 +113,7 @@ const NavTab = ({
                   }}
                 >
                   <i
-                    className='cogs icon'
+                    className={Icons.navTab.config}
                     id={`nav-${subTree.id}`}
                     onClick={e => {
                       e.preventDefault();
@@ -128,7 +130,7 @@ const NavTab = ({
               : (<div></div>)
             }
             { state.isDragging ?
-              bottomDropBox(isOpenFolder, subTree.id, subTree.parentId, subTree.index+1)
+              bottomDropBoxJSX(isOpenFolder, subTree.id, subTree.parentId, subTree.index+1)
               : (<div></div>)
             }
           </div>

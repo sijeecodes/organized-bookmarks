@@ -1,4 +1,5 @@
 import React from 'react';
+import Icons from '../Icons';
 
 const Option = ({ type, target }) => {
   if(type === target) {

@@ -6,7 +6,13 @@ const Icons = {
   navMenu: {
     settings: 'cog icon',
     openFolders: 'chevron down icon',
-    closeFolders: 'chevron up icon',
+    closeFolders: 'chevron up icon'
+  },
+  navTab: {
+    closedFolder: 'folder icon',
+    openedFolder: 'folder open outline icon',
+    currentFolder: 'folder open icon',
+    config: 'cogs icon'
   },
   addFolder: {
     folder: 'folder outline icon',
@@ -15,15 +21,15 @@ const Icons = {
   sortBy : {
     alphabetical: 'sort alphabet down icon',
     recentlyAdded: 'sort numeric down icon',
-    userDefined: 'sort amount down icon',
+    userDefined: 'sort amount down icon'
   },
   columnAdjust: {
     column: 'columns icon',
     plus: 'plus square outline icon',
-    minus: 'minus square outline icon',
+    minus: 'minus square outline icon'
   },
   tags: {
-    tag: 'tag icon'
+    tag: 'tag icon',
   },
   deepSearch: {
     deepSearch: 'sitemap icon',
