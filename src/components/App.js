@@ -174,6 +174,7 @@ class App extends React.Component {
           setSearchType={this.props.setSearchType}
           setTagFilter={this.setTagFilter}
           addFolder={this.addFolder}
+          toggleConfigModal={this.props.toggleConfigModal}
           openAllNavFolders={this.props.openAllNavFolders}
           closeAllNavFolders={this.props.closeAllNavFolders}
           searchFocused={this.props.searchFocused}

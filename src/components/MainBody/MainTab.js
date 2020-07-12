@@ -113,7 +113,7 @@ const MainTab = ({
           >
             <i
               className='cogs icon'
-              id={`main-${subTree[i].id}`}
+              id={`main-${subTree[i].id}-icon`}
               onClick={e => toggleConfigModal(e.target.id)}
             />
           </div>

@@ -10,13 +10,15 @@ const TopBar = ({
   setSearchType,
   setTagFilter,
   addFolder,
+  toggleConfigModal,
   openAllNavFolders,
   closeAllNavFolders,
-  searchFocused
+  searchFocused,
 }) => {
   return (
     <div className='top-bar'>
       <NavMenu
+        toggleConfigModal={toggleConfigModal}
         openAllNavFolders={openAllNavFolders}
         closeAllNavFolders={closeAllNavFolders}
       />

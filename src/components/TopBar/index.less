@@ -41,11 +41,12 @@
   text-overflow: ellipsis;
 }
 
-.nav-menu-open-folders {
+.nav-menu-container {
   width: @top-menu-width;
   height: @top-menu-height;
-  text-align: center;
   padding: 1px 0 0 5px;
+  text-align: center;
+  font-size: 18px;
   &:hover {
     background: @background-highlight;
     color: white;
@@ -54,10 +55,6 @@
   &:hover .nav-menu-tooltip {
     display: block;
   }
-}
-
-.nav-menu-close-folders {
-  .nav-menu-open-folders;
 }
 
 .nav-menu-tooltip {

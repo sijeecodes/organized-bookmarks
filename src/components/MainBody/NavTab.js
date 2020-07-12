@@ -114,7 +114,7 @@ const NavTab = ({
                 >
                   <i
                     className={Icons.navTab.config}
-                    id={`nav-${subTree.id}`}
+                    id={`nav-${subTree.id}-icon`}
                     onClick={e => {
                       e.preventDefault();
                       e.stopPropagation();
