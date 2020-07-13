@@ -8,6 +8,11 @@ const Strings = {
     submitButton: 'Submit',
     cancelButton: 'Cancel'
   },
+  SettingsModal: {
+    resetButton: 'Reset',
+    submitButton: 'Submit',
+    cancelButton: 'Cancel'
+  },
   addFolder: {
     title: 'Add Folder',
     defaultName: 'New Folder'

@@ -27,18 +27,25 @@ const SettingsModal = ({
           className='modal-form'
           onSubmit={updateChanges}
         >
-          <input
-            className='modal-right-button'
-            type='submit'
-            value={Strings.configModal.submitButton}
-          />
-          <button
-            className='modal-right-button'
-            type='button'
-            onClick={() => toggleConfigModal('close')}
-          >
-            {Strings.configModal.cancelButton}
-          </button>
+          <div className='modal-buttons-container'>
+            <button
+              className='modal-left-button'
+            >
+              {Strings.SettingsModal.resetButton}
+            </button>
+            <input
+              className='modal-right-button'
+              type='submit'
+              value={Strings.SettingsModal.submitButton}
+            />
+            <button
+              className='modal-right-button'
+              type='button'
+              onClick={() => toggleConfigModal('close')}
+            >
+              {Strings.SettingsModal.cancelButton}
+            </button>
+          </div>
         </form>
       </div>
     </>
