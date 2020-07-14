@@ -44,21 +44,25 @@ const ConfigModal = ({
 
   const tryRemoveById = (event) => {
     event.preventDefault();
-    toggleConfigModal('close')
     if(isUrl) {
-      removeById(targetNode.id);
+      if(window.confirm('Delete this Bookmark?')) {
+        toggleConfigModal('close')
+        removeById(targetNode.id);
+      }
     } else {
       if(targetNode.children.length > 0) {
-        alert('Cannot delete folder with contents.')
-        setCurrentFolder(targetNode.id);
+        alert('Cannot delete folder with contents.');
       } else {
-        if(targetNode.parentId) {
-          setCurrentFolder(targetNode.parentId);
-        } else {
-          setCurrentFolder(1);
+        if(window.confirm('Delete this Folder?')) {
+          toggleConfigModal('close')
+          if(targetNode.parentId) {
+            setCurrentFolder(targetNode.parentId);
+          } else {
+            setCurrentFolder(1);
+          }
+          window.location = `#/${targetNode.parentId}/${match.params.displayMode}`
+          removeById(targetNode.id);
         }
-        window.location = `#/${targetNode.parentId}/${match.params.displayMode}`
-        removeById(targetNode.id);
       }
     }
   };
