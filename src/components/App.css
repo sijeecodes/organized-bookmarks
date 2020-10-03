@@ -268,7 +268,7 @@
 }
 .modal-form {
   display: block;
-  width: 480px;
+  width: 500px;
   margin-top: 19px;
 }
 .modal-box-close-button {
@@ -312,7 +312,7 @@
   font-weight: 600;
   outline: none;
   float: left;
-  width: 17%;
+  width: 23%;
 }
 .modal-left-button:hover {
   background: hsl(0, 0%, 35%);
@@ -325,7 +325,7 @@
 }
 .modal-inputbox-title {
   float: left;
-  width: 17%;
+  width: 23%;
   padding: 2px 0 0 0;
   text-align: center;
   font-weight: 800;
@@ -333,7 +333,7 @@
 }
 .modal-inputbox-box {
   display: inline-block;
-  width: 81%;
+  width: 77%;
   padding: 9px 5px 2px 5px;
   background-color: hsl(0, 0%, 20%);
   border: none;
@@ -358,7 +358,7 @@
 }
 .modal-tags-title {
   float: left;
-  width: 17%;
+  width: 23%;
   padding: 4px 0 0 0;
   text-align: center;
   font-weight: 800;
@@ -366,7 +366,7 @@
 }
 .modal-tags {
   display: inline-block;
-  width: 81%;
+  width: 77%;
   text-align: left;
   vertical-align: top;
 }
@@ -417,7 +417,7 @@
 }
 .modal-shortcuts-title {
   float: left;
-  width: 17%;
+  width: 23%;
   padding: 4px 0 0 0;
   text-align: center;
   font-weight: 800;
@@ -425,7 +425,7 @@
 }
 .modal-shortcuts {
   display: inline-block;
-  width: 81%;
+  width: 77%;
   text-align: left;
   vertical-align: top;
 }
@@ -680,10 +680,10 @@
   text-align: left;
   width: 90px;
   background: hsl(0, 0%, 5%);
-  width: 98px;
+  width: 106px;
 }
 .column-option {
-  width: 98px;
+  width: 106px;
   height: 28px;
   text-align: center;
   font-size: 12px;

@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CloseButton from './CloseButton';
+import InputBox from './InputBox';
+import Shortcuts from './Shortcuts';
+import Tags from './Tags';
 import Strings from '../Strings';
 
 const SettingsModal = ({
-  toggleConfigModal
+  state,
+  toggleConfigModal,
+  setTags,
+  setShortcuts
 }) => {
   const updateChanges = () => {
-    console.log('update changes');
+    console.log('update changes. state data: ', state);
+    console.log('update changes. setTags: ', setTags);
+    console.log('update changes. setShortcuts: ', setShortcuts);
   };
 
   return (

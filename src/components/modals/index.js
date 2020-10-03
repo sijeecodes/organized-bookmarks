@@ -33,7 +33,10 @@ const Modal = ({
     } else {
       return (
         <SettingsModal
+          state={state}
           toggleConfigModal={toggleConfigModal}
+          setTags={setTags}
+          setShortcuts={setShortcuts}
         />
       );
     }

@@ -2,8 +2,8 @@ const Strings = {
   configModal: {
     configModalTitle: 'Title',
     urlTitle: 'URL',
-    tagsTitle: 'Tags',
-    shortcutsTitle: 'Shortcuts',
+    tagsTitle: 'Set Tags',
+    shortcutsTitle: 'Set Shortcuts',
     deleteButton: 'Delete',
     submitButton: 'Submit',
     cancelButton: 'Cancel'
@@ -30,7 +30,7 @@ const Strings = {
     userDefined: 'User Defined'
   },
   columnAdjust: {
-    title: 'Max Columns'
+    title: 'Show Columns'
   },
   tags: {
     title: 'Tag Filters',
