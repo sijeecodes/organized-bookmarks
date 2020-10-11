@@ -10,19 +10,17 @@ const NavMenu = ({ openAllNavFolders, closeAllNavFolders, toggleConfigModal }) =
       </div>
       <div
         className='nav-menu-container'
-        id='settings-button'
         onClick={e => {
           e.preventDefault();
-          toggleConfigModal(e.target.id);
+          toggleConfigModal('settings');
         }}
       >
         <i
           className={Icons.navMenu.settings}
-          id='settings-button-icon'
           onClick={e => {
             e.preventDefault();
             e.stopPropagation();
-            toggleConfigModal(e.target.id);
+            toggleConfigModal('settings');
           }}
         />
         <div

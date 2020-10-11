@@ -79,6 +79,12 @@ const mapDispatchToProps = dispatch => {
         data
       });
     },
+    removeTags(data) {
+      dispatch({
+        type: 'REMOVE_TAGS',
+        data
+      });
+    },
     setTagFilter(data) {
       dispatch({
         type: 'SET_TAG_FILTER',

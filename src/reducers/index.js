@@ -126,12 +126,28 @@ const reducers = (state = initialState, action) => {
       }
       case 'SET_TAGS': {
         let tempTags = state.tags;
-        if(action.data.tags.lenght === 0) {
+        if(action.data.tags.length === 0) {
           delete tempTags[action.data.id];
         } else {
           tempTags[action.data.id] = action.data.tags.sort();
         }
         return newState(state, 'tags', tempTags);
+      }
+      case 'REMOVE_TAGS': {
+        let updatedTags = {};
+        let selectedTags = action.data;
+
+        Object.keys(state.tags).forEach(item => {
+          state.tags[item].forEach(itemTag => {
+            if(selectedTags.indexOf(itemTag) === -1) {
+              if(!updatedTags[item]){
+                updatedTags[item] = [];
+              }
+              updatedTags[item].push(itemTag);
+            }
+          });
+        });
+        return newState(state, 'tags', updatedTags);
       }
       case 'SET_TAG_FILTER': {
         return newState(state, 'tagFilter', action.data);

@@ -65,6 +65,11 @@ class App extends React.Component {
     this.updateStorage();
   };
 
+  removeTags = (data) => {
+    this.props.removeTags(data);
+    this.updateStorage();
+  };
+
   setTagFilter = (data) => {
     this.props.setTagFilter(data);
     this.updateStorage('tagFilter', data);
@@ -160,6 +165,7 @@ class App extends React.Component {
               updateTree={this.updateTree}
               toggleConfigModal={this.props.toggleConfigModal}
               removeById={this.removeById}
+              removeTags={this.removeTags}
               setCurrentFolder={this.setCurrentFolder}
               setTags={this.setTags}
               setShortcuts={this.props.setShortcuts}

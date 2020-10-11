@@ -3,7 +3,7 @@ import Option from './Option';
 import Strings from '../Strings';
 import Icons from '../Icons';
 
-const Tags = ({ tagFilter, setTagFilter }) => {
+const Tags = ({ tagFilter, setTagFilter, toggleConfigModal }) => {
   let tagMenuHtml = [];
   let tagOptionsHtml = [];
   let allTags = {
@@ -63,6 +63,26 @@ const Tags = ({ tagFilter, setTagFilter }) => {
       </div>
     );
   });
+
+  tagOptionsHtml.push(
+    <div
+      className='tag-option'
+      onClick={e => {
+        e.preventDefault();
+        toggleConfigModal('removeTags');
+      }}
+    >
+      <div
+        className='tag-option-icon'
+        style={{ color: `white`}}
+      >
+        <i className={Icons.tags.tag} />
+      </div>
+      <div className='tag-option-title'>
+        {Strings.tags.removeTags}
+      </div>
+    </div>
+  );
 
   if(tagMenuHtml.length === 0) {
     tagMenuHtml.push(

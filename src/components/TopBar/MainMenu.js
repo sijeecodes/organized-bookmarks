@@ -14,7 +14,8 @@ const MainMenu = ({
   setSearchWord,
   setSearchType,
   setTagFilter,
-  searchFocused
+  searchFocused,
+  toggleConfigModal
 }) => {
   return (
     <div className='main-menu'>
@@ -33,6 +34,7 @@ const MainMenu = ({
       <Tags
         tagFilter={state.tagFilter}
         setTagFilter={setTagFilter}
+        toggleConfigModal={toggleConfigModal}
       />
       <DeepSearch
         searchType={state.searchType}

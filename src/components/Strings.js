@@ -40,7 +40,8 @@ const Strings = {
     green: 'Green',
     blue: 'Blue',
     purple: 'Purple',
-    grey: 'Grey'
+    grey: 'Grey',
+    removeTags: 'Remove Tags'
   },
   deepSearch: {
     tooltip: 'Toggle Deep Search'

@@ -31,6 +31,7 @@ const TopBar = ({
         setSearchType={setSearchType}
         setTagFilter={setTagFilter}
         searchFocused={searchFocused}
+        toggleConfigModal={toggleConfigModal}
       />
     </div>
   );

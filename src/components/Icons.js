@@ -30,6 +30,7 @@ const Icons = {
   },
   tags: {
     tag: 'tag icon',
+    check: 'check icon'
   },
   deepSearch: {
     deepSearch: 'sitemap icon',
