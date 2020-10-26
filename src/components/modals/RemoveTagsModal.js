@@ -15,6 +15,12 @@ const RemoveTagsModal = ({
     removeTags(newTags);
   };
 
+  const removeAllTags = (event) => {
+    event.preventDefault();
+    toggleConfigModal('close');
+    removeTags(['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'grey']);
+  }
+
   return (
     <>
       <div
@@ -29,21 +35,23 @@ const RemoveTagsModal = ({
           value='close'
           trigger={toggleConfigModal}
         />
-        <div>
-          Select tags to remove.
-        </div>
-
         <form
           className='modal-form'
           onSubmit={updateChanges}
         >
-          <TagsIconList
-            newTags={newTags}
-            setNewTags={setNewTags}
-          />
+          <div className='modal-tags-config-text'>
+            Select tags to remove.
+          </div>
+          <div className='modal-tags-config-selection'>
+            <TagsIconList
+              newTags={newTags}
+              setNewTags={setNewTags}
+            />
+          </div>
           <div className='modal-buttons-container'>
             <button
-              className='modal-left-button'
+              className='modal-left-button-long'
+              onClick={e => removeAllTags(e)}
             >
               {Strings.SettingsModal.resetButton}
             </button>

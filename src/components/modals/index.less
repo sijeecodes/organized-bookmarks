@@ -59,8 +59,8 @@
 .modal-right-button {
   border: none;
   height: @item-height;
+  width: 75px;
   background: @background2;
-  padding: 0 15px 0 15px;
   color: white;
   font-weight: 600;
   outline: none;
@@ -73,6 +73,12 @@
   .modal-right-button;
   float: left;
   width: @title-width;
+}
+
+.modal-left-button-long {
+  .modal-right-button;
+  float: left;
+  width: 136px;
 }
 
 // Input Box //////////////////////////////////////////
@@ -169,6 +175,17 @@
   width: @top-menu-width;
   padding: 6px 0 0 3px;
   font-size: 17px;
+}
+
+.modal-tags-config-text {
+  padding: 5px 0 10px 16px;
+  text-align: left;
+  font-weight: 800;
+  color: @darker-color;
+}
+
+.modal-tags-config-selection {
+  padding: 0 0 15px 30px;
 }
 
 // Shortcut ///////////////////////////////////////

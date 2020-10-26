@@ -9,7 +9,7 @@ const Strings = {
     cancelButton: 'Cancel'
   },
   SettingsModal: {
-    resetButton: 'Reset',
+    resetButton: 'Remove All Tags',
     submitButton: 'Submit',
     cancelButton: 'Cancel'
   },
