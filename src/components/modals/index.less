@@ -76,9 +76,30 @@
 }
 
 .modal-left-button-long {
-  .modal-right-button;
+  border: none;
+  outline: none;
   float: left;
-  width: 136px;
+  padding: 0 16px 0 16px;
+  height: @item-height;
+  background: @background2;
+  color: white;
+  font-weight: 600;
+  &:hover {
+    background: @background-highlight;
+  }
+}
+
+.modal-form-inbox {
+  padding: 5px 0 10px 17px;
+  text-align: left;
+  font-weight: 800;
+  color: @default-color;
+}
+
+.modal-form-inbox-text {
+  padding: 5px 0 10px 17px;
+  font-weight: 400;
+  color: @darker-color;
 }
 
 // Input Box //////////////////////////////////////////
@@ -177,13 +198,6 @@
   font-size: 17px;
 }
 
-.modal-tags-config-text {
-  padding: 5px 0 10px 16px;
-  text-align: left;
-  font-weight: 800;
-  color: @darker-color;
-}
-
 .modal-tags-config-selection {
   padding: 0 0 15px 30px;
 }
@@ -239,3 +253,5 @@
     background: @background-highlight;
   }
 }
+
+// Shortcut Settings ///////////////////////////

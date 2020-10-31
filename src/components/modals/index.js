@@ -23,7 +23,6 @@ const Modal = ({
           <SettingsModal
             state={state}
             toggleConfigModal={toggleConfigModal}
-            setTags={setTags}
             setShortcuts={setShortcuts}
           />
         );

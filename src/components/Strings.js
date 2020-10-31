@@ -9,7 +9,7 @@ const Strings = {
     cancelButton: 'Cancel'
   },
   SettingsModal: {
-    resetButton: 'Remove All Tags',
+    resetButton: 'Reset All Shortcuts',
     submitButton: 'Submit',
     cancelButton: 'Cancel'
   },
@@ -19,7 +19,7 @@ const Strings = {
   },
   navMenu: {
     title: 'Organized Bookmarks',
-    settings: 'Settings',
+    settings: 'Shortcut Settings',
     openFolders: 'Open All Folders',
     closeFolders: 'Close All Folders'
   },

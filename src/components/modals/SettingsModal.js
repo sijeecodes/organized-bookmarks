@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
 import CloseButton from './CloseButton';
-import InputBox from './InputBox';
-import Shortcuts from './Shortcuts';
-import Tags from './Tags';
 import Strings from '../Strings';
 
 const SettingsModal = ({
   state,
   toggleConfigModal,
-  setTags,
   setShortcuts
 }) => {
   const updateChanges = () => {
     console.log('update changes. state data: ', state);
-    console.log('update changes. setTags: ', setTags);
     console.log('update changes. setShortcuts: ', setShortcuts);
   };
 
@@ -35,9 +30,15 @@ const SettingsModal = ({
           className='modal-form'
           onSubmit={updateChanges}
         >
+          <div className='modal-form-inbox'>
+            ShortCut Settings
+            <div className='modal-form-inbox-text'>
+              Press number keys to move to the numbered shortcut url.
+            </div>
+          </div>
           <div className='modal-buttons-container'>
             <button
-              className='modal-left-button'
+              className='modal-left-button-long'
             >
               {Strings.SettingsModal.resetButton}
             </button>

@@ -39,8 +39,11 @@ const RemoveTagsModal = ({
           className='modal-form'
           onSubmit={updateChanges}
         >
-          <div className='modal-tags-config-text'>
-            Select tags to remove.
+          <div className='modal-form-inbox'>
+            Remove Tags
+            <div className='modal-form-inbox-text'>
+              Select tags and submit to remove.
+            </div>
           </div>
           <div className='modal-tags-config-selection'>
             <TagsIconList

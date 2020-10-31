@@ -319,17 +319,27 @@
 }
 .modal-left-button-long {
   border: none;
+  outline: none;
+  float: left;
+  padding: 0 16px 0 16px;
   height: 28px;
-  width: 75px;
   background: hsl(0, 0%, 20%);
   color: white;
   font-weight: 600;
-  outline: none;
-  float: left;
-  width: 136px;
 }
 .modal-left-button-long:hover {
   background: hsl(0, 0%, 35%);
+}
+.modal-form-inbox {
+  padding: 5px 0 10px 17px;
+  text-align: left;
+  font-weight: 800;
+  color: hsl(0, 0%, 85%);
+}
+.modal-form-inbox-text {
+  padding: 5px 0 10px 17px;
+  font-weight: 400;
+  color: hsl(0, 0%, 50%);
 }
 .modal-inputbox-container {
   display: block;
@@ -422,12 +432,6 @@
   width: 32px;
   padding: 6px 0 0 3px;
   font-size: 17px;
-}
-.modal-tags-config-text {
-  padding: 5px 0 10px 16px;
-  text-align: left;
-  font-weight: 800;
-  color: hsl(0, 0%, 50%);
 }
 .modal-tags-config-selection {
   padding: 0 0 15px 30px;
