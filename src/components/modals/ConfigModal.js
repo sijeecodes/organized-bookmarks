@@ -24,18 +24,13 @@ const ConfigModal = ({
   const [newUrl, setNewUrl] = useState(targetNode.url ? targetNode.url : '');
   const [newShortcuts, setNewShortcuts] = useState(state.shortcuts);
 
-  const doSetNewTags = tags => setNewTags(tags);
-  const doSetNewTitle = title => setNewTitle(title);
-  const doSetNewUrl = url => setNewUrl(url);
-  const doSetNewShortcuts = shortcuts => setNewShortcuts(shortcuts);
-
   if(targetNode.url) {
     isUrl = true;
     urlBox = (
       <InputBox
         name={Strings.configModal.urlTitle}
         value={newUrl}
-        setValue={doSetNewUrl}
+        setValue={setNewUrl}
       />
     );
   } else {
@@ -107,17 +102,17 @@ const ConfigModal = ({
           <InputBox
             name={Strings.configModal.configModalTitle}
             value={newTitle}
-            setValue={doSetNewTitle}
+            setValue={setNewTitle}
           />
           {urlBox}
           <Tags
             newTags={newTags}
-            setNewTags={doSetNewTags}
+            setNewTags={setNewTags}
           />
           <Shortcuts
             id={targetNode.id}
             newShortcuts={newShortcuts}
-            setNewShortcuts={doSetNewShortcuts}
+            setNewShortcuts={setNewShortcuts}
           />
           <div className='modal-buttons-container'>
             <button

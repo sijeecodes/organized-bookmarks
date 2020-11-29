@@ -56,19 +56,19 @@ const RemoveTagsModal = ({
               className='modal-left-button-long'
               onClick={e => removeAllTags(e)}
             >
-              {Strings.SettingsModal.resetButton}
+              {Strings.removeTagsModal.resetButton}
             </button>
             <input
               className='modal-right-button'
               type='submit'
-              value={Strings.SettingsModal.submitButton}
+              value={Strings.removeTagsModal.submitButton}
             />
             <button
               className='modal-right-button'
               type='button'
               onClick={() => toggleConfigModal('close')}
             >
-              {Strings.SettingsModal.cancelButton}
+              {Strings.removeTagsModal.cancelButton}
             </button>
           </div>
         </form>

@@ -1,6 +1,6 @@
 import React from 'react';
 import ConfigModal from './ConfigModal';
-import SettingsModal from './SettingsModal';
+import ShortcutListModal from './ShortcutListModal';
 import RemoveTagsModal from './RemoveTagsModal';
 import findInTree from '../../utils/findInTree';
 
@@ -20,10 +20,12 @@ const Modal = ({
     switch(state.openModal[0]) {
       case 'settings': {
         return (
-          <SettingsModal
+          <ShortcutListModal
+            match={match}
             state={state}
             toggleConfigModal={toggleConfigModal}
             setShortcuts={setShortcuts}
+            setCurrentFolder={setCurrentFolder}
           />
         );
       }

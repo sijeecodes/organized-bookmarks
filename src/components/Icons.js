@@ -4,7 +4,6 @@ const Icons = {
     tag: 'tag icon'
   },
   navMenu: {
-    settings: 'cog icon',
     openFolders: 'chevron down icon',
     closeFolders: 'chevron up icon'
   },
@@ -13,6 +12,10 @@ const Icons = {
     openedFolder: 'folder open outline icon',
     currentFolder: 'folder open icon',
     config: 'cogs icon'
+  },
+  shortcutListModal: {
+    shortcut: 'share icon',
+    resetButton: 'trash alternate icon'
   },
   addFolder: {
     folder: 'folder outline icon',

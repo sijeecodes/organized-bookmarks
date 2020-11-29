@@ -8,9 +8,11 @@ const Strings = {
     submitButton: 'Submit',
     cancelButton: 'Cancel'
   },
-  SettingsModal: {
-    resetButton: 'Reset All Shortcuts',
-    submitButton: 'Submit',
+  shortcutListModal: {
+    title: 'Shortcut List',
+    subtitle: 'Press number keys or click to move to shortcuts.',
+    resetButton: 'Remove All Shortcuts',
+    submitButton: 'Save Changes',
     cancelButton: 'Cancel'
   },
   addFolder: {
@@ -19,7 +21,6 @@ const Strings = {
   },
   navMenu: {
     title: 'Organized Bookmarks',
-    settings: 'Shortcut Settings',
     openFolders: 'Open All Folders',
     closeFolders: 'Close All Folders'
   },
@@ -42,6 +43,11 @@ const Strings = {
     purple: 'Purple',
     grey: 'Grey',
     removeTags: 'Remove Tags'
+  },
+  removeTagsModal: {
+    resetButton: 'Remove All Tags',
+    submitButton: 'Submit',
+    cancelButton: 'Cancel'
   },
   deepSearch: {
     tooltip: 'Toggle Deep Search'

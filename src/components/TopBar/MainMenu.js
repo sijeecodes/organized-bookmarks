@@ -5,6 +5,8 @@ import SortBy from './SortBy';
 import Tags from './Tags';
 import DeepSearch from './DeepSearch';
 import Search from './Search';
+import Icons from '../Icons';
+import Strings from '../Strings';
 
 const MainMenu = ({
   addFolder,
@@ -19,6 +21,24 @@ const MainMenu = ({
 }) => {
   return (
     <div className='main-menu'>
+      <div
+        className='shortcutList-container'
+        onClick={e => {
+          e.preventDefault();
+          toggleConfigModal('settings');
+        }}
+      >
+        <div className='shortcutList-icon'>
+          <i
+            className={Icons.shortcutListModal.shortcut}
+          />
+        </div>
+        <div
+          className='shortcutList-tooltip'
+        >
+          {Strings.shortcutListModal.title}
+        </div>
+      </div>
       <AddFolder
         addFolder={addFolder}
         state={state}

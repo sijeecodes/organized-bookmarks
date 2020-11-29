@@ -29,7 +29,6 @@
 }
 
 .nav-tab-item-dropbox {
-  // border: 1px solid lime;
   width: 100%;
   position: relative;
   background: none;
@@ -43,7 +42,6 @@
 
 .nav-tab-item-dropbox-bottom {
   .nav-tab-item-dropbox;
-  // border: 1px solid red;
   transform: translate(0, -16px);
 }
 
@@ -72,6 +70,10 @@
     background: @background-highlight;
     transition-property: background, opacity;
     transition-duration: .4s;
+    color: @default-color;
+    &:hover {
+      color: white;
+    }
   }
 }
 
@@ -184,6 +186,10 @@
     width: @item-height;
     transition-property: background, opacity;
     transition-duration: .4s;
+    color: @default-color;
+    &:hover {
+      color: white;
+    }
   }
 }
 
