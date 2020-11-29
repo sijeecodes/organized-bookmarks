@@ -16,7 +16,6 @@ const newState = (originalState, name, newData) => {
     openModal: originalState.openModal
   }
   tempState[name] = newData;
-  console.log('utils/newState - new state: ', name, tempState);
   return tempState;
 };
 

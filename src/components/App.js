@@ -27,15 +27,14 @@ class App extends React.Component {
       this.setMainTabSize();
     });
 
-    // chrome.storage.sync.get(['orBData'], result => {
-    //     if(result.orBData) {
-    //       const parsed = JSON.parse(result['orBData']);
-    //       console.log('components/App - parsed data: ', parsed);
-    //       this.props.loadSyncedState(parsed);
-    //       window.location = `#/${this.props.state.currentFolder}/${this.props.state.searchType}`;
-    //     }
-    //   }
-    // );
+    chrome.storage.sync.get(['orBData'], result => {
+        if(result.orBData) {
+          const parsed = JSON.parse(result['orBData']);
+          this.props.loadSyncedState(parsed);
+          window.location = `#/${this.props.state.currentFolder}/${this.props.state.searchType}`;
+        }
+      }
+    );
   }
 
   setCurrentFolder = (data) => {
