@@ -3,6 +3,11 @@ import Icons from '../Icons';
 
 const Search = ({ searchWord, setSearchWord, searchFocused }) => {
   const startSearch = (event) => {
+    if(event.target.value !== '') {
+      console.log('set Deep Search');
+    } else {
+      console.log('disable Deep Search');
+    }
     setSearchWord(event.target.value);
   };
 
@@ -22,9 +27,9 @@ const Search = ({ searchWord, setSearchWord, searchFocused }) => {
         type='text'
         value={searchWord}
         placeHolder='Search..'
-        onChange={e=> startSearch(e)}
-        onFocus={e=> setSearchFocused('on')}
-        onBlur={e=> setSearchFocused('off')}
+        onChange={e => startSearch(e)}
+        onFocus={e => setSearchFocused('on')}
+        onBlur={e => setSearchFocused('off')}
       />
     </div>
   );

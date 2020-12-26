@@ -11,7 +11,7 @@
 
 .nav-tab {
   display: inline-block;
-  width: 25%;
+  width: @nav-width;
   height: 100%;
   vertical-align: top;
   overflow: auto;
@@ -56,20 +56,17 @@
   flex: 1;
   height: @item-height;
   overflow: hidden;
-  padding: 1px 10px 0 7px;
+  padding: 2px 10px 0 7px;
   text-overflow: ellipsis;
   white-space: nowrap;
   line-height: 25px;
   &:hover {
     background: @background-highlight;
     color: white;
-    transition: all .4s ease;
   }
   &:hover .nav-tab-item-config {
     opacity: 1;
     background: @background-highlight;
-    transition-property: background, opacity;
-    transition-duration: .4s;
     color: @default-color;
     &:hover {
       color: white;
@@ -83,8 +80,6 @@
   &:hover .nav-tab-item-config-over {
     opacity: 1;
     background: @background-highlight;
-    transition-property: background, opacity;
-    transition-duration: .4s;
   }
 }
 
@@ -141,7 +136,7 @@
   background: @background2;
   text-align: center;
   opacity: 0;
-  padding-top: 1px;
+  padding-top: 2px;
   z-index: 1;
 }
 
@@ -152,7 +147,7 @@
 
 .main-tab {
   display: inline-block;
-  width: 75%;
+  width: @main-width;
   height: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -175,7 +170,7 @@
   padding-right: 5px;
   &:hover {
     background: @background-highlight;
-    transition: all .4s ease;
+    transition: all .2s ease;
   }
   &:hover .main-item {
     color: white;
@@ -184,8 +179,6 @@
   &:hover .main-item-config {
     opacity: 1;
     width: @item-height;
-    transition-property: background, opacity;
-    transition-duration: .4s;
     color: @default-color;
     &:hover {
       color: white;
@@ -200,7 +193,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin: 0 0 5px 5px;
+  margin: 1px 0 5px 4px;
 }
 
 .main-item-config {
@@ -211,7 +204,7 @@
   opacity: 0;
   background: none;
   overflow: hidden;
-  padding-top: 3px;
+  padding-top: 4px;
   color: white;
 }
 
@@ -236,5 +229,5 @@
 }
 
 .main-item-folder-icon {
-  margin: 3px 0 0 3px;
+  margin: 3px 0 0 2px;
 }

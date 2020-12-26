@@ -4,7 +4,7 @@ const Strings = {
     urlTitle: 'URL',
     tagsTitle: 'Set Tags',
     shortcutsTitle: 'Set Shortcuts',
-    deleteButton: 'Delete',
+    deleteButton: 'Delete Shortcut',
     submitButton: 'Submit',
     cancelButton: 'Cancel'
   },
@@ -31,7 +31,7 @@ const Strings = {
     userDefined: 'User Defined'
   },
   columnAdjust: {
-    title: 'Show Columns'
+    title: 'Max Columns'
   },
   tags: {
     title: 'Tag Filters',

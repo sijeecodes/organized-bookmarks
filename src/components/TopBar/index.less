@@ -17,7 +17,7 @@
   background: @background1;
   transform: translate(24px, -4px);
   padding: 0px 5px 0 5px;
-  font-size: 10px;
+  font-size: 13px;
   color: white;
 }
 
@@ -26,11 +26,11 @@
 .nav-menu {
   display: flex;
   position: absolute;
-  width: 25%;
+  width: @nav-width;
   height: @top-menu-height;
   top: 0;
   left: 0;
-  line-height: 31px;
+  line-height: 38px;
   background: @background1;
   padding-left: 8px;
   font-weight: bold;
@@ -46,11 +46,10 @@
   height: @top-menu-height;
   padding: 1px 0 0 5px;
   text-align: center;
-  font-size: 18px;
+  font-size: 22px;
   &:hover {
     background: @background-highlight;
     color: white;
-    transition: background .4s ease;
   }
   &:hover .nav-menu-tooltip {
     display: block;
@@ -67,12 +66,12 @@
 // mainMenu common ///////////////////////////
 
 .main-menu {
-  width: 75%;
+  width: @main-width;
   height: @top-menu-height;
   position: absolute;
   display: flex;
   top: 0;
-  left: 25%;
+  left: @nav-width;
   vertical-align: top;
   background: @background1;
 }
@@ -85,15 +84,14 @@
   &:hover {
     background: @background-highlight;
     color: white;
-    transition: background .4s ease;
   }
 }
 
 .top-bar-menu-icon {
   height: @top-menu-height;
   width: @top-menu-width;
-  font-size: 21px;
-  padding: 6px 0 0 4px;
+  font-size: 25px;
+  padding: 7px 0 0 4px;
 }
 
 .top-bar-menu-dropdown {
@@ -117,7 +115,6 @@
   &:hover {
     background: @background-highlight;
     color: white;
-    transition: background .4s ease;
   }
 }
 
@@ -161,8 +158,8 @@
 
 .shortcutList-icon {
   .top-bar-menu-icon;
-  font-size: 20px;
-  padding: 6px 0 0 5px;
+  font-size: 24px;
+  padding: 7px 0 0 6px;
   transform: rotate(-30deg);
 }
 
@@ -181,17 +178,17 @@
 
 .addfolder-folder-icon {
   .top-bar-menu-icon;
-  font-size: 26px;
-  padding: 6px 0 0 1px;
+  font-size: 30px;
+  padding: 8px 0 0 1px;
 }
 
 .addfolder-plus-icon {
   .top-bar-menu-icon;
   position: fixed;
-  transform: translate(0, -32px);
-  font-size: 8px;
+  transform: translate(0, -29px);
+  font-size: 12px;
   font-weight: 100;
-  padding: 8px 0 0 12px;
+  padding: 0 0 0 12px;
 }
 
 .addfolder-tooltip {
@@ -213,11 +210,11 @@
 
 .column-dropdown {
   .top-bar-menu-dropdown;
-  width: 106px;
+  width: 114px;
 }
 
 .column-option {
-  width: 106px;
+  width: 114px;
   height: @item-height;
   text-align: center;
   font-size: 12px;
@@ -247,7 +244,6 @@
   &:hover {
     background: @background-highlight;
     color: white;
-    transition: background .4s ease;
   }
 }
 
@@ -285,8 +281,7 @@
 
 .sort-icon {
   .top-bar-menu-icon;
-  font-size: 19px;
-  padding: 5px 0 0 5px;
+  padding: 7px 0 0 4px;
 }
 
 .sort-dropdown {
@@ -328,8 +323,9 @@
   flex: 1;
   width: 12px;
   background: none;
-  font-size: 18px;
+  font-size: 22px;
   overflow: visible;
+  padding: 7px 0 0 2px;
 }
 
 .tag-icon-container {
@@ -340,7 +336,7 @@
 
 .tag-dropdown {
   .top-bar-menu-dropdown;
-  width: 120px;
+  width: 123px;
   transform: translate(-2px, -1px);
 }
 
@@ -389,11 +385,9 @@
   &:hover {
     background: @background-highlight;
     color: white;
-    transition: all .4s ease;
   }
   &:hover .search-inbox {
     opacity: 1;
-    transition: all .4s ease;
   }
   & ::placeHolder {
     color: @background1;
@@ -408,7 +402,7 @@
   background: none;
   border: none;
   outline: none;
-  padding-inline-start: 36px;
+  padding-inline-start: 44px;
   color: white;
   &:hover ::placeHolder {
     color: @background2;

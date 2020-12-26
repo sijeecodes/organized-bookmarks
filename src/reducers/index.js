@@ -67,7 +67,20 @@ const reducers = (state = initialState, action) => {
         return newState(tempState, 'openFolders', tempOpenFolders);
       }
       case 'SET_SEARCH_FOCUS': {
-        return newState(state, 'searchFocused', action.data);
+        let tempState = state;
+
+        if(state.searchFocused === 'off' && action.data === 'on' && state.searchWord === '') {
+          if(state.searchType !== 'deepSearch') {
+            tempState = newState(state, 'searchType', 'deepSearch');
+          }
+        } else {
+          if(state.searchFocused === 'on' && action.data === 'off' && state.searchWord === '') {
+            if(state.searchType === 'deepSearch') {
+              tempState = newState(state, 'searchType', 'default');
+            }
+          }
+        }
+        return newState(tempState, 'searchFocused', action.data);
       }
       case 'SET_CURRENT_FOLDER': {
         const newOpenFolders = state.openFolders;

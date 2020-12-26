@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ItemTag from './ItemTag';
+import Icons from '../Icons';
 import findInTree from '../../utils/findInTree';
 import setFavicon from '../../utils/setFavicon';
 import sortList from '../../utils/sortList';
@@ -112,7 +113,7 @@ const MainTab = ({
             onClick={e => toggleConfigModal(e.target.id)}
           >
             <i
-              className='cogs icon'
+              className={Icons.mainTab.config}
               id={`main-${subTree[i].id}-icon`}
               onClick={e => toggleConfigModal(e.target.id)}
             />
@@ -136,7 +137,7 @@ const MainTab = ({
             onDragEnd={() => setIsDragging(false)}
           >
             <div className='main-item-folder-icon'>
-              <i className='folder icon'></i>
+              <i className={Icons.mainTab.folder} />
             </div>
             <div className='main-item-folder-title'>
               {subTree[i].title}
@@ -149,7 +150,7 @@ const MainTab = ({
             onClick={e => toggleConfigModal(e.target.id)}
           >
             <i
-              className='cogs icon'
+              className={Icons.mainTab.config}
               id={`main-${subTree[i].id}`}
               onClick={e => toggleConfigModal(e.target.id)}
             />

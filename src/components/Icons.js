@@ -11,7 +11,11 @@ const Icons = {
     closedFolder: 'folder icon',
     openedFolder: 'folder open outline icon',
     currentFolder: 'folder open icon',
-    config: 'cogs icon'
+    config: 'cog icon'
+  },
+  mainTab: {
+    folder: 'folder icon',
+    config: 'cog icon'
   },
   shortcutListModal: {
     shortcut: 'share icon',

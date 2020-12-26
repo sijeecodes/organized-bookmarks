@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import CloseButton from './CloseButton';
 import Strings from '../Strings';
-import Icons from '../Icons';
 import ShortcutList from './ShortcutList';
 
 const ShortcutListModal = ({
