@@ -13,7 +13,7 @@ const TopBar = ({
   toggleConfigModal,
   openAllNavFolders,
   closeAllNavFolders,
-  searchFocused,
+  setSearchFocused,
 }) => {
   return (
     <div className='top-bar'>
@@ -30,7 +30,7 @@ const TopBar = ({
         setSearchWord={setSearchWord}
         setSearchType={setSearchType}
         setTagFilter={setTagFilter}
-        searchFocused={searchFocused}
+        setSearchFocused={setSearchFocused}
         toggleConfigModal={toggleConfigModal}
       />
     </div>

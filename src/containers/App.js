@@ -19,7 +19,7 @@ const mapDispatchToProps = dispatch => {
         data: tree
       });
     },
-    searchFocused(data) {
+    setSearchFocused(data) {
       dispatch({
         type: 'SET_SEARCH_FOCUS',
         data

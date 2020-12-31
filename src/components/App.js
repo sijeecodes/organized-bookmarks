@@ -182,7 +182,7 @@ class App extends React.Component {
           toggleConfigModal={this.props.toggleConfigModal}
           openAllNavFolders={this.props.openAllNavFolders}
           closeAllNavFolders={this.props.closeAllNavFolders}
-          searchFocused={this.props.searchFocused}
+          setSearchFocused={this.props.setSearchFocused}
         />
         <MainBody
           state={this.props.state}

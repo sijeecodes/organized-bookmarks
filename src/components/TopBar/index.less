@@ -396,7 +396,6 @@
 
 .search-box {
   position: absolute;
-  float: left;
   width: 100%;
   height: 100%;
   background: none;
@@ -404,18 +403,24 @@
   outline: none;
   padding-inline-start: 44px;
   color: white;
+  z-index: 3;
   &:hover ::placeHolder {
     color: @background2;
   }
 }
 
 .search-inbox {
-  float: left;
-  flex: 1;
   width: 100%;
   margin: 5px 5px 5px 0;
-  border: 1px solid white;
+  border-bottom: 1px solid white;
   opacity: 0;
+}
+
+.search-box-empty-button {
+  position: absolute;
+  top: 7px;
+  right: 5px;
+  z-index: 10;
 }
 
 .search-inbox-spacer {

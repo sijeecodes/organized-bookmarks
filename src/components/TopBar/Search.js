@@ -1,19 +1,20 @@
 import React from 'react';
 import Icons from '../Icons';
 
-const Search = ({ searchWord, setSearchWord, searchFocused }) => {
+const Search = ({ searchFocused, searchWord, setSearchWord, setSearchFocused, setSearchType }) => {
   const startSearch = (event) => {
-    if(event.target.value !== '') {
-      console.log('set Deep Search');
-    } else {
-      console.log('disable Deep Search');
-    }
     setSearchWord(event.target.value);
   };
 
-  const setSearchFocused = (status) => {
-    searchFocused(status);
-  }
+  const setSearchFocus = (status) => {
+    setSearchFocused(status);
+  };
+
+  const resetSearchBox = () => {
+    setSearchWord('');
+    setSearchFocused('off');
+    setSearchType('default');
+  };
 
   return (
     <div className='search-wrapper'>
@@ -28,9 +29,20 @@ const Search = ({ searchWord, setSearchWord, searchFocused }) => {
         value={searchWord}
         placeHolder='Search..'
         onChange={e => startSearch(e)}
-        onFocus={e => setSearchFocused('on')}
-        onBlur={e => setSearchFocused('off')}
+        onFocus={e => setSearchFocus('on')}
+        onBlur={e => setSearchFocus('off')}
       />
+      { searchWord !== '' ?
+        (
+          <div
+            className='search-box-empty-button'
+            onClick={resetSearchBox}
+          >
+            <i className={Icons.search.empty} />
+          </div>
+        )
+        : <></>
+      }
     </div>
   );
 };

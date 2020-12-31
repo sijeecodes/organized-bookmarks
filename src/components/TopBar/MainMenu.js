@@ -16,7 +16,7 @@ const MainMenu = ({
   setSearchWord,
   setSearchType,
   setTagFilter,
-  searchFocused,
+  setSearchFocused,
   toggleConfigModal
 }) => {
   return (
@@ -61,9 +61,11 @@ const MainMenu = ({
         setSearchType={setSearchType}
       />
       <Search
+        searchFocused={state.searchFocused}
         searchWord={state.searchWord}
         setSearchWord={setSearchWord}
-        searchFocused={searchFocused}
+        setSearchFocused={setSearchFocused}
+        setSearchType={setSearchType}
       />
     </div>
   );

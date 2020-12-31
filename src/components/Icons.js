@@ -44,7 +44,8 @@ const Icons = {
     deepSearchOff: 'stop icon'
   },
   search: {
-    search: 'search icon'
+    search: 'search icon',
+    empty: 'times circle icon'
   }
 };
 
