@@ -9,15 +9,14 @@ const Strings = {
     cancelButton: 'Cancel'
   },
   shortcutListModal: {
-    title: 'Shortcut List',
+    title: 'Open Shortcut List',
     subtitle: 'Press number keys or click to move to shortcuts.',
     resetButton: 'Remove All Shortcuts',
     submitButton: 'Save Changes',
     cancelButton: 'Cancel'
   },
   addFolder: {
-    title: 'Add Folder',
-    defaultName: 'New Folder'
+    tooltip: 'Add New Folder'
   },
   navMenu: {
     title: 'Organized Bookmarks',
@@ -25,16 +24,14 @@ const Strings = {
     closeFolders: 'Close All Folders'
   },
   sortBy: {
-    title: 'Sort by',
-    alphabetical: 'Alphabetical',
-    recentlyAdded: 'Recently Added',
-    userDefined: 'User Defined'
+    alphabetical: 'Sort By: Alphabetical',
+    recentlyAdded: 'Sort By: Recently Added',
+    userDefined: 'Sort By: User Defined'
   },
   columnAdjust: {
     title: 'Max Columns'
   },
   tags: {
-    title: 'Tag Filters',
     red: 'Red',
     orange: 'Orange',
     yellow: 'Yellow',
@@ -50,7 +47,8 @@ const Strings = {
     cancelButton: 'Cancel'
   },
   deepSearch: {
-    tooltip: 'Toggle Deep Search'
+    onTooltip: 'Only Search Current Folder',
+    offTooltip: 'Search Whole Tree'
   }
 };
 

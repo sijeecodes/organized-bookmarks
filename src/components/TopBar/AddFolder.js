@@ -16,7 +16,7 @@ const AddFolder = ({ addFolder, state }) => {
         <i className={Icons.addFolder.plus} />
       </div>
       <div className='addfolder-tooltip'>
-        {Strings.addFolder.title}
+        {Strings.addFolder.tooltip}
       </div>
     </div>
   );

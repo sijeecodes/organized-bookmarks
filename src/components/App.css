@@ -171,7 +171,7 @@
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
-  background: hsl(0, 0%, 13%);
+  background: hsl(0, 0%, 10%);
 }
 .main-container {
   display: inline-block;
@@ -183,7 +183,7 @@
   flex: 1;
   height: 30px;
   width: 100%;
-  background: hsl(0, 0%, 13%);
+  background: hsl(0, 0%, 10%);
   padding-right: 5px;
 }
 .main-item-wrapper:hover {
@@ -631,12 +631,26 @@
 .top-bar-menu-container {
   float: left;
   height: 38px;
-  width: 38px;
   text-align: left;
 }
 .top-bar-menu-container:hover {
   background: hsl(0, 0%, 35%);
   color: white;
+}
+.top-bar-menu-option {
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+}
+.top-bar-menu-option:hover {
+  background: hsl(0, 0%, 35%);
+  color: white;
+}
+.top-bar-menu-option-icon {
+  width: 38px;
+  height: 38px;
+  font-size: 24px;
+  padding: 8px 0 0 5px;
 }
 .top-bar-menu-icon {
   height: 38px;
@@ -657,20 +671,6 @@
   line-height: 30px;
   font-size: 14px;
   font-weight: 600;
-}
-.top-bar-menu-option {
-  height: 30px;
-}
-.top-bar-menu-option:hover {
-  background: hsl(0, 0%, 35%);
-  color: white;
-}
-.top-bar-menu-option-icon {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  font-size: 19px;
-  padding: 3px 0 0 3px;
 }
 .top-bar-menu-option-title {
   height: 30px;
@@ -702,7 +702,6 @@
 .shortcutList-container {
   float: left;
   height: 38px;
-  width: 38px;
   text-align: left;
 }
 .shortcutList-container:hover {
@@ -734,7 +733,6 @@
 .addfolder-container {
   float: left;
   height: 38px;
-  width: 38px;
   text-align: left;
 }
 .addfolder-container:hover {
@@ -750,7 +748,7 @@
   font-size: 25px;
   padding: 7px 0 0 4px;
   font-size: 30px;
-  padding: 8px 0 0 1px;
+  padding: 8px 0 0 2px;
 }
 .addfolder-plus-icon {
   height: 38px;
@@ -776,182 +774,168 @@
 .column-container {
   float: left;
   height: 38px;
-  width: 38px;
   text-align: left;
 }
 .column-container:hover {
   background: hsl(0, 0%, 35%);
   color: white;
 }
-.column-container:hover .column-dropdown {
-  display: inline-block;
-}
-.column-icon {
-  height: 38px;
-  width: 38px;
-  font-size: 25px;
-  padding: 7px 0 0 4px;
-}
-.column-dropdown {
-  display: none;
-  position: fixed;
-  text-align: left;
-  width: 90px;
-  background: hsl(0, 0%, 5%);
-  width: 114px;
+.column-container:hover {
+  background: hsl(0, 0%, 20%);
 }
 .column-option {
-  width: 114px;
-  height: 30px;
-  text-align: center;
-  font-size: 12px;
-}
-.column-title {
-  height: 30px;
-  padding-left: 7px;
-  line-height: 30px;
-  font-size: 14px;
-  font-weight: 600;
-}
-.column-content {
   display: inline-block;
-  font-size: 14px;
-  font-weight: 600;
-  width: 25px;
-  height: 30px;
-  padding-top: 3px;
-  vertical-align: bottom;
+  width: 38px;
+  height: 38px;
+}
+.column-option:hover {
+  background: hsl(0, 0%, 35%);
+  color: white;
 }
 .column-option-minus {
-  float: left;
-  font-size: 20px;
-  height: 30px;
-  padding: 3px 0 0 4px;
-  vertical-align: bottom;
-}
-.column-option-minus:hover {
-  background: hsl(0, 0%, 35%);
-  color: white;
+  width: 38px;
+  height: 38px;
+  font-size: 24px;
+  padding: 8px 0 0 5px;
 }
 .column-option-minus-grey {
-  float: left;
-  font-size: 20px;
-  height: 30px;
-  padding: 3px 0 0 4px;
-  vertical-align: bottom;
+  width: 38px;
+  height: 38px;
+  font-size: 24px;
+  padding: 8px 0 0 5px;
   color: hsl(0, 0%, 20%);
+  background: hsl(0, 0%, 10%);
 }
 .column-option-minus-grey:hover {
-  background: hsl(0, 0%, 35%);
-  color: white;
-}
-.column-option-minus-grey:hover {
-  background: hsl(0, 0%, 5%);
+  background: hsl(0, 0%, 10%);
   color: hsl(0, 0%, 20%);
 }
 .column-option-plus {
-  float: left;
-  font-size: 20px;
-  height: 30px;
-  padding: 3px 0 0 4px;
-  vertical-align: bottom;
-  float: right;
-}
-.column-option-plus:hover {
-  background: hsl(0, 0%, 35%);
-  color: white;
+  width: 38px;
+  height: 38px;
+  font-size: 24px;
+  padding: 8px 0 0 5px;
 }
 .column-option-plus-grey {
-  float: left;
-  font-size: 20px;
-  height: 30px;
-  padding: 3px 0 0 4px;
-  vertical-align: bottom;
-  float: right;
+  width: 38px;
+  height: 38px;
+  font-size: 24px;
+  padding: 8px 0 0 5px;
   color: hsl(0, 0%, 20%);
+  background: hsl(0, 0%, 10%);
 }
 .column-option-plus-grey:hover {
-  background: hsl(0, 0%, 35%);
-  color: white;
-}
-.column-option-plus-grey:hover {
-  background: hsl(0, 0%, 5%);
+  background: hsl(0, 0%, 10%);
   color: hsl(0, 0%, 20%);
 }
 .sort-container {
   float: left;
   height: 38px;
-  width: 38px;
   text-align: left;
 }
 .sort-container:hover {
   background: hsl(0, 0%, 35%);
   color: white;
 }
-.sort-container:hover .sort-dropdown {
-  display: block;
-}
-.sort-icon {
-  height: 38px;
-  width: 38px;
-  font-size: 25px;
-  padding: 7px 0 0 4px;
-}
-.sort-dropdown {
-  display: none;
-  position: fixed;
-  text-align: left;
-  width: 90px;
-  background: hsl(0, 0%, 5%);
-  width: 155px;
-}
-.sort-title {
-  height: 30px;
-  padding-left: 7px;
-  line-height: 30px;
-  font-size: 14px;
-  font-weight: 600;
+.sort-container:hover {
+  background: hsl(0, 0%, 20%);
 }
 .sort-option {
-  height: 30px;
-  width: 155px;
+  display: inline-block;
+  width: 38px;
+  height: 38px;
 }
 .sort-option:hover {
   background: hsl(0, 0%, 35%);
   color: white;
 }
-.sort-option-icon {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  font-size: 19px;
-  padding: 3px 0 0 3px;
+.sort-option:hover .sort-option-tooltip {
+  display: block;
 }
-.sort-option-title {
-  height: 30px;
-  padding-left: 7px;
-  line-height: 30px;
-  font-size: 14px;
-  font-weight: 600;
+.sort-option-selected {
   display: inline-block;
-  font-weight: normal;
-  padding-left: 0;
+  width: 38px;
+  height: 38px;
+  background: hsl(0, 0%, 45%);
+}
+.sort-option-selected:hover {
+  background: hsl(0, 0%, 35%);
+  color: white;
+}
+.sort-option-selected:hover {
+  background: hsl(0, 0%, 45%);
+}
+.sort-option-selected:hover .sort-option-tooltip {
+  display: block;
+}
+.sort-option-icon {
+  width: 38px;
+  height: 38px;
+  font-size: 24px;
+  padding: 8px 0 0 5px;
+}
+.sort-option-tooltip {
+  display: none;
+  position: fixed;
+  height: 21px;
+  background: hsl(0, 0%, 5%);
+  transform: translate(24px, -4px);
+  padding: 0px 5px 0 5px;
+  font-size: 13px;
+  color: white;
 }
 .tag-container {
   float: left;
   height: 38px;
-  width: 38px;
   text-align: left;
-  width: auto;
-  background: none;
-  padding: 1px 19px 0 2px;
 }
 .tag-container:hover {
   background: hsl(0, 0%, 35%);
   color: white;
 }
-.tag-container:hover .tag-dropdown {
-  display: block;
+.tag-container:hover {
+  background: hsl(0, 0%, 20%);
+}
+.tag-container:hover .tag-option-icon-addon {
+  color: hsl(0, 0%, 20%);
+}
+.tag-option {
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+}
+.tag-option:hover {
+  background: hsl(0, 0%, 35%);
+  color: white;
+}
+.tag-option:hover .tag-option-icon-addon {
+  color: hsl(0, 0%, 35%);
+}
+.tag-option-selected {
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+  background: hsl(0, 0%, 45%);
+}
+.tag-option-selected:hover {
+  background: hsl(0, 0%, 35%);
+  color: white;
+}
+.tag-option-selected:hover {
+  background: hsl(0, 0%, 45%);
+}
+.tag-option-icon {
+  width: 38px;
+  height: 38px;
+  font-size: 24px;
+  padding: 8px 0 0 5px;
+}
+.tag-option-icon-addon {
+  position: relative;
+  font-size: 12px;
+  top: -30px;
+  left: 12px;
+  color: hsl(0, 0%, 5%);
 }
 .tag-icon {
   height: 38px;
@@ -986,23 +970,6 @@
   font-size: 14px;
   font-weight: 600;
 }
-.tag-option {
-  height: 30px;
-  width: 120px;
-}
-.tag-option:hover {
-  background: hsl(0, 0%, 35%);
-  color: white;
-}
-.tag-option-icon {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  font-size: 19px;
-  padding: 3px 0 0 3px;
-  font-size: 18px;
-  padding: 4px 0 0 4px;
-}
 .tag-option-title {
   height: 30px;
   padding-left: 7px;
@@ -1016,7 +983,6 @@
 .deepsearch-container {
   float: left;
   height: 38px;
-  width: 38px;
   text-align: left;
 }
 .deepsearch-container:hover {
@@ -1031,6 +997,16 @@
   width: 38px;
   font-size: 25px;
   padding: 7px 0 0 4px;
+}
+.deepsearch-icon-on {
+  height: 38px;
+  width: 38px;
+  font-size: 25px;
+  padding: 7px 0 0 4px;
+  background: hsl(0, 0%, 45%);
+}
+.deepsearch-icon-on:hover {
+  background: hsl(0, 0%, 45%);
 }
 .deepsearch-tooltip {
   display: none;

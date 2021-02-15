@@ -1,25 +1,25 @@
 import React from 'react';
-import Option from './Option';
 import Strings from '../Strings';
 import Icons from '../Icons';
 
 const SortBy = ({ mainSortType, setMainSortType }) => {
   const options = ['userDefined', 'alphabetical', 'recentlyAdded'];
   let resultHtml = [];
-  let currentIcon;
+  let isSelectedSort = mainSortType;
 
-  switch(mainSortType) {
-    case 'alphabetical':
-      currentIcon = 'sort alphabet down icon';
-      break;
-    case 'recentlyAdded':
-      currentIcon = 'sort numeric down icon';
-      break;
-    default:
-      currentIcon = 'sort amount down icon';
-  }
+  // switch(mainSortType) {
+  //   case 'alphabetical':
+  //     currentSort = 'sort alphabet down icon';
+  //     break;
+  //   case 'recentlyAdded':
+  //     currentSort = 'sort numeric down icon';
+  //     break;
+  //   default:
+  //     currentIcon = 'sort amount down icon';
+  // }
 
   options.forEach(option => {
+    let optionBackground = 'sort-option';
     let optionString, optionIcon;
 
     switch(option) {
@@ -36,20 +36,20 @@ const SortBy = ({ mainSortType, setMainSortType }) => {
         optionIcon = Icons.sortBy.userDefined;
     }
 
+    if(option === isSelectedSort) {
+      optionBackground = 'sort-option-selected';
+    }
+
     resultHtml.push(
       <div
-        className='sort-option'
+        className={optionBackground}
         onClick={() => setMainSortType(option)}
       >
         <div className='sort-option-icon'>
           <i className={optionIcon} />
         </div>
-        <div className='sort-option-title'>
+        <div className='sort-option-tooltip'>
           {optionString}
-          <Option
-            type={mainSortType}
-            target={option}
-          />
         </div>
       </div>
     );
@@ -59,15 +59,7 @@ const SortBy = ({ mainSortType, setMainSortType }) => {
 
   return (
     <div className='sort-container'>
-      <div className='sort-icon'>
-        <i className={currentIcon} />
-      </div>
-      <div className='sort-dropdown'>
-        <div className='sort-title'>
-          {Strings.sortBy.title}
-        </div>
         {resultHtml}
-      </div>
     </div>
   );
 };

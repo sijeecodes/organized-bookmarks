@@ -1,5 +1,5 @@
 import React from 'react';
-import Strings from '../Strings';
+// import Strings from '../Strings';
 import Icons from '../Icons';
 
 const ColumnAdjust = ({ mainColumn, setMainColumn }) => {
@@ -15,29 +15,20 @@ const ColumnAdjust = ({ mainColumn, setMainColumn }) => {
 
   return (
     <div className='column-container'>
-      <div className='column-icon'>
-        <i className={Icons.columnAdjust.column} />
-      </div>
-      <div className='column-dropdown'>
-        <div className='column-title'>
-          {Strings.columnAdjust.title}
+      <div className='column-option'>
+        <div
+          className={minusColumnButton}
+          onClick={() => trySetMainColumn(-1)}
+        >
+          <i className={Icons.columnAdjust.minus} />
         </div>
-        <div className='column-option'>
-          <div
-            className={minusColumnButton}
-            onClick={() => trySetMainColumn(-1)}
-          >
-            <i className={Icons.columnAdjust.minus} />
-          </div>
-          <div className='column-content'>
-            {mainColumn}
-          </div>
-          <div
-            className={plusColumnButton}
-            onClick={() => trySetMainColumn(1)}
-          >
-            <i className={Icons.columnAdjust.plus} />
-          </div>
+      </div>
+      <div className='column-option'>
+        <div
+          className={plusColumnButton}
+          onClick={() => trySetMainColumn(1)}
+        >
+          <i className={Icons.columnAdjust.plus} />
         </div>
       </div>
     </div>

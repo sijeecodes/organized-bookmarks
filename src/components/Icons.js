@@ -31,17 +31,17 @@ const Icons = {
     userDefined: 'sort amount down icon'
   },
   columnAdjust: {
-    column: 'columns icon',
     plus: 'plus square outline icon',
     minus: 'minus square outline icon'
   },
   tags: {
     tag: 'tag icon',
-    check: 'check icon'
+    tags: 'tags icon',
+    undo: 'undo icon',
+    config: 'cog icon'
   },
   deepSearch: {
-    deepSearch: 'sitemap icon',
-    deepSearchOff: 'stop icon'
+    deepSearch: 'sitemap icon'
   },
   search: {
     search: 'search icon',
