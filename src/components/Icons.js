@@ -31,8 +31,9 @@ const Icons = {
     userDefined: 'sort amount down icon'
   },
   columnAdjust: {
-    plus: 'plus square outline icon',
-    minus: 'minus square outline icon'
+    columns: 'columns icon',
+    plus: 'plus icon',
+    minus: 'minus icon'
   },
   tags: {
     tag: 'tag icon',
