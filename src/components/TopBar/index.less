@@ -204,11 +204,13 @@
   &:hover {
     background: @background-over;
   }
-  &:hover .column-option-square {
-    border-color: white;
-  }
-  &:hover .column-option-line {
-    border-color: white;
+  &:hover .column-option {
+    .column-option-square {
+      border-color: white;
+    }
+    .column-option-line {
+      border-color: white;
+    }
   }
 }
 
@@ -318,6 +320,9 @@
   &:hover .tag-option-icon-addon {
     color: @background-highlight;
   }
+  &:hover .tag-option-tooltip {
+    display: block;
+  }
 }
 
 .tag-option-selected {
@@ -339,6 +344,12 @@
   left: 12px;
   color: @background1;
 }
+
+.tag-option-tooltip {
+  .top-bar-menu-tooltip;
+}
+
+
 
 
 .tag-icon {
