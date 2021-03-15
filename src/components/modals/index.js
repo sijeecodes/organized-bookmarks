@@ -1,7 +1,7 @@
 import React from 'react';
 import ConfigModal from './ConfigModal';
 import ShortcutListModal from './ShortcutListModal';
-import RemoveTagsModal from './RemoveTagsModal';
+import ConfigTagsModal from './ConfigTagsModal';
 import findInTree from '../../utils/findInTree';
 
 const Modal = ({
@@ -10,9 +10,9 @@ const Modal = ({
   updateTree,
   toggleConfigModal,
   removeById,
-  removeTags,
   setCurrentFolder,
   setTags,
+  setTagNames,
   setShortcuts
 }) => {
   if(typeof state !== 'undefined' && state.tree !== null && state.openModal !== null) {
@@ -29,12 +29,13 @@ const Modal = ({
           />
         );
       }
-      case 'removeTags': {
+      case 'configTags': {
         return (
-          <RemoveTagsModal
+          <ConfigTagsModal
             state={state}
             toggleConfigModal={toggleConfigModal}
-            removeTags={removeTags}
+            setTags={setTags}
+            setTagNames={setTagNames}
           />
         );
       }

@@ -21,7 +21,7 @@ const DeepSearch = ({ searchType, setSearchType }) => {
         <i className={Icons.deepSearch.deepSearch} />
       </div>
       <div className='deepsearch-tooltip'>
-        {searchType === 'default' ? Strings.deepSearch.offTooltip : Strings.deepSearch.onTooltip}
+        {Strings.deepSearch.tooltip}
       </div>
     </div>
   );

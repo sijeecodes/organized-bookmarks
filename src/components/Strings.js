@@ -9,10 +9,11 @@ const Strings = {
     cancelButton: 'Cancel'
   },
   shortcutListModal: {
-    title: 'Open Shortcut List',
+    tooltip: 'Shortcut List',
+    title: 'Shortcut List',
     subtitle: 'Press number keys or click to move to shortcuts.',
     resetButton: 'Remove All Shortcuts',
-    submitButton: 'Save Changes',
+    submitButton: 'Submit',
     cancelButton: 'Cancel'
   },
   addFolder: {
@@ -29,27 +30,31 @@ const Strings = {
     userDefined: 'Sort By: User Defined'
   },
   columnAdjust: {
-    preString: 'Show In ',
+    preString: 'Display ',
     afterString: ' Columns Max'
   },
   tags: {
-    red: 'Red',
-    orange: 'Orange',
-    yellow: 'Yellow',
-    green: 'Green',
-    blue: 'Blue',
-    purple: 'Purple',
-    grey: 'Grey',
-    removeTags: 'Remove Tags'
+    red: 'Show Red Tags',
+    orange: 'Show Orange Tags',
+    yellow: 'Show Yellow Tags',
+    green: 'Show Green Tags',
+    blue: 'Show Blue Tags',
+    purple: 'Show Purple Tags',
+    grey: 'Show Grey Tags',
+    clearTagFilter: 'Unselect All Tags',
+    removeTags: 'Open Tags Settings'
   },
-  removeTagsModal: {
+  configTagsModal: {
     resetButton: 'Remove All Tags',
     submitButton: 'Submit',
-    cancelButton: 'Cancel'
+    cancelButton: 'Cancel',
+    discardTooltipFront: 'Remove All ',
+    discardTooltipEnd: ' Tags',
+    title: 'Tags Settings',
+    subtitle: 'Change tag names or select tags to remove.',
   },
   deepSearch: {
-    onTooltip: 'Only Search Current Folder',
-    offTooltip: 'Search Whole Tree'
+    tooltip: 'Show All Bookmarks'
   }
 };
 

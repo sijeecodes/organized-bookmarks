@@ -6,7 +6,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  box-shadow: 0 3px 4px @background-selected;
+  box-shadow: 0 0px 5px @background-highlight;
   z-index: 1;
 }
 
@@ -202,7 +202,7 @@
 .column-container {
   .top-bar-menu-container;
   &:hover {
-    background: @background-over;
+    background: @background-topbar;
   }
   &:hover .column-option {
     .column-option-square {
@@ -216,7 +216,7 @@
 
 .column-option {
   .top-bar-menu-option;
-  padding: 4px 0 0 4px;
+  padding: 4px 0 0 3px;
   &:hover .column-option-tooltip {
     display: block;
   }
@@ -227,7 +227,7 @@
   border-radius: 4px;
   border: 3px solid @default-color;
   border-top: 7px solid @default-color;
-  width: 30px;
+  width: 31px;
   height: 30px;
 }
 
@@ -257,7 +257,7 @@
 
 .column-option-icon-addon {
   position: relative;
-  font-size: 9px;
+  font-size: 10px;
   top: -58px;
   left: 17px;
 }
@@ -272,7 +272,7 @@
 .sort-container {
   .top-bar-menu-container;
   &:hover {
-    background: @background-over;
+    background: @background-topbar;
   }
 }
 
@@ -285,9 +285,9 @@
 
 .sort-option-selected {
   .top-bar-menu-option;
-  background: @background-on;
+  background: @background-selected;
   &:hover {
-    background: @background-on;
+    background: @background-selected;
   }
   &:hover .sort-option-tooltip {
     display: block;
@@ -308,10 +308,10 @@
 .tag-container {
   .top-bar-menu-container;
   &:hover {
-    background: @background-over;
+    background: @background-topbar;
   }
   &:hover .tag-option-icon-addon {
-    color: @background-over;
+    color: @background-topbar;
   }
 }
 
@@ -327,9 +327,9 @@
 
 .tag-option-selected {
   .top-bar-menu-option;
-  background: @background-on;
+  background: @background-selected;
   &:hover {
-    background: @background-on;
+    background: @background-selected;
   }
 }
 
@@ -397,9 +397,9 @@
 
 .deepsearch-icon-on {
   .top-bar-menu-icon;
-  background: @background-on;
+  background: @background-selected;
   &:hover {
-    background: @background-on;
+    background: @background-selected;
   }
 }
 
@@ -427,7 +427,7 @@
 
 .search-box {
   position: absolute;
-  width: 100%;
+  flex: 1;
   height: 100%;
   background: none;
   border: none;

@@ -43,10 +43,7 @@ const ShortcutListModal = ({
           value='close'
           trigger={toggleConfigModal}
         />
-        <form
-          className='modal-form'
-          onSubmit={updateChanges}
-        >
+        <div className='modal-form'>
           <div className='modal-form-inbox'>
             {Strings.shortcutListModal.title}
             <div className='modal-form-inbox-text'>
@@ -62,27 +59,26 @@ const ShortcutListModal = ({
             setCurrentFolder={setCurrentFolder}
           />
           <div className='modal-buttons-container'>
-            <button
-              className='modal-left-button-long'
-              type='button'
+            <div
+              className='modal-left-button'
               onClick={() => setNewShortcuts(shortcutPreset)}
             >
               {Strings.shortcutListModal.resetButton}
-            </button>
-            <input
-              className='modal-right-button-long'
-              type='submit'
-              value={Strings.shortcutListModal.submitButton}
-            />
-            <button
+            </div>
+            <div
               className='modal-right-button'
-              type='button'
+              onClick={updateChanges}
+            >
+              {Strings.shortcutListModal.submitButton}
+            </div>
+            <div
+              className='modal-right-button'
               onClick={() => toggleConfigModal('close')}
             >
               {Strings.shortcutListModal.cancelButton}
-            </button>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
     </>
   );

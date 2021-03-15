@@ -31,6 +31,7 @@ const Search = ({ searchFocused, searchWord, setSearchWord, setSearchFocused, se
         onChange={e => startSearch(e)}
         onFocus={e => setSearchFocus('on')}
         onBlur={e => setSearchFocus('off')}
+        tabIndex='-1'
       />
       { searchWord !== '' ?
         (

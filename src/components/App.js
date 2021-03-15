@@ -9,6 +9,9 @@ import findInTree from '../utils/findInTree';
 
 /* global chrome */
 
+
+// chrome.tabs.setZoom(1.5);
+
 class App extends React.Component {
   componentDidMount() {
     this.atFirstLoad();
@@ -39,7 +42,7 @@ class App extends React.Component {
 
   setCurrentFolder = (data) => {
     this.props.setCurrentFolder(data);
-    this.updateStorage('currentFolder', data);
+    this.updateStorage('currentFolder', data[0]);
   };
 
   setMainSortType = (data) => {
@@ -59,20 +62,25 @@ class App extends React.Component {
     );
   };
 
-  setTags = (data) => {
-    this.props.setTags(data);
-    this.updateStorage();
+  setShortcuts = (data) => {
+    this.props.setShortcuts(data);
+    this.updateStorage('shortcuts', data);
   };
 
-  removeTags = (data) => {
-    this.props.removeTags(data);
-    this.updateStorage();
+  setTags = (data) => {
+    this.props.setTags(data);
+    this.updateStorage('tags', data);
   };
 
   setTagFilter = (data) => {
     this.props.setTagFilter(data);
     this.updateStorage('tagFilter', data);
   };
+
+  setTagNames = (data) => {
+    this.props.setTagNames(data);
+    this.updateStorage('tagNames', data);
+  }
 
   getTree = () => {
     chrome.bookmarks.getTree(tree => {
@@ -133,20 +141,20 @@ class App extends React.Component {
       openFolders: this.props.state.openFolders,
       mainColumn: this.props.state.mainColumn,
       mainSortType: this.props.state.mainSortType,
-      mainTabSize: this.props.state.mainTabSize,
       tags: this.props.state.tags,
       tagFilter: this.props.state.tagFilter,
+      tagNames: this.props.state.tagNames,
       shortcuts: this.props.state.shortcuts,
     };
     if(dataName) {
       orBData[dataName] = data;
     }
-
+    console.log('saving data : ', orBData);
     chrome.storage.sync.set({orBData: JSON.stringify(orBData)});
   };
 
-  updateTree = ({ isLink, id, title, url }) => {
-    if(isLink){
+  updateTree = ({ isUrl, id, title, url }) => {
+    if(isUrl){
       chrome.bookmarks.update(id, {title, url}, this.getTree);
     } else {
       chrome.bookmarks.update(id, {title}, this.getTree);
@@ -164,10 +172,10 @@ class App extends React.Component {
               updateTree={this.updateTree}
               toggleConfigModal={this.props.toggleConfigModal}
               removeById={this.removeById}
-              removeTags={this.removeTags}
               setCurrentFolder={this.setCurrentFolder}
               setTags={this.setTags}
-              setShortcuts={this.props.setShortcuts}
+              setTagNames={this.setTagNames}
+              setShortcuts={this.setShortcuts}
             />
           )}
         />

@@ -40,7 +40,7 @@ const TagsIconList = ({ newTags, setNewTags }) => {
       >
         <div
           className='modal-tag-icon'
-          style= {{ color: `${tag}`}}
+          style={{ color: `${tag}`}}
         >
           <i className={Icons.configModal.tag} />
         </div>

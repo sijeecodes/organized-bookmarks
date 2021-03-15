@@ -38,7 +38,8 @@ const Icons = {
     tag: 'tag icon',
     tags: 'tags icon',
     undo: 'undo icon',
-    config: 'cog icon'
+    config: 'cog icon',
+    discard: 'trash alternate icon'
   },
   deepSearch: {
     deepSearch: 'sitemap icon'

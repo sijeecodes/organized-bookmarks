@@ -58,7 +58,7 @@ const NavTab = ({
         let navTabConfigClassName= 'nav-tab-item-config';
         let navTabIconType = Icons.navTab.closedFolder;
         let isOpenFolder = false;
-        if(state.currentFolder === subTree.id) {
+        if(state.currentFolder === subTree.id || state.searchType === 'deepSearch') {
           navTabClassName = 'nav-tab-item-over';
           navTabConfigClassName = 'nav-tab-item-config-over';
           navTabIconType = Icons.navTab.currentFolder;
@@ -87,11 +87,12 @@ const NavTab = ({
                 className={navTabClassName}
                 id={`nav-tab-item-${subTree.index}-${subTree.id}`}
                 draggable
-                onClick={() => setCurrentFolder(subTree.id)}
+                onClick={() => setCurrentFolder([subTree.id])}
                 onDragStart={e => {
                   setIsDragging(e.target.id);
                 }}
                 onDragEnd={() => setIsDragging(false)}
+                tabIndex='-1'
               >
                 <i className={navTabIconType}></i>
                 <div className='nav-tab-item-title'>

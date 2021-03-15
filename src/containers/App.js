@@ -25,10 +25,10 @@ const mapDispatchToProps = dispatch => {
         data
       })
     },
-    setCurrentFolder(folderId) {
+    setCurrentFolder(data) {
       dispatch({
         type: 'SET_CURRENT_FOLDER',
-        data: folderId
+        data
       });
     },
     setMainColumn(num) {
@@ -79,9 +79,9 @@ const mapDispatchToProps = dispatch => {
         data
       });
     },
-    removeTags(data) {
+    setTagNames(data) {
       dispatch({
-        type: 'REMOVE_TAGS',
+        type: 'SET_TAG_NAMES',
         data
       });
     },

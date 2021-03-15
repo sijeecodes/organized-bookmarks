@@ -36,7 +36,7 @@ const MainMenu = ({
         <div
           className='shortcutList-tooltip'
         >
-          {Strings.shortcutListModal.title}
+          {Strings.shortcutListModal.tooltip}
         </div>
       </div>
       <AddFolder
@@ -53,6 +53,7 @@ const MainMenu = ({
       />
       <Tags
         tagFilter={state.tagFilter}
+        tagNames={state.tagNames}
         setTagFilter={setTagFilter}
         toggleConfigModal={toggleConfigModal}
       />

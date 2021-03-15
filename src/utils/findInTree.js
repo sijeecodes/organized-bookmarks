@@ -10,7 +10,7 @@ const findInTree = (tree, targetId) => {
       }
     }
   }
-  let result;
+  let result = 'inexest';
   if(tree.id === 0) {
     result = findById(tree[0].children, targetId);
   } else {

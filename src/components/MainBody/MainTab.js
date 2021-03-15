@@ -49,7 +49,6 @@ const MainTab = ({
 
   if(state.searchType === 'default') {
     subTree = findInTree(state.tree, match.params.id);
-
     if(subTree.children) {
       subTree = searchInTree(subTree.children, state.searchWord);
     } else {
@@ -95,6 +94,7 @@ const MainTab = ({
             onDragOver={e => e.preventDefault()}
             onDrop={e => onDropEvent(e, subTree[i].parentId, subTree[i].index)}
             onDragEnd={() => setIsDragging(false)}
+            tabIndex='-1'
           >
             <img
               className='icon-favicon'
@@ -128,7 +128,7 @@ const MainTab = ({
             className='main-item'
             id={`main-item-${subTree[i].index}-${subTree[i].id}`}
             draggable
-            onClick={() => setCurrentFolder(subTree[i].id)}
+            onClick={() => setCurrentFolder([subTree[i].id, subTree[i].parentId])}
             onDragStart={e => {
               setIsDragging(e.target.id);
             }}

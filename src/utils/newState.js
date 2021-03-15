@@ -1,4 +1,5 @@
 const newState = (originalState, name, newData) => {
+  console.log('name / newData : ', name, newData);
   let tempState = {
     currentFolder: originalState.currentFolder,
     openFolders: originalState.openFolders,
@@ -9,6 +10,7 @@ const newState = (originalState, name, newData) => {
     searchType: originalState.searchType,
     tags: originalState.tags,
     tagFilter: originalState.tagFilter,
+    tagNames: originalState.tagNames,
     shortcuts: originalState.shortcuts,
     searchFocused: originalState.searchFocused,
     tree: originalState.tree,

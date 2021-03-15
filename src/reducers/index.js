@@ -1,5 +1,6 @@
 import findInTree from '../utils/findInTree';
 import newState from '../utils/newState';
+import Strings from '../components/Strings';
 
 const initialState = {
   currentFolder: '1',
@@ -14,6 +15,15 @@ const initialState = {
   searchType: 'default',
   tags: {},
   tagFilter: [],
+  tagNames: {
+    red: Strings.tags.red,
+    orange: Strings.tags.orange,
+    yellow: Strings.tags.yellow,
+    green: Strings.tags.green,
+    blue: Strings.tags.blue,
+    purple: Strings.tags.purple,
+    grey: Strings.tags.grey
+  },
   shortcuts: {
     0: '',
     1: '',
@@ -36,22 +46,16 @@ const reducers = (state = initialState, action) => {
   if(action) {
     switch(action.type) {
       case 'UPDATE_SYNCED_STATE': {
-        return {
-          currentFolder: action.data.currentFolder,
-          openFolders: action.data.openFolders,
-          mainColumn: action.data.mainColumn,
-          mainSortType: action.data.mainSortType,
-          mainTabSize: state.mainTabSize,
-          searchWord: state.searchWord,
-          searchType: state.searchType,
-          tags: action.data.tags,
-          tagFilter: action.data.tagFilter,
-          shortcuts: action.data.shortcuts,
-          isDragging: state.isDragging,
-          openModal: state.openModal,
-          searchFocused: state.searchFocused,
-          tree: state.tree
-        };
+        let tempState = {};
+
+        Object.keys(state).forEach(el =>{
+          if(typeof action.data[el] !== 'undefined' && action.data[el] !== null) {
+            tempState[el] = action.data[el];
+          } else {
+            tempState[el] = state[el];
+          }
+        });
+        return tempState;
       }
       case 'INITIATE_STATE': {
         let tempState = newState(state, 'tree', action.data);
@@ -84,19 +88,33 @@ const reducers = (state = initialState, action) => {
       }
       case 'SET_CURRENT_FOLDER': {
         const newOpenFolders = state.openFolders;
-        if(action.data === state.currentFolder) {
-          if(newOpenFolders.indexOf(action.data) !== -1) {
-            newOpenFolders.splice(newOpenFolders.indexOf(action.data), 1);
+        let newCurrentFolder = action.data[0];
+        if(action.data.length > 1) {
+          const openParentFolders = (parentId) => {
+            if(newOpenFolders.indexOf(parentId) === -1) {
+              newOpenFolders.push(parentId);
+              let parentNode = findInTree(state.tree, parentId);
+              if(parentNode !== 'inexest' && parentNode.parentId) {
+                openParentFolders(parentNode.parentId);
+              }
+            }
+          }
+          openParentFolders(action.data[1]);
+        }
+
+        if(newCurrentFolder === state.currentFolder) {
+          if(newOpenFolders.indexOf(newCurrentFolder) !== -1) {
+            newOpenFolders.splice(newOpenFolders.indexOf(newCurrentFolder), 1);
           } else {
-            newOpenFolders.push(action.data);
+            newOpenFolders.push(newCurrentFolder);
           }
         } else {
-          if(newOpenFolders.indexOf(action.data) === -1) {
-            newOpenFolders.push(action.data);
+          if(newOpenFolders.indexOf(newCurrentFolder) === -1) {
+            newOpenFolders.push(newCurrentFolder);
           }
         }
         let tempState = newState(state, 'openFolders', newOpenFolders);
-        return newState(tempState, 'currentFolder', action.data);
+        return newState(tempState, 'currentFolder', newCurrentFolder);
       }
       case 'SET_MAIN_COLUMN': {
         return newState(state, 'mainColumn', action.data);
@@ -138,32 +156,13 @@ const reducers = (state = initialState, action) => {
         return newState(state, 'searchType', action.data);
       }
       case 'SET_TAGS': {
-        let tempTags = state.tags;
-        if(action.data.tags.length === 0) {
-          delete tempTags[action.data.id];
-        } else {
-          tempTags[action.data.id] = action.data.tags.sort();
-        }
-        return newState(state, 'tags', tempTags);
-      }
-      case 'REMOVE_TAGS': {
-        let updatedTags = {};
-        let selectedTags = action.data;
-
-        Object.keys(state.tags).forEach(item => {
-          state.tags[item].forEach(itemTag => {
-            if(selectedTags.indexOf(itemTag) === -1) {
-              if(!updatedTags[item]){
-                updatedTags[item] = [];
-              }
-              updatedTags[item].push(itemTag);
-            }
-          });
-        });
-        return newState(state, 'tags', updatedTags);
+        return newState(state, 'tags', action.data);
       }
       case 'SET_TAG_FILTER': {
         return newState(state, 'tagFilter', action.data);
+      }
+      case 'SET_TAG_NAMES': {
+        return newState(state, 'tagNames', action.data);
       }
       case 'SET_SHORTCUTS': {
         return newState(state, 'shortcuts', action.data);

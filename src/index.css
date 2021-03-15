@@ -27,6 +27,7 @@ body {
 
 a {
   color: hsl(0, 0%, 85%);
+  outline: none;
 }
 
 code {

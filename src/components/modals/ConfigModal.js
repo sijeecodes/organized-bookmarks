@@ -66,18 +66,36 @@ const ConfigModal = ({
     event.preventDefault();
     if(isUrl) {
       updateTree({
+        isUrl,
         id: targetNode.id,
-        newTitle,
-        newUrl
+        title: newTitle,
+        url: newUrl
       });
     } else {
       updateTree({
+        isUrl,
         id: targetNode.id,
-        newTitle
+        title: newTitle
       });
     }
     toggleConfigModal('close');
-    setTags({id: targetNode.id, tags: newTags});
+
+    let sortedNewTags = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'grey'];
+    let sortCount = sortedNewTags.length;
+    let tempTags = state.tags;
+    for(let i = 0; i < sortCount; i++) {
+      if(newTags.indexOf(sortedNewTags[i]) === -1) {
+        sortedNewTags.splice(i, 1);
+        sortCount--;
+        i--;
+      }
+    }
+    if(sortedNewTags.length === 0) {
+      delete tempTags[targetNode.id];
+    } else {
+      tempTags[targetNode.id] = sortedNewTags;
+    }
+    setTags(tempTags);
     setShortcuts(newShortcuts);
   };
 
@@ -95,10 +113,7 @@ const ConfigModal = ({
           value='close'
           trigger={toggleConfigModal}
         />
-        <form
-          className='modal-form'
-          onSubmit={updateChanges}
-        >
+        <div className='modal-form'>
           <InputBox
             name={Strings.configModal.configModalTitle}
             value={newTitle}
@@ -115,26 +130,26 @@ const ConfigModal = ({
             setNewShortcuts={setNewShortcuts}
           />
           <div className='modal-buttons-container'>
-            <button
+            <div
               className='modal-left-button'
               onClick={tryRemoveById}
             >
               {Strings.configModal.deleteButton}
-            </button>
-            <input
+            </div>
+            <div
               className='modal-right-button'
-              type='submit'
-              value={Strings.configModal.submitButton}
-            />
-            <button
+              onClick={updateChanges}
+            >
+              {Strings.configModal.submitButton}
+            </div>
+            <div
               className='modal-right-button'
-              type='button'
               onClick={() => toggleConfigModal('close')}
             >
               {Strings.configModal.cancelButton}
-            </button>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
     </>
   );
