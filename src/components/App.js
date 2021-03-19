@@ -149,7 +149,6 @@ class App extends React.Component {
     if(dataName) {
       orBData[dataName] = data;
     }
-    console.log('saving data : ', orBData);
     chrome.storage.sync.set({orBData: JSON.stringify(orBData)});
   };
 

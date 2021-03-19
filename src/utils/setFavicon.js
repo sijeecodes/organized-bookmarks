@@ -6,6 +6,7 @@ const setFavicon = (tree) => {
     } else if(el.children) {
       setFavicon(el.children);
     }
+    
     return el;
   });
 }

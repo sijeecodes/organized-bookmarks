@@ -38,7 +38,7 @@ const initialState = {
   },
   isDragging: false,
   openModal: null,
-  searchFocused: 'off',
+  searchFocused: false,
   tree: null
 };
 
@@ -71,29 +71,18 @@ const reducers = (state = initialState, action) => {
         return newState(tempState, 'openFolders', tempOpenFolders);
       }
       case 'SET_SEARCH_FOCUS': {
-        let tempState = state;
-
-        if(state.searchFocused === 'off' && action.data === 'on' && state.searchWord === '') {
-          if(state.searchType !== 'deepSearch') {
-            tempState = newState(state, 'searchType', 'deepSearch');
-          }
-        } else {
-          if(state.searchFocused === 'on' && action.data === 'off' && state.searchWord === '') {
-            if(state.searchType === 'deepSearch') {
-              tempState = newState(state, 'searchType', 'default');
-            }
-          }
-        }
-        return newState(tempState, 'searchFocused', action.data);
+        return newState(state, 'searchFocused', action.data);
       }
       case 'SET_CURRENT_FOLDER': {
         const newOpenFolders = state.openFolders;
         let newCurrentFolder = action.data[0];
+
         if(action.data.length > 1) {
           const openParentFolders = (parentId) => {
             if(newOpenFolders.indexOf(parentId) === -1) {
               newOpenFolders.push(parentId);
               let parentNode = findInTree(state.tree, parentId);
+              
               if(parentNode !== 'inexest' && parentNode.parentId) {
                 openParentFolders(parentNode.parentId);
               }
@@ -114,6 +103,7 @@ const reducers = (state = initialState, action) => {
           }
         }
         let tempState = newState(state, 'openFolders', newOpenFolders);
+
         return newState(tempState, 'currentFolder', newCurrentFolder);
       }
       case 'SET_MAIN_COLUMN': {
@@ -121,26 +111,28 @@ const reducers = (state = initialState, action) => {
       }
       case 'TOGGLE_CONFIG_MODAL': {
           let modalState = null;
+
           if(action.data !== 'close') {
             modalState = action.data.split('-');
           }
+
           return newState(state, 'openModal', modalState);
       }
       case 'DELETE_FOLDER': {
         let tempState = state;
         let newShortcuts = state.shortcuts;
+        let newTags = state.tags;
+        let temp = state.openFolders;
         let shortcutIndex = Object.values(newShortcuts).indexOf(action.data);
+
         if(shortcutIndex !== -1) {
           newShortcuts[shortcutIndex] = '';
           tempState = newState(state, 'shortcuts', newShortcuts);
         }
-
-        let newTags = state.tags;
         delete newTags[action.data];
         tempState = newState(tempState, 'tags', newTags);
-
-        let temp = state.openFolders;
         temp.splice(temp.indexOf(action.data), 1);
+
         return newState(tempState, 'openFolders', temp);
       }
       case 'SET_IS_DRAGGING': {
@@ -183,6 +175,7 @@ const reducers = (state = initialState, action) => {
           }
         }
         searchFolders(state.tree);
+
         return newState(state, 'openFolders', tempOpenFolders);
       }
       case 'CLOSE_ALL_NAV_FOLDERS': {

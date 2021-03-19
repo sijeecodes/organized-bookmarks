@@ -15,7 +15,7 @@ const DeepSearch = ({ searchType, setSearchType }) => {
   return (
     <div
       className='deepsearch-container'
-      onClick={() => changeSearchType()}
+      onClick={changeSearchType}
     >
       <div className={searchType === 'default' ? 'deepsearch-icon' : 'deepsearch-icon-on'}>
         <i className={Icons.deepSearch.deepSearch} />

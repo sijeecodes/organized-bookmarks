@@ -1,22 +1,22 @@
 @import "../lessVariables.less";
 
 .top-bar {
+  position: fixed;
   width: 100%;
   height: @top-menu-height;
-  position: fixed;
   top: 0;
   left: 0;
-  box-shadow: 0 0px 5px @background-highlight;
   z-index: 1;
+  box-shadow: 0 0px 5px @background-highlight;
 }
 
 .top-bar-menu-tooltip {
   display: none;
   position: fixed;
   height: 21px;
-  background: @background1;
-  transform: translate(24px, -4px);
   padding: 0px 5px 0 5px;
+  transform: translate(24px, -4px);
+  background: @background1;
   font-size: 13px;
   color: white;
 }
@@ -30,9 +30,9 @@
   height: @top-menu-height;
   top: 0;
   left: 0;
-  line-height: 38px;
-  background: @background1;
   padding-left: 8px;
+  background: @background1;
+  line-height: 38px;
   font-weight: bold;
 }
 
@@ -59,21 +59,21 @@
 .nav-menu-tooltip {
   .top-bar-menu-tooltip;
   transform: translate(19px, -3px);
-  font-weight: 400;
   line-height: 21px;
+  font-weight: 400;
 }
 
 // mainMenu common ///////////////////////////
 
 .main-menu {
+  display: flex;
+  position: absolute;
   width: @main-width;
   height: @top-menu-height;
-  position: absolute;
-  display: flex;
   top: 0;
   left: @nav-width;
-  vertical-align: top;
   background: @background1;
+  vertical-align: top;
 }
 
 .top-bar-menu-container {
@@ -99,24 +99,24 @@
 .top-bar-menu-option-icon {
   width: @top-menu-width;
   height: @top-menu-height;
-  font-size: 24px;
   padding: 8px 0 0 5px;
+  font-size: 24px;
 }
 
 
 .top-bar-menu-icon {
   height: @top-menu-height;
   width: @top-menu-width;
-  font-size: 25px;
   padding: 7px 0 0 4px;
+  font-size: 25px;
 }
 
 .top-bar-menu-dropdown {
-  display: none;
   position: fixed;
-  text-align: left;
+  display: none;
   width: 90px;
   background: @background1;
+  text-align: left;
 }
 
 .top-bar-menu-title {
@@ -131,17 +131,17 @@
 .top-bar-menu-option-title {
   .top-bar-menu-title;
   display: inline-block;
-  font-weight: normal;
   padding-left: 0;
+  font-weight: normal;
 }
 
 .option-select {
   display: inline-block;
   width: 20px;
   height: 20px;
+  padding-left: 3px;
   text-align: center;
   overflow: visible;
-  padding-left: 3px;
 }
 
 .option-select-hide {
@@ -180,17 +180,17 @@
 
 .addfolder-folder-icon {
   .top-bar-menu-icon;
-  font-size: 30px;
   padding: 8px 0 0 2px;
+  font-size: 30px;
 }
 
 .addfolder-plus-icon {
   .top-bar-menu-icon;
   position: fixed;
+  padding: 0 0 0 12px;
   transform: translate(0, -29px);
   font-size: 12px;
   font-weight: 100;
-  padding: 0 0 0 12px;
 }
 
 .addfolder-tooltip {
@@ -224,19 +224,19 @@
 
 .column-option-square {
   display: inline-block;
-  border-radius: 4px;
-  border: 3px solid @default-color;
-  border-top: 7px solid @default-color;
   width: 31px;
   height: 30px;
+  border: 3px solid @default-color;
+  border-top: 7px solid @default-color;
+  border-radius: 4px;
 }
 
 .column-option-line {
   position: relative;
-  border-right: 3px solid @default-color;
   width: 17px;
   height: 28px;
   top: -35px;
+  border-right: 3px solid @default-color;
 }
 
 .column-option-grey {
@@ -257,9 +257,9 @@
 
 .column-option-icon-addon {
   position: relative;
-  font-size: 10px;
   top: -58px;
   left: 17px;
+  font-size: 10px;
 }
 
 .column-option-tooltip {
@@ -339,9 +339,9 @@
 
 .tag-option-icon-addon {
   position: relative;
-  font-size: 12px;
   top: -30px;
   left: 12px;
+  font-size: 12px;
   color: @background1;
 }
 
@@ -356,10 +356,10 @@
   .top-bar-menu-icon;
   flex: 1;
   width: 12px;
+  padding: 7px 0 0 2px;
   background: none;
   font-size: 22px;
   overflow: visible;
-  padding: 7px 0 0 2px;
 }
 
 .tag-icon-container {
@@ -429,12 +429,12 @@
   position: absolute;
   flex: 1;
   height: 100%;
-  background: none;
+  z-index: 3;
+  padding-inline-start: 44px;
   border: none;
   outline: none;
-  padding-inline-start: 44px;
+  background: none;
   color: white;
-  z-index: 3;
   &:hover ::placeHolder {
     color: @background2;
   }

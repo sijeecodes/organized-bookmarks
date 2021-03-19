@@ -2,7 +2,6 @@ import React from 'react';
 import Icons from '../Icons';
 
 const ItemTag = ({ tags }) => {
-
   if(!tags) {
     return (
       <div></div>
@@ -10,7 +9,6 @@ const ItemTag = ({ tags }) => {
   }
 
   let itemTagHtml = [];
-
   tags.forEach(tag => {
     itemTagHtml.push(
       <div

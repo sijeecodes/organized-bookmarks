@@ -16,7 +16,6 @@ const Modal = ({
   setShortcuts
 }) => {
   if(typeof state !== 'undefined' && state.tree !== null && state.openModal !== null) {
-
     switch(state.openModal[0]) {
       case 'settings': {
         return (
@@ -57,6 +56,7 @@ const Modal = ({
       }
     }
   }
+  
   return <div className='modal-hidden'> Hidden Modal </div>
 };
 

@@ -2,6 +2,7 @@ import React from 'react';
 
 const Spacer = ({ width }) => {
   let result = [];
+
   for(let i = 1; i < width; i++) {
     result.push(
       <div
@@ -11,6 +12,7 @@ const Spacer = ({ width }) => {
       </div>
     );
   }
+  
   return <>{result}</>;
 };
 

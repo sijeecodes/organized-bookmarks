@@ -1,5 +1,6 @@
 const sortList = (originalList, criteriaName) => {
   let criteria;
+
   switch(criteriaName) {
     case 'alphabetical': {
       criteria = 'title';
@@ -15,6 +16,7 @@ const sortList = (originalList, criteriaName) => {
 
   let folders = [];
   let links = [];
+
   for(let i = 0; i < originalList.length; i++) {
     if(originalList[i].url) {
       links.push([originalList[i]]);
@@ -43,7 +45,6 @@ const sortList = (originalList, criteriaName) => {
           tempResult.push(arrTwo[iTwo]);
           iTwo++;
         }
-
       } else {
         if(arrOne[iOne][criteria] <= arrTwo[iTwo][criteria]) {
           tempResult.push(arrOne[iOne]);
@@ -60,6 +61,7 @@ const sortList = (originalList, criteriaName) => {
 
   const mergeSort = (arr) => {
     let reqTimes;
+
     if(arr.length < 1) {
       return arr;
     } else {
@@ -78,6 +80,7 @@ const sortList = (originalList, criteriaName) => {
       }
       arr = merged;
     }
+    
     return arr[0];
   }
 

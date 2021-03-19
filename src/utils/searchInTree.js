@@ -14,6 +14,7 @@ const searchInTree = (tree, keyword) => {
         }
       }
     }
+
     return tempResult;
   }
 };

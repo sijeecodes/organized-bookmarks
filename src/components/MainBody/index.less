@@ -1,9 +1,9 @@
 @import "../lessVariables.less";
 
 .main-body {
+  position: fixed;
   width: 100%;
   height: 100%;
-  position: fixed;
   top: @top-menu-height;
   left: 0;
   padding-bottom: @top-menu-height;
@@ -13,10 +13,10 @@
   display: inline-block;
   width: @nav-width;
   height: 100%;
-  vertical-align: top;
-  overflow: auto;
   padding-bottom: @top-menu-height;
   background: @background2;
+  vertical-align: top;
+  overflow: auto;
 }
 .nav-tab::-webkit-scrollbar {
   display: none;
@@ -29,14 +29,14 @@
 }
 
 .nav-tab-item-dropbox {
-  width: 100%;
+  display: block;
   position: relative;
+  width: 100%;
+  height: 0px;
+  z-index: 2;
+  transform: translate(0, -28px);
   background: none;
   opacity: 0;
-  height: 0px;
-  transform: translate(0, -28px);
-  z-index: 2;
-  display: block;
 }
 
 .nav-tab-item-dropbox-bottom {
@@ -50,23 +50,22 @@
 }
 
 .nav-tab-item {
-  position: relative;
   display: flex;
+  position: relative;
   flex: 1;
   height: @item-height;
-  overflow: hidden;
   padding: 2px 10px 0 7px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   line-height: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   &:hover {
     background: @background-highlight;
     color: white;
   }
   &:hover .nav-tab-item-config {
-    opacity: 1;
     background: @background-highlight;
     color: @default-color;
+    opacity: 1;
     &:hover {
       color: white;
     }
@@ -80,8 +79,8 @@
     background: @background-selected;
   }
   &:hover .nav-tab-item-config-over {
-    opacity: 1;
     background: @background-selected;
+    opacity: 1;
   }
 }
 
@@ -103,14 +102,14 @@
 .item-spacer {
   width: 20px;
   height: @item-height;
-  text-align: center;
   outline: none;
+  text-align: center;
 }
 
 .nav-tab-item-tags-wrapper {
   display: inline-block;
-  padding-right: 20px;
   margin-top: -3px;
+  padding-right: 20px;
   overflow: visible;
 }
 
@@ -122,26 +121,26 @@
 
 .nav-tab-item-tail {
   position: absolute;
-  top: 2px;
-  right: 0;
   width: @item-height;
   height: @item-height;
-  text-align: center;
+  top: 2px;
+  right: 0;
   margin-right: 2px;
   z-index: 0;
+  text-align: center;
 }
 
 .nav-tab-item-config {
   position: absolute;
-  top: 0;
-  right: 0;
   width: @item-height;
   height: @item-height;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  padding-top: 2px;
   background: @background2;
   text-align: center;
   opacity: 0;
-  padding-top: 2px;
-  z-index: 1;
 }
 
 .nav-tab-item-config-over {
@@ -153,10 +152,10 @@
   display: inline-block;
   width: @main-width;
   height: 100%;
+  background: @background3;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
-  background: @background3;
 }
 
 .main-container {
@@ -165,11 +164,11 @@
 }
 
 .main-item-wrapper {
-  position: relative;
   display: flex;
+  position: relative;
   flex: 1;
-  height: @item-height;
   width: 100%;
+  height: @item-height;
   background: @background3;
   &:hover {
     background: @background-highlight;
@@ -178,9 +177,9 @@
     color: white;
   }
   &:hover .main-item-config {
-    opacity: 1;
     width: 25px;
     color: @default-color;
+    opacity: 1;
     &:hover {
       color: white;
     }
@@ -191,22 +190,22 @@
   display: flex;
   flex: 1;
   height: 100%;
+  margin: 1px 0 5px 4px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin: 1px 0 5px 4px;
 }
 
 .main-item-config {
   display: block;
-  height: @item-height;
   width: 0;
-  text-align: center;
-  opacity: 0;
-  background: none;
-  overflow: hidden;
+  height: @item-height;
   padding-top: 4px;
+  background: none;
+  text-align: center;
+  overflow: hidden;
   color: white;
+  opacity: 0;
 }
 
 .icon-favicon {
@@ -218,10 +217,9 @@
 
 .main-item-title {
   flex: 1;
-  margin: 0 0 3px 5px;
+  margin: 3px 0 0 5px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin: 3px 0 0 5px;
 }
 
 .main-item-folder-title {

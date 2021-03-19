@@ -18,7 +18,6 @@ const ConfigModal = ({
 }) => {
   let isUrl, urlBox = '';
   let tagData = state.tags[targetNode.id] ? state.tags[targetNode.id] : [];
-
   const [newTags, setNewTags] = useState(tagData);
   const [newTitle, setNewTitle] = useState(targetNode.title);
   const [newUrl, setNewUrl] = useState(targetNode.url ? targetNode.url : '');
@@ -83,6 +82,7 @@ const ConfigModal = ({
     let sortedNewTags = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'grey'];
     let sortCount = sortedNewTags.length;
     let tempTags = state.tags;
+    
     for(let i = 0; i < sortCount; i++) {
       if(newTags.indexOf(sortedNewTags[i]) === -1) {
         sortedNewTags.splice(i, 1);

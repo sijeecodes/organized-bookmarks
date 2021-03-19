@@ -21,7 +21,7 @@ const MainTab = ({
   moveBookmark
 }) => {
   if(typeof state === 'undefined' || state.tree === null) {
-    return <div>Main</div>;
+    return <div>Please Refresh Page</div>;
   }
 
   let subTree;
@@ -61,12 +61,10 @@ const MainTab = ({
   if(state.tagFilter.length > 0) {
     subTree = filterByTags(subTree, state.tags, state.tagFilter);
   }
-
   if(subTree.length > 0) {
     subTree = setFavicon(subTree);
     subTree = sortList(subTree, state.mainSortType);
   }
-
   if(subTree.length > lineMax) {
     columnTotal = Math.ceil(subTree.length / lineMax);
 

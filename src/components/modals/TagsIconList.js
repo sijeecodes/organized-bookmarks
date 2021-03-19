@@ -5,13 +5,13 @@ import Icons from '../Icons';
 const TagsIconList = ({ newTags, setNewTags }) => {
   let html = [];
   let allTags = {
-    'red': [Strings.tags.red, false],
-    'orange': [Strings.tags.orange, false],
-    'yellow': [Strings.tags.yellow, false],
-    'green': [Strings.tags.green, false],
-    'blue': [Strings.tags.blue, false],
-    'purple': [Strings.tags.purple, false],
-    'grey': [Strings.tags.grey, false],
+    red: [Strings.tags.red, false],
+    orange: [Strings.tags.orange, false],
+    yellow: [Strings.tags.yellow, false],
+    green: [Strings.tags.green, false],
+    blue: [Strings.tags.blue, false],
+    purple: [Strings.tags.purple, false],
+    grey: [Strings.tags.grey, false],
   };
 
   newTags.forEach(el => {
@@ -20,6 +20,7 @@ const TagsIconList = ({ newTags, setNewTags }) => {
 
   const onPress = (tag) => {
     let temp = [...newTags];
+
     if(newTags.indexOf(tag) === -1) {
       temp.push(tag);
     } else {
@@ -30,6 +31,7 @@ const TagsIconList = ({ newTags, setNewTags }) => {
 
   Object.keys(allTags).forEach(tag => {
     let tagClassName = 'modal-tag-off';
+
     if(allTags[tag][1]) {
       tagClassName = 'modal-tag-on';
     }
@@ -47,7 +49,7 @@ const TagsIconList = ({ newTags, setNewTags }) => {
       </div>
     );
   })
-
+  
   return html;
 };
 

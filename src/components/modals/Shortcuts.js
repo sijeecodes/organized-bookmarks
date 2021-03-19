@@ -3,9 +3,9 @@ import Strings from '../Strings';
 
 const Shortcuts = ({ id, newShortcuts, setNewShortcuts }) => {
   let html = [];
-
   const setShortcut = (num) => {
     let temp = {...newShortcuts};
+
     if(newShortcuts[num] === id) {
       temp[num] = '';
     } else {
@@ -16,6 +16,7 @@ const Shortcuts = ({ id, newShortcuts, setNewShortcuts }) => {
 
   const setShortcutToHtml = (num) => {
     let shortcutClassName = 'modal-shortcut-off';
+    
     if(newShortcuts[num] === id) {
       shortcutClassName = 'modal-shortcut-on';
     }

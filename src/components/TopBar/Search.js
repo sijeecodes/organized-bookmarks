@@ -7,13 +7,26 @@ const Search = ({ searchFocused, searchWord, setSearchWord, setSearchFocused, se
   };
 
   const setSearchFocus = (status) => {
+    if(status && searchWord === '') {
+      setSearchType('deepSearch');
+    }
     setSearchFocused(status);
   };
 
-  const resetSearchBox = () => {
+  const resetSearchBox = (e) => {
     setSearchWord('');
-    setSearchFocused('off');
-    setSearchType('default');
+    setSearchFocused(true);
+    e.target.parentNode.parentNode.childNodes[2].focus();
+  };
+
+  const checkKey = (e) => {
+    if(e.key === 'Escape') {
+      setSearchType('default');
+      setSearchWord('');
+      e.target.blur();
+    } else if(e.key === 'Enter') {
+      e.target.blur();
+    }
   };
 
   return (
@@ -28,10 +41,12 @@ const Search = ({ searchFocused, searchWord, setSearchWord, setSearchFocused, se
         type='text'
         value={searchWord}
         placeHolder='Search..'
-        onChange={e => startSearch(e)}
-        onFocus={e => setSearchFocus('on')}
-        onBlur={e => setSearchFocus('off')}
+        onChange={startSearch}
+        onFocus={e => setSearchFocus(true)}
+        onBlur={e => setSearchFocus(false)}
+        onKeyDown={checkKey}
         tabIndex='-1'
+        id='search-box-id'
       />
       { searchWord !== '' ?
         (

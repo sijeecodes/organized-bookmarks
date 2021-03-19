@@ -5,13 +5,13 @@ import Icons from '../Icons';
 const Tags = ({ tagFilter, tagNames, setTagFilter, toggleConfigModal }) => {
   let tagOptionsHtml = [];
   let allTags = {
-    'red': [tagNames.red, false],
-    'orange': [tagNames.orange, false],
-    'yellow': [tagNames.yellow, false],
-    'green': [tagNames.green, false],
-    'blue': [tagNames.blue, false],
-    'purple': [tagNames.purple, false],
-    'grey': [tagNames.grey, false],
+    red: [tagNames.red, false],
+    orange: [tagNames.orange, false],
+    yellow: [tagNames.yellow, false],
+    green: [tagNames.green, false],
+    blue: [tagNames.blue, false],
+    purple: [tagNames.purple, false],
+    grey: [tagNames.grey, false],
   };
 
   if(tagFilter.length > 0) {

@@ -7,17 +7,6 @@ const SortBy = ({ mainSortType, setMainSortType }) => {
   let resultHtml = [];
   let isSelectedSort = mainSortType;
 
-  // switch(mainSortType) {
-  //   case 'alphabetical':
-  //     currentSort = 'sort alphabet down icon';
-  //     break;
-  //   case 'recentlyAdded':
-  //     currentSort = 'sort numeric down icon';
-  //     break;
-  //   default:
-  //     currentIcon = 'sort amount down icon';
-  // }
-
   options.forEach(option => {
     let optionBackground = 'sort-option';
     let optionString, optionIcon;

@@ -10,17 +10,18 @@ const ConfigTagsModal = ({
   setTagNames
 }) => {
   const [newTags, setNewTags] = useState({
-    'red': { name: state.tagNames.red, removeTags: false, color: 'red' },
-    'orange': { name: state.tagNames.orange, removeTags: false, color: 'orange' },
-    'yellow': { name: state.tagNames.yellow, removeTags: false, color: 'yellow' },
-    'green': { name: state.tagNames.green, removeTags: false, color: 'green' },
-    'blue': { name: state.tagNames.blue, removeTags: false, color: 'blue' },
-    'purple': { name: state.tagNames.purple, removeTags: false, color: 'purple' },
-    'grey': { name: state.tagNames.grey, removeTags: false, color: 'grey' }
+    red: { name: state.tagNames.red, removeTags: false, color: 'red' },
+    orange: { name: state.tagNames.orange, removeTags: false, color: 'orange' },
+    yellow: { name: state.tagNames.yellow, removeTags: false, color: 'yellow' },
+    green: { name: state.tagNames.green, removeTags: false, color: 'green' },
+    blue: { name: state.tagNames.blue, removeTags: false, color: 'blue' },
+    purple: { name: state.tagNames.purple, removeTags: false, color: 'purple' },
+    grey: { name: state.tagNames.grey, removeTags: false, color: 'grey' }
   });
 
   const updateTag = (el, titleFlag, newName) => {
     let tempNewTags = {...newTags};
+
     if(titleFlag === 'title') {
       tempNewTags[el].name = newName;
     } else {
@@ -32,6 +33,7 @@ const ConfigTagsModal = ({
   const getRemoveTagsList = () => {
     let removeTagsList = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'grey'];
     let tagsListCounter = 0;
+
     Object.keys(newTags).forEach(el => {
       if(!newTags[el].removeTags){
         removeTagsList.splice(tagsListCounter, 1);
@@ -45,8 +47,11 @@ const ConfigTagsModal = ({
   const updateChanges = (event) => {
     event.preventDefault();
     toggleConfigModal('close');
+
     let removeTagsList = getRemoveTagsList();
     let tagsResult = {...state.tags};
+    let newTagNames = {};
+
     Object.keys(state.tags).forEach(el => {
       for(let i = 0; i < removeTagsList.length; i++) {
         tagsResult[el].splice(tagsResult[el].indexOf(removeTagsList[i]), 1);
@@ -54,7 +59,6 @@ const ConfigTagsModal = ({
     });
     setTags(tagsResult);
 
-    let newTagNames = {};
     Object.keys(newTags).forEach(el => {
       newTagNames[el] = newTags[el].name;
     });
@@ -64,6 +68,7 @@ const ConfigTagsModal = ({
   const removeAllTags = (event) => {
     event.preventDefault();
     let tempNewTags = {...newTags};
+
     Object.keys(newTags).forEach(el => {
       tempNewTags[el].removeTags = true;
     });
@@ -73,6 +78,7 @@ const ConfigTagsModal = ({
   let tagsHtml = [];
   Object.keys(newTags).forEach(el => {
     let removeTagBtn = 'modal-tags-config-discard-button';
+
     if(newTags[el].removeTags) {
       removeTagBtn = 'modal-tags-config-discard-button-on';
     }
@@ -135,13 +141,13 @@ const ConfigTagsModal = ({
           <div className='modal-buttons-container'>
             <div
               className='modal-left-button'
-              onClick={e => removeAllTags(e)}
+              onClick={removeAllTags}
             >
               {Strings.configTagsModal.resetButton}
             </div>
             <div
               className='modal-right-button'
-              onClick={e => updateChanges(e)}
+              onClick={updateChanges}
             >
               {Strings.configTagsModal.submitButton}
             </div>

@@ -11,6 +11,7 @@ const ShortcutsList = ({
   setCurrentFolder
 }) => {
   let html = [];
+
   const redirect = (id) => {
     toggleConfigModal('close');
     setCurrentFolder(id);
@@ -18,6 +19,7 @@ const ShortcutsList = ({
 
   const resetShortcut = (number) => {
     let tempShortcuts = {...newShortcuts};
+
     tempShortcuts[number] = '';
     setNewShortcuts(tempShortcuts);
   };
@@ -25,6 +27,7 @@ const ShortcutsList = ({
   const makeList = shortcutNum => {
     const getShortcutData = (shortcutNum) => {
       let data = findInTree(state.tree, shortcutNum);
+
       if(data === undefined) {
         return ({
           title: 'empty shortcut',

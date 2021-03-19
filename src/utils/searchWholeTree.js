@@ -22,6 +22,7 @@ const searchWholeTree = (tree, keyword) => {
     }
   };
   search(tree);
+  
   return [...allFolders, ...allLinks];
 };
 

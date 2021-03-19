@@ -58,6 +58,7 @@ const NavTab = ({
         let navTabConfigClassName= 'nav-tab-item-config';
         let navTabIconType = Icons.navTab.closedFolder;
         let isOpenFolder = false;
+        
         if(state.currentFolder === subTree.id || state.searchType === 'deepSearch') {
           navTabClassName = 'nav-tab-item-over';
           navTabConfigClassName = 'nav-tab-item-config-over';
