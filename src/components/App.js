@@ -54,7 +54,7 @@ class App extends React.Component {
   setMainTabSize = () => {
     this.props.setMainTabSize(
       document.documentElement.clientHeight - 32,
-      Math.floor(document.documentElement.clientWidth * 0.75)
+      Math.floor(document.documentElement.clientWidth * 0.76)
     );
   };
 

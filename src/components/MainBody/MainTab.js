@@ -32,6 +32,7 @@ const MainTab = ({
   let columnPerTab = state.mainColumn;
   let columnWidth = state.mainTabSize.width;
   let tempHtml = [];
+  let scrollFlag = true;
 
   const onDropEvent = (event, targetParentId, targetIndex) => {
     event.stopPropagation();
@@ -48,12 +49,29 @@ const MainTab = ({
   }
 
   const scroll = (event) => {
-    event.currentTarget.scrollTo({
-        top: 0,
-        left: event.currentTarget.scrollLeft + event.deltaY,
-        behaviour: 'smooth' //if you want smooth scrolling
-    });
+    let currentLeft = event.currentTarget.scrollLeft;
+    let maxScrollLeft = event.currentTarget.scrollWidth - event.currentTarget.offsetWidth;
+
+    if(scrollFlag) {
+      if(currentLeft === maxScrollLeft && event.deltaY > 0) {
+        return;
+      } else if(currentLeft === 0 && event.deltaY < 0) {
+        return;
+      } else {
+        event.currentTarget.scrollTo({
+            top: 0,
+            left: currentLeft + event.deltaY,
+            behaviour: 'smooth'
+        });
+      }
+      scrollFlag = false;
+      setTimeout(function(){
+        scrollFlag = true;
+      }, 10);
+    }
+
   };
+
 
   if(state.searchType === 'default') {
     subTree = findInTree(state.tree, match.params.id);
