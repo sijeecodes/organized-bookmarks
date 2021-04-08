@@ -1,7 +1,7 @@
 .main-body {
+  position: fixed;
   width: 100%;
   height: 100%;
-  position: fixed;
   top: 38px;
   left: 0;
   padding-bottom: 38px;
@@ -10,10 +10,10 @@
   display: inline-block;
   width: 24%;
   height: 100%;
-  vertical-align: top;
-  overflow: auto;
   padding-bottom: 38px;
   background: hsl(0, 0%, 20%);
+  vertical-align: top;
+  overflow: auto;
 }
 .nav-tab::-webkit-scrollbar {
   display: none;
@@ -24,24 +24,24 @@
   height: 30px;
 }
 .nav-tab-item-dropbox {
-  width: 100%;
+  display: block;
   position: relative;
+  width: 100%;
+  height: 0px;
+  z-index: 2;
+  transform: translate(0, -28px);
   background: none;
   opacity: 0;
-  height: 0px;
-  transform: translate(0, -28px);
-  z-index: 2;
-  display: block;
 }
 .nav-tab-item-dropbox-bottom {
-  width: 100%;
+  display: block;
   position: relative;
+  width: 100%;
+  height: 0px;
+  z-index: 2;
+  transform: translate(0, -28px);
   background: none;
   opacity: 0;
-  height: 0px;
-  transform: translate(0, -28px);
-  z-index: 2;
-  display: block;
   transform: translate(0, -16px);
 }
 .nav-tab-item-container {
@@ -49,38 +49,36 @@
   position: relative;
 }
 .nav-tab-item {
-  position: relative;
   display: flex;
+  position: relative;
   flex: 1;
   height: 30px;
-  overflow: hidden;
   padding: 2px 10px 0 7px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   line-height: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .nav-tab-item:hover {
   background: hsl(0, 0%, 30%);
   color: white;
 }
 .nav-tab-item:hover .nav-tab-item-config {
-  opacity: 1;
   background: hsl(0, 0%, 30%);
   color: hsl(0, 0%, 85%);
+  opacity: 1;
 }
 .nav-tab-item:hover .nav-tab-item-config:hover {
   color: white;
 }
 .nav-tab-item-over {
-  position: relative;
   display: flex;
+  position: relative;
   flex: 1;
   height: 30px;
-  overflow: hidden;
   padding: 2px 10px 0 7px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   line-height: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   background: hsl(0, 0%, 40%);
 }
 .nav-tab-item-over:hover {
@@ -88,9 +86,9 @@
   color: white;
 }
 .nav-tab-item-over:hover .nav-tab-item-config {
-  opacity: 1;
   background: hsl(0, 0%, 30%);
   color: hsl(0, 0%, 85%);
+  opacity: 1;
 }
 .nav-tab-item-over:hover .nav-tab-item-config:hover {
   color: white;
@@ -99,8 +97,8 @@
   background: hsl(0, 0%, 40%);
 }
 .nav-tab-item-over:hover .nav-tab-item-config-over {
-  opacity: 1;
   background: hsl(0, 0%, 40%);
+  opacity: 1;
 }
 .item-tag {
   display: inline-block;
@@ -118,13 +116,13 @@
 .item-spacer {
   width: 20px;
   height: 30px;
-  text-align: center;
   outline: none;
+  text-align: center;
 }
 .nav-tab-item-tags-wrapper {
   display: inline-block;
-  padding-right: 20px;
   margin-top: -3px;
+  padding-right: 20px;
   overflow: visible;
 }
 .nav-tab-item-title {
@@ -134,58 +132,58 @@
 }
 .nav-tab-item-tail {
   position: absolute;
-  top: 2px;
-  right: 0;
   width: 30px;
   height: 30px;
-  text-align: center;
+  top: 2px;
+  right: 0;
   margin-right: 2px;
   z-index: 0;
+  text-align: center;
 }
 .nav-tab-item-config {
   position: absolute;
-  top: 0;
-  right: 0;
   width: 30px;
   height: 30px;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  padding-top: 2px;
   background: hsl(0, 0%, 20%);
   text-align: center;
   opacity: 0;
-  padding-top: 2px;
-  z-index: 1;
 }
 .nav-tab-item-config-over {
   position: absolute;
-  top: 0;
-  right: 0;
   width: 30px;
   height: 30px;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  padding-top: 2px;
   background: hsl(0, 0%, 20%);
   text-align: center;
   opacity: 0;
-  padding-top: 2px;
-  z-index: 1;
   background: hsl(0, 0%, 40%);
 }
 .main-tab {
   display: inline-block;
   width: 76%;
   height: 100%;
+  background: hsl(0, 0%, 10%);
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
-  background: hsl(0, 0%, 10%);
 }
 .main-container {
   display: inline-block;
   vertical-align: top;
 }
 .main-item-wrapper {
-  position: relative;
   display: flex;
+  position: relative;
   flex: 1;
-  height: 30px;
   width: 100%;
+  height: 30px;
   background: hsl(0, 0%, 10%);
 }
 .main-item-wrapper:hover {
@@ -195,9 +193,9 @@
   color: white;
 }
 .main-item-wrapper:hover .main-item-config {
-  opacity: 1;
   width: 25px;
   color: hsl(0, 0%, 85%);
+  opacity: 1;
 }
 .main-item-wrapper:hover .main-item-config:hover {
   color: white;
@@ -206,21 +204,21 @@
   display: flex;
   flex: 1;
   height: 100%;
+  margin: 1px 0 5px 4px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin: 1px 0 5px 4px;
 }
 .main-item-config {
   display: block;
-  height: 30px;
   width: 0;
-  text-align: center;
-  opacity: 0;
-  background: none;
-  overflow: hidden;
+  height: 30px;
   padding-top: 4px;
+  background: none;
+  text-align: center;
+  overflow: hidden;
   color: white;
+  opacity: 0;
 }
 .icon-favicon {
   display: inline-block;
@@ -230,17 +228,15 @@
 }
 .main-item-title {
   flex: 1;
-  margin: 0 0 3px 5px;
+  margin: 3px 0 0 5px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin: 3px 0 0 5px;
 }
 .main-item-folder-title {
   flex: 1;
-  margin: 0 0 3px 5px;
+  margin: 3px 0 0 5px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin: 3px 0 0 5px;
   margin: 3px 0 0 3px;
 }
 .main-item-folder-icon {
@@ -251,28 +247,28 @@
 }
 .modal-background {
   position: fixed;
-  height: 100%;
   width: 100%;
-  z-index: 5;
+  height: 100%;
   top: 0;
   left: 0;
+  z-index: 5;
   background: black;
   opacity: 0.8;
 }
 .modal-box {
   position: fixed;
-  z-index: 10;
   top: 30%;
   left: 50%;
+  z-index: 10;
   transform: translate(-270px, 0);
   background: hsl(0, 0%, 20%);
   opacity: 1;
 }
 .modal-box-list {
   position: fixed;
-  z-index: 10;
   top: 10%;
   left: 50%;
+  z-index: 10;
   transform: translate(-270px, 0);
   background: hsl(0, 0%, 20%);
   opacity: 1;
@@ -284,8 +280,8 @@
 }
 .modal-box-close-button {
   position: absolute;
-  height: 30px;
   width: 30px;
+  height: 30px;
   right: 0;
   text-align: center;
 }
@@ -307,10 +303,10 @@
   height: 30px;
   padding: 0 14px 0 14px;
   background: hsl(0, 0%, 20%);
-  color: white;
-  font-weight: 600;
   text-align: center;
   line-height: 28px;
+  font-weight: 600;
+  color: white;
 }
 .modal-right-button:hover {
   background: hsl(0, 0%, 30%);
@@ -320,10 +316,10 @@
   height: 30px;
   padding: 0 14px 0 14px;
   background: hsl(0, 0%, 20%);
-  color: white;
-  font-weight: 600;
   text-align: center;
   line-height: 28px;
+  font-weight: 600;
+  color: white;
   float: left;
 }
 .modal-left-button:hover {
@@ -358,10 +354,10 @@
   display: inline-block;
   width: 75%;
   padding: 4px 5px 2px 5px;
-  background: hsl(0, 0%, 20%);
   border: none;
   border-bottom: 1px solid hsl(0, 0%, 30%);
   outline: none;
+  background: hsl(0, 0%, 20%);
   vertical-align: top;
   color: hsl(0, 0%, 85%);
   text-overflow: ellipsis;
@@ -399,29 +395,29 @@
 }
 .modal-tag-off {
   display: inline-block;
-  height: 30px;
   width: 30px;
+  height: 30px;
+  margin-right: 1px;
+  padding: 7px 0 0 7px;
   border-radius: 50%;
   line-height: 18px;
-  padding: 7px 0 0 7px;
-  margin-right: 1px;
 }
 .modal-tag-off:hover {
   background: hsl(0, 0%, 30%);
 }
 .modal-tag-on {
   display: inline-block;
-  height: 30px;
   width: 30px;
+  height: 30px;
+  margin-right: 1px;
+  padding: 7px 0 0 7px;
   border-radius: 50%;
   line-height: 18px;
-  padding: 7px 0 0 7px;
-  margin-right: 1px;
-  background: hsl(0, 0%, 40%);
+  padding: 5px 0 0 5px;
   border-color: hsl(0, 0%, 85%);
   border-width: 2px;
   border-style: solid;
-  padding: 5px 0 0 5px;
+  background: hsl(0, 0%, 40%);
 }
 .modal-tag-on:hover {
   background: hsl(0, 0%, 30%);
@@ -434,9 +430,9 @@
 }
 .modal-tags-config-box {
   position: fixed;
-  z-index: 10;
   top: 30%;
   left: 50%;
+  z-index: 10;
   transform: translate(-270px, 0);
   background: hsl(0, 0%, 20%);
   opacity: 1;
@@ -460,8 +456,8 @@
 }
 .modal-tags-config-inputbox-container {
   display: flex;
-  flex: 1;
   position: relative;
+  flex: 1;
   text-align: left;
 }
 .modal-tags-config-inputbox-container:hover {
@@ -470,15 +466,15 @@
 .modal-tags-config-inputbox-title {
   flex: 1;
   padding: 4px 5px 2px 4px;
-  background: none;
   border: none;
   border-bottom: 1px solid hsl(0, 0%, 30%);
   outline: none;
+  background: none;
   vertical-align: top;
-  color: white;
-  text-overflow: ellipsis;
   overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
+  color: white;
 }
 .modal-tags-config-inputbox-title:focus {
   background: hsl(0, 0%, 40%);
@@ -522,12 +518,12 @@
   display: none;
   position: fixed;
   height: 21px;
-  background: hsl(0, 0%, 5%);
-  transform: translate(20px, -3px);
   padding: 0px 5px 0 5px;
+  transform: translate(20px, -3px);
+  background: hsl(0, 0%, 5%);
+  white-space: nowrap;
   font-size: 13px;
   color: white;
-  white-space: nowrap;
 }
 .modal-shortcuts-container {
   display: inline-block;
@@ -551,13 +547,13 @@
 }
 .modal-shortcut-off {
   display: inline-block;
-  height: 30px;
   width: 30px;
+  height: 30px;
   margin-right: 1px;
   padding: 3px 0 0 1px;
   border-radius: 50%;
-  line-height: 23px;
   text-align: center;
+  line-height: 23px;
   font-weight: 600;
 }
 .modal-shortcut-off:hover {
@@ -565,13 +561,13 @@
 }
 .modal-shortcut-on {
   display: inline-block;
-  height: 30px;
   width: 30px;
+  height: 30px;
   margin-right: 1px;
   padding: 3px 0 0 1px;
   border-radius: 50%;
-  line-height: 23px;
   text-align: center;
+  line-height: 23px;
   font-weight: 600;
   background: hsl(0, 0%, 40%);
   padding: 1px 0 0 1px;
@@ -611,37 +607,37 @@
   color: white;
 }
 .modal-shortcut-list-item:hover .modal-shortcut-list-reset-button {
-  padding: 3px 0 0 5px;
   width: 30px;
+  padding: 3px 0 0 5px;
   color: hsl(0, 0%, 85%);
 }
 .modal-shortcut-list-item:hover .modal-shortcut-list-reset-button:hover {
   color: white;
 }
 .modal-shortcut-list-title {
-  padding: 2px 0 0 0;
   flex: 1;
+  padding: 2px 0 0 0;
   text-overflow: ellipsis;
 }
 .modal-shortcut-list-reset-button {
   width: 0;
 }
 .top-bar {
+  position: fixed;
   width: 100%;
   height: 38px;
-  position: fixed;
   top: 0;
   left: 0;
-  box-shadow: 0 0px 5px hsl(0, 0%, 30%);
   z-index: 1;
+  box-shadow: 0 0px 5px hsl(0, 0%, 30%);
 }
 .top-bar-menu-tooltip {
   display: none;
   position: fixed;
   height: 21px;
-  background: hsl(0, 0%, 5%);
-  transform: translate(24px, -4px);
   padding: 0px 5px 0 5px;
+  transform: translate(24px, -4px);
+  background: hsl(0, 0%, 5%);
   font-size: 13px;
   color: white;
 }
@@ -652,9 +648,9 @@
   height: 38px;
   top: 0;
   left: 0;
-  line-height: 38px;
-  background: hsl(0, 0%, 5%);
   padding-left: 8px;
+  background: hsl(0, 0%, 5%);
+  line-height: 38px;
   font-weight: bold;
 }
 .nav-menu-title {
@@ -679,24 +675,24 @@
   display: none;
   position: fixed;
   height: 21px;
-  background: hsl(0, 0%, 5%);
-  transform: translate(24px, -4px);
   padding: 0px 5px 0 5px;
+  transform: translate(24px, -4px);
+  background: hsl(0, 0%, 5%);
   font-size: 13px;
   color: white;
   transform: translate(19px, -3px);
-  font-weight: 400;
   line-height: 21px;
+  font-weight: 400;
 }
 .main-menu {
+  display: flex;
+  position: absolute;
   width: 76%;
   height: 38px;
-  position: absolute;
-  display: flex;
   top: 0;
   left: 24%;
-  vertical-align: top;
   background: hsl(0, 0%, 5%);
+  vertical-align: top;
 }
 .top-bar-menu-container {
   float: left;
@@ -719,21 +715,21 @@
 .top-bar-menu-option-icon {
   width: 38px;
   height: 38px;
-  font-size: 24px;
   padding: 8px 0 0 5px;
+  font-size: 24px;
 }
 .top-bar-menu-icon {
   height: 38px;
   width: 38px;
-  font-size: 25px;
   padding: 7px 0 0 4px;
+  font-size: 25px;
 }
 .top-bar-menu-dropdown {
-  display: none;
   position: fixed;
-  text-align: left;
+  display: none;
   width: 90px;
   background: hsl(0, 0%, 5%);
+  text-align: left;
 }
 .top-bar-menu-title {
   height: 30px;
@@ -749,25 +745,25 @@
   font-size: 14px;
   font-weight: 600;
   display: inline-block;
-  font-weight: normal;
   padding-left: 0;
+  font-weight: normal;
 }
 .option-select {
   display: inline-block;
   width: 20px;
   height: 20px;
+  padding-left: 3px;
   text-align: center;
   overflow: visible;
-  padding-left: 3px;
 }
 .option-select-hide {
   visibility: hidden;
   display: inline-block;
   width: 20px;
   height: 20px;
+  padding-left: 3px;
   text-align: center;
   overflow: visible;
-  padding-left: 3px;
 }
 .shortcutList-container {
   float: left;
@@ -784,8 +780,8 @@
 .shortcutList-icon {
   height: 38px;
   width: 38px;
-  font-size: 25px;
   padding: 7px 0 0 4px;
+  font-size: 25px;
   font-size: 24px;
   padding: 7px 0 0 6px;
   transform: rotate(-30deg);
@@ -794,9 +790,9 @@
   display: none;
   position: fixed;
   height: 21px;
-  background: hsl(0, 0%, 5%);
-  transform: translate(24px, -4px);
   padding: 0px 5px 0 5px;
+  transform: translate(24px, -4px);
+  background: hsl(0, 0%, 5%);
   font-size: 13px;
   color: white;
 }
@@ -815,29 +811,29 @@
 .addfolder-folder-icon {
   height: 38px;
   width: 38px;
-  font-size: 25px;
   padding: 7px 0 0 4px;
-  font-size: 30px;
+  font-size: 25px;
   padding: 8px 0 0 2px;
+  font-size: 30px;
 }
 .addfolder-plus-icon {
   height: 38px;
   width: 38px;
-  font-size: 25px;
   padding: 7px 0 0 4px;
+  font-size: 25px;
   position: fixed;
+  padding: 0 0 0 12px;
   transform: translate(0, -29px);
   font-size: 12px;
   font-weight: 100;
-  padding: 0 0 0 12px;
 }
 .addfolder-tooltip {
   display: none;
   position: fixed;
   height: 21px;
-  background: hsl(0, 0%, 5%);
-  transform: translate(24px, -4px);
   padding: 0px 5px 0 5px;
+  transform: translate(24px, -4px);
+  background: hsl(0, 0%, 5%);
   font-size: 13px;
   color: white;
 }
@@ -874,18 +870,18 @@
 }
 .column-option-square {
   display: inline-block;
-  border-radius: 4px;
-  border: 3px solid hsl(0, 0%, 85%);
-  border-top: 7px solid hsl(0, 0%, 85%);
   width: 31px;
   height: 30px;
+  border: 3px solid hsl(0, 0%, 85%);
+  border-top: 7px solid hsl(0, 0%, 85%);
+  border-radius: 4px;
 }
 .column-option-line {
   position: relative;
-  border-right: 3px solid hsl(0, 0%, 85%);
   width: 17px;
   height: 28px;
   top: -35px;
+  border-right: 3px solid hsl(0, 0%, 85%);
 }
 .column-option-grey {
   display: inline-block;
@@ -914,17 +910,17 @@
 }
 .column-option-icon-addon {
   position: relative;
-  font-size: 10px;
   top: -58px;
   left: 17px;
+  font-size: 10px;
 }
 .column-option-tooltip {
   display: none;
   position: fixed;
   height: 21px;
-  background: hsl(0, 0%, 5%);
-  transform: translate(24px, -4px);
   padding: 0px 5px 0 5px;
+  transform: translate(24px, -4px);
+  background: hsl(0, 0%, 5%);
   font-size: 13px;
   color: white;
   transform: translate(20px, -6px);
@@ -972,16 +968,16 @@
 .sort-option-icon {
   width: 38px;
   height: 38px;
-  font-size: 24px;
   padding: 8px 0 0 5px;
+  font-size: 24px;
 }
 .sort-option-tooltip {
   display: none;
   position: fixed;
   height: 21px;
-  background: hsl(0, 0%, 5%);
-  transform: translate(24px, -4px);
   padding: 0px 5px 0 5px;
+  transform: translate(24px, -4px);
+  background: hsl(0, 0%, 5%);
   font-size: 13px;
   color: white;
 }
@@ -1031,37 +1027,37 @@
 .tag-option-icon {
   width: 38px;
   height: 38px;
-  font-size: 24px;
   padding: 8px 0 0 5px;
+  font-size: 24px;
 }
 .tag-option-icon-addon {
   position: relative;
-  font-size: 12px;
   top: -30px;
   left: 12px;
+  font-size: 12px;
   color: hsl(0, 0%, 5%);
 }
 .tag-option-tooltip {
   display: none;
   position: fixed;
   height: 21px;
-  background: hsl(0, 0%, 5%);
-  transform: translate(24px, -4px);
   padding: 0px 5px 0 5px;
+  transform: translate(24px, -4px);
+  background: hsl(0, 0%, 5%);
   font-size: 13px;
   color: white;
 }
 .tag-icon {
   height: 38px;
   width: 38px;
-  font-size: 25px;
   padding: 7px 0 0 4px;
+  font-size: 25px;
   flex: 1;
   width: 12px;
+  padding: 7px 0 0 2px;
   background: none;
   font-size: 22px;
   overflow: visible;
-  padding: 7px 0 0 2px;
 }
 .tag-icon-container {
   display: inline-flex;
@@ -1069,11 +1065,11 @@
   overflow: visible;
 }
 .tag-dropdown {
-  display: none;
   position: fixed;
-  text-align: left;
+  display: none;
   width: 90px;
   background: hsl(0, 0%, 5%);
+  text-align: left;
   width: 123px;
   transform: translate(-2px, -1px);
 }
@@ -1091,8 +1087,8 @@
   font-size: 14px;
   font-weight: 600;
   display: inline-block;
-  font-weight: normal;
   padding-left: 0;
+  font-weight: normal;
 }
 .deepsearch-container {
   float: left;
@@ -1109,14 +1105,14 @@
 .deepsearch-icon {
   height: 38px;
   width: 38px;
-  font-size: 25px;
   padding: 7px 0 0 4px;
+  font-size: 25px;
 }
 .deepsearch-icon-on {
   height: 38px;
   width: 38px;
-  font-size: 25px;
   padding: 7px 0 0 4px;
+  font-size: 25px;
   background: hsl(0, 0%, 40%);
 }
 .deepsearch-icon-on:hover {
@@ -1126,9 +1122,9 @@
   display: none;
   position: fixed;
   height: 21px;
-  background: hsl(0, 0%, 5%);
-  transform: translate(24px, -4px);
   padding: 0px 5px 0 5px;
+  transform: translate(24px, -4px);
+  background: hsl(0, 0%, 5%);
   font-size: 13px;
   color: white;
 }
@@ -1151,12 +1147,12 @@
   position: absolute;
   flex: 1;
   height: 100%;
-  background: none;
+  z-index: 3;
+  padding-inline-start: 44px;
   border: none;
   outline: none;
-  padding-inline-start: 44px;
+  background: none;
   color: white;
-  z-index: 3;
 }
 .search-box:hover ::placeHolder {
   color: hsl(0, 0%, 20%);
@@ -1176,8 +1172,8 @@
 .search-inbox-spacer {
   height: 38px;
   width: 38px;
-  font-size: 25px;
   padding: 7px 0 0 4px;
+  font-size: 25px;
 }
 i {
   text-align: center;

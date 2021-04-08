@@ -8,10 +8,6 @@ import Strings from './Strings';
 import findInTree from '../utils/findInTree';
 
 /* global chrome */
-
-
-// chrome.tabs.setZoom(1.5);
-
 class App extends React.Component {
   componentDidMount() {
     this.atFirstLoad();

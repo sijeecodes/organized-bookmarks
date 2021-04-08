@@ -47,6 +47,14 @@ const MainTab = ({
     setIsDragging(false);
   }
 
+  const scroll = (event) => {
+    event.currentTarget.scrollTo({
+        top: 0,
+        left: event.currentTarget.scrollLeft + event.deltaY,
+        behaviour: 'smooth' //if you want smooth scrolling
+    });
+  };
+
   if(state.searchType === 'default') {
     subTree = findInTree(state.tree, match.params.id);
     if(subTree.children) {
@@ -173,7 +181,7 @@ const MainTab = ({
   }
 
   return (
-    <div className='main-tab'>
+    <div className='main-tab' onWheel={scroll}>
       {addedUpHtml}
     </div>
   );
