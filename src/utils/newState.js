@@ -1,5 +1,4 @@
 const newState = (originalState, name, newData) => {
-  console.log('name / newData : ', name, newData);
   let tempState = {
     currentFolder: originalState.currentFolder,
     openFolders: originalState.openFolders,
@@ -19,7 +18,6 @@ const newState = (originalState, name, newData) => {
   }
   tempState[name] = newData;
 
-  console.log('new state: ', tempState);
   return tempState;
 };
 

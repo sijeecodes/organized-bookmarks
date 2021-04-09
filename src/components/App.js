@@ -86,7 +86,7 @@ class App extends React.Component {
   };
 
   goToShortcut = (key) => {
-    if(this.props.state.searchFocused === 'off' && key.key > -1 && key.key < 10) {
+    if(this.props.state.searchFocused === false && key.key > -1 && key.key < 10) {
       let targetID = this.props.state.shortcuts[key.key];
       let targetNode = findInTree(this.props.state.tree, targetID);
 
