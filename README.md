@@ -12,34 +12,41 @@ similar to Finder or Windows Explorer.
 
 ### Functions
 
-# Open a new tab with bookmarks
+#### Open a new tab with bookmarks
 
 - You can open a new tab with Organized Bookmarks based on your bookmarks.
 - Default launch shortcut is 'Ctrl+Shift+S' for Windows or 'Command+Shift+S' for Macs.
 
-# See bookmarks and folder-tree of bookmarks
+#### See bookmarks and folder-tree of bookmarks
+
 - Right section shows Bookmarks of current folder.
 - Left section shows folder-tree. Click folder to navigate to folder.
 
-# Give Shortcuts to bookmarks
+#### Give Shortcuts to bookmarks
+
 - Shortcuts can be given to bookmarks.
 - By pressing number 0 ~ 9, you can move to the numbered bookmark link.
 
-# Tag bookmarks
+#### Tag bookmarks
+
 - Bookmarks can be tagged by seven colours.
 - When a red tag is selected, only the red-tagged bookmarks will be shown.
 - Renaming the tags, removing selected tags from bookmarks can be done.
 
-# Sort bookmarks
+#### Sort bookmarks
+
 - Sorting can be changed between "User defined" / "Alphabetical order" / "Recently Added"
 
-# Show all bookmarks in all folders or selected folder
+#### Show all bookmarks in all folders or selected folder
+
 - All the bookmarks in all folders can be shown in the right section.
 
-# Search by typing
+#### Search by typing
+
 - Search for a bookmark with the typed words.
   
-# Edit bookmarks and folders
+#### Edit bookmarks and folders
+
 - Bookmark or folder name / tag colour and link addresses can be changed.
 - Deletion of bookmark or folder is avaliable.
 - Drag and drop folders to edit folder-tree.
