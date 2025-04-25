@@ -5,10 +5,12 @@ similar to Finder or Windows Explorer.
 
 ![Screenshot 2025-04-25 at 4 38 35 AM](https://github.com/user-attachments/assets/94376eb2-8e4e-4bab-8602-b82878eb3a95)
 
+
 ### Built with
 
 - React
 - CSS Preprocessor (Sass)
+
 
 ### Functions
 
@@ -50,6 +52,7 @@ similar to Finder or Windows Explorer.
 - Bookmark or folder name / tag colour and link addresses can be changed.
 - Deletion of bookmark or folder is avaliable.
 - Drag and drop folders to edit folder-tree.
+
 
 ### Author
 
