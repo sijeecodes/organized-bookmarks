@@ -9,7 +9,6 @@ similar to Finder or Windows Explorer.
 
 - React
 - CSS Preprocessor (Sass)
-- 
 
 ### Functions
 
