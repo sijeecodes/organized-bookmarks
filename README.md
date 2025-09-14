@@ -1,7 +1,8 @@
-## Bookmark Manager - Chrome Extension
+## Bookmark Manager - Chrome Extension (DEPRECATED!!!)
 
 An extension that imports users' bookmarks and allows them to view and navigate links more easily, 
 similar to Finder or Windows Explorer.
+(Currently deprecated! Will rebuild with recent tech soon.)
 
 ![Screenshot 2025-04-25 at 4 38 35 AM](https://github.com/user-attachments/assets/94376eb2-8e4e-4bab-8602-b82878eb3a95)
 
