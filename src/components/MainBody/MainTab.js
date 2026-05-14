@@ -1,9 +1,9 @@
+/* global chrome */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ItemTag from './ItemTag';
 import Icons from '../Icons';
 import findInTree from '../../utils/findInTree';
-import setFavicon from '../../utils/setFavicon';
 import sortList from '../../utils/sortList';
 import searchInTree from '../../utils/searchInTree';
 import searchWholeTree from '../../utils/searchWholeTree';
@@ -88,7 +88,6 @@ const MainTab = ({
     subTree = filterByTags(subTree, state.tags, state.tagFilter);
   }
   if(subTree.length > 0) {
-    subTree = setFavicon(subTree);
     subTree = sortList(subTree, state.mainSortType);
   }
   if(subTree.length > lineMax) {
@@ -105,6 +104,7 @@ const MainTab = ({
     if(subTree[i].url) {
       tempHtml.push(
         <div
+          key={subTree[i].id}
           className='main-item-wrapper'
         >
           <a
@@ -122,7 +122,7 @@ const MainTab = ({
           >
             <img
               className='icon-favicon'
-              src={`chrome://favicon/${subTree[i].favicon}`}
+              src={chrome.runtime.getURL(`_favicon/?pageUrl=${encodeURIComponent(subTree[i].url)}&size=16`)}
               alt='icon'
               draggable='false'
             />
@@ -146,7 +146,7 @@ const MainTab = ({
       );
     } else {
       tempHtml.push(
-        <div className='main-item-wrapper'>
+        <div key={subTree[i].id} className='main-item-wrapper'>
           <Link
             to={`/${subTree[i].id}/${match.params.displayMode}`}
             className='main-item'
@@ -187,6 +187,7 @@ const MainTab = ({
     if(lineCounter === lineMax || i === subTree.length - 1) {
       addedUpHtml.push(
         <div
+          key={i}
           className='main-container'
           style={{ width: columnWidth }}
         >

@@ -12,7 +12,7 @@ const store = createStore(reducers);
 
 chrome.tabs.getCurrent(tab => {
   if (typeof tab === 'undefined') {
-    chrome.tabs.create({url:'./index.html#/1/default'});
+    chrome.tabs.create({url: chrome.runtime.getURL('index.html#/1/default')});
   } else {
     ReactDOM.render(
       <HashRouter>

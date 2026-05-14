@@ -76,6 +76,7 @@ const NavTab = ({
 
         resultHtml.push(
           <div
+            key={subTree.id}
             className='nav-tab-item-wrapper'
             id={`nav-tab-item-wrapper-${subTree.id}`}
             onDragOver={e => e.preventDefault()}

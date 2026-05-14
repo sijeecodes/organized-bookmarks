@@ -1,17 +1,17 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
 
   "name": "Organized Bookmarks",
   "description": "Open a new tab with Organized Bookmarks based on your bookmarks. Default launch shortcut is 'Ctrl+Shift+S' or 'Command+Shift+S' for Macs.",
   "version": "0.0.1",
 
-  "browser_action": {
+  "action": {
     "default_popup": "index.html",
     "default_title": "Organized Bookmarks \n(WIN: Ctrl+Shift+S / MAC: Command+Shift+S)"
   },
 
   "commands": {
-    "_execute_browser_action": {
+    "_execute_action": {
       "suggested_key": {
         "default": "Ctrl+Shift+S",
         "mac": "Command+Shift+S"
@@ -23,8 +23,13 @@
     "128": "logo128.png"
   },
 
-  "content_security_policy": "script-src 'self' 'sha256-/KIdXWKzSwC+oMFOwliH6JUNSwOFLq4nkeY1otCx2Xc='; object-src 'self'",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
   "permissions": [
-    "bookmarks", "tabs", "storage", "chrome://favicon/", "https://cdnjs.cloudflare.com/"
+    "bookmarks", "tabs", "storage", "favicon"
+  ],
+  "host_permissions": [
+    "https://cdnjs.cloudflare.com/"
   ]
 }

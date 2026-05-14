@@ -7,16 +7,16 @@
     "react-dom": "^16.10.2",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0",
+    "react-scripts": "5.0.1",
     "redux": "^4.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "less": "lessc src/components/App.less > src/components/App.css",
-    "buildit": "yarn less && yarn build"
+    "buildit": "npm run less && npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
